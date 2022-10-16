@@ -25,8 +25,16 @@ class Slider2 extends React.Component {
 
     };
 
-
+    
     render() {
+
+        const slide1 = require('./../../images/main-slider/slider1/roman-shades-kitchen.jpeg') 
+        const slide2 = require('./../../images/main-slider/slider1/bedroom-bright.jpg')
+        const slide3 = require('./../../images/main-slider/slider1/kitchen-dinning-open-bright.jpg')
+        const slide4 = require('./../../images/main-slider/slider1/living-room.jpg')
+        const slide5 = require('./../../images/main-slider/slider1/living-room-large.jpg')
+        const slide6 = require('./../../images/main-slider/slider1/open-woody-room.jpg')
+        const slide7 = require('./../../images/main-slider/slider1/sewing-machine-lamp-freepic.png')
 
         return (
             <>
@@ -34,9 +42,9 @@ class Slider2 extends React.Component {
                         <div id="welcome" className="rev_slider fullscreenbanner" style={{ display: 'none' }} data-version="5.4.3.1">
                             <ul>
                                 {/* SLIDE 1 */}
-                                <li data-index="rs-902" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={require('./../../images/main-slider/slider1/slide1.jpg').default} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={300} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
+                                <li data-index="rs-902" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={slide1.default} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={300} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                     {/* MAIN IMAGE */}
-                                    <img src={require('./../../images/main-slider/slider1/slide1.jpg').default} alt="" data-lazyload={require('./../../images/main-slider/slider1/slide1.jpg').default} data-bgposition="center center" data-bgfit="cover" data-bgparallax={4} className="rev-slidebg" data-no-retina />
+                                    <img src={slide1.default} alt="" data-lazyload={slide1.default} data-bgposition="center center" data-bgfit="cover" data-bgparallax={4} className="rev-slidebg" data-no-retina />
                                     {/* LAYERS */}
                                     {/* BACKGROUND VIDEO LAYER */}
                                     <div id="rrzb_902" className="rev_row_zone rev_row_zone_bottom" style={{ zIndex: 7 }}>

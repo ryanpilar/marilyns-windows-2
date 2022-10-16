@@ -5,11 +5,17 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 const images = [
-    require('./../../images/gallery/pic1.jpg'),
-    require('./../../images/gallery/pic2.jpg'),
-    require('./../../images/gallery/pic3.jpg'),
-    require('./../../images/gallery/pic4.jpg'),
-    require('./../../images/gallery/pic5.jpg')
+    
+    // require('./../../images/gallery/bedroom-bright.jpg'),
+    require('./../../images/gallery/fabric-samples.jpeg'),
+    // require('./../../images/gallery/living-room.jpg'),
+    require('./../../images/gallery/bedroom-condo.jpg'),
+    require('./../../images/gallery/sewing-machine-working.jpg'),
+    require('./../../images/gallery/living-room-soft.jpg'),
+    require('./../../images/gallery/workroom-misc.jpg'),
+    require('./../../images/gallery/roman-shades.jpeg'),
+    require('./../../images/gallery/spools-of-thread.png'),
+    require('./../../images/gallery/kitchen-cute.png'),
 ]
 
 

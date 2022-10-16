@@ -507,35 +507,6 @@ All JavaScript fuctions Start
 	 	footer_fixed()
 	});
 
-	/*===========================
-		Document on  Submit FUNCTION START
-	===========================*/
-
-	// > Contact form function by = custom.js	
-	// jQuery(document).on('submit', 'form.cons-contact-form', function(e){
-	// 	e.preventDefault();
-	// 	var form = jQuery(this);
-	// 	/* sending message */
-	// 	jQuery.ajax({
-	// 		url: 'http://thememajestic.com/react/modern/form-handler.php',
-	// 		data: form.serialize() + "&action=contactform",
-	// 		type: 'POST',
-	// 		dataType: 'JSON',
-	// 		beforeSend: function() {
-	// 			jQuery('.loading-area').show();
-	// 		},
-
-	// 		success:function(data){
-	// 			jQuery('.loading-area').hide();
-	// 			if(data['success']){
-	// 			jQuery("<div class='alert alert-success'>"+data['message']+"</div>").insertBefore('form.cons-contact-form');
-	// 			}else{
-	// 			jQuery("<div class='alert alert-danger'>"+data['message']+"</div>").insertBefore('form.cons-contact-form');	
-	// 			}
-	// 		}
-	// 	});
-	// 	return false;
-	// });	
 
 	/*===========================
 		Document on  Submit FUNCTION END

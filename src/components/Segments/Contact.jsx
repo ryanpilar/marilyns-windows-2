@@ -175,7 +175,7 @@ class Contact extends React.Component {
                                                     <div className="icon-sm"><i className="iconmoon-email" /></div>
                                                     <div className="icon-content text-white">
                                                         <h5 className="m-t0  text-uppercase">Email address</h5>
-                                                        <p>Moderninfo@gmail.com</p>
+                                                        <p>marilyn@marilynswindows.com</p>
                                                     </div>
                                                 </div>
                                                 <div className="wt-icon-box-wraper left">

@@ -5,59 +5,71 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 const filters = [
-    { label: "Building", filter: ".building-col" },
-    { label: "Interior", filter: ".interior-col" },
-    { label: "Restaurant", filter: ".restaurant-col" }
+    { label: "Living Space", filter: ".living-col" },
+    { label: "Bedroom", filter: ".bedroom-col" },
+    { label: "Kitchen", filter: ".kitchen-col" },
+    { label: "Outdoor", filter: ".interior-col" },
+
+
+    // { label: "Building", filter: ".building-col" },
+    // { label: "Interior", filter: ".interior-col" },
+    // { label: "Restaurant", filter: ".restaurant-col" }
 ];
 
 const projects = [
     {
-        image: require('./../../images/gallery/portrait/pic1.jpg'),
+        image: require('./../../images/gallery/portrait/living-room-fancy.png'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'building-col'
+        filter: 'bedroom-col'
     },
     {
-        image: require('./../../images/gallery/portrait/pic2.jpg'),
+        image: require('./../../images/gallery/portrait/AdobeStock_202662356_Preview.jpeg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'building-col'
+        filter: 'bedroom-col'
     },
     {
-        image: require('./../../images/gallery/portrait/pic3.jpg'),
+        image: require('./../../images/gallery/portrait/AdobeStock_336706750_Preview.jpeg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'building-col'
+        filter: 'bedroom-col'
     },
     {
-        image: require('./../../images/gallery/portrait/pic4.jpg'),
+        image: require('./../../images/gallery/portrait/AdobeStock_343505536_Preview.jpeg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'building-col'
+        filter: 'bedroom-col'
     },
     {
-        image: require('./../../images/gallery/portrait/pic5.jpg'),
+        image: require('./../../images/gallery/portrait/breakfast-nook.jpg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'interior-col'
+        filter: 'living-col'
     },
     {
-        image: require('./../../images/gallery/portrait/pic6.jpg'),
+        image: require('./../../images/gallery/portrait/kitchen-cute-small.png'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'restaurant-col'
+        filter: 'kitchen-col'
     },
     {
-        image: require('./../../images/gallery/portrait/pic7.jpg'),
+        image: require('./../../images/gallery/portrait/pexels-jahns-chavez-969593.jpg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'restaurant-col'
+        filter: 'outdoor-col'
     },
     {
-        image: require('./../../images/gallery/portrait/pic4.jpg'),
+        image: require('./../../images/gallery/portrait/pexels-max-vakhtbovych-6947277.jpg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'interior-col'
+        filter: 'outdoor-col'
+    },
+    {
+        image: require('./../../images/gallery/portrait/solarium.jpeg'),
+        title: 'Triangle Concrete House on lake',
+        description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
+        filter: 'outdoor-col'
     }
 ]
 
@@ -131,7 +143,7 @@ class LatestProjects extends React.Component {
                                 </div>
                                 <div className="col-lg-8 col-md-12">
                                     <ul className="btn-filter-wrap">
-                                        <li className="btn-filter btn-active" data-filter="*">All Project</li>
+                                        <li className="btn-filter btn-active" data-filter="*">All</li>
                                         {filters.map((item, index) => (
                                             <li key={index} className="btn-filter" data-filter={item.filter}>{item.label}</li>
                                         ))}

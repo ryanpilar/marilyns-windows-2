@@ -5,7 +5,8 @@ import Footer from '../Common/Footer';
 import Contact from '../Segments/Contact';
 
 
-import Slider2 from './../Segments/Slider2';
+// import Slider2 from './../Segments/Slider2';
+import Slider22 from './../Segments/Slider22';
 import About from './../Segments/About';
 import LatestProjects from './../Segments/LatestProjects';
 import WhoWeAre from './../Segments/WhoWeAre';
@@ -24,7 +25,7 @@ class Home2 extends React.Component {
                 <Header3 />
                 {/* <Header /> */}
                 <div className="page-content">
-                    <Slider2 />
+                    <Slider22 />
                     <About />
                     <Services />
                     <LatestProjects />

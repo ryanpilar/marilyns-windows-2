@@ -17,7 +17,7 @@ const members = [
         description: 'It was a pleasure working with her. Though our install was 6 years ago, she continues to serve, long after the sale was made. I would not hesitate to work with her again, or recommend her to others, who are looking for the best quality window treatments.',
     },
     {
-        image: require('./../../images/testimonials/pic2.jpg'),
+        image: require('./../../images/testimonials/marilyn-default.png'),
         fullname: 'Homeowner',
         position: 'Milton, Ontario',
         description: 'Fabulous Service! Marilyn has provided great service… with our original blinds and then with replacements 15 years later! I had an issue and she took care of it personally. I really appreciated her help.',
@@ -41,7 +41,7 @@ const members = [
         description: 'Many Project Locations Over Many Years... Whether a small project of one room to the largest of a 7,000 Sq ft new build, always, above and beyond service, quality and professionalism, service like no other. Very Refreshing working with Marilyn.',
     },
     {
-        image: require('./../../images/testimonials/pic4.jpg'),
+        image: require('./../../images/testimonials/marilyn-default.png'),
         fullname: 'Homeowner',
         position: 'Ogoko, Ontario',
         description: 'Drapes For The Main Room In The Cottage. Gorgeous drapes that were installed into a very difficult spot. I was extremely impressed with how well the drapes functioned and how beautiful they looked. Marilyn and her installer did an amazing job.',
