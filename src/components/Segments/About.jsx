@@ -5,16 +5,18 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 const images = [
-    
-    // require('./../../images/gallery/bedroom-bright.jpg'),
+
     require('./../../images/gallery/fabric-samples.jpeg'),
-    // require('./../../images/gallery/living-room.jpg'),
+    require('./../../images/gallery/marilyn-wine.jpg'),
+    require('./../../images/gallery/sewing-machine-lamp-freepic.png'),
     require('./../../images/gallery/bedroom-condo.jpg'),
+    require('./../../images/gallery/marilyn-professional.jpg'),
+
     require('./../../images/gallery/sewing-machine-working.jpg'),
     require('./../../images/gallery/living-room-soft.jpg'),
     require('./../../images/gallery/workroom-misc.jpg'),
     require('./../../images/gallery/roman-shades.jpeg'),
-    require('./../../images/gallery/sewing-machine-lamp-freepic.png'),
+    
     require('./../../images/gallery/kitchen-cute.png'),
 ]
 
@@ -55,12 +57,12 @@ class About extends React.Component {
                         <div className="section-content">
                             <div className="row">
                                 <div className="col-md-5 col-sm-12 text-uppercase text-black">
-                                    <span className="font-30 font-weight-300 text-dark-blue">Welcome!</span>
+                                    <span className="font-30 font-weight-300 text-dark-blue">I'm Marilyn!</span>
                                     <h2 className="font-40">
-                                        We are a <span className={this.props.colorclass1}>creative</span> <span className={this.props.colorclass2}> professional workroom</span>. 
+                                        We are a <span className={this.props.colorclass1}>creative</span> <span className={this.props.colorclass2}> drapery workroom</span>. 
                                     </h2>
                                     <p>
-                                        For over 30 years, we have been in the business of creating beautiful fine window coverings, pillows, and custom bedding 
+                                        For over 30 years, I have been in the business of creating beautiful fine window coverings, pillows, and custom bedding 
                                         using couture methods. Our clients return again and again because of the exceptional quality and the detail-oriented 
                                         designs that we deliver.
                                     </p>
