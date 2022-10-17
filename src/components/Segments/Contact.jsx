@@ -12,6 +12,7 @@ class Contact extends React.Component {
             // phone: "",
             email: "",
           },
+          message: ""
         };
       }
 
@@ -19,6 +20,8 @@ class Contact extends React.Component {
         let name = event.target.name;
         let value = event.target.value;
         let errors = this.state.errors;
+
+        
 
         switch (name) {
             case "name":
@@ -48,6 +51,36 @@ class Contact extends React.Component {
         this.setState({ errors, [name]: value });
     };
 
+    emailSuccessfull = () => {
+        this.setState({ 
+            name: 'Your Name', 
+            email: 'Email', 
+            message: '- AUTO MESSAGE - Thanks for reaching out! This is to let you know that your message has been delivered and that we will get back to you shortly.'
+        })
+    }
+
+    emailUnsuccessfull = () => {
+        this.setState({ 
+            name: 'Your Name', 
+            email: 'Email', 
+            message: '- AUTO MESSAGE - Something has gone wrong with your form submission. If this message persists, try emailing me directly at marilyn@marilynswindows.com'
+        })
+    }
+
+    resetEmailForm = () => {
+        this.setState({ 
+            name: '', 
+            email: '', 
+            message: '',
+            errors: {
+                name: "",
+                // subject: "",
+                // phone: "",
+                email: "",
+              }
+        })
+    }
+
     submitHandler = (e) => {
         e.preventDefault();
         // if (
@@ -71,7 +104,9 @@ class Contact extends React.Component {
           .then(
             (result) => {
               console.log(result.text);
-              alert("Thanks for reaching out! This pop-up is to let you know that your message was been delivered and that I will get back to you shortly.");
+              this.emailSuccessfull()
+            
+            //   alert("Thanks for reaching out! This pop-up is to let you know that your message was been delivered and that I will get back to you shortly.");
             },
             (error) => {
               console.log(error.text);
@@ -80,6 +115,8 @@ class Contact extends React.Component {
             }
           );
     };
+
+    
       
     render() {
         const { errors } = this.state
@@ -124,8 +161,9 @@ class Contact extends React.Component {
                                                     id="name"
                                                     name="name"
                                                     className="form-control"
-                                                    placeholder="Your Name*"
+                                                    placeholder="Your Name"
                                                     onChange={this.handleChange}
+                                                    value={this.state.name}
                                                     required
                                                 />
                                                 <p>{errors.name}</p>
@@ -140,6 +178,7 @@ class Contact extends React.Component {
                                                     name="email"
                                                     placeholder="Email"
                                                     onChange={this.handleChange}
+                                                    value={this.state.email}
                                                     required
                                                 />
                                                 <p>{errors.email}</p>                                               
@@ -150,16 +189,20 @@ class Contact extends React.Component {
                                                     id="message"
                                                     className="form-control"
                                                     rows="3"
-                                                    placeholder="Your Message ..."
+                                                    placeholder="Your Message"
                                                     onChange={this.handleChange}
-                                                    defaultValue={""}
+                                                    value={this.state.message}
                                                     required
                                                 ></textarea>
                                                 {/* <textarea name="message" rows={3} className="form-control " required placeholder="Message" defaultValue={""} /> */}
                                             </div>
 
-                                            <button type="submit" name="submit" className="site-button black radius-no text-uppercase">
+                                            <button type="submit" name="submit" className="site-button black radius-no text-uppercase m-r10">
                                                 <span className="font-12 letter-spacing-5">Submit</span>
+                                            </button>
+
+                                            <button onClick={this.resetEmailForm.bind(this)} className="site-button black radius-no text-uppercase">
+                                                <span className="font-12 letter-spacing-5">Clear Form</span>
                                             </button>
 
                                             
@@ -167,21 +210,21 @@ class Contact extends React.Component {
                                                 <div className="wt-icon-box-wraper left p-b30">
                                                     <div className="icon-sm"><i className="iconmoon-smartphone-1" /></div>
                                                     <div className="icon-content text-white ">
-                                                        <h5 className="m-t0 text-uppercase">Phone number</h5>
+                                                        <h5 className="m-t0 text-uppercase text-light-purple">Phone number</h5>
                                                         <p>(905) 878 0626</p>
                                                     </div>
                                                 </div>
                                                 <div className="wt-icon-box-wraper left p-b30">
                                                     <div className="icon-sm"><i className="iconmoon-email" /></div>
                                                     <div className="icon-content text-white">
-                                                        <h5 className="m-t0  text-uppercase">Email address</h5>
+                                                        <h5 className="m-t0  text-uppercase text-light-purple">Email address</h5>
                                                         <p>marilyn@marilynswindows.com</p>
                                                     </div>
                                                 </div>
                                                 <div className="wt-icon-box-wraper left">
                                                     <div className="icon-sm"><i className="iconmoon-travel" /></div>
                                                     <div className="icon-content text-white">
-                                                        <h5 className="m-t0  text-uppercase">Address info</h5>
+                                                        <h5 className="m-t0  text-uppercase text-light-purple">Address info</h5>
                                                         <p>468 Valleyview Cr., Milton, ON L9T-3L2, Canada</p>
                                                         
                                                     </div>

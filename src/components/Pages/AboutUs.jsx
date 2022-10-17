@@ -1,9 +1,8 @@
 import React from 'react';
-import Header2 from '../Common/Header2';
+import Header3 from '../Common/Header3';
 import Footer from '../Common/Footer';
 import Banner from './../Segments/Banner';
 import About2 from './../Segments/About2';
-import TeamMembers2 from './../Segments/TeamMembers2';
 import Services from './../Segments/Services';
 import Story from './../Segments/Story';
 
@@ -13,13 +12,12 @@ class AboutUs extends React.Component {
     render() {
         return (
             <>
-                <Header2 />
+                <Header3 />
                 <div className="page-content">
                     <Banner title="Fusing logic with imagination and truth with discovery." pagename="About Us" bgimage={bnrimg.default}/>
                     <About2 />
-                    <TeamMembers2 />
                     <Services />
-                    <Story />
+                    {/* <Story /> */}
                 </div>
 
                 <Footer />

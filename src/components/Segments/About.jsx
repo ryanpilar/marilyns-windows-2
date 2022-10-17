@@ -14,7 +14,7 @@ const images = [
     require('./../../images/gallery/living-room-soft.jpg'),
     require('./../../images/gallery/workroom-misc.jpg'),
     require('./../../images/gallery/roman-shades.jpeg'),
-    require('./../../images/gallery/spools-of-thread.png'),
+    require('./../../images/gallery/sewing-machine-lamp-freepic.png'),
     require('./../../images/gallery/kitchen-cute.png'),
 ]
 
@@ -55,7 +55,7 @@ class About extends React.Component {
                         <div className="section-content">
                             <div className="row">
                                 <div className="col-md-5 col-sm-12 text-uppercase text-black">
-                                    <span className="font-30 font-weight-300">Welcome, I'm Marilyn</span>
+                                    <span className="font-30 font-weight-300 text-dark-blue">Welcome!</span>
                                     <h2 className="font-40">
                                         We are a <span className={this.props.colorclass1}>creative</span> <span className={this.props.colorclass2}> professional workroom</span>. 
                                     </h2>

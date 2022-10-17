@@ -1,8 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import Contact from './Contact';
 
 const images = [
     require('./../../images/gallery/portrait/pic2.jpg'),
@@ -53,7 +54,9 @@ class About2 extends React.Component {
                                             <p><b>Dummy text is also used to demonstrate the appearance of different typefaces and layouts, and in general</b></p>
                                             <p className="text-lowercase">typefaces and layouts, and in appearance of different general the content of dummy text is nonsensical.typefaces and layouts, different general the content of dummy text is nonsensical. typefaces and layouts, and in appearance of different general the content of dummy text is nonsensical.typefaces and layouts, different general the content
                                             </p>
-                                            <NavLink to={"/project-detail"} className="site-button black radius-no text-uppercase"><span className="font-12 letter-spacing-5"> Read More </span></NavLink>
+                                            {/* <NavLink to={"/project-detail"} className="site-button black radius-no text-uppercase"><span className="font-12 letter-spacing-5"> Contact </span></NavLink> */}
+                                            <NavLink to="/#contact" element={<Contact />}>Contact me</NavLink>
+                                            {/* <NavLink to={"/project-detail"} className="site-button black radius-no text-uppercase"><span className="font-12 letter-spacing-5"> See Gallery </span></NavLink> */}
                                         </div>
                                     </div>
                                 </div>

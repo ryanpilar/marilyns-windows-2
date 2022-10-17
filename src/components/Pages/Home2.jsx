@@ -9,12 +9,11 @@ import Contact from '../Segments/Contact';
 import Slider22 from './../Segments/Slider22';
 import About from './../Segments/About';
 import LatestProjects from './../Segments/LatestProjects';
-import WhoWeAre from './../Segments/WhoWeAre';
-import TeamMembers from './../Segments/TeamMembers';
 import Blog from './../Segments/Blog';
 import Statistics from './../Segments/Statistics';
 import Testimonials from './../Segments/Testimonials';
 import ClientsLogo from './../Segments/ClientsLogo';
+
 
 import Services from './../Segments/Services';
 
@@ -26,19 +25,24 @@ class Home2 extends React.Component {
                 {/* <Header /> */}
                 <div className="page-content">
                     <Slider22 />
+                    
                     <About />
+                    
                     <Services />
+                    <ClientsLogo />
+                    <Testimonials />
                     <LatestProjects />
                     
                     
-
+                    
                     {/* <Blog colorclass="text-white" /> */}
-                    <Testimonials />
+                    
+                    <Statistics />
                     
                     
                     <Contact />
-                    <ClientsLogo />
-                    <Statistics />
+                    
+                    
                 </div>
                 <Footer />
             </>

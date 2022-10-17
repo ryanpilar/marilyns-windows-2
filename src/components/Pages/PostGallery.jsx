@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import Header2 from '../Common/Header2';
 import Footer from '../Common/Footer';
 import Banner from './../Segments/Banner';
-import RelatedProjects from './../Segments/RelatedProjects';
 import BlogComments from './../Segments/BlogComments';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -120,7 +119,6 @@ class PostGallery extends React.Component {
                                 </div>
                                 
                                 <div className="wt-divider divider-3px bg-gray-dark"><i className="icon-dot c-square" /></div>
-                                <RelatedProjects/>
                                 <BlogComments/>
                                 
                             </div>

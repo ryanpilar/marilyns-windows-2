@@ -2,7 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import CountUp from 'react-countup';
 
-var bgimg = require('./../../images/background/bg-11.jpg');
+// const bgimg = require('./../../images/background/sewing-machine-lamp-freepic.png');
+var bgimg = require('./../../images/background/spools-of-thread.png');
 
 class Statistics extends React.Component {
     

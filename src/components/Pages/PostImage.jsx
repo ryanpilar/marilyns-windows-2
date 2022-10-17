@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import Header2 from '../Common/Header2';
 import Footer from '../Common/Footer';
 import Banner from './../Segments/Banner';
-import RelatedProjects from './../Segments/RelatedProjects';
 import BlogComments from './../Segments/BlogComments';
 
 var bnrimg = require('./../../images/banner/3.jpg');
@@ -102,7 +101,6 @@ class PostImage extends React.Component {
                                         </div>
                                     </div>
                                 </div>
-                                <RelatedProjects/>
                                 <BlogComments/>
                                 
                                 
