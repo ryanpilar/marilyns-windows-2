@@ -136,7 +136,7 @@ class LatestProjects extends React.Component {
                         <div className="section-head text-left">
                             <div className="row">
                                 <div className="col-lg-4 col-md-12 ">
-                                    <h2 className="text-uppercase font-36">Latest Project</h2>
+                                    <h2 className="text-uppercase font-36">Latest Projects</h2>
                                     <div className="wt-separator-outer">
                                         <div className="wt-separator bg-black" />
                                     </div>

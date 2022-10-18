@@ -9,7 +9,7 @@ class Contact extends React.Component {
           errors: {
             name: "",
             // subject: "",
-            // phone: "",
+            phone: "",
             email: "",
           },
           message: ""
@@ -26,16 +26,16 @@ class Contact extends React.Component {
         switch (name) {
             case "name":
                 console.log();
-                errors.name = value.length === 0 ? "Name is not empty" : "";
+                errors.name = value.length === 0 ? "don't forget to include your full name" : "";
                 break;
             // case "subject":
             // errors.subject = value.length < 5 ? "Subject must be 5 characters" : "";
             // break;
-            // case "phone":
-            // errors.phone = value.length < 5 ? "phone is not empty" : "";
-            // break;
+            case "phone":
+            errors.phone = value.length < 5 ? "phone number doesn't seem to be valid" : "";
+            break;
                 case "email":
-                    errors.email = value.length < 5 ? "Subject is not empty" : "";
+                    errors.email = value.length < 5 ? "don't forget to include your message" : "";
                     let appos = value.indexOf("@");
                     let dots = value.lastIndexOf(".");
 
@@ -71,6 +71,7 @@ class Contact extends React.Component {
         this.setState({ 
             name: '', 
             email: '', 
+            phone: '',
             message: '',
             errors: {
                 name: "",
@@ -106,7 +107,7 @@ class Contact extends React.Component {
               console.log(result.text);
               this.emailSuccessfull()
             
-            //   alert("Thanks for reaching out! This pop-up is to let you know that your message was been delivered and that I will get back to you shortly.");
+            //   alert("Thanks for reaching out! This pop-up is to let you know thahandleChanget your message was been delivered and that I will get back to you shortly.");
             },
             (error) => {
               console.log(error.text);
@@ -181,8 +182,22 @@ class Contact extends React.Component {
                                                     value={this.state.email}
                                                     required
                                                 />
-                                                <p>{errors.email}</p>                                               
+                                                <p>{errors.email}</p>
                                             </div>
+                                            <div className="form-group">
+                                                <input
+                                                    type="phone"
+                                                    className="form-control"
+                                                    id="phone"
+                                                    name="phone"
+                                                    placeholder="Phone"
+                                                    onChange={this.handleChange}
+                                                    value={this.state.phone}
+                                                    required
+                                                />
+                                                <p>{errors.phone}</p>
+                                            </div>
+                                                                                               
                                             <div className="form-group">
                                                 <textarea
                                                     name="message"
@@ -225,7 +240,7 @@ class Contact extends React.Component {
                                                     <div className="icon-sm"><i className="iconmoon-travel" /></div>
                                                     <div className="icon-content text-white">
                                                         <h5 className="m-t0  text-uppercase text-light-purple">Address info</h5>
-                                                        <p>468 Valleyview Cr., Milton, ON L9T-3L2, Canada</p>
+                                                        <p>468 Valleyview Cr, Milton, ON L9T3L2, Canada</p>
                                                         
                                                     </div>
                                                 </div>

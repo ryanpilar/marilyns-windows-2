@@ -44,7 +44,7 @@ class Navigation extends React.Component {
                             
                         </li>
                         <li>
-                            <Link
+                            {/* <Link
                                 // className="nav-link"
                                 activeClass="active"
                                 to="about"
@@ -54,7 +54,25 @@ class Navigation extends React.Component {
                                 duration={500}
                             >
                                 About Me
-                            </Link>
+                            </Link> */}
+                            <Link to={"#"}>About Me</Link>
+                            <ul className="sub-menu v-sub-menu">
+                                <li>
+                                    <Link
+                                        // className="nav-link"
+                                        activeClass="active"
+                                        to="about"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-35}
+                                        duration={500}
+                                    >
+                                        Short Intro
+                                    </Link>
+                                </li>
+                                {/* <li><NavLink to={"/work-grid"}>Gallery</NavLink></li> */}
+                                <li><NavLink to={"/work-masonary"}>My Full Story</NavLink></li>
+                            </ul>
                             
                         </li>
                         <li>
@@ -72,17 +90,26 @@ class Navigation extends React.Component {
                             
                         </li>
                         <li>
-                            <Link
-                                // className="nav-link"
-                                activeClass="active"
-                                to="work"
-                                spy={true}
-                                smooth={true}
-                                offset={-35}
-                                duration={500}
-                            >
-                                My Work
-                            </Link>
+                            
+                            <Link to={"#"}>My Work</Link>
+                            <ul className="sub-menu v-sub-menu">
+                                <li>
+                                    <Link
+                                        // className="nav-link"
+                                        activeClass="active"
+                                        to="work"
+                                        spy={true}
+                                        smooth={true}
+                                        offset={-35}
+                                        duration={500}
+                                    >
+                                        Latest Projects
+                                    </Link>
+                                </li>
+                                {/* <li><NavLink to={"/work-grid"}>Gallery</NavLink></li> */}
+                                <li><NavLink to={"/work-masonary"}>Gallery</NavLink></li>
+                                
+                            </ul>
                             
                         </li>
                         {/* <li>

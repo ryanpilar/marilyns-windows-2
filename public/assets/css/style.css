@@ -1251,6 +1251,8 @@ ol.list-num-count.list-outline-none > li:before {background-color:transparent;	c
 .text-dark-blue{color:#1e367e;}
 .text-light-blue{color:#004F83;}
 .text-light-purple{color:#ede9ff !important;}
+.text-dark-purple{color:#58167b;}
+
 /*-------------------------------------
 	2. background color
 -------------------------------------*/
@@ -2117,7 +2119,12 @@ ol.list-num-count.list-outline-none > li:before {background-color:transparent;	c
 .btn-half:before {  top: 0;  left: 0;  right: auto;}
 .btn-half:after {  bottom: 0;  right: 0;  left: auto;}
 
-.btn-half.site-button:hover{ background-color: #6078c2; }
+.btn-half.site-button:hover{ 
+	/* background-color: #405395; */
+	/* background-color: #bcb0d0; */
+	/* background-color: #afc8e6; */
+	background-color: #a66c74;
+}
 .btn-half:hover:before {  width: 100%;  right: 0;  left: auto;}
 .btn-half:hover:after {  width: 100%;  left: 0;  right: auto;}
 
@@ -5243,7 +5250,11 @@ ol.commentlist li::after {
 	height:800px;	
 	position:absolute;
 	content:"";
-	border:40px solid rgba(191,191,191,0.1);
+	/* border:40px solid rgba(191,191,191,0.1); */
+	border:40px solid rgba(202, 163, 165, 0.1);
+	/* border:40px solid rgba(183, 150, 109, 0.15); */
+	/* border:40px solid rgba(255, 216, 119, 0.2); */
+
 	
 	
 	-moz-transform: rotate(45deg);

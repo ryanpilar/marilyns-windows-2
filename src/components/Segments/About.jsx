@@ -25,10 +25,11 @@ class About extends React.Component {
 
     render() {
         const options = {
+            smartSpeed: 700,
             loop: true,
             margin: 0,
             autoplay: true,
-            autoplayTimeout: 3000,
+            autoplayTimeout: 5000,
             //center: true,
             nav: false,
             dots: true,
@@ -57,7 +58,7 @@ class About extends React.Component {
                         <div className="section-content">
                             <div className="row">
                                 <div className="col-md-5 col-sm-12 text-uppercase text-black">
-                                    <span className="font-30 font-weight-300 text-dark-blue">I'm Marilyn!</span>
+                                    <span className="font-30 font-weight-300 text-dark-purple">I'm Marilyn!</span>
                                     <h2 className="font-40">
                                         We are a <span className={this.props.colorclass1}>creative</span> <span className={this.props.colorclass2}> drapery workroom</span>. 
                                     </h2>
@@ -70,7 +71,7 @@ class About extends React.Component {
                                         We provide custom window treatment design solutions for residential and commercial spaces, across Oakville, Burlington, 
                                         Mississauga, Georgetown, Milton and surrounding areas.  
                                     </p>
-                                    <NavLink to={"/aboutus"} className="btn-half site-button button-lg m-b15"><span>Read More</span><em /></NavLink>
+                                    <NavLink to={"/aboutus"} className="btn-half site-button button-lg m-b15"><span>Read My Full Story</span><em /></NavLink>
                                 </div>
                                 <div className="col-md-7 col-sm-12">
                                     <div className="m-carousel-1 m-l100">

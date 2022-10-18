@@ -28,6 +28,7 @@ class Slider22 extends React.Component {
 
     
     render() {
+        
 
         const data = {
             
@@ -44,7 +45,7 @@ class Slider22 extends React.Component {
                     smallSpan: 'seed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
                 },
                 slide3: {
-                    image: require('./../../images/main-slider/slider1/living-room.jpg'),
+                    image: require('./../../images/main-slider/slider1/kitchen-dinning-open-bright.jpg'),
                     heading: 'General',
                     largeSpan: 'Natural plus modern.',
                     smallSpan: 'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
@@ -62,23 +63,23 @@ class Slider22 extends React.Component {
                     smallSpan: 'sed do eiusmeod tempor incididunt ut labore et dolore magna aliqua.'
                 },
                 slide6: {
-                    image: require('./../../images/main-slider/slider1/sewing-machine-lamp-freepic.png'),
+                    image: require('./../../images/main-slider/slider1/kitchen-dinning-open-bright.jpg'),
                     heading: 'General',
                     largeSpan: 'Natural plus modern.',
                     smallSpan: 'sed do eiusmod tempor incidideunt ut labore et dolore magna aliqua.'
                 },
-                slide7: {
-                    image: require('./../../images/main-slider/slider1/sewing-machine-working.jpg'),
-                    heading: 'General',
-                    largeSpan: 'Natural plus modern.',
-                    smallSpan: 'sed do eiusmod tempor incidideunt ut labore et dolore magna aliqua.'
-                },
-                slide8: {
-                    image: require('./../../images/main-slider/slider1/spools-of-thread.png'),
-                    heading: 'General',
-                    largeSpan: 'Natural plus modern.',
-                    smallSpan: 'sed do eiusmod tempor incidideunt ut labore et dolore magna aliqua.'
-                },
+                // slide7: {
+                //     image: require('./../../images/main-slider/slider1/sewing-machine-working.jpg'),
+                //     heading: 'General',
+                //     largeSpan: 'Natural plus modern.',
+                //     smallSpan: 'sed do eiusmod tempor incidideunt ut labore et dolore magna aliqua.'
+                // },
+                // slide8: {
+                //     image: require('./../../images/main-slider/slider1/spools-of-thread.png'),
+                //     heading: 'General',
+                //     largeSpan: 'Natural plus modern.',
+                //     smallSpan: 'sed do eiusmod tempor incidideunt ut labore et dolore magna aliqua.'
+                // },
                 slide9: {
                     image: require('./../../images/main-slider/slider1/living-room-big-entrance.jpeg'),
                     heading: 'General',
@@ -87,6 +88,8 @@ class Slider22 extends React.Component {
                 },
 
         }
+        const frameSpeed = 1600
+
 
         return (
             <>
@@ -95,7 +98,7 @@ class Slider22 extends React.Component {
                         <ul>
                             {/* SLIDE 1 */}
                                 
-                            <li data-index="rs-902" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={300} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
+                            <li data-index="rs-902" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image.default} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 <SliderSingle 
                                     image={ data.slide1.image } 
                                     heading={ data.slide1.heading } 
@@ -103,7 +106,7 @@ class Slider22 extends React.Component {
                                     smallSpan={ data.slide1.smallSpan } 
                                     />
                             </li>
-                            <li data-index="rs-903" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image.default} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={900} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
+                            <li data-index="rs-903" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image.default} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 <SliderSingle 
                                     image={ data.slide2.image } 
                                     heading={ data.slide2.heading } 
@@ -111,15 +114,15 @@ class Slider22 extends React.Component {
                                     smallSpan={ data.slide2.smallSpan } 
                                     />
                             </li>
-                            <li data-index="rs-904" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={900} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
+                            {/* <li data-index="rs-904" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image.default} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 <SliderSingle 
                                     image={ data.slide3.image } 
                                     heading={ data.slide3.heading } 
                                     largeSpan={ data.slide3.largeSpan } 
                                     smallSpan={ data.slide3.smallSpan } 
                                     />
-                            </li>
-                            <li data-index="rs-905" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={900} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
+                            </li> */}
+                            <li data-index="rs-905" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image.default} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 <SliderSingle 
                                     image={ data.slide4.image } 
                                     heading={ data.slide4.heading } 
@@ -127,23 +130,23 @@ class Slider22 extends React.Component {
                                     smallSpan={ data.slide4.smallSpan } 
                                     />
                             </li>
-                            {/* <li data-index="rs-906" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={900} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
+                            <li data-index="rs-906" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 <SliderSingle 
                                     image={ data.slide5.image } 
                                     heading={ data.slide5.heading } 
                                     largeSpan={ data.slide5.largeSpan } 
                                     smallSpan={ data.slide5.smallSpan } 
                                     />
-                            </li> */}
-                            {/* <li data-index="rs-907" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={900} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
+                            </li>
+                            <li data-index="rs-907" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 <SliderSingle 
                                     image={ data.slide6.image } 
                                     heading={ data.slide6.heading } 
                                     largeSpan={ data.slide6.largeSpan } 
                                     smallSpan={ data.slide6.smallSpan } 
                                     />
-                            </li> */}
-                            {/* <li data-index="rs-908" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={900} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
+                            </li>
+                            {/* <li data-index="rs-908" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 <SliderSingle 
                                     image={ data.slide7.image } 
                                     heading={ data.slide7.heading } 
@@ -151,7 +154,7 @@ class Slider22 extends React.Component {
                                     smallSpan={ data.slide7.smallSpan } 
                                     />
                             </li> */}
-                            {/* <li data-index="rs-909" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={900} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
+                            {/* <li data-index="rs-909" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 <SliderSingle 
                                     image={ data.slide8.image } 
                                     heading={ data.slide8.heading } 
@@ -159,14 +162,14 @@ class Slider22 extends React.Component {
                                     smallSpan={ data.slide8.smallSpan } 
                                     />
                             </li> */}
-                            {/* <li data-index="rs-9099" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={900} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
+                            <li data-index="rs-9099" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 <SliderSingle 
                                     image={ data.slide9.image } 
                                     heading={ data.slide9.heading } 
                                     largeSpan={ data.slide9.largeSpan } 
                                     smallSpan={ data.slide9.smallSpan } 
                                     />
-                            </li> */}
+                            </li>
 
                         </ul>
                         <div className="tp-bannertimer tp-bottom" style={{ visibility: 'hidden !important' }} />
