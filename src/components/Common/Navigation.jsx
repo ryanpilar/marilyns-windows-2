@@ -30,63 +30,56 @@ class Navigation extends React.Component {
             <>
                     <ul className=" nav navbar-nav">
                         <li>
-                            <Link
+                            <NavLink to={"/"}>
+                                Home
+                            </NavLink>
+
+                            {/* <Link
                                 // className="nav-link"
                                 activeClass="active"
-                                to="top"
+                                to="/"
                                 spy={true}
                                 smooth={true}
                                 offset={-35}
                                 duration={500}
                             >
                                 Home
-                            </Link>
+                            </Link> */}
                             
                         </li>
                         <li>
-                            {/* <Link
-                                // className="nav-link"
-                                activeClass="active"
-                                to="about"
-                                spy={true}
-                                smooth={true}
-                                offset={-35}
-                                duration={500}
-                            >
-                                About Me
-                            </Link> */}
+
                             <Link to={"#"}>About Me</Link>
                             <ul className="sub-menu v-sub-menu">
                                 <li>
                                     <Link
                                         // className="nav-link"
-                                        activeClass="active"
                                         to="about"
                                         spy={true}
                                         smooth={true}
                                         offset={-35}
                                         duration={500}
                                     >
-                                        Short Intro
+                                        Quick Intro
                                     </Link>
                                 </li>
-                                {/* <li><NavLink to={"/work-grid"}>Gallery</NavLink></li> */}
-                                <li><NavLink to={"/work-masonary"}>My Full Story</NavLink></li>
+                                <li><NavLink to={"/aboutus"}>The Full Story</NavLink></li>
                             </ul>
                             
                         </li>
                         <li>
-                            <Link
+                            <NavLink to={"/#services"}>Services</NavLink>
+                            {/* <Link
                                 // className="nav-link"
                                 activeClass="active"
-                                to="services"
+                                to="/#services"
                                 spy={true}
                                 smooth={true}
                                 offset={-35}
                                 duration={500}
                             >
                                 Services
-                            </Link>
+                            </Link> */}
                             
                         </li>
                         <li>
@@ -106,8 +99,8 @@ class Navigation extends React.Component {
                                         Latest Projects
                                     </Link>
                                 </li>
-                                {/* <li><NavLink to={"/work-grid"}>Gallery</NavLink></li> */}
-                                <li><NavLink to={"/work-masonary"}>Gallery</NavLink></li>
+                                <li><NavLink to={"/work-grid"}>Gallery</NavLink></li>
+                                {/* <li><NavLink to={"/work-masonary"}>Gallery</NavLink></li> */}
                                 
                             </ul>
                             

@@ -1248,9 +1248,9 @@ ol.list-num-count.list-outline-none > li:before {background-color:transparent;	c
 .text-gray-dark{color:#d3d3d3;}
 .text-red{color:#99090A;}
 .text-green{color:#557131;}
-.text-dark-blue{color:#1e367e;}
+.text-dark-blue{color:#405395 !important;}
 .text-light-blue{color:#004F83;}
-.text-light-purple{color:#ede9ff !important;}
+.text-light-purple{color:#c3bddb !important;}
 .text-dark-purple{color:#58167b;}
 
 /*-------------------------------------
@@ -1835,7 +1835,10 @@ ol.list-num-count.list-outline-none > li:before {background-color:transparent;	c
 .site-button.black {background-color:#000;	color:#fff;}
 .site-button.black:hover,
 .site-button.black:active,
-.site-button.black:focus {background-color:#171717;	color:#fff;}
+.site-button.black:focus {
+	/* background-color: #405395; */
+	background-color:#bb7fa7;	
+	color:#fff;}
 
 
 .site-button.outline.black.button-app:focus{
@@ -2120,10 +2123,11 @@ ol.list-num-count.list-outline-none > li:before {background-color:transparent;	c
 .btn-half:after {  bottom: 0;  right: 0;  left: auto;}
 
 .btn-half.site-button:hover{ 
-	/* background-color: #405395; */
+	background-color: #405395;
 	/* background-color: #bcb0d0; */
 	/* background-color: #afc8e6; */
-	background-color: #a66c74;
+	background-color: #bb7fa7;
+	/* background-color: #6f5773; */
 }
 .btn-half:hover:before {  width: 100%;  right: 0;  left: auto;}
 .btn-half:hover:after {  width: 100%;  left: 0;  right: auto;}
@@ -4425,7 +4429,12 @@ header .logo{	display:block;	padding:4px 0;}
 .site-footer p,
 .site-footer li {line-height:20px;}
 
-.site-footer { 	background-position:center;	background-size:cover;	border-top: 1px solid #dadada;}
+.site-footer { 	
+	background-position:center;	
+	background-size:cover;	
+	background-image: url(../../../src/images/background/big-m.jpg) !important;
+	border-top: 1px solid #dadada;
+}
 .site-footer p { 	line-height:20px;}
 
 .site-footer .widget ul{	list-style:none;	margin-top:5px;}
@@ -4495,7 +4504,11 @@ header .logo{	display:block;	padding:4px 0;}
 .footer-dark .footer-top .widget_newsletter .form-control { 	background-color:#0e0e0e;	border-color:#2d2d2d;}
 
 .footer-light .footer-top  {background-color:#eee;}
-.footer-light .footer-bottom { 	background-color:#f6f7f8; }
+.footer-light .footer-bottom { 	
+	background-image:url('../images/background/big-m.jpg') !important;
+	background-color: #f6f7f8; 
+	background-repeat: repeat;
+}
 
 .footer-top {
     padding: 50px 0px 10px 0px;
@@ -5231,7 +5244,7 @@ ol.commentlist li::after {
 .home-client-carousel.owl-btn-center-v.owl-carousel .owl-nav .owl-next {	left:5px;	top: 0px;}
 }
 /*=========================
-39. background Square block
+39. background Square block % Big M
 =========================*/
 /*shape1*/
 .square_shape1,

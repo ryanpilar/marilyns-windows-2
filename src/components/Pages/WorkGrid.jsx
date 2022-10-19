@@ -14,73 +14,103 @@ const filters = [
 
 const projects = [
     {
-        image: require('./../../images/gallery/portrait/pic1.jpg'),
+        image: require('./../../images/gallery/portrait/AdobeStock_202662356_Preview.jpeg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
         filter: 'cat-1'
     },
     {
-        image: require('./../../images/gallery/portrait/pic2.jpg'),
+        image: require('./../../images/gallery/portrait/AdobeStock_323986170_Preview.jpeg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
         filter: 'cat-2'
     },
     {
-        image: require('./../../images/gallery/portrait/pic3.jpg'),
+        image: require('./../../images/gallery/portrait/AdobeStock_343505536_Preview.jpeg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
         filter: 'cat-3'
     },
     {
-        image: require('./../../images/gallery/portrait/pic4.jpg'),
+        image: require('./../../images/gallery/portrait/AdobeStock_336706750_Preview.jpeg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
         filter: 'cat-4'
     },
     {
-        image: require('./../../images/gallery/portrait/pic5.jpg'),
+        image: require('./../../images/gallery/portrait/AdobeStock_135981384_Preview.jpeg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
         filter: 'cat-5'
     },
     {
-        image: require('./../../images/gallery/portrait/pic6.jpg'),
+        image: require('./../../images/gallery/portrait/AdobeStock_322662088_Preview.jpeg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
         filter: 'cat-4'
     },
     {
-        image: require('./../../images/gallery/portrait/pic7.jpg'),
+        image: require('./../../images/gallery/portrait/pexels-jahns-chavez-969593.jpg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
         filter: 'cat-3'
     },
     {
-        image: require('./../../images/gallery/portrait/pic1.jpg'),
+        image: require('./../../images/gallery/portrait/kitchen-cute-small.png'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
         filter: 'cat-2'
     },
     {
-        image: require('./../../images/gallery/portrait/pic2.jpg'),
+        image: require('./../../images/gallery/portrait/living-room-fancy.png'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
         filter: 'cat-1'
     },
     {
-        image: require('./../../images/gallery/portrait/pic3.jpg'),
+        image: require('./../../images/gallery/portrait/pexels-max-vakhtbovych-6947277.jpg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
         filter: 'cat-1'
     },
     {
-        image: require('./../../images/gallery/portrait/pic4.jpg'),
+        image: require('./../../images/gallery/portrait/breakfast-nook.jpg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
         filter: 'cat-1'
     },
     {
-        image: require('./../../images/gallery/portrait/pic5.jpg'),
+        image: require('./../../images/gallery/portrait/pleats-close-up.png'),
+        title: 'Triangle Concrete House on lake',
+        description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
+        filter: 'cat-1'
+    },
+    {
+        image: require('./../../images/gallery/portrait/solarium.jpeg'),
+        title: 'Triangle Concrete House on lake',
+        description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
+        filter: 'cat-1'
+    },
+    {
+        image: require('./../../images/gallery/portrait/spools-of-thread.png'),
+        title: 'Triangle Concrete House on lake',
+        description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
+        filter: 'cat-1'
+    },
+    {
+        image: require('./../../images/gallery/portrait/stock-photo-dining-room-with-kitchen-bar-of-the-center-of-room-and-chandelier-over-room-in-beige-white-and-579096220.jpg'),
+        title: 'Triangle Concrete House on lake',
+        description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
+        filter: 'cat-1'
+    },
+    {
+        image: require('./../../images/gallery/portrait/stock-photo-mediterranean-style-living-room-112874254.jpg'),
+        title: 'Triangle Concrete House on lake',
+        description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
+        filter: 'cat-1'
+    },
+    {
+        image: require('./../../images/gallery/portrait/stock-photo-roman-blind-in-the-interior-detail-close-up-curtain-blue-blackout-fabric-sheers-white-linen-1859349616.jpg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
         filter: 'cat-1'
@@ -134,6 +164,7 @@ class WorkGrid extends React.Component {
                         <div className="portfolio-wrap mfp-gallery work-grid clearfix">
                             <div className="container-fluid">
                                 <div className="row">
+
                                     {projects.map((item, index) => (
                                         <div key={index} className={`${item.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30`}>
                                             <div className="wt-img-effect ">
@@ -150,6 +181,7 @@ class WorkGrid extends React.Component {
                                             </div>
                                         </div>
                                     ))}
+                                    
                                 </div>
                             </div>
                         </div>

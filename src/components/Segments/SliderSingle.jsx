@@ -101,10 +101,10 @@ class SliderSingle extends React.Component {
                                 data-marginbottom="[0,0,0,0]" 
                                 data-marginleft="[0,0,0,0]" 
                                 data-textalign="['center','center','center','center']" 
-                                data-paddingtop="[0,0,0,0]" 
-                                data-paddingright="[0,0,30,30]" 
-                                data-paddingbottom="[0,0,0,0]" 
-                                data-paddingleft="[0,0,30,30]" 
+                                data-paddingtop="[0,0,0,5]" 
+                                data-paddingright="[0,0,0,5]" 
+                                data-paddingbottom="[0,0,0,5]" 
+                                data-paddingleft="[0,0,0,5]" 
                                 style={{ 
                                     zIndex: 8, 
                                     width: '100%', 

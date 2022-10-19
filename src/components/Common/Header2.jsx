@@ -1,9 +1,9 @@
 import React from 'react';
-import Navigation from '../Common/Navigation';
+import Navigation2 from './Navigation2';
 import { NavLink } from 'react-router-dom';
 
 class Header2 extends React.Component {
-
+    // isMenuActive
     constructor(props) {
         super(props);
         this.state = { logo: require('./../../images/logo-dark.png') };
@@ -11,9 +11,7 @@ class Header2 extends React.Component {
 
     state = { isSearchActive: false, isMenuActive: false };
 
-    handleSearchToggle = () => {
-        this.setState({ isSearchActive: !this.state.isSearchActive });
-    };
+
 
     handleMenuToggle = () => {
         this.setState({ isMenuActive: !this.state.isMenuActive });
@@ -50,7 +48,7 @@ class Header2 extends React.Component {
         return (
             <>
                 <header className={`${isMenuActive ? "active" : null} site-header header-style-1  nav-wide mobile-responsive-navigation`}>
-                    <div className="sticky-header main-bar-wraper">
+                    <div id='top' className="sticky-header main-bar-wraper">
                         <div className="main-bar bg-white p-t10">
                             <div className="container">
                                 <div className="logo-header">
@@ -70,25 +68,34 @@ class Header2 extends React.Component {
                                 {/* ETRA Nav */}
                                 <div className="extra-nav">
                                     <div className="extra-cell">
-                                        
-                                        <NavLink to={"#"} className="site-search-btn" onClick={this.handleSearchToggle}> 
-                                            <i className="fa fa-search" />
-                                        </NavLink>
+
+
                                     </div>
                                 </div>
-                                {/* SITE Search */}
-                                <div id="search" className={isSearchActive ? "open" : null}>
-                                    <span className="close" onClick={this.handleSearchToggle} />
-                                    <form role="search" id="searchform" action="/search" method="get" className="radius-xl">
-                                        <div className="input-group">
-                                            <input defaultValue="" name="q" type="search" placeholder="Type to search" />
-                                            <span className="input-group-btn"><button type="button" className="search-btn"><i className="fa fa-search" /></button></span>
+
+
+                                {/* ETRA Nav */}
+                                <div className="extra-nav">
+                                    <div className="extra-cell">
+                                        <div className="dropdown share-icon-btn">
+                                            <a href="#" className="site-search-btn dropdown-toggle" data-toggle="dropdown"><i className="fa fa-share-alt" /></a>
+                                            <div className="dropdown-menu bg-white">
+                                                <div className="top-bar">
+                                                    <ul className="social-bx list-inline">
+                                                        <li><a target="_blank" href="https://www.facebook.com/MarilynsWindows/" className="fa fa-facebook" /></li>
+                                                        <li><a target="_blank" href="https://twitter.com/marilynswindows" className="fa fa-twitter" /></li>
+                                                        <li><a target="_blank" href="https://www.linkedin.com/in/marilynswindows/" className="fa fa-linkedin" /></li>
+                                                        <li><a target="_blank" href="https://www.instagram.com/marilynwindowsandinteriors/" className="fa fa-instagram" /></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </form>
+                                    </div>
                                 </div>
+
                                 {/* MAIN Vav */}
                                 <div className="header-nav navbar-collapse collapse">
-                                    <Navigation />
+                                    <Navigation2 />
                                 </div>
                             </div>
                         </div>

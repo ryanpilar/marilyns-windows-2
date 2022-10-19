@@ -14,8 +14,10 @@ import Statistics from './../Segments/Statistics';
 import Testimonials from './../Segments/Testimonials';
 import ClientsLogo from './../Segments/ClientsLogo';
 
+import Story from './../Segments/Story';
 
 import Services from './../Segments/Services';
+import BlogComments from '../Segments/BlogComments';
 
 class Home2 extends React.Component {
     render() {
@@ -32,15 +34,11 @@ class Home2 extends React.Component {
                     <ClientsLogo />
                     <Testimonials />
                     <LatestProjects />
-                    
-                    
-                    
-                    {/* <Blog colorclass="text-white" /> */}
-                    
                     <Statistics />
-                    
-                    
                     <Contact />
+
+                    
+                    
                     
                     
                 </div>

@@ -17,6 +17,8 @@ import PostImage from './Pages/PostImage';
 import PostGallery from './Pages/PostGallery';
 import PostRightSidebar from './Pages/PostRightSidebar';
 
+import Services from './Segments/Services';
+
 class Components extends React.Component {
     render() {
         return (
@@ -38,6 +40,9 @@ class Components extends React.Component {
                             <Route path='/post-image' exact component={PostImage} />
                             <Route path='/post-gallery' exact component={PostGallery} />
                             <Route path='/post-right-sidebar' exact component={PostRightSidebar} />
+
+                            <Route path='/services' component={Home2} element={<Services />} />
+
 
                             <Route component={Error} />
                             

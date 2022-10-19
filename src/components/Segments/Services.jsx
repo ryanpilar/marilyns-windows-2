@@ -10,7 +10,7 @@ const images = [
 ]
 
 // const bgimg = require('./../../images/background/sewing-machine-working.png')
-const bgimg = require('./../../images/background/fabric-bolts.png')
+const bgimg = require('./../../images/background/fabric-bolts.jpg')
 // const bgimg = require('./../../images/background/spools-of-thread.png')
 
 
