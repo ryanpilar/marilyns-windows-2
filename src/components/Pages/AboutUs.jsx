@@ -13,7 +13,10 @@ import Blog from './../Segments/Blog';
 
 
 
-var bnrimg = require('./../../images/banner/3.jpg');
+// var bnrimg = require('./../../images/banner/sewing-machine-lamp-freepic.png');
+// var bnrimg = require('./../../images/banner/workroom-misc.jpg');
+var bnrimg = require('./../../images/banner/istockphoto-92190914-1024x1024.jpg');
+// var bnrimg = require('./../../images/banner/istockphoto-1212171439-1024x1024.jpg');
 
 
 var img1 = require('./../../images/gallery/pic2.jpg');

@@ -34,10 +34,12 @@ class About2 extends React.Component {
                                 <div className="row">
                                     <div className="col-lg-5 col-md-6">
                                         <div className="m-about m-l50 m-r50">
+
                                         <OwlCarousel className="owl-carousel about-us-carousel owl-btn-bottom-right" {...options}>
                                             {images.map((item, index) => (
                                                 <div className="item" key={index}>
                                                 <div className="ow-img wt-img-effect zoom-slow">
+                                                
                                                 <NavLink to={""}><img src={item.default} alt="" /></NavLink>
                                                     </div>
                                                 </div>
@@ -45,6 +47,7 @@ class About2 extends React.Component {
                                             ))}
 
                                         </OwlCarousel>
+
                                         </div>
                                     </div>
                                     <div className="col-lg-6 col-md-6 ">

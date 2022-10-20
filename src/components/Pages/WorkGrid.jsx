@@ -117,7 +117,13 @@ const projects = [
     }
 ]
 
-var bnrimg = require('./../../images/banner/6.jpg');
+// var bnrimg = require('./../../images/banner/istockphoto-856988866-1024x1024.jpg');
+// var bnrimg = require('./../../images/banner/istockphoto-173239779-1024x1024.jpg');
+// var bnrimg = require('./../../images/banner/istockphoto-491666019-1024x1024.jpg');
+// var bnrimg = require('./../../images/banner/istockphoto-856988866-1024x1024.jpg');
+// var bnrimg = require('./../../images/banner/istockphoto-856988866-1024x1024.jpg');
+var bnrimg = require('./../../images/banner/sewing-machine-lamp-freepic.png');
+
 
 class WorkGrid extends React.Component {
     componentDidMount(){
