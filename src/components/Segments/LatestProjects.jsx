@@ -96,7 +96,7 @@ class LatestProjects extends React.Component {
     };
     render() {
         const options = {
-            loop:false,
+            loop:true,
             autoplay:true,
             margin:20,
             nav:true,
@@ -141,19 +141,21 @@ class LatestProjects extends React.Component {
                                         <div className="wt-separator bg-black" />
                                     </div>
                                 </div>
-                                <div className="col-lg-8 col-md-12">
+                                {/* <div className="col-lg-8 col-md-12">
                                     <ul className="btn-filter-wrap">
                                         <li className="btn-filter btn-active" data-filter="*">All</li>
                                         {filters.map((item, index) => (
                                             <li key={index} className="btn-filter" data-filter={item.filter}>{item.label}</li>
                                         ))}
                                     </ul>
-                                </div>
+                                </div> */}
                             </div>
+
                         </div>
                         {/* TITLE END */}
                         {/* IMAGE CAROUSEL START */}
                         <div className="section-content">
+                            {/* <OwlCarousel className="owl-carousel  owl-btn-bottom-left" {...options}> */}
                             <OwlCarousel className="owl-carousel owl-carousel-filter  owl-btn-bottom-left" {...options}>
                                         {projects.map((item, index) => (
                                             <div key={index} className={`${item.filter} item fadingcol`}>
@@ -173,6 +175,15 @@ class LatestProjects extends React.Component {
                                         ))}
                                     </OwlCarousel>
                         </div>
+
+                        {/* <div className="section-content "> */}
+
+                            <div className="section-content m-t20 ">
+                                <a href='/work-grid' className="site-button black button-app m-r15 m-b15">see more work like this at <strong className="text-center">My Gallery</strong></a>
+                            </div>
+                             
+                        {/* </div> */}
+
                         <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
                             <strong>Awesome</strong>
                             <span className="text-black">Designs</span>

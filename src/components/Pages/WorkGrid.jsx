@@ -1,4 +1,7 @@
 import React from 'react';
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
+
 import { NavLink } from 'react-router-dom';
 import Header2 from '../Common/Header2';
 import Footer from '../Common/Footer';
@@ -74,6 +77,12 @@ const projects = [
         filter: 'cat-1'
     },
     {
+        image: require('./../../images/gallery/portrait/istockphoto-667524206-1024x1024.jpg'),
+        title: 'Triangle Concrete House on lake',
+        description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
+        filter: 'cat-3'
+    },
+    {
         image: require('./../../images/gallery/portrait/breakfast-nook.jpg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
@@ -104,17 +113,48 @@ const projects = [
         filter: 'cat-1'
     },
     {
+        image: require('./../../images/gallery/portrait/istockphoto-182418329-1024x1024.jpg'),
+        title: 'Triangle Concrete House on lake',
+        description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
+        filter: 'cat-2'
+    },
+    {
         image: require('./../../images/gallery/portrait/stock-photo-mediterranean-style-living-room-112874254.jpg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
         filter: 'cat-1'
-    },
+    },    
     {
-        image: require('./../../images/gallery/portrait/stock-photo-roman-blind-in-the-interior-detail-close-up-curtain-blue-blackout-fabric-sheers-white-linen-1859349616.jpg'),
+        image: require('./../../images/gallery/portrait/istockphoto-183358030-1024x1024.jpg'),
         title: 'Triangle Concrete House on lake',
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'cat-1'
-    }
+        filter: 'cat-2'
+    },
+    
+    {
+        image: require('./../../images/gallery/portrait/istockphoto-621687628-1024x1024.jpg'),
+        title: 'Triangle Concrete House on lake',
+        description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
+        filter: 'cat-4'
+    },
+    {
+        image: require('./../../images/gallery/portrait/istockphoto-1225530217-1024x1024.jpg'),
+        title: 'Triangle Concrete House on lake',
+        description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
+        filter: 'cat-5'
+    },
+    {
+        image: require('./../../images/gallery/portrait/istockphoto-175187656-1024x1024.jpg'),
+        title: 'Triangle Concrete House on lake',
+        description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
+        filter: 'cat-3'
+    },
+    {
+        image: require('./../../images/gallery/portrait/istockphoto-1151872349-1024x1024.jpg'),
+        title: 'Triangle Concrete House on lake',
+        description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
+        filter: 'cat-5'
+    },
 ]
 
 // var bnrimg = require('./../../images/banner/istockphoto-856988866-1024x1024.jpg');
@@ -123,9 +163,19 @@ const projects = [
 // var bnrimg = require('./../../images/banner/istockphoto-856988866-1024x1024.jpg');
 // var bnrimg = require('./../../images/banner/istockphoto-856988866-1024x1024.jpg');
 var bnrimg = require('./../../images/banner/sewing-machine-lamp-freepic.png');
+// var bnrimg = require('./../../images/banner/istockphoto-1151872349-1024x1024.jpg');
 
 
 class WorkGrid extends React.Component {
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+          photoIndex: 0,
+          isOpen: false,
+        };
+    }
+
     componentDidMount(){
         function loadScript(src) {
            
@@ -147,6 +197,8 @@ class WorkGrid extends React.Component {
       
     };
     render() {
+        const { photoIndex, isOpen } = this.state;
+
         return (
             <>
                 <Header2 />
@@ -159,9 +211,11 @@ class WorkGrid extends React.Component {
                             <div className="filter-wrap p-b50">
                                 <ul className="masonry-filter link-style  text-uppercase">
                                     <li className="active"><a data-filter="*" href="#">All</a></li>
+                                    
                                     {filters.map((item, index) => (
                                         <li key={index}><a data-filter={item.filter} href="#">{item.label}</a></li>
                                     ))}
+
                                 </ul>
                             </div>
                             {/* PAGINATION END */}
@@ -172,6 +226,7 @@ class WorkGrid extends React.Component {
                                 <div className="row">
 
                                     {projects.map((item, index) => (
+
                                         <div key={index} className={`${item.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30`}>
                                             <div className="wt-img-effect ">
                                                 <img src={item.image.default} alt="" />
@@ -180,12 +235,42 @@ class WorkGrid extends React.Component {
                                                         <div className="text-white font-weight-300 p-a40">
                                                             <h2><NavLink to={"/project-detail"} className="text-white font-20 letter-spacing-1 text-uppercase">{item.title}</NavLink></h2>
                                                             <p>{item.description}</p>
-                                                            <NavLink to={"/project-detail"} className="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</NavLink>
+                                                            {/* <NavLink to={"/project-detail"} className="v-button letter-spacing-4 font-12 text-uppercase p-l20">
+                                                                Read More
+                                                            </NavLink> */}
+                                                            <a 
+                                                            className="v-button letter-spacing-4 font-12 text-uppercase p-l20"
+                                                            // type="button" 
+                                                            onClick={() => this.setState({ isOpen: true, photoIndex: Number(index) }) }
+                                                            >
+                                                                <p>
+                                                                    <i class="fa fa-search-plus" aria-hidden="true"></i> Enlarge</p>
+
+                                                                
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            {isOpen && (
+                                                <Lightbox
+                                                    mainSrc={projects[photoIndex].image.default}
+                                                    nextSrc={projects[(photoIndex + 1) % projects.length].image.default}
+                                                    prevSrc={projects[(photoIndex + projects.length - 1) % projects.length].image.default}
+                                                    onCloseRequest={() => this.setState({ isOpen: false })}
+                                                    onMovePrevRequest={() => this.setState({
+                                                        photoIndex: (photoIndex + projects.length - 1) % projects.length,
+                                                    })}
+                                                    onMoveNextRequest={() =>
+                                                    this.setState({
+                                                        photoIndex: (photoIndex + 1) % projects.length,
+                                                    })}
+                                                />
+                                            )}
+
                                         </div>
+
                                     ))}
                                     
                                 </div>

@@ -132,7 +132,7 @@ class Contact extends React.Component {
                             {/* TITLE START */}
                             <div className="section-head text-left text-black">
                                 <h2 className="text-uppercase font-36">Where to Find us </h2>
-                                <div>
+                                <div className="p-t10">
                                     <ul className="list-inline">
                                     <li><a target="_blank" href="https://www.instagram.com/marilynwindowsandinteriors/" className="fa fa-instagram contact-socials" /></li>
                                         <li><a target="_blank" href="https://www.facebook.com/MarilynsWindows/" className="fa fa-facebook contact-socials" /></li>

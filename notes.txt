@@ -1,0 +1,37 @@
+
+
+Weird things I had to do: 
+
+    1.  Had to trim a lot of the template down. And since it was React, all linked components, 
+        files, images etc had to be deleted too. This just means you have to go into a lot of 
+        files to comment our / delete these linked whatevers.
+
+    2.  Netlify
+            a.  On Netlify deploy, React internal routing worked great, that is to say that you 
+                navigate to (http://yourWebsiteName.com) and it brings you to the index page, 
+                and on that index page you click the 'about' button, and it takes you to 
+                http://yourWebsiteName.com/about... but if you were to start the whole process by 
+                trying to first navigate to http://yourWebsiteName.com/about, you would get a 
+                404 error. Too add, routing seemed to work fine when locally deployed.
+
+                SOLUTION: adding a _redirect file inside public/ folder and put, /* /index.html 
+                200, inside of that file, and voilà the links are now working on Netlify. Source:
+                https://answers.netlify.com/t/netlify-page-not-found-when-sharing-react-router-dom-based-links/11744/12 
+
+    3.  --opensl problem (https://stackoverflow.com/questions/69962209/what-is-openssl-legacy-provider-in-node-js-v17)
+
+        -   "But why did it happen this time only and not usually?" Because some module uses commands 
+            that aren't supported anymore. "Do I have to do the same for all my projects in future?" 
+            Only when you use modules that use unsupported commands. I don't know why this commands 
+            aren't supported anymore and if it is related to security but using unsupported commands 
+            should be a red flag. 
+        -   Due to changes on Node.js v17, --openssl-legacy-provider was added for handling key size 
+            on OpenSSL v3. You somehow have installed the latest version of node.
+
+            1.  Restore your previous version of nodejs.
+            2.  Go and manually remove the node dependency(e.g. "node":17.4.3) from package.json and packagelock.json.
+            3.  Delete node_modules folder and use npm install to reinstall node_modules.
+            
+        -   For Node.js v17+, you need to put the openssl-legacy-provider flag after your command, for example:
+            -   From npm --openssl-legacy-provider start to npm start --openssl-legacy-provider start
+            -   From npm --openssl-legacy-provider build to npm start --openssl-legacy-provider build
