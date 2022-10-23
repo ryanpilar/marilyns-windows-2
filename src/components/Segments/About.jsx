@@ -11,12 +11,10 @@ const images = [
     require('./../../images/gallery/sewing-machine-lamp-freepic.png'),
     require('./../../images/gallery/bedroom-condo.jpg'),
     require('./../../images/gallery/marilyn-professional.jpg'),
-
     require('./../../images/gallery/sewing-machine-working.jpg'),
     require('./../../images/gallery/living-room-soft.jpg'),
     require('./../../images/gallery/workroom-misc.jpg'),
     require('./../../images/gallery/roman-shades.jpeg'),
-    
     require('./../../images/gallery/kitchen-cute.png'),
 ]
 

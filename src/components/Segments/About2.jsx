@@ -4,13 +4,26 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import Contact from './Contact';
+import WorkGrid from '../Pages/WorkGrid';
 
 const images = [
-    require('./../../images/gallery/portrait/pic2.jpg'),
-    require('./../../images/gallery/portrait/pic3.jpg'),
-    require('./../../images/gallery/portrait/pic4.jpg'),
-    require('./../../images/gallery/portrait/pic5.jpg'),
-    require('./../../images/gallery/portrait/pic6.jpg'),
+    require('./../../images/gallery/portrait/istockphoto-621687628-1024x1024.jpg'),
+    require('./../../images/gallery/portrait/20210527_113548.jpg'),
+    require('./../../images/gallery/portrait/AdobeStock_202662356_Preview.jpeg'),
+    require('./../../images/gallery/portrait/spools-of-thread.png'),
+    require('./../../images/gallery/portrait/AdobeStock_322662088_Preview.jpeg'),
+    require('./../../images/gallery/portrait/AdobeStock_323986170_Preview.jpeg'),
+    require('./../../images/gallery/portrait/istockphoto-667524206-1024x1024.jpg'),
+    require('./../../images/gallery/portrait/pexels-cottonbro-4614221.jpg'),
+    require('./../../images/gallery/portrait/kitchen-cute-small.png'),
+    require('./../../images/gallery/portrait/istockphoto-1315353397-1024x1024.jpg'),
+    require('./../../images/gallery/portrait/istockphoto-1270231942-1024x1024.jpg'),
+    require('./../../images/gallery/portrait/29982927_10156658190290101_8483271152786359446_o.jpg'),
+    require('./../../images/gallery/portrait/istockphoto-667524206-1024x1024.jpg'),
+    require('./../../images/gallery/portrait/istockphoto-837185424-1024x1024.jpg'),
+    require('./../../images/gallery/portrait/sewing-machine-lamp-freepic.png'),
+    require('./../../images/gallery/portrait/workroom-misc.jpg'),
+    require('./../../images/gallery/portrait/istockphoto-491666019-1024x1024.jpg'),
 ]
 
 class About2 extends React.Component {
@@ -40,8 +53,8 @@ class About2 extends React.Component {
                                                 <div className="item" key={index}>
                                                 <div className="ow-img wt-img-effect zoom-slow">
                                                 
-                                                <NavLink to={""}><img src={item.default} alt="" /></NavLink>
-                                                    </div>
+                                                    <img src={item.default} alt="" />
+                                                </div>
                                                 </div>
 
                                             ))}
@@ -59,6 +72,7 @@ class About2 extends React.Component {
                                             </p>
                                             {/* <NavLink to={"/project-detail"} className="site-button black radius-no text-uppercase"><span className="font-12 letter-spacing-5"> Contact </span></NavLink> */}
                                             <NavLink to="/#contact" element={<Contact />}>Contact me</NavLink>
+                                            <NavLink to="/work-grid" element={<WorkGrid />}>See My Gallery</NavLink>
                                             {/* <NavLink to={"/project-detail"} className="site-button black radius-no text-uppercase"><span className="font-12 letter-spacing-5"> See Gallery </span></NavLink> */}
                                         </div>
                                     </div>

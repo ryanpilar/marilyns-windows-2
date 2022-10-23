@@ -1,31 +1,17 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
 import Header2 from '../Common/Header2';
-import Footer from '../Common/Footer';
 import Banner from './../Segments/Banner';
 import About2 from './../Segments/About2';
-import Services from './../Segments/Services';
 import Story from './../Segments/Story';
-import Blog from './../Segments/Blog';
-
-
-
-
+import Footer from '../Common/Footer';
 
 // var bnrimg = require('./../../images/banner/sewing-machine-lamp-freepic.png');
 // var bnrimg = require('./../../images/banner/workroom-misc.jpg');
-var bnrimg = require('./../../images/banner/istockphoto-92190914-1024x1024.jpg');
+// var bnrimg = require('./../../images/banner/istockphoto-92190914-1024x1024.jpg');
 // var bnrimg = require('./../../images/banner/istockphoto-1212171439-1024x1024.jpg');
-
-
-var img1 = require('./../../images/gallery/pic2.jpg');
-var img2 = require('./../../images/gallery/pic6.jpg');
-var img3 = require('./../../images/gallery/pic1.jpg');
-var img4 = require('./../../images/gallery/pic3.jpg');
-var img5 = require('./../../images/gallery/pic5.jpg');
-var img6 = require('./../../images/gallery/pic4.jpg');
-var img7 = require('./../../images/gallery/pic8.jpg');
+var bnrimg = require('./../../images/background/fabric-bolts.jpg');
 
 class AboutUs extends React.Component {
     render() {
@@ -36,9 +22,6 @@ class AboutUs extends React.Component {
                     <Banner title="Fusing logic with imagination and truth with discovery." pagename="About Us" bgimage={bnrimg.default}/>
                     <About2 />
                     <Story />
-                    {/* <Services /> */}
-                    {/* <Story /> */}
-                    {/* <Blog colorclass="text-white" /> */}
                 </div>
 
                 <Footer />

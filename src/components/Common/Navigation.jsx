@@ -68,18 +68,18 @@ class Navigation extends React.Component {
                             
                         </li>
                         <li>
-                            <NavLink to={"/#services"}>Services</NavLink>
-                            {/* <Link
+                            {/* <NavLink to={"/#services"}>Services</NavLink> */}
+                            <Link
                                 // className="nav-link"
                                 activeClass="active"
-                                to="/#services"
+                                to="services"
                                 spy={true}
                                 smooth={true}
                                 offset={-35}
                                 duration={500}
                             >
                                 Services
-                            </Link> */}
+                            </Link>
                             
                         </li>
                         <li>
