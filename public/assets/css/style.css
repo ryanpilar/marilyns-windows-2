@@ -332,6 +332,9 @@
 	-------------------------------------
 	13. comment form
 	-------------------------------------
+	14. blog card sizing
+	-------------------------------------
+
 
 ======================================
 14. HEADER (top part of page)
@@ -3298,6 +3301,16 @@ ol.comment-list li.comment .comment-respond .comment-form p {	padding:0 15px !im
 @media only screen and (max-width:767px) {
 .wt-post-info-inner{	height:auto;}
 }
+
+/*-------------------------------------
+	14. blog card sizing
+-------------------------------------*/
+
+.box-size {
+	min-height: 300px;
+}
+
+
 /*-------------------------------------
 	15. blog grid-post
 -------------------------------------*/

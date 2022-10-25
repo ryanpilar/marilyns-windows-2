@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home2 from './Pages/Home2';
 import AboutUs from './Pages/AboutUs';
 import WorkGrid from './Pages/WorkGrid';
+import BlogList from './Segments/BlogList';
+import BlogPost from './Segments/BlogPost';
 
 class Components extends React.Component {
     render() {
@@ -16,6 +18,8 @@ class Components extends React.Component {
                             <Route path='/' exact component={Home2} />
                             <Route path='/aboutus' exact component={AboutUs} />
                             <Route path='/work-grid' exact component={WorkGrid} />
+                            <Route path='/blogs' exact component={BlogList} />
+                            <Route path='/post/:id' exact component={BlogPost} />
 
                             <Route component={Error} />
                             <Route component={Error} />

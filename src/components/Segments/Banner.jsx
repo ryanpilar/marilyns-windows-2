@@ -29,7 +29,13 @@ class Banner extends React.Component {
                                         <div className="p-tb20">
                                             <div>
                                                 <ul className="wt-breadcrumb breadcrumb-style-2">
-                                                    <li><NavLink to={"./"}>Home</NavLink></li>
+                                                    
+                                                    
+                                                    <li>{this.props.pagename === 'Blog Post' ? 
+                                                        <NavLink to={"/blogs"}>Blogs List</NavLink> :
+                                                        <NavLink to={"./"}>Home</NavLink>
+                                                    }</li>
+                                                    
                                                     <li>{this.props.pagename}</li>
                                                 </ul>
                                             </div>

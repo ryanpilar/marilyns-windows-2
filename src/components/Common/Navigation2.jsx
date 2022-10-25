@@ -52,6 +52,8 @@ class Navigation extends React.Component {
                                 <li><a href="/work-grid">Gallery</a></li>
                             </ul>
                         </li>
+                        
+                        <li><NavLink to={"/blogs"}>Blog</NavLink></li>
 
                         <li><a href="/#contact">Contact</a></li>
 
