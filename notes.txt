@@ -35,3 +35,17 @@ Weird things I had to do:
         -   For Node.js v17+, you need to put the openssl-legacy-provider flag after your command, for example:
             -   From npm --openssl-legacy-provider start to npm start --openssl-legacy-provider start
             -   From npm --openssl-legacy-provider build to npm start --openssl-legacy-provider build
+
+    4.  Owl carousel problem
+        -   Seems like OwlCarousel doesn't re-render upon state change and as such even though your state updates and your 
+            callback sends it new set of children, OwlCarousel stays as it was from the initial render. 
+            
+            It does have callback hooks 
+            that you can tie your updates into so that it will update, but seems like very poor documentation 
+            so I did not spend time on it. There's something called onRefresh hook that you can use that takes in a 
+            function but again no example that tells you how to do it. https://owlcarousel2.github.io/OwlCarousel2/docs/api-events.html
+
+        -   To overcome this I wrapped OwlCarousel in the length check which will only render once 
+            state has something to render after API call returns.
+
+            https://stackoverflow.com/questions/56771532/react-owl-carousel-is-blank

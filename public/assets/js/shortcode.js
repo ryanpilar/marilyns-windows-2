@@ -11,6 +11,8 @@
 ---------------------------------------------------------------------------------------------*/	
 
 jQuery(document).ready(function() {
+// jQuery(window).load(function() {
+// $(window).on('load',function() {
 
     'use strict';
 

@@ -334,6 +334,7 @@
 	-------------------------------------
 	14. blog card sizing
 	-------------------------------------
+	
 
 
 ======================================
@@ -3307,7 +3308,11 @@ ol.comment-list li.comment .comment-respond .comment-form p {	padding:0 15px !im
 -------------------------------------*/
 
 .box-size {
-	min-height: 300px;
+	min-height: 350px;
+}
+
+.img-auto-width {
+	width: auto
 }
 
 

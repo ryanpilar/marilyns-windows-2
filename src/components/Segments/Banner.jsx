@@ -32,7 +32,7 @@ class Banner extends React.Component {
                                                     
                                                     
                                                     <li>{this.props.pagename === 'Blog Post' ? 
-                                                        <NavLink to={"/blogs"}>Blogs List</NavLink> :
+                                                        <NavLink to={"/blogs"}>List of Blogs</NavLink> :
                                                         <NavLink to={"./"}>Home</NavLink>
                                                     }</li>
                                                     

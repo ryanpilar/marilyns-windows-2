@@ -2,19 +2,22 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 
 import { NavLink, useParams } from 'react-router-dom';          // useParams allows the '/post/:id' to work
+
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+
+
 import Header2 from '../Common/Header2';
 import Footer from '../Common/Footer';
 import Banner from './../Segments/Banner';
 import RelatedProjects from './../Segments/RelatedProjects';
 
-import OwlCarousel from 'react-owl-carousel';
 
 import {createClient} from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 var bnrimg = require('./../../images/banner/2.jpg');
 
@@ -22,7 +25,8 @@ const BlogPost = () => {
 
     const client = createClient({ 
         space: '6puvtv0bf6bf',
-        accessToken: 'BpFpx0SozPL0X73BTfhX470Vea4tMvgXy4GAR_h7hXE'
+        accessToken: 'BpFpx0SozPL0X73BTfhX470Vea4tMvgXy4GAR_h7hXE',
+        
     })
 
     const {id} = useParams()                                    // grabs the contentful :id form the address bar
@@ -127,18 +131,35 @@ const BlogPost = () => {
 
                                 
                                 {/*Fade slider*/}
-                                <OwlCarousel className="owl-carousel owl-fade-slider-one owl-btn-vertical-center owl-dots-bottom-right" {...options}>
+                                
+                                {/* <OwlCarousel className="owl-carousel owl-fade-slider-one owl-btn-vertical-center owl-dots-bottom-right" {...options}>
                                     
                                     {singleBlogPost?.fields?.blogImages?.map((item, index) => (
-                                        <div className="item" key={index}>
-                                        <div className="aon-thum-bx">
-                                            <img src={item?.fields?.file.url} alt={item?.fields?.description} />
-                                        </div>
+                                        <div className="item" key={item.sys.id}>
+                                            <div className="aon-thum-bx">
+                                                <img src={`https:${item?.fields?.file.url}`} alt={item?.fields?.description} />
+                                                <img src={item?.fields?.file.url} alt={item?.fields?.description} />
+                                            </div>
                                         </div>
 
                                     ))}
 
+                                </OwlCarousel> */}
+
+                                {singleBlogPost?.fields?.blogImages && (
+                                    <OwlCarousel className="owl-carousel owl-fade-slider-one owl-btn-vertical-center owl-dots-bottom-right" {...options}>
+                                        {singleBlogPost?.fields?.blogImages?.map((item, index) => (
+
+                                            <div className="item" key={item.sys.id}>
+                                                <div className="aon-thum-bx">
+                                                    <img src={`https:${item?.fields?.file.url}`} alt={item?.fields?.description} />
+                                                    {/* <img src={item?.fields?.file.url} alt={item?.fields?.description} /> */}
+                                                </div>
+                                            </div>
+
+                                        ))}
                                     </OwlCarousel>
+                                )}
                                 
                                 {/*fade slider END*/}
                             </div>

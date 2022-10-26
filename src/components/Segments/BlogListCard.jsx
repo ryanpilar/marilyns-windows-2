@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const BlogListCard = ({post}) => {
-    // console.log('TEST TEST', post.fields.blogImages[0].fields.file.url)
+
     return (
         <>
 
