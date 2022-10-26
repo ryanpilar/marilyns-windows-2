@@ -61,7 +61,7 @@ const BlogList = () => {
     <>
         <Header2 />
 
-        {/* <div className="page-content"> */}
+        <div className="page-content">
             
             <Banner title="high quality, effective, and inspiring built space." pagename="Post Gallery" bgimage={bnrimg.default}/>
             
@@ -69,7 +69,7 @@ const BlogList = () => {
             <div className="section-full p-tb90 tm-work-wrap square_shape1 square_shape3 ">
                 <div className="container">
                     <div className="max-mid-container">
-                        <div className="section-content">
+                        {/* <div className="section-content"> */}
 
                             {/* TITLE START */}
                                 <div className="text-left">
@@ -83,7 +83,7 @@ const BlogList = () => {
                             {/* BLOG CONTENT START */}
                                 <div className="section-content">
                                     <div className="portfolio-wrap mfp-gallery work-grid m-t50 ">
-                                        <div className="container-fluid">
+                                        {/* <div className="container-fluid"> */}
                                             <div className="row">
                                                 {blogPost?.items && (
 
@@ -98,19 +98,19 @@ const BlogList = () => {
                                                 )}
                                                     
                                             </div>
-                                        </div>
+                                        {/* </div> */}
                                     </div>
                                 </div>
                             {/* BLOG CONTENT END */}
 
-                        </div>                           
+                        {/* </div>                            */}
                     </div>
                 </div>
             </div>
             {/* SECTION CONTENT END */}
-        {/* </div> */}
+        </div>
 
-        <Footer />
+        {/* <Footer /> */}
     </>
   )
 }

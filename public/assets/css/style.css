@@ -2111,7 +2111,7 @@ ol.list-num-count.list-outline-none > li:before {background-color:transparent;	c
 .masonry-filter.outline-style.has-bg > li a:focus {border-color:#000;	color:#000;}
 
 @media only screen and (max-width:767px){
-.masonry-item{width:100%;}	
+.masonry-item{width:100%;min-height:100%;}	
 }
 
 
@@ -5279,7 +5279,7 @@ ol.commentlist li::after {
 .square_shape3,
 .square_shape4{
 	position:relative;
-	overflow: hidden;
+	/* overflow: hidden; */
 	z-index:0;
 }
 .square_shape1:after,

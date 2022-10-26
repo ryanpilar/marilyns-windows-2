@@ -255,7 +255,7 @@ class WorkGrid extends React.Component {
         return (
             <>
                 <Header2 />
-                <div className="page-content">
+                <div className="page-content ">
                     <Banner title="Sustainability, Innovation, and Craftmanship" pagename="Work grid" bgimage={bnrimg.default} />
                     {/* SECTION CONTENT START */}
                     <div className="section-full p-tb90 tm-work-wrap">
