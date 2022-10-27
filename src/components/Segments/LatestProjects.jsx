@@ -179,7 +179,7 @@ class LatestProjects extends React.Component {
                         {/* <div className="section-content "> */}
 
                             <div className="section-content m-t20 ">
-                                <a href='/work-grid' className="site-button black button-app m-r15 m-b15">see more work like this at <strong className="text-center">My Gallery</strong></a>
+                                <a href='/gallery' className="site-button black button-app m-r15 m-b15 "><span className="text-center">Visit My Gallery</span></a>
                             </div>
                              
                         {/* </div> */}

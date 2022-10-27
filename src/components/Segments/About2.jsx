@@ -4,7 +4,7 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import Contact from './Contact';
-import WorkGrid from '../Pages/WorkGrid';
+import WorkGrid from '../Pages/Gallery';
 
 const images = [
     require('./../../images/gallery/portrait/istockphoto-621687628-1024x1024.jpg'),
@@ -72,7 +72,7 @@ class About2 extends React.Component {
                                             </p>
                                             {/* <NavLink to={"/project-detail"} className="site-button black radius-no text-uppercase"><span className="font-12 letter-spacing-5"> Contact </span></NavLink> */}
                                             <NavLink to="/#contact" element={<Contact />}>Contact me</NavLink>
-                                            <NavLink to="/work-grid" element={<WorkGrid />}>See My Gallery</NavLink>
+                                            <NavLink to="/gallery" element={<WorkGrid />}>Visit My Gallery</NavLink>
                                             {/* <NavLink to={"/project-detail"} className="site-button black radius-no text-uppercase"><span className="font-12 letter-spacing-5"> See Gallery </span></NavLink> */}
                                         </div>
                                     </div>

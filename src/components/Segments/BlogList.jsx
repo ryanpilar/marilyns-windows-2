@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useLayoutEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import {createClient} from 'contentful'
 
@@ -85,6 +85,7 @@ const BlogList = () => {
                                     <div className="portfolio-wrap mfp-gallery work-grid m-t50 ">
                                         {/* <div className="container-fluid"> */}
                                             <div className="row">
+
                                                 {blogPost?.items && (
 
                                                     <div>
@@ -110,7 +111,7 @@ const BlogList = () => {
             {/* SECTION CONTENT END */}
         </div>
 
-        {/* <Footer /> */}
+        <Footer />
     </>
   )
 }

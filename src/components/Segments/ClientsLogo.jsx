@@ -28,52 +28,63 @@ class ClientsLogo extends React.Component {
                     items: 2
                 },
                 480: {
-                    items: 3
+                    items: 2
                 },
                 767: {
-                    items: 4
+                    items: 3
                 },
                 1000: {
-                    items: 5
+                    items: 4
                 }
             }
         };
         return (
             <>
-                <div className="section-full p-tb40 bg-black square_shape4 tm-client-wrap">
-                    <div className="container">
-                        <div className="section-content">
-                            {/* TESTIMONIAL 4 START ON BACKGROUND */}
+                
+                    <div className="section-full p-tb40 bg-black square_shape4 tm-client-wrap">
+                    <div className="p-t48 p-b50 ">     
+                        <div className="container">
                             <div className="section-content">
-                                <div className="row">
-                                    <div className="col-md-4 col-sm-12">
-                                        {/* TITLE START */}
-                                        <div className="text-left">
-                                            <h2 className="text-uppercase font-36 text-white">Our Premium Products</h2>
-                                            <div className="wt-separator-outer">
-                                                <div className="wt-separator bg-white" />
-                                            </div>
-                                        </div>
-                                        {/* TITLE END */}
-                                    </div>
-                                    <div className="col-md-8 col-sm-12">
-                                        <div className="section-content bg-white p-tb10">
-                                            <OwlCarousel className="owl-carousel home-client-carousel owl-btn-center-v" {...options}>
-                                                {logos.map((item, index) => (
-                                                    <div className="item" key={index}>
-                                                        <div className="ow-client-logo">
-                                                            <div className="client-logo client-logo-media">
-                                                                <NavLink to={"aboutus"}><img src={item.image.default} alt="" /></NavLink></div>
+                                <div className="">
+                                    <div className="row">
+
+                                        {/* <div className='container container-logo'> */}
+                                            <div className='p-b50'>
+                                                <div className="col-md-12 col-sm-12 p-b30">
+                                                    {/* TITLE START */}
+                                                    <div className="text-left">
+                                                        <h2 className="text-uppercase font-36 text-white">My Premium Suppliers</h2>
+                                                        <div className="wt-separator-outer">
+                                                            <div className="wt-separator bg-white" />
                                                         </div>
                                                     </div>
-                                                ))}
-                                            </OwlCarousel>
+                                                    {/* TITLE END */}
+                                                </div>
+                                            </div>
+                                        {/* </div> */}
 
+                                        <div className="col-md-12 col-sm-12">
+                                            <div className="section-content bg-white p-tb80">
+                                                
+                                                <OwlCarousel className="owl-carousel home-client-carousel owl-btn-center-v" {...options}>
+                                                    {logos.map((item, index) => (
+                                                        <div className="item" key={index}>
+                                                            <div className="ow-client-logo">
+                                                                <div className="client-logo client-logo-media">
+                                                                    <NavLink to={"aboutme"}><img src={item.image.default} alt="" /></NavLink>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </OwlCarousel>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </>

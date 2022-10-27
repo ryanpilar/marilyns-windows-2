@@ -38,20 +38,22 @@ class Navigation extends React.Component {
                         <li>
                             <Link to={"#"}>About Me</Link>
                             <ul className="sub-menu v-sub-menu">
-                                <li><a href="/#about">Quick Intro</a></li>
-                                <li><a href="/aboutus">The Full Story</a></li>
+                                <li><a href="/#about">Quick Story</a></li>
+                                <li><a href="/aboutme">The Full Story</a></li>
                             </ul>
                         </li>
 
                         <li><a href="/#services">Services</a></li>
 
-                        <li>
+                        <li><a href="/gallery">Gallery</a></li>
+                        {/* <li>
                             <Link to={"#"}>My Work</Link>
+                            <li><a href="/gallery">Gallery</a></li>
                             <ul className="sub-menu v-sub-menu">
                                 <li><a href="/#work">Latest Projects</a></li>
-                                <li><a href="/work-grid">Gallery</a></li>
+                                <li><a href="/gallery">Gallery</a></li>
                             </ul>
-                        </li>
+                        </li> */}
                         
                         <li><NavLink to={"/blogs"}>Blog</NavLink></li>
 

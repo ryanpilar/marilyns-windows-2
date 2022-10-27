@@ -56,7 +56,8 @@ class About extends React.Component {
                         <div className="section-content">
                             <div className="row">
                                 <div className="col-md-5 col-sm-12 text-uppercase text-black">
-                                    <span className="font-30 font-weight-300 text-dark-purple">I'm Marilyn!</span>
+                                    <span className="font-30 font-weight-300">I'm Marilyn!</span>
+                                    {/* <span className="font-30 font-weight-300 text-dark-purple">I'm Marilyn!</span> */}
                                     <h2 className="font-40">
                                         We are a <span className={this.props.colorclass1}>creative</span> <span className={this.props.colorclass2}> drapery workroom</span>. 
                                     </h2>

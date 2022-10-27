@@ -23,9 +23,9 @@ class Home2 extends React.Component {
                     <About />
                     <Services />
                     <ClientsLogo />
-                    <Testimonials />
                     <LatestProjects />
                     <Statistics />
+                    <Testimonials />
                     <Contact />
  
                 </div>

@@ -50,6 +50,8 @@ class Navigation extends React.Component {
                         <li>
 
                             <Link to={"#"}>About Me</Link>
+                            
+                            
                             <ul className="sub-menu v-sub-menu">
                                 <li>
                                     <Link
@@ -60,10 +62,10 @@ class Navigation extends React.Component {
                                         offset={-35}
                                         duration={500}
                                     >
-                                        Quick Intro
+                                        Quick Story
                                     </Link>
                                 </li>
-                                <li><NavLink to={"/aboutus"}>The Full Story</NavLink></li>
+                                <li><NavLink to={"/aboutme"}>My Full Story</NavLink></li>
                             </ul>
                             
                         </li>
@@ -82,7 +84,10 @@ class Navigation extends React.Component {
                             </Link>
                             
                         </li>
-                        <li>
+
+                        <li><a href="/gallery">Gallery</a></li>
+                        
+                        {/* <li>
                             
                             <Link to={"#"}>My Work</Link>
                             <ul className="sub-menu v-sub-menu">
@@ -99,12 +104,12 @@ class Navigation extends React.Component {
                                         Latest Projects
                                     </Link>
                                 </li>
-                                <li><NavLink to={"/work-grid"}>Gallery</NavLink></li>
-                                {/* <li><NavLink to={"/work-masonary"}>Gallery</NavLink></li> */}
+                                <li><NavLink to={"/gallery"}>Gallery</NavLink></li>
+                                <li><NavLink to={"/work-masonary"}>Gallery</NavLink></li>
                                 
                             </ul>
                             
-                        </li>
+                        </li> */}
                         
                         <li><NavLink to={"/blogs"}>Blog</NavLink></li>
                         

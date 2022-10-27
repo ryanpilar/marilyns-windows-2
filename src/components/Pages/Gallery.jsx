@@ -5,13 +5,13 @@ import 'react-image-lightbox/style.css'; // This only needs to be imported once 
 import { NavLink } from 'react-router-dom';
 import Header2 from '../Common/Header2';
 import Footer from '../Common/Footer';
-import Banner from './../Segments/Banner';
+import Banner from '../Segments/Banner';
 
 const filters = [
     { label: "House", filter: ".cat-1" },
     { label: "Building", filter: ".cat-2" },
     { label: "Office", filter: ".cat-3" },
-    { label: "Garden", filter: ".cat-4" },
+    { label: "Bedroom", filter: ".cat-4" },
     { label: "Interior", filter: ".cat-5" }
 ];
 
@@ -238,7 +238,7 @@ var bnrimg = require('./../../images/banner/sewing-machine-lamp-freepic.png');
 // var bnrimg = require('./../../images/banner/istockphoto-1151872349-1024x1024.jpg');
 
 
-class WorkGrid extends React.Component {
+class Gallery extends React.Component {
     constructor(props) {
         super(props);
     
@@ -248,6 +248,26 @@ class WorkGrid extends React.Component {
         };
     }
 
+    componentDidMount(){
+        function loadScript(src) {
+           
+          return new Promise(function(resolve, reject){
+            var script = document.createElement('script');
+            script.src = src;
+            script.addEventListener('load', function () {
+              resolve();
+            });
+            script.addEventListener('error', function (e) {
+              reject(e);
+            });
+            document.body.appendChild(script);
+            document.body.removeChild(script);
+          })
+        };
+ 
+      loadScript('./assets/js/custom.js');
+      
+    };
  
     render() {
         const { photoIndex, isOpen } = this.state;
@@ -339,4 +359,4 @@ class WorkGrid extends React.Component {
     };
 };
 
-export default WorkGrid;
+export default Gallery;
