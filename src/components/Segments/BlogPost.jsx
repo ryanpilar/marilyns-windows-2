@@ -184,6 +184,8 @@ const BlogPost = () => {
                                 <div className="wt-post-text">
                                         
                                         {convertLineBreaks()}
+
+                                       
  
                                 </div>
                                 <div className="row">
@@ -197,7 +199,7 @@ const BlogPost = () => {
                                                         <li>
                                                             <FacebookShareButton
                                                                 hashtag={'#marilynswindowsandinteriors'}
-                                                                quote={`Don't forget to read Marilyn's article: ${singleBlogPost?.fields?.descriptiveTitle}`}
+                                                                quote={`Don't forget to read Marilyn's article: '${singleBlogPost?.fields?.descriptiveTitle}'`}
                                                                 url={blogRoute}
                                                                 >
                                                                     <a className="fa fa-facebook" />
@@ -205,7 +207,7 @@ const BlogPost = () => {
                                                         </li>
                                                         <li>
                                                             <TwitterShareButton
-                                                                title={`Make sure to checkout this fantastic article by Marilyn: \n${singleBlogPost?.fields?.descriptiveTitle}:`}
+                                                                title={`Make sure to checkout this fantastic article by Marilyn: \n'${singleBlogPost?.fields?.descriptiveTitle}':`}
                                                                 hashtags={['marilynswindowsandinteriors']}
                                                                 url={blogRoute}
                                                                 >
@@ -226,7 +228,7 @@ const BlogPost = () => {
                                                         <li>
                                                             <EmailShareButton 
                                                                 subject={`Read Marilyn's article: ${singleBlogPost?.fields?.descriptiveTitle}`} 
-                                                                body="Link to Marilyn's article: " 
+                                                                body="Link to article: " 
                                                                 url={blogRoute}
                                                                 >
                                                                     <a className="fa fa-envelope" />

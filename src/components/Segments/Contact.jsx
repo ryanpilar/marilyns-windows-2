@@ -1,5 +1,6 @@
 import React from 'react';
 import emailjs from '@emailjs/browser';
+import Loader from './Loader';
 
 
 class Contact extends React.Component {
@@ -12,9 +13,14 @@ class Contact extends React.Component {
             phone: "",
             email: "",
           },
-          message: ""
+          message: "",
+          spinner: false
         };
       }
+
+    toggleSpinner = () => {
+        this.setState({ spinner: !this.state.spinner })
+    }
 
     handleChange = (event) => {
         let name = event.target.name;
@@ -94,7 +100,8 @@ class Contact extends React.Component {
         // } else {
         //   alert("form is invalid");
         // }
-        console.log('SUBMIT BUTTON', e.target);
+        // console.log('SUBMIT BUTTON', e.target);
+        this.toggleSpinner()
 
         emailjs.sendForm(
             'service_7esalt8',           // emailJS service ID
@@ -104,15 +111,21 @@ class Contact extends React.Component {
           )
           .then(
             (result) => {
-              console.log(result.text);
+            //   console.log(result.text);
+              this.toggleSpinner()
               this.emailSuccessfull()
+              
             
             //   alert("Thanks for reaching out! This pop-up is to let you know thahandleChanget your message was been delivered and that I will get back to you shortly.");
             },
             (error) => {
-              console.log(error.text);
-              console.log('e.target', e.target)
-              alert("Something has gone wrong with your form submission. If this message persists, try emailing me directly at ryan_pilar@outlook.com.");
+                this.toggleSpinner()
+                this.emailUnsuccessfull()
+                 console.log(error.text);
+            //   console.log('e.target', e.target)
+              
+            //   alert("Something has gone wrong with your form submission. If this message persists, try emailing me directly at ryan_pilar@outlook.com.");
+              
             }
           );
     };
@@ -122,7 +135,9 @@ class Contact extends React.Component {
     render() {
         const { errors } = this.state
         return (
+
             <>
+                { this.state.spinner && <Loader /> }
                 {/* <Header2 /> */}
                 <div id='contact' className="page-content">
                     {/* SECTION CONTENTG START */}
@@ -134,11 +149,10 @@ class Contact extends React.Component {
                                 <h2 className="text-uppercase font-36">Where to Find us </h2>
                                 <div className="p-t10">
                                     <ul className="list-inline contact-socials">
-                                    <li><a target="_blank" href="https://www.instagram.com/marilynwindowsandinteriors/" className="fa fa-instagram contact-socials" /></li>
+                                        <li><a target="_blank" href="https://www.instagram.com/marilynwindowsandinteriors/" className="fa fa-instagram contact-socials" /></li>
                                         <li><a target="_blank" href="https://www.facebook.com/MarilynsWindows/" className="fa fa-facebook contact-socials" /></li>
                                         <li><a target="_blank" href="https://twitter.com/marilynswindows" className="fa fa-twitter contact-socials" /></li>
                                         <li><a target="_blank" href="https://www.linkedin.com/in/marilynswindows/" className="fa fa-linkedin contact-socials" /></li>
-                                        
                                     </ul>                                    
                                 </div>
                                 <div className="wt-separator-outer">
