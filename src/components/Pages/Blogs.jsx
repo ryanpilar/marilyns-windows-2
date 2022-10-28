@@ -100,8 +100,8 @@ const Blogs = () => {
     const [ blogPost, setBlogPost ] = useState([])
 
     const client = createClient({                                   // contentful connect
-        space: '6puvtv0bf6bf',
-        accessToken: 'BpFpx0SozPL0X73BTfhX470Vea4tMvgXy4GAR_h7hXE',
+        space: process.env.REACT_APP_CONTENTFUL_SPACE,
+        accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
     })
 
     useEffect( () => {
