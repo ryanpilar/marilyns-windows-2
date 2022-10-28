@@ -13,6 +13,7 @@ import Footer from '../Common/Footer';
 import Banner from './../Segments/Banner';
 import RelatedProjects from './../Segments/RelatedProjects';
 
+import { EmailShareButton, FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
 
 import {createClient} from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -32,6 +33,8 @@ const BlogPost = () => {
     const {id} = useParams()                                    // grabs the contentful :id form the address bar
 
     const [singleBlogPost, setSingleBlogPost] = useState([])
+
+    const blogRoute = `https://marilyns-windows.netlify.app/post/${id}`
 
     useEffect( () => {
 
@@ -191,12 +194,62 @@ const BlogPost = () => {
                                                 <h4 className="tagcloud text-uppercase">Share this Post:</h4>
                                                 <div className="widget_social_inks">
                                                     <ul className="social-icons social-md social-square social-dark m-b0">
-                                                        <li><a target="_blank" href="https://www.facebook.com" className="fa fa-facebook" /></li>
-                                                        <li><a target="_blank" href="https://twitter.com" className="fa fa-twitter" /></li>
-                                                        <li><a target="_blank" href="https://in.linkedin.com" className="fa fa-linkedin" /></li>
-                                                        <li><a target="_blank" href="https://rss.com" className="fa fa-rss" /></li>
-                                                        <li><a target="_blank" href="https://www.youtube.com/" className="fa fa-youtube" /></li>
-                                                        <li><a target="_blank" href="https://www.instagram.com/" className="fa fa-instagram" /></li>
+                                                        <li>
+                                                            <FacebookShareButton
+                                                                hashtag={'#marilynswindowsandinteriors'}
+                                                                quote={`Don't forget to read Marilyn's article: ${singleBlogPost?.fields?.descriptiveTitle}`}
+                                                                url={blogRoute}
+                                                                >
+                                                                    <a className="fa fa-facebook" />
+                                                            </FacebookShareButton>
+                                                        </li>
+                                                        <li>
+                                                            <TwitterShareButton
+                                                                title={`Make sure to checkout this fantastic article by Marilyn: \n${singleBlogPost?.fields?.descriptiveTitle}:`}
+                                                                hashtags={['marilynswindowsandinteriors']}
+                                                                url={blogRoute}
+                                                                >
+                                                                    <a className="fa fa-twitter" />
+                                                            </TwitterShareButton>
+                                                        </li>
+                                                        <li>
+                                                            <LinkedinShareButton
+                                                                title={singleBlogPost?.fields?.descriptiveTitle}
+                                                                summary={singleBlogPost?.fields?.blogSummary}
+                                                                source={blogRoute}
+                                                                url={blogRoute}
+                                                                >
+                                                                <a target="_blank" href="https://in.linkedin.com" className="fa fa-linkedin" />
+                                                            </LinkedinShareButton>
+                                                        </li>
+                                                        
+                                                        <li>
+                                                            <EmailShareButton 
+                                                                subject={`Read Marilyn's article: ${singleBlogPost?.fields?.descriptiveTitle}`} 
+                                                                body="Link to Marilyn's article: " 
+                                                                url={blogRoute}
+                                                                >
+                                                                    <a className="fa fa-envelope" />
+                                                            </EmailShareButton>
+                                                        </li>
+                                                        
+                                                        {/* <li>
+                                                            <InstapaperShareButton
+                                                                title={'Check out this article from Marilyn:'}
+                                                                description={singleBlogPost?.fields?.descriptiveTitle}
+                                                                url={blogRoute}
+                                                                >
+                                                                    <a className="fa fa-instagram" />
+                                                            </InstapaperShareButton>
+                                                        </li> */}
+                                                        <li>
+                                                            <a 
+                                                                className="fa fa-link" 
+                                                                style={{'cursor': 'pointer'}}
+                                                                onClick={() =>  navigator.clipboard.writeText(blogRoute)}
+                                                                />
+                                                        </li>
+
                                                     </ul>
                                                 </div>
                                             </div>
