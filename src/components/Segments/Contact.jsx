@@ -100,14 +100,24 @@ class Contact extends React.Component {
         // } else {
         //   alert("form is invalid");
         // }
-        // console.log('SUBMIT BUTTON', e.target);
+
         this.toggleSpinner()
 
+        const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID
+        const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID
+        const userId = process.env.REACT_APP_EMAILJS_USER_ID
+
+        console.log(serviceId, templateId, userId)
+
         emailjs.sendForm(
-            'service_7esalt8',           // emailJS service ID
-            'template_lhkojyq',          // emailJS template ID
+            serviceId,                      // emailJS service ID
+            templateId,                     // emailJS template ID
             e.target,
-            'PAyraLkWOrcJTFjn6'          // emailJS user ID, not sure if this is necessary yet.
+            userId,                         // emailJS user ID, not sure if this is necessary yet.
+            // 'service_7esalt8',           // emailJS service ID
+            // 'template_lhkojyq',          // emailJS template ID
+            // e.target,
+            // 'PAyraLkWOrcJTFjn6',         // emailJS user ID, not sure if this is necessary yet.
           )
           .then(
             (result) => {
