@@ -19,7 +19,7 @@ HTML | CSS | JSX | React | Contentful | EmailJs | Lightbox | Owl-Carousel | Clou
 
 ## 🖥  How to run / Available Scripts
 
-To demo: In the project directory, first `npm install`, then `npm start run`. People running node 17+ will need to include this start script: "react-scripts --openssl-legacy-provider start"
+To demo: In the project directory, first `npm install`, then `npm run start`. People running node 17+ will need to include this start script: "react-scripts --openssl-legacy-provider start"
 
 ### `npm start`
 
