@@ -17,6 +17,7 @@ import { EmailShareButton, FacebookShareButton, LinkedinShareButton, TwitterShar
 
 import {createClient} from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { MARKS } from '@contentful/rich-text-types'
 
 
 
@@ -60,35 +61,37 @@ const BlogPost = () => {
 
         if (singleBlogPost?.fields?.postContent) {
 
-            const document = {
-                nodeType: 'document',
-                data: {},
-                content: [
-                  {
-                    nodeType: 'paragraph',
-                    data: {},
-                    content: [
-                      {
-                        nodeType: 'text',
-                        value: singleBlogPost?.fields?.postContent,
-                        marks: [],
-                        data: {}
-                      },
-                    ],
-                  },
-                ],
-              }
+            // const document = {
+            //     nodeType: 'document',
+            //     data: {},
+            //     content: [
+            //       {
+            //         nodeType: 'paragraph',
+            //         data: {},
+            //         content: [
+            //           {
+            //             nodeType: 'text',
+            //             value: singleBlogPost?.fields?.postContent,
+            //             marks: [],
+            //             data: {}
+            //           },
+            //         ],
+            //       },
+            //     ],
+            //   }
         
             const contentfulOptions = {
-                renderText: text => {
-                    return text.split('\n').reduce((children, textSegment, index) => {
-                      return [...children, index > 0 && <br key={index} />, textSegment];
-                    }, []);
-                  },
+                // renderText: text => {
+                //     return text.split('\n').reduce((children, textSegment, index) => {
+                //       return [...children, index > 0 && <br key={index} />, textSegment];
+                //     }, []);
+                //   },
+
+                renderMark: { [MARKS.CODE]: embedded => <div dangerouslySetInnerHTML={{ __html: embedded }} /> }
             }
 
             
-            return documentToReactComponents(document, contentfulOptions)
+            return documentToReactComponents(singleBlogPost?.fields?.postContent, contentfulOptions)
         }
         else {
             console.log('NO CONTENT PRESENT')
@@ -184,6 +187,8 @@ const BlogPost = () => {
                                 <div className="wt-post-text">
                                         
                                         {convertLineBreaks()}
+                                        {/* {console.log(singleBlogPost?.fields?.postContent)} */}
+                                        {/* {documentToReactComponents(singleBlogPost?.fields?.postContent)} */}
 
                                        
  

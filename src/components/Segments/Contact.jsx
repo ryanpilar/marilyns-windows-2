@@ -114,10 +114,6 @@ class Contact extends React.Component {
             templateId,                     // emailJS template ID
             e.target,
             userId,                         // emailJS user ID, not sure if this is necessary yet.
-            // 'service_7esalt8',           // emailJS service ID
-            // 'template_lhkojyq',          // emailJS template ID
-            // e.target,
-            // 'PAyraLkWOrcJTFjn6',         // emailJS user ID, not sure if this is necessary yet.
           )
           .then(
             (result) => {
