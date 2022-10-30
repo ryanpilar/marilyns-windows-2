@@ -16,13 +16,13 @@ const filters = [
 ];
 
 const projects = [
-    {
-        image: require('./../../images/gallery/portrait/hi-fi/20210604_125547.jpg'),
-        imageHifi: require('./../../images/gallery/portrait/hi-fi/slide1.jpg'),
-        title: 'Triangle Concrete House on lake',
-        description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'cat-1'
-    },
+    // {
+    //     image: require('./../../images/gallery/portrait/hi-fi/20210604_125547.jpg'),
+    //     imageHifi: require('./../../images/gallery/portrait/hi-fi/slide1.jpg'),
+    //     title: 'Triangle Concrete House on lake',
+    //     description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
+    //     filter: 'cat-1'
+    // },
     {
         image: require('./../../images/gallery/portrait/20210618_111954.jpg'),
         imageHifi: require('./../../images/gallery/portrait/hi-fi/slide1.jpg'),
@@ -37,13 +37,13 @@ const projects = [
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
         filter: 'cat-1'
     },
-    {
-        image: require('./../../images/gallery/portrait/hi-fi/20210824_114233.jpg'),
-        imageHifi: require('./../../images/gallery/portrait/hi-fi/slide1.jpg'),
-        title: 'Triangle Concrete House on lake',
-        description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'cat-1'
-    },
+    // {
+    //     image: require('./../../images/gallery/portrait/hi-fi/20210824_114233.jpg'),
+    //     imageHifi: require('./../../images/gallery/portrait/hi-fi/slide1.jpg'),
+    //     title: 'Triangle Concrete House on lake',
+    //     description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
+    //     filter: 'cat-1'
+    // },
     {
         image: require('./../../images/gallery/portrait/20220401_105145.jpg'),
         imageHifi: require('./../../images/gallery/portrait/hi-fi/slide1.jpg'),
@@ -51,13 +51,13 @@ const projects = [
         description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
         filter: 'cat-1'
     },
-    {
-        image: require('./../../images/gallery/portrait/20220429_103818.jpg'),
-        imageHifi: require('./../../images/gallery/portrait/hi-fi/20220429_103818.jpg'),
-        title: 'Triangle Concrete House on lake',
-        description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'cat-1'
-    },
+    // {
+    //     image: require('./../../images/gallery/portrait/20220429_103818.jpg'),
+    //     imageHifi: require('./../../images/gallery/portrait/hi-fi/20220429_103818.jpg'),
+    //     title: 'Triangle Concrete House on lake',
+    //     description: 'Morbi mattis ex non urna condimentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
+    //     filter: 'cat-1'
+    // },
     {
         image: require('./../../images/gallery/portrait/20220706_131619.jpg'),
         imageHifi: require('./../../images/gallery/portrait/hi-fi/slide1.jpg'),
@@ -298,6 +298,29 @@ class Gallery extends React.Component {
                             <div className="container-fluid">
                                 <div className="row">
 
+                                    {isOpen && (
+
+                                        <Lightbox
+                                        
+                                            mainSrc={projects[photoIndex].image.default}
+                                            // nextSrc={projects[(photoIndex + 1) % projects.length].image.default}
+                                            // prevSrc={projects[(photoIndex + projects.length - 1) % projects.length].image.default}
+                                            onCloseRequest={() => this.setState({ isOpen: false })}
+                                            // onMovePrevRequest={() => this.setState({
+                                                // photoIndex: (photoIndex + projects.length - 1) % projects.length,
+                                            // })}
+                                            // onMoveNextRequest={() =>
+                                                // this.setState({
+                                                    // photoIndex: (photoIndex + 1) % projects.length,
+                                            // })}
+                                            discourageDownloads={true}
+                                            clickOutsideToClose={true}
+                                            
+                                            
+                                            
+                                        />
+                                    )}
+
                                     {projects.map((item, index) => (
 
                                         <div key={index} className={`${item.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30`}>
@@ -324,23 +347,7 @@ class Gallery extends React.Component {
                                                 </div>
                                             </div>
 
-                                            {isOpen && (
-                                                    <Lightbox
-                                                    
-                                                        mainSrc={projects[photoIndex].image.default}
-                                                        nextSrc={projects[(photoIndex + 1) % projects.length].image.default}
-                                                        prevSrc={projects[(photoIndex + projects.length - 1) % projects.length].image.default}
-                                                        onCloseRequest={() => this.setState({ isOpen: false })}
-                                                        onMovePrevRequest={() => this.setState({
-                                                            photoIndex: (photoIndex + projects.length - 1) % projects.length,
-                                                        })}
-                                                        onMoveNextRequest={() =>
-                                                            this.setState({
-                                                                photoIndex: (photoIndex + 1) % projects.length,
-                                                        })}
-                                                        discourageDownloads={true}
-                                                    />
-                                            )}
+                                            
 
                                         </div>
 
