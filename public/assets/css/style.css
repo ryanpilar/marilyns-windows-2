@@ -546,7 +546,7 @@ Version: 3.0
 
 ======================================
 43. Work carousal
-======================================
+story======================================
 
 ======================================
 44. Work Masonry
@@ -1268,6 +1268,7 @@ ol.list-num-count.list-outline-none > li:before {background-color:transparent;	c
 .text-green{color:#557131;}
 .text-yellow{color:#D5DD02;}
 .text-light-blue{color:#004F83;}
+.text-dark-blue{color:#405395 !important;}
 /*-------------------------------------
 	2. background color
 -------------------------------------*/
