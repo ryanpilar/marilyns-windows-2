@@ -325,20 +325,21 @@ class Gallery extends React.Component {
                                             </div>
 
                                             {isOpen && (
-                                                <Lightbox
-                                                    mainSrc={projects[photoIndex].imageHifi.default}
-                                                    nextSrc={projects[(photoIndex + 1) % projects.length].imageHifi.default}
-                                                    prevSrc={projects[(photoIndex + projects.length - 1) % projects.length].imageHifi.default}
-                                                    onCloseRequest={() => this.setState({ isOpen: false })}
-                                                    onMovePrevRequest={() => this.setState({
-                                                        photoIndex: (photoIndex + projects.length - 1) % projects.length,
-                                                    })}
-                                                    onMoveNextRequest={() =>
-                                                    this.setState({
-                                                        photoIndex: (photoIndex + 1) % projects.length,
-                                                    })}
-                                                    discourageDownloads={true}
-                                                />
+                                                    <Lightbox
+                                                    
+                                                        mainSrc={projects[photoIndex].image.default}
+                                                        nextSrc={projects[(photoIndex + 1) % projects.length].image.default}
+                                                        prevSrc={projects[(photoIndex + projects.length - 1) % projects.length].image.default}
+                                                        onCloseRequest={() => this.setState({ isOpen: false })}
+                                                        onMovePrevRequest={() => this.setState({
+                                                            photoIndex: (photoIndex + projects.length - 1) % projects.length,
+                                                        })}
+                                                        onMoveNextRequest={() =>
+                                                            this.setState({
+                                                                photoIndex: (photoIndex + 1) % projects.length,
+                                                        })}
+                                                        discourageDownloads={true}
+                                                    />
                                             )}
 
                                         </div>

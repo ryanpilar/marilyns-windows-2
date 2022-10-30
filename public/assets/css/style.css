@@ -559,7 +559,10 @@ Version: 3.0
 ======================================
 46. Contact Form
 ======================================
-*/
+
+======================================
+47. Light Box
+======================================
 
 
 
@@ -5510,6 +5513,14 @@ ol.commentlist li::after {
 .contact-socials {
 	padding: 0 1rem;
 	font-size: 3rem;
+}
+
+/*=========================
+46. Light Box
+=========================*/
+img.ril-image-current {
+	max-width: none !important;
+	/* transform: none !important; */
 }
 
 
