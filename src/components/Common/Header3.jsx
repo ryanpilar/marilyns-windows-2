@@ -9,7 +9,7 @@ class Header3 extends React.Component {
         this.state = { logo: require('./../../images/logo-dark.png') };
     }
 
-    state = { isSearchActive: false, isMenuActive: false };
+    state = { isMenuActive: false };
 
 
 
@@ -82,10 +82,10 @@ class Header3 extends React.Component {
                                             <div className="dropdown-menu bg-white">
                                                 <div className="top-bar">
                                                     <ul className="social-bx list-inline">
-                                                        <li><a target="_blank" href="https://www.facebook.com/MarilynsWindows/" className="fa fa-facebook" /></li>
-                                                        <li><a target="_blank" href="https://twitter.com/marilynswindows" className="fa fa-twitter" /></li>
-                                                        <li><a target="_blank" href="https://www.linkedin.com/in/marilynswindows/" className="fa fa-linkedin" /></li>
-                                                        <li><a target="_blank" href="https://www.instagram.com/marilynwindowsandinteriors/" className="fa fa-instagram" /></li>
+                                                        <li><a target="_blank" rel="noreferrer" href="https://www.facebook.com/MarilynsWindows/" className="fa fa-facebook" /></li>
+                                                        <li><a target="_blank" rel="noreferrer" href="https://twitter.com/marilynswindows" className="fa fa-twitter" /></li>
+                                                        <li><a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/marilynswindows/" className="fa fa-linkedin" /></li>
+                                                        <li><a target="_blank" rel="noreferrer" href="https://www.instagram.com/marilynwindowsandinteriors/" className="fa fa-instagram" /></li>
                                                     </ul>
                                                 </div>
                                             </div>

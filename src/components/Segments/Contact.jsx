@@ -155,10 +155,10 @@ class Contact extends React.Component {
                                 <h2 className="text-uppercase font-36">Where to Find us </h2>
                                 <div className="p-t10">
                                     <ul className="list-inline contact-socials">
-                                        <li><a target="_blank" href="https://www.instagram.com/marilynwindowsandinteriors/" className="fa fa-instagram contact-socials" /></li>
-                                        <li><a target="_blank" href="https://www.facebook.com/MarilynsWindows/" className="fa fa-facebook contact-socials" /></li>
-                                        <li><a target="_blank" href="https://twitter.com/marilynswindows" className="fa fa-twitter contact-socials" /></li>
-                                        <li><a target="_blank" href="https://www.linkedin.com/in/marilynswindows/" className="fa fa-linkedin contact-socials" /></li>
+                                        <li><a target="_blank" rel="noreferrer" href="https://www.instagram.com/marilynwindowsandinteriors/" className="fa fa-instagram contact-socials" /></li>
+                                        <li><a target="_blank" rel="noreferrer" href="https://www.facebook.com/MarilynsWindows/" className="fa fa-facebook contact-socials" /></li>
+                                        <li><a target="_blank" rel="noreferrer" href="https://twitter.com/marilynswindows" className="fa fa-twitter contact-socials" /></li>
+                                        <li><a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/marilynswindows/" className="fa fa-linkedin contact-socials" /></li>
                                     </ul>                                    
                                 </div>
                                 <div className="wt-separator-outer">

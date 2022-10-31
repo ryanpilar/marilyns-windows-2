@@ -44,7 +44,6 @@ const BlogPost = () => {
                 await client.getEntry(id).then( blogEntry => {
                     console.log('BLOG ENTRY', blogEntry)
                     setSingleBlogPost(blogEntry)
-
                 })
             }
             catch (error) {
@@ -57,7 +56,6 @@ const BlogPost = () => {
     }, [])
 
     const convertLineBreaks = () => {
-
 
         if (singleBlogPost?.fields?.postContent) {
 
@@ -87,7 +85,7 @@ const BlogPost = () => {
                 //     }, []);
                 //   },
 
-                renderMark: { [MARKS.CODE]: embedded => <div dangerouslySetInnerHTML={{ __html: embedded }} /> }
+                renderMark: { [MARKS.CODE]: embedded => <span dangerouslySetInnerHTML={{ __html: embedded }} /> }
             }
 
             
@@ -226,7 +224,7 @@ const BlogPost = () => {
                                                                 source={blogRoute}
                                                                 url={blogRoute}
                                                                 >
-                                                                <a target="_blank" href="https://in.linkedin.com" className="fa fa-linkedin" />
+                                                                <a target="_blank" rel="noreferrer" href="https://in.linkedin.com" className="fa fa-linkedin" />
                                                             </LinkedinShareButton>
                                                         </li>
                                                         

@@ -5161,6 +5161,7 @@ ol.commentlist li::after {
 	-o-transform: rotate(-90deg);
 	-ms-transform: rotate(-90deg);
 	transform: rotate(-90deg);
+	cursor: pointer;
 }
 
 @media only screen and (max-width:420px) {	

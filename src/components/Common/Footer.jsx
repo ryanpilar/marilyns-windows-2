@@ -24,7 +24,7 @@ class Footer extends React.Component {
                                 </div>
                                 <div className="col-lg-4 col-md-4 text-center copyright-block p-t15">
                                     <span className="copyrights-text">
-                                        © 2022 built by <Link to={{ pathname: "https://ryan-pilar.netlify.app/" }} target="_blank">ryanpilar</Link></span>
+                                        © 2022 built by <Link to={{ pathname: "https://ryan-pilar.netlify.app/" }} target="_blank" rel="noreferrer">ryanpilar</Link></span>
                                 </div>
                                 <div className="col-lg-4 col-md-5 wt-footer-bot-right p-t15">
                                     <ul className="copyrights-nav pull-right">

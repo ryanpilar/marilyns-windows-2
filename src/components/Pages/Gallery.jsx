@@ -2,7 +2,7 @@ import React from 'react';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
 
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import Header2 from '../Common/Header2';
 import Footer from '../Common/Footer';
 import Banner from '../Segments/Banner';
@@ -248,7 +248,10 @@ class Gallery extends React.Component {
         };
     }
 
+    
+
     componentDidMount(){
+        
         function loadScript(src) {
            
           return new Promise(function(resolve, reject){
@@ -298,28 +301,7 @@ class Gallery extends React.Component {
                             <div className="container-fluid">
                                 <div className="row">
 
-                                    {isOpen && (
-
-                                        <Lightbox
-                                        
-                                            mainSrc={projects[photoIndex].image.default}
-                                            // nextSrc={projects[(photoIndex + 1) % projects.length].image.default}
-                                            // prevSrc={projects[(photoIndex + projects.length - 1) % projects.length].image.default}
-                                            onCloseRequest={() => this.setState({ isOpen: false })}
-                                            // onMovePrevRequest={() => this.setState({
-                                                // photoIndex: (photoIndex + projects.length - 1) % projects.length,
-                                            // })}
-                                            // onMoveNextRequest={() =>
-                                                // this.setState({
-                                                    // photoIndex: (photoIndex + 1) % projects.length,
-                                            // })}
-                                            discourageDownloads={true}
-                                            clickOutsideToClose={true}
-                                            
-                                            
-                                            
-                                        />
-                                    )}
+                                    
 
                                     {projects.map((item, index) => (
 
@@ -332,7 +314,7 @@ class Gallery extends React.Component {
                                                             <h2>{item.title}</h2>
                                                             <p>{item.description}</p>
                                                             <a 
-                                                            className="v-button letter-spacing-4 font-12 text-uppercase p-l20 make-cursor"
+                                                            className="v-button letter-spacing-4 font-18 text-uppercase p-l20 make-pointer"
                                                             // type="button" 
                                                             onClick={() => this.setState({ isOpen: true, photoIndex: Number(index) }) }
                                                             >
@@ -353,6 +335,27 @@ class Gallery extends React.Component {
 
                                     ))}
                                     
+                                    {isOpen && (
+
+                                        <Lightbox
+
+                                            mainSrc={projects[photoIndex].image.default}
+                                            // nextSrc={projects[(photoIndex + 1) % projects.length].image.default}
+                                            // prevSrc={projects[(photoIndex + projects.length - 1) % projects.length].image.default}
+                                            onCloseRequest={() => this.setState({ isOpen: false })}
+                                            // onMovePrevRequest={() => this.setState({
+                                                // photoIndex: (photoIndex + projects.length - 1) % projects.length,
+                                            // })}
+                                            // onMoveNextRequest={() =>
+                                                // this.setState({
+                                                    // photoIndex: (photoIndex + 1) % projects.length,
+                                            // })}
+                                            discourageDownloads={true}
+                                            clickOutsideToClose={true}
+  
+                                        />
+                                    )}
+
                                 </div>
                             </div>
                         </div>

@@ -1,13 +1,12 @@
 import React from 'react';
 import { useEffect, useState, useLayoutEffect } from 'react';
-import { NavLink } from 'react-router-dom';
 
 import {createClient} from 'contentful'
 
 import Header2 from '../Common/Header2';
 import Banner from './../Segments/Banner';
 import BlogCard from '../Segments/BlogCard';
-import Footer from '../Common/Footer';
+// import Footer from '../Common/Footer';
 
 var bnrimg = require('./../../images/banner/6.jpg');
 
@@ -15,15 +14,17 @@ const Blogs = () => {
 
     const [ blogPost, setBlogPost ] = useState([])
 
-    const client = createClient({                                   // contentful connect
-        space: process.env.REACT_APP_CONTENTFUL_SPACE,
-        accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-    })
+    
 
     useEffect( () => {
         const getAllEntries = async() => {                          // contentful get data
             try {
-                await client.getEntries().then( blogEntries => {
+                const client = createClient({                                   // contentful connect
+                    space: process.env.REACT_APP_CONTENTFUL_SPACE,
+                    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+                })
+                
+                await client.getEntries({content_type: 'marilynsWindows'}).then( blogEntries => {
                     console.log('blog entries', blogEntries)
                     setBlogPost(blogEntries)
                 })
@@ -89,7 +90,7 @@ const Blogs = () => {
                                     <div>
                                         {blogPost?.items?.map( (postData, index) => (
                                             <>
-                                            <BlogCard passItem={postData} passIndex={index} />
+                                                <BlogCard key={index} passItem={postData} passIndex={index} />
                                             </>
                                         ))}
                                     </div>
