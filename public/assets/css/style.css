@@ -5149,7 +5149,7 @@ ol.commentlist li::after {
 .line-amiation:hover:after{width:100%;	opacity:1;	left:-20px;}
 .line-amiation:hover:before{height:100%;	top:-20px;	opacity:1;}
 
-.line-amiation a.v-button{
+.line-amiation a.v-button, .line-amiation div.v-button{
 	color:#fff;
 	border-left:2px solid;
 	display:block;
@@ -5165,7 +5165,7 @@ ol.commentlist li::after {
 }
 
 @media only screen and (max-width:420px) {	
-	.line-amiation a.v-button{bottom:70px;}	
+	.line-amiation a.v-button, .line-amiation div.v-button{bottom:70px;}	
 }
 /*===========================
 38. latest-blog-dark
@@ -5464,7 +5464,7 @@ ol.commentlist li::after {
 @media only screen and (max-width:360px) {
 .work-masonry .line-amiation h2{line-height:16px;}
 .work-masonry .line-amiation h2 a{	font-size:12px;	line-height:inherit;}
-.line-amiation a.v-button {bottom: 60px;	right: -50px;}
+.line-amiation a.v-button, .line-amiation div.v-button {bottom: 60px;	right: -50px;}
 }
 
 /*=========================

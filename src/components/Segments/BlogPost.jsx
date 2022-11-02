@@ -55,35 +55,11 @@ const BlogPost = () => {
 
     }, [])
 
-    const convertLineBreaks = () => {
+    const richTextConversion = () => {
 
         if (singleBlogPost?.fields?.postContent) {
 
-            // const document = {
-            //     nodeType: 'document',
-            //     data: {},
-            //     content: [
-            //       {
-            //         nodeType: 'paragraph',
-            //         data: {},
-            //         content: [
-            //           {
-            //             nodeType: 'text',
-            //             value: singleBlogPost?.fields?.postContent,
-            //             marks: [],
-            //             data: {}
-            //           },
-            //         ],
-            //       },
-            //     ],
-            //   }
-        
             const contentfulOptions = {
-                // renderText: text => {
-                //     return text.split('\n').reduce((children, textSegment, index) => {
-                //       return [...children, index > 0 && <br key={index} />, textSegment];
-                //     }, []);
-                //   },
 
                 renderMark: { [MARKS.CODE]: embedded => <span dangerouslySetInnerHTML={{ __html: embedded }} /> }
             }
@@ -184,7 +160,7 @@ const BlogPost = () => {
                                 </div>
                                 <div className="wt-post-text">
                                         
-                                        {convertLineBreaks()}
+                                        {richTextConversion()}
                                         {/* {console.log(singleBlogPost?.fields?.postContent)} */}
                                         {/* {documentToReactComponents(singleBlogPost?.fields?.postContent)} */}
 

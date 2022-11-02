@@ -1,13 +1,13 @@
 import React from 'react';
+import { useEffect, useState, useLayoutEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 
-class SliderSingle extends React.Component {
+const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
 
-    // componentDidMount() is invoked immediately after a component is mounted (inserted into the tree). 
-    componentDidMount() {
+    useLayoutEffect(() => {
         function loadScript(src) {
-
+           
             return new Promise(function (resolve, reject) {
                 var script = document.createElement('script');
                 script.src = src;
@@ -23,20 +23,22 @@ class SliderSingle extends React.Component {
         };
 
         loadScript('./assets/js/rev-script-1.js');
-
-    };
-
-    
-    render() {
-
-        const { image } = this.props
-        const { heading } = this.props
-        const { smallSpan } = this.props
-        const { largeSpan } = this.props
+        
+      }, []);
 
         return (
             <>
-                <img src={image.default} alt="" data-lazyload={image.default} data-bgposition="center center" data-bgfit="cover" data-bgparallax={4} className="rev-slidebg" data-no-retina />
+                <img 
+                    src={image[0].secure_url}
+                    alt={image[0].context.custom.alt} 
+                    data-pin-description={image[0].context.custom.dataPin}
+                    caption={image[0].context.custom.caption}
+                    data-lazyload={image[0].url} 
+                    data-bgposition="center center" 
+                    data-bgfit="cover" 
+                    data-bgparallax={4} 
+                    className="rev-slidebg" 
+                    data-no-retina />
                 
                 {/* LAYERS */}
                 {/* BACKGROUND VIDEO LAYER */}
@@ -226,6 +228,6 @@ class SliderSingle extends React.Component {
             </>
         );
     }
-};
+// };
 
 export default SliderSingle;

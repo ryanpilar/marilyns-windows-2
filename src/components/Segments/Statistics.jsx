@@ -1,17 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import CountUp from 'react-countup';
 
-// const bgimg = require('./../../images/background/sewing-machine-lamp-freepic.png');
-var bgimg = require('./../../images/background/spools-of-thread.jpg');
 
-class Statistics extends React.Component {
-    
-    render() {
+const Statistics = ( {bgimg} ) => {
+
         
         return (
             <>
-                <div className="section-full p-t90 p-b50 overlay-wraper bg-top-center bg-parallax tm-facts-wrap" data-stellar-background-ratio="0.5" style={{ backgroundImage: "url(" + bgimg.default + ")" }}>
+                <div className="section-full p-t90 p-b50 overlay-wraper bg-top-center bg-parallax tm-facts-wrap" data-stellar-background-ratio="0.5" style={{ backgroundImage: `url(${bgimg.cloudinaryImage[0].secure_url})` }}>
                         <div className="overlay-main opacity-08 bg-black" />
                         <div className="container ">
                             <div className="row">
@@ -66,6 +62,6 @@ class Statistics extends React.Component {
             </>
         );
     }
-};
+
 
 export default Statistics;

@@ -4,24 +4,49 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
-const images = [
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { MARKS } from '@contentful/rich-text-types'
 
-    require('./../../images/gallery/fabric-samples.jpeg'),
-    require('./../../images/gallery/marilyn-wine.jpg'),
-    require('./../../images/gallery/sewing-machine-lamp-freepic.png'),
-    require('./../../images/gallery/bedroom-condo.jpg'),
-    require('./../../images/gallery/marilyn-professional.jpg'),
-    require('./../../images/gallery/sewing-machine-working.jpg'),
-    require('./../../images/gallery/living-room-soft.jpg'),
-    require('./../../images/gallery/workroom-misc.jpg'),
-    require('./../../images/gallery/roman-shades.jpeg'),
-    require('./../../images/gallery/kitchen-cute.png'),
-]
+// const images = [
+
+//     require('./../../images/gallery/fabric-samples.jpeg'),
+//     require('./../../images/gallery/marilyn-wine.jpg'),
+//     require('./../../images/gallery/sewing-machine-lamp-freepic.png'),
+//     require('./../../images/gallery/bedroom-condo.jpg'),
+//     require('./../../images/gallery/marilyn-professional.jpg'),
+//     require('./../../images/gallery/sewing-machine-working.jpg'),
+//     require('./../../images/gallery/living-room-soft.jpg'),
+//     require('./../../images/gallery/workroom-misc.jpg'),
+//     require('./../../images/gallery/roman-shades.jpeg'),
+//     require('./../../images/gallery/kitchen-cute.png'),
+// ]
 
 
 class About extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = null
+      }
+
+    richTextConversion = (richText) => {
+
+        if (richText) {
+
+            const contentfulOptions = {
+                renderMark: { [MARKS.CODE]: embedded => <span dangerouslySetInnerHTML={{ __html: embedded }} /> }
+            }
+            return documentToReactComponents(richText, contentfulOptions)
+        }
+        else {
+            console.log('NO CONTENT PRESENT')
+        }
+
+    }
 
     render() {
+        
+        const images = this.props.content.cloudinaryImage
+
         const options = {
             smartSpeed: 700,
             loop: true,
@@ -56,29 +81,35 @@ class About extends React.Component {
                         <div className="section-content">
                             <div className="row">
                                 <div className="col-md-5 col-sm-12 text-uppercase text-black">
-                                    <span className="font-30 font-weight-300">I'm Marilyn!</span>
-                                    {/* <span className="font-30 font-weight-300 text-dark-purple">I'm Marilyn!</span> */}
+                                    <span className="font-30 font-weight-300">
+                                        {this.props.content.span}
+                                    </span>
                                     <h2 className="font-40">
-                                        We are a <span className={this.props.colorclass1}>creative</span> <span className={this.props.colorclass2}> drapery workroom</span>. 
+                                        {this.props.content.heading}
                                     </h2>
-                                    <p>
-                                        For over 30 years, I have been in the business of creating beautiful fine window coverings, pillows, and custom bedding 
-                                        using couture methods. Our clients return again and again because of the exceptional quality and the detail-oriented 
-                                        designs that we deliver.
-                                    </p>
-                                    <p className="text-lowercase">
-                                        We provide custom window treatment design solutions for residential and commercial spaces, across Oakville, Burlington, 
-                                        Mississauga, Georgetown, Milton and surrounding areas.  
-                                    </p>
+
+                                        {/* richTextConverstion renders in a <p> */}
+                                        {this.richTextConversion(this.props.content.topParagraph)}
+                                    
+                                    <div className="text-lowercase">
+                                        {this.richTextConversion(this.props.content.bottomParagraph)}
+                                    </div>
                                     <NavLink to={"/aboutus"} className="btn-half site-button button-lg m-b15"><span>Read My Full Story</span><em /></NavLink>
                                 </div>
+                                
                                 <div className="col-md-7 col-sm-12">
                                     <div className="m-carousel-1 m-l100">
                                         <OwlCarousel className="owl-carousel home-carousel-1 owl-btn-vertical-center" {...options}>
                                             {images.map((item, index) => (
                                                 <div className="item" key={index}>
                                                     <div className="ow-img wt-img-effect zoom-slow">
-                                                        <img src={item.default} alt="" />
+                                                    {console.log('image content test', item)}
+                                                        <img 
+                                                            src={item.secure_url} 
+                                                            alt={item.context.custom.alt} 
+                                                            data-pin-description={item.context.custom.dataPin}
+                                                            caption={item.context.custom.caption} 
+                                                        />
                                                     </div>
                                                 </div>
 
@@ -87,6 +118,7 @@ class About extends React.Component {
                                         </OwlCarousel>
                                     </div>
                                 </div>
+
                             </div>
                             <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
                                 <strong>30+ Years</strong>

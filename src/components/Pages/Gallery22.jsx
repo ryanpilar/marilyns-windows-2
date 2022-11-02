@@ -106,44 +106,42 @@ const Gallery22 = () => {
                             <div className="row">
 
 
-
-                                {imageList.map((item, index) => (
+                                {imageList && (
+                                <div>
+                                    {imageList.map((item, index) => (
                                     
-                                    <div key={index} className={`${item.fields.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30`}>
-
-                                        <div className="wt-img-effect ">
-                                            <img src={item.fields.cloudinaryImage[0].url} alt={item.fields?.alt} />
-                                            <div className="overlay-bx-2 ">
-                                                <div className="line-amiation">
-                                                    <div className="text-white font-weight-300 p-a40">
-                                                        <h2>{item.fields.title}</h2>
-                                                        <p>{item.fields.briefDescription}</p>
-                                                        <a 
-                                                        className="v-button letter-spacing-4 font-18 text-uppercase p-l20 make-pointer"
-                                                        // type="button" 
-                                                        // onClick={() => this.setState({ isOpen: true, photoIndex: Number(index) }) }
-                                                        onClick={ () => {
-                                                            setIsOpen(true)
-                                                            setPhotoIndex(Number(index))
-                                                        }}
-                                                        >
-                                                            <p>
-                                                                <i className="fa fa-search" aria-hidden="true"></i> Enlarge
-                                                            </p>
-
-                                                            
-                                                        </a>
+                                        <div key={index} className={`${item.fields.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30`}>
+                                            <div className="wt-img-effect ">
+                                                <img src={item.fields.cloudinaryImage[0].url} alt={item.fields?.alt} />
+                                                <div className="overlay-bx-2 ">
+                                                    <div className="line-amiation">
+                                                        <div className="text-white font-weight-300 p-a40">
+                                                            <h2>{item.fields.title}</h2>
+                                                            <p>{item.fields.briefDescription}</p>
+                                                            <div
+                                                                className="v-button letter-spacing-4 font-18 text-uppercase p-l20 make-pointer"
+                                                                // type="button"
+                                                                // onClick={() => this.setState({ isOpen: true, photoIndex: Number(index) }) }
+                                                                aria-hidden="true"
+                                                                onClick={ () => {
+                                                                    setIsOpen(true)
+                                                                    setPhotoIndex(Number(index))
+                                                            }}
+                                                            >
+                                                                <p>
+                                                                    <i className="fa fa-search" aria-hidden="true"></i> Enlarge
+                                                                </p>
+                                    
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                    
                                         </div>
-
-                                        
-
-                                    </div>
-
-                                ))}
-
+                                    ))}
+                                </div>
+                                )}
                                 {isOpen && (
 
                                     <Lightbox

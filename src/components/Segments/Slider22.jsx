@@ -1,13 +1,41 @@
 import React from 'react';
+import { useEffect, useState, useLayoutEffect } from 'react';
+import {createClient} from 'contentful'
 import { NavLink } from 'react-router-dom';
 import SliderSingle from './SliderSingle'
 
-class Slider22 extends React.Component {
 
-    // componentDidMount() is invoked immediately after a component is mounted (inserted into the tree). 
-    componentDidMount() {
+
+const Slider22 = () => {
+
+    const [ sliderList, setSliderList ] = useState(false)
+    const [frameSpeed, setFrameSpeed ] = useState(1600)
+    const client = createClient({                                   // contentful connect
+        space: process.env.REACT_APP_CONTENTFUL_SPACE,
+        accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+    })
+
+    useEffect( () => {
+        const getAllEntries = async() => {                          // contentful get data
+            try {
+                await client.getEntries({content_type: 'slider'}).then( allEntries => {
+                    console.log('ALL ENTRIES', allEntries)
+                    setSliderList(allEntries.items)
+                })
+                
+            }
+            catch (error) {
+                console.log('this error arose from the client.getEntries() call to contentful')
+            }
+        }
+
+        getAllEntries()
+
+    }, [])
+
+    useLayoutEffect(() => {
         function loadScript(src) {
-
+           
             return new Promise(function (resolve, reject) {
                 var script = document.createElement('script');
                 script.src = src;
@@ -23,97 +51,63 @@ class Slider22 extends React.Component {
         };
 
         loadScript('./assets/js/rev-script-1.js');
-
-    };
-
-    
-    render() {
         
-
-        const data = {
-            
-                slide1: {
-                    image: require('./../../images/main-slider/slider1/roman-shades-kitchen.jpeg'),
-                    heading: 'General',
-                    largeSpan: 'A Custom Drapery Workroom',
-                    smallSpan: 'Defining the exquisite art of custom design and couture window dressings.'
-                },
-                slide2: {
-                    image: require('./../../images/main-slider/slider1/bedroom-bright.jpg'),
-                    heading: 'General',
-                    largeSpan: 'Natural plus modern.',
-                    smallSpan: 'seed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                },
-                // slide3: {
-                //     image: require('./../../images/main-slider/slider1/kitchen-dinning-open-bright.jpg'),
-                //     heading: 'General',
-                //     largeSpan: 'Natural plus modern.',
-                //     smallSpan: 'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                // },
-                slide4: {
-                    image: require('./../../images/main-slider/slider1/living-room-large.jpg'),
-                    heading: 'General',
-                    largeSpan: 'Natural plus modeern.',
-                    smallSpan: 'sed do eiusemod tempor incididunt ut labore et dolore magna aliqua.'
-                },
-                // slide5: {
-                //     image: require('./../../images/main-slider/slider1/open-woody-room.jpg'),
-                //     heading: 'General',
-                //     largeSpan: 'Natural pleus modern.',
-                //     smallSpan: 'sed do eiusmeod tempor incididunt ut labore et dolore magna aliqua.'
-                // },
-                // slide6: {
-                //     image: require('./../../images/main-slider/slider1/kitchen-dinning-open-bright.jpg'),
-                //     heading: 'General',
-                //     largeSpan: 'Natural plus modern.',
-                //     smallSpan: 'sed do eiusmod tempor incidideunt ut labore et dolore magna aliqua.'
-                // },
-                // slide7: {
-                //     image: require('./../../images/main-slider/slider1/sewing-machine-working.jpg'),
-                //     heading: 'General',
-                //     largeSpan: 'Natural plus modern.',
-                //     smallSpan: 'sed do eiusmod tempor incidideunt ut labore et dolore magna aliqua.'
-                // },
-                // slide8: {
-                //     image: require('./../../images/main-slider/slider1/spools-of-thread.png'),
-                //     heading: 'General',
-                //     largeSpan: 'Natural plus modern.',
-                //     smallSpan: 'sed do eiusmod tempor incidideunt ut labore et dolore magna aliqua.'
-                // },
-                // slide9: {
-                //     image: require('./../../images/main-slider/slider1/living-room-big-entrance.jpeg'),
-                //     heading: 'General',
-                //     largeSpan: 'Natural plus modern.',
-                //     smallSpan: 'sed do eiusmod tempor incidideunt ut labore et dolore magna aliqua.'
-                // },
-
-        }
-        const frameSpeed = 1600
+      }, []);
 
 
         return (
             <>
+            { sliderList && (
               <div id="welcome_wrapper" className="rev_slider_wrapper fullscreen-container" data-alias="goodnews-header" data-source="gallery" style={{ background: '#eeeeee', padding: 0 }}>
                     <div id="welcome" className="rev_slider fullscreenbanner" style={{ display: 'none' }} data-version="5.4.3.1">
-                        <ul>
+                        
+                            <ul>
                             {/* SLIDE 1 */}
+
+                            
+                                <li data-index="rs-902" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={sliderList[0].fields.cloudinaryImage[0].secure_url} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 
-                            <li data-index="rs-902" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image.default} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
-                                <SliderSingle 
-                                    image={ data.slide1.image } 
-                                    heading={ data.slide1.heading } 
-                                    largeSpan={ data.slide1.largeSpan } 
-                                    smallSpan={ data.slide1.smallSpan } 
-                                    />
-                            </li>
-                            <li data-index="rs-903" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image.default} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
+                                {console.log('SLIDER LIST LIST', sliderList)}
+                                    <SliderSingle 
+                                        image={ sliderList[0].fields.cloudinaryImage } 
+                                        heading={ sliderList[0].fields.heading } 
+                                        largeSpan={ sliderList[0].fields.largeSpan } 
+                                        smallSpan={ sliderList[0].fields.smallSpan } 
+                                        />
+                                </li>
+
+                                <li data-index="rs-903" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={sliderList[1].fields.cloudinaryImage[0].secure_url} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
+                                
+                                {console.log('SLIDER LIST LIST', sliderList)}
+                                    <SliderSingle 
+                                        image={ sliderList[1].fields.cloudinaryImage } 
+                                        heading={ sliderList[1].fields.heading } 
+                                        largeSpan={ sliderList[1].fields.largeSpan } 
+                                        smallSpan={ sliderList[1].fields.smallSpan } 
+                                        />
+                                </li>
+
+                                <li data-index="rs-904" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={sliderList[2].fields.cloudinaryImage[0].secure_url} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
+                                
+                                {console.log('SLIDER LIST LIST', sliderList)}
+                                    <SliderSingle 
+                                        image={ sliderList[2].fields.cloudinaryImage } 
+                                        heading={ sliderList[2].fields.heading } 
+                                        largeSpan={ sliderList[2].fields.largeSpan } 
+                                        smallSpan={ sliderList[2].fields.smallSpan } 
+                                        />
+                                </li>
+
+                                
+
+                            {/* <li data-index="rs-903" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image.default} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 <SliderSingle 
                                     image={ data.slide2.image } 
                                     heading={ data.slide2.heading } 
                                     largeSpan={ data.slide2.largeSpan } 
                                     smallSpan={ data.slide2.smallSpan } 
                                     />
-                            </li>
+                            </li> */}
                             {/* <li data-index="rs-904" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image.default} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 <SliderSingle 
                                     image={ data.slide3.image } 
@@ -122,14 +116,14 @@ class Slider22 extends React.Component {
                                     smallSpan={ data.slide3.smallSpan } 
                                     />
                             </li> */}
-                            <li data-index="rs-905" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image.default} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
+                            {/* <li data-index="rs-905" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image.default} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 <SliderSingle 
                                     image={ data.slide4.image } 
                                     heading={ data.slide4.heading } 
                                     largeSpan={ data.slide4.largeSpan } 
                                     smallSpan={ data.slide4.smallSpan } 
                                     />
-                            </li>
+                            </li> */}
                             {/* <li data-index="rs-906" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={data.slide1.image} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 <SliderSingle 
                                     image={ data.slide5.image } 
@@ -172,12 +166,15 @@ class Slider22 extends React.Component {
                             </li> */}
 
                         </ul>
+                        
                         <div className="tp-bannertimer tp-bottom" style={{ visibility: 'hidden !important' }} />
                     </div>
                 </div>  
+                )}
             </>
         );
     }
-};
+// };
 
 export default Slider22;
+
