@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect, useState, useLayoutEffect } from 'react';
+
 import { NavLink } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -73,62 +75,66 @@ const projects = [
     }
 ]
 
-class LatestProjects extends React.Component {
-    componentDidMount(){
+
+const LatestProjects = ( {content} ) => {
+
+
+    useLayoutEffect(() => {
+        
         function loadScript(src) {
            
-          return new Promise(function(resolve, reject){
-            var script = document.createElement('script');
-            script.src = src;
-            script.addEventListener('load', function () {
-              resolve();
-            });
-            script.addEventListener('error', function (e) {
-              reject(e);
-            });
-            document.body.appendChild(script);
-            document.body.removeChild(script);
-          })
+            return new Promise(function(resolve, reject){
+              var script = document.createElement('script');
+              script.src = src;
+              script.addEventListener('load', function () {
+                resolve();
+              });
+              script.addEventListener('error', function (e) {
+                reject(e);
+              });
+              document.body.appendChild(script);
+              document.body.removeChild(script);
+            })
         };
- 
-      loadScript('./assets/js/custom.js');
-      
-    };
-    render() {
-        const options = {
-            loop:true,
-            autoplay:true,
-            margin:20,
-            nav:true,
-            dots: false,
-            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-            responsive:{
-                0:{
-                    items:1
-                },
-                480:{
-                    items:1
-                },
-                580:{
-                    items:2
-                },						
-                767:{
-                    items:2
-                },
-                991:{
-                    items:3
-                },			
-                1152:{
-                    items:4
-                },
-                1360:{
-                    items:4
-                },
-                1366:{
-                    items:5
-                }	
-                }
-        };
+   
+        loadScript('./assets/js/custom.js');
+    }, []);
+
+    const options = {
+        loop:true,
+        autoplay:true,
+        margin:20,
+        nav:true,
+        dots: false,
+        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+        responsive:{
+            0:{
+                items:1
+            },
+            480:{
+                items:1
+            },
+            580:{
+                items:2
+            },						
+            767:{
+                items:2
+            },
+            991:{
+                items:3
+            },			
+            1152:{
+                items:4
+            },
+            1360:{
+                items:4
+            },
+            1366:{
+                items:5
+            }	
+        }    
+    }
+
         return (
             <>
                 <div id='work' className="section-full p-t90 p-lr80 latest_project-outer square_shape3">
@@ -156,24 +162,28 @@ class LatestProjects extends React.Component {
                         {/* IMAGE CAROUSEL START */}
                         <div className="section-content">
                             {/* <OwlCarousel className="owl-carousel  owl-btn-bottom-left" {...options}> */}
+                            
                             <OwlCarousel className="owl-carousel owl-carousel-filter  owl-btn-bottom-left" {...options}>
-                                        {projects.map((item, index) => (
-                                            <div key={index} className={`${item.filter} item fadingcol`}>
-                                                <div className="wt-img-effect ">
-                                                    <img src={item.image.default} alt="" />
-                                                    <div className="overlay-bx-2 ">
-                                                        <div className="line-amiation">
-                                                            <div className="text-white  font-weight-300 p-a40">
-                                                                <h2><NavLink to={"/project-detail"} className="text-white font-20 letter-spacing-1 text-uppercase">{item.title}</NavLink></h2>
-                                                                <p>{item.description}</p>
-                                                                <NavLink to={"/project-detail"} className="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</NavLink>
-                                                            </div>
-                                                        </div>
+
+                                {content.map((item, index) => (
+                                    <div key={index} className={`${item.fields.filter} item fadingcol`}>
+                                        <div className="wt-img-effect ">
+                                            <img src={item.fields.smallImage[0].secure_url} alt="" />
+                                            <div className="overlay-bx-2 ">
+                                                <div className="line-amiation">
+                                                    <div className="text-white  font-weight-300 p-a40">
+                                                        <h2><NavLink to={"/project-detail"} className="text-white font-20 letter-spacing-1 text-uppercase">{item.fields.cardTitle}</NavLink></h2>
+                                                        <p>{item.fields.cardDescription}</p>
+                                                        {/* <NavLink to={"/project-detail"} className="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</NavLink> */}
                                                     </div>
                                                 </div>
                                             </div>
-                                        ))}
-                                    </OwlCarousel>
+                                        </div>
+                                    </div>
+                                ))}
+                                
+                            </OwlCarousel>
+
                         </div>
 
                         {/* <div className="section-content "> */}
@@ -192,6 +202,5 @@ class LatestProjects extends React.Component {
             </>
         );
     }
-};
 
 export default LatestProjects;

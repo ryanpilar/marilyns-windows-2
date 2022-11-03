@@ -1,7 +1,7 @@
 import React from 'react';
 
 var img1 = require('./../../images/gallery/istockphoto-1226032044-1024x1024.jpg');
-var img2 = require('./../../images/gallery/Johnston_Hall_University_of_Guelph.JPG');
+// var img2 = require('./../../images/gallery/Johnston_Hall_University_of_Guelph.JPG');
 var img3 = require('./../../images/gallery/20210527_113548.jpg');
 var img4 = require('./../../images/gallery/marilyn-amy.jpg');
 var img5 = require('./../../images/gallery/marilyn-wine.jpg');
@@ -39,7 +39,7 @@ class Story extends React.Component {
                                             </div>
                                         </div>
                                 </div>
-                                <div className="row">
+                                {/* <div className="row">
                                     <div className="col-md-6 col-sm-12">
                                         <div className="wt-box our-story-detail">
                                             <h3 className="text-uppercase">2013-14</h3>
@@ -52,7 +52,7 @@ class Story extends React.Component {
                                             <img src={img2.default} alt="" />
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className="row">
                                     <div className="col-md-6 col-sm-12">
                                         <div className="wt-media our-story-pic">

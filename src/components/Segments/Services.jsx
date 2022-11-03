@@ -71,7 +71,6 @@ const Services = ( {content} ) => {
                     style={{ backgroundImage: `url(${content.backgroundImage[0].secure_url})` }}
 
                 >
-                    {console.log('SERVICE SERVICES', content)}
                     <div className="overlay-main opacity-08 bg-black" />
                     <div className="container">
                         {/* TITLE START */}
@@ -84,6 +83,7 @@ const Services = ( {content} ) => {
                         {/* TITLE END */}
                         <div className="section-content circle-block-outer" data-toggle="tab-hover">
                             <div className="row">
+
                                 <div className="col-md-4 col-sm-12 m-b30">
                                     {servicesleft.map((item, index) => (
                                         <div className="wt-icon-box-wraper right p-a20 m-b50 text-white" data-target={`#tab${item.counter}`} data-toggle="tab" key={index}>
@@ -92,12 +92,12 @@ const Services = ( {content} ) => {
                                                 <p>{item.description}</p>
                                             </div>
                                         </div>
-
                                     ))}
-
                                 </div>
+
                                 <div className="col-md-4 col-sm-12 m-b30">
                                     <div className="circle-content-pic tab-content ">
+                                        
                                         {content.cloudinaryImage.map((item, index) => (
                                             <div className={index == 0 ? `tab-pane active` : `tab-pane`} id={`tab${index}`} key={index}>
                                                 <div className="wt-box">
@@ -111,12 +111,13 @@ const Services = ( {content} ) => {
                                                     </div>
                                                 </div>
                                             </div>
-
                                         ))}
 
                                     </div>
                                 </div>
+                                
                                 <div className="col-md-4 col-sm-12 m-b30">
+                                    
                                     {servicesright.map((item, index) => (
                                         <div className="wt-icon-box-wraper left p-a20 m-b50 text-white" data-target={`#tab${item.counter}`} data-toggle="tab" key={index}>
                                             <div className="icon-content">
@@ -124,10 +125,10 @@ const Services = ( {content} ) => {
                                                 <p>{item.description}</p>
                                             </div>
                                         </div>
-
                                     ))}
 
                                 </div>
+
                             </div>
                         </div>
                     </div>

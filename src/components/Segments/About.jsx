@@ -103,7 +103,6 @@ class About extends React.Component {
                                             {images.map((item, index) => (
                                                 <div className="item" key={index}>
                                                     <div className="ow-img wt-img-effect zoom-slow">
-                                                    {console.log('image content test', item)}
                                                         <img 
                                                             src={item.secure_url} 
                                                             alt={item.context.custom.alt} 

@@ -67,7 +67,7 @@ const Slider22 = () => {
                             
                                 <li data-index="rs-902" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={sliderList[0].fields.cloudinaryImage[0].secure_url} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 
-                                {console.log('SLIDER LIST LIST', sliderList)}
+                                {/* {console.log('SLIDER LIST LIST', sliderList)} */}
                                     <SliderSingle 
                                         image={ sliderList[0].fields.cloudinaryImage } 
                                         heading={ sliderList[0].fields.heading } 
@@ -78,7 +78,7 @@ const Slider22 = () => {
 
                                 <li data-index="rs-903" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={sliderList[1].fields.cloudinaryImage[0].secure_url} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 
-                                {console.log('SLIDER LIST LIST', sliderList)}
+                                {/* {console.log('SLIDER LIST LIST', sliderList)} */}
                                     <SliderSingle 
                                         image={ sliderList[1].fields.cloudinaryImage } 
                                         heading={ sliderList[1].fields.heading } 
@@ -89,7 +89,7 @@ const Slider22 = () => {
 
                                 <li data-index="rs-904" data-transition="fadethroughdark" data-slotamount="default" data-hideafterloop={0} data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb={sliderList[2].fields.cloudinaryImage[0].secure_url} data-rotate={0} data-fstransition="fade" data-fsmasterspeed={frameSpeed} data-fsslotamount={7} data-saveperformance="off" data-title data-param1 data-param2 data-param3 data-param4 data-param5 data-param6 data-param7 data-param8 data-param9 data-param10 data-description>
                                 
-                                {console.log('SLIDER LIST LIST', sliderList)}
+                                {/* {console.log('SLIDER LIST LIST', sliderList)} */}
                                     <SliderSingle 
                                         image={ sliderList[2].fields.cloudinaryImage } 
                                         heading={ sliderList[2].fields.heading } 

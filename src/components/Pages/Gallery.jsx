@@ -319,7 +319,7 @@ class Gallery extends React.Component {
                                                             onClick={() => this.setState({ isOpen: true, photoIndex: Number(index) }) }
                                                             >
                                                                 <p>
-                                                                    <i class="fa fa-search" aria-hidden="true"></i> Enlarge
+                                                                    <i className="fa fa-search" aria-hidden="true"></i> Enlarge
                                                                 </p>
 
                                                                 

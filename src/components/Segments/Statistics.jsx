@@ -2,26 +2,23 @@ import React from 'react';
 import CountUp from 'react-countup';
 
 
-const Statistics = ( {bgimg} ) => {
+const Statistics = ( {content} ) => {
 
         
         return (
             <>
-                <div className="section-full p-t90 p-b50 overlay-wraper bg-top-center bg-parallax tm-facts-wrap" data-stellar-background-ratio="0.5" style={{ backgroundImage: `url(${bgimg.cloudinaryImage[0].secure_url})` }}>
+                <div className="section-full p-t90 p-b50 overlay-wraper bg-top-center bg-parallax tm-facts-wrap" data-stellar-background-ratio="0.5" style={{ backgroundImage: `url(${content.backgroundImage[0].secure_url})` }}>
                         <div className="overlay-main opacity-08 bg-black" />
                         <div className="container ">
                             <div className="row">
                                 <div className="col-md-6 col-sm-12">
                                     <div className="some-facts">
                                         <div className="text-white">
-                                            <span className="font-40 font-weight-300  text-uppercase">Some</span>
+                                            <span className="font-40 font-weight-300  text-uppercase">{content.span}</span>
                                             <h2 className="font-50  text-uppercase">
-                                                Intresting Facts
+                                                {content.heading}
                                             </h2>
-                                            <p className="font-18 font-weight-300">Morbi mattis ex non urna condimentum, eget eleif
-                                                end diam molestie. Curabitur lorem enim, maximus
-                                                non nulla sed, egestas venenatis felis.
-                                            </p>
+                                            <p className="font-18 font-weight-300">{content.paragraph}</p>
                                         </div>
                                     </div>
                                 </div>
