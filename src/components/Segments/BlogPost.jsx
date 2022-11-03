@@ -11,7 +11,6 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import Header2 from '../Common/Header2';
 import Footer from '../Common/Footer';
 import Banner from './../Segments/Banner';
-import RelatedProjects from './../Segments/RelatedProjects';
 
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
 

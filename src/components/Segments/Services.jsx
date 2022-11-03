@@ -4,36 +4,36 @@ import { useLayoutEffect } from 'react';
 const servicesleft = [
     {
         counter: 0,
-        title: 'Living Spaces',
-        description: 'Main spaces, kitchen, bedroom and outdoor. Working with us is simple, no matter how complex the design.',
+        title: 'Artisan Drapery',
+        description: 'Trendy fabrics in an array of styles can elegantly complete a room or complement other window treatments',
     },
     {
         counter: 1,
-        title: 'Bedroom',
-        description: 'Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac eleifend.',
+        title: 'Natural Organic Drapes',
+        description: 'Renewable material solutions, environmentally friendly',
     },
     {
         counter: 2,
-        title: 'Installation',
-        description: 'Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac eleifend.',
+        title: 'Valances and Cornices',
+        description: 'Eye-catching accessories that can stand alone or complement your window treatments',
     }
 ]
 
 const servicesright = [
     {
         counter: 3,
-        title: 'Custom Drapes and Window Treatments',
-        description: 'Roman shades, headboards, cornices, pillows, bedding.',
+        title: 'Drapery',
+        description: 'We can make any design unique and complementary to your style.',
     },
     {
         counter: 4,
         title: 'Blinds / Motorized',
-        description: 'Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac eleifend.',
+        description: 'Custom window blinds are the perfect option for achieving privacy and lighting control.',
     },
     {
         counter: 5,
-        title: 'Outdoor',
-        description: 'Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac eleifend.',
+        title: 'Top Treatments',
+        description: 'The right fabrics can instantly update and refresh your space, and allow you to transform everyday items into stunning statement pieces. ',
     }
 ]
 

@@ -18,64 +18,6 @@ const filters = [
     // { label: "Restaurant", filter: ".restaurant-col" }
 ];
 
-const projects = [
-    {
-        image: require('./../../images/gallery/portrait/living-room-fancy.png'),
-        title: 'Triangle Concrete House on lake',
-        description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'bedroom-col'
-    },
-    {
-        image: require('./../../images/gallery/portrait/AdobeStock_202662356_Preview.jpeg'),
-        title: 'Triangle Concrete House on lake',
-        description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'bedroom-col'
-    },
-    {
-        image: require('./../../images/gallery/portrait/AdobeStock_336706750_Preview.jpeg'),
-        title: 'Triangle Concrete House on lake',
-        description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'bedroom-col'
-    },
-    {
-        image: require('./../../images/gallery/portrait/AdobeStock_343505536_Preview.jpeg'),
-        title: 'Triangle Concrete House on lake',
-        description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'bedroom-col'
-    },
-    {
-        image: require('./../../images/gallery/portrait/breakfast-nook.jpg'),
-        title: 'Triangle Concrete House on lake',
-        description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'living-col'
-    },
-    {
-        image: require('./../../images/gallery/portrait/kitchen-cute-small.png'),
-        title: 'Triangle Concrete House on lake',
-        description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'kitchen-col'
-    },
-    {
-        image: require('./../../images/gallery/portrait/pexels-jahns-chavez-969593.jpg'),
-        title: 'Triangle Concrete House on lake',
-        description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'outdoor-col'
-    },
-    {
-        image: require('./../../images/gallery/portrait/pexels-max-vakhtbovych-6947277.jpg'),
-        title: 'Triangle Concrete House on lake',
-        description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'outdoor-col'
-    },
-    {
-        image: require('./../../images/gallery/portrait/solarium.jpeg'),
-        title: 'Triangle Concrete House on lake',
-        description: 'Morbi mattis ex non urna condi mentum, eget eleifend diam molestie. Curabitur lorem enim, maximus non null.',
-        filter: 'outdoor-col'
-    }
-]
-
-
 const LatestProjects = ( {content} ) => {
 
 
