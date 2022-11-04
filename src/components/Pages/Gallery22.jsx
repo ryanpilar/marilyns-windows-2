@@ -165,7 +165,7 @@ const Gallery22 = () => {
 
                                         <Lightbox
 
-                                            mainSrc={imageList[photoIndex].fields.smallImage[0].url}           // there will always be only one image, hence [0]
+                                            mainSrc={imageList[photoIndex].fields.smallImage[0].secure_url}           // there will always be only one image, hence [0]
                                             // nextSrc={projects[(photoIndex + 1) % projects.length].image.default}
                                             // prevSrc={projects[(photoIndex + projects.length - 1) % projects.length].image.default}
 

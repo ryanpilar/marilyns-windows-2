@@ -131,7 +131,7 @@ const BlogPost = () => {
 
                                             <div className="item" key={item.sys.id}>
                                                 <div className="aon-thum-bx">
-                                                    <img src={`https:${item?.fields?.file.url}`} alt={item?.fields?.description} />
+                                                    <img src={`https:${item?.fields?.file.secure_url}`} alt={item?.fields?.description} />
                                                     {/* <img src={item?.fields?.file.url} alt={item?.fields?.description} /> */}
                                                 </div>
                                             </div>

@@ -33,7 +33,7 @@ const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
                     alt={image[0].context.custom.alt} 
                     data-pin-description={image[0].context.custom.dataPin}
                     caption={image[0].context.custom.caption}
-                    data-lazyload={image[0].url} 
+                    data-lazyload={image[0].secure_url} 
                     data-bgposition="center center" 
                     data-bgfit="cover" 
                     data-bgparallax={4} 
