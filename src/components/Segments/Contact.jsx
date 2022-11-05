@@ -152,7 +152,7 @@ class Contact extends React.Component {
                         <div className="container">
                             {/* TITLE START */}
                             <div className="section-head text-left text-black">
-                                <h2 className="text-uppercase font-36">Where to Find us </h2>
+                                <h2 className="text-uppercase font-36">Contact us </h2>
                                 
                                 <div className="p-t10">
                                     <ul className="list-inline contact-socials">

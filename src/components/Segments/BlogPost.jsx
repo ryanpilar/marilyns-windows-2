@@ -11,6 +11,8 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import Header2 from '../Common/Header2';
 import Footer from '../Common/Footer';
 import Banner from './../Segments/Banner';
+import SEO from '../Segments/SEO';
+
 
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
 
@@ -96,6 +98,11 @@ const BlogPost = () => {
   return (
     
     <>
+        <SEO 
+            title={`Marilyn's Windows | Posts | ${singleBlogPost?.fields?.title}`} 
+            description={singleBlogPost?.fields?.metaDescription} 
+        />
+
         <Header2 />
         <div className="page-content ">
             
@@ -131,7 +138,7 @@ const BlogPost = () => {
 
                                             <div className="item" key={item.sys.id}>
                                                 <div className="aon-thum-bx">
-                                                    <img src={`https:${item?.fields?.file.secure_url}`} alt={item?.fields?.description} />
+                                                    <img src={`https:${item?.fields?.file.url}`} alt={item?.fields?.description} />
                                                     {/* <img src={item?.fields?.file.url} alt={item?.fields?.description} /> */}
                                                 </div>
                                             </div>

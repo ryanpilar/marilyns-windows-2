@@ -7,6 +7,8 @@ import Header2 from '../Common/Header2';
 import Banner from './../Segments/Banner';
 import BlogCard from '../Segments/BlogCard';
 // import Footer from '../Common/Footer';
+import SEO from '../Segments/SEO';
+
 
 var bnrimg = require('./../../images/banner/6.jpg');
 
@@ -24,7 +26,7 @@ const Blogs = () => {
                     accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
                 })
                 
-                await client.getEntries({content_type: 'marilynsWindows'}).then( blogEntries => {
+                await client.getEntries({content_type: 'blogPosts'}).then( blogEntries => {
                     console.log('blog entries', blogEntries)
                     setBlogPost(blogEntries)
                 })
@@ -62,6 +64,11 @@ const Blogs = () => {
   return (
     
     <>
+        <SEO 
+            title={`Marilyn's Windows | Blog |  Interesting Things About Drapes`} 
+            description={`Interesting articles about interior design and the wonderful world of drapery. Learn about industry trends or read frequently asked questions.`} 
+        />
+
         <Header2 />
         <div className="page-content">
             <Banner title="Sustainability, Innovation, and Craftmanship" pagename="Work grid" bgimage={bnrimg.default} />

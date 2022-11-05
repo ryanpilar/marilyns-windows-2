@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState, useLayoutEffect } from 'react';
 import {createClient} from 'contentful'
+import { Helmet } from 'react-helmet-async';
 
 
 import Header3 from '../Common/Header3';
@@ -13,6 +14,7 @@ import LatestProjects from './../Segments/LatestProjects';
 import Statistics from './../Segments/Statistics';
 import Contact from '../Segments/Contact';
 import Footer from '../Common/Footer';
+import SEO from '../Segments/SEO';
 
 
 
@@ -83,9 +85,15 @@ const Home2 = () => {
         return shuffle(projects).slice(0,9)
     }
 
-
+    
         return (
             <>
+                <SEO 
+                    // title={`Marilyn's Windows | High-end Custom Drapery`} 
+                    title={`Marilyn's Windows | High End Custom Drapes in Milton, Ontario`}
+                    description={`Custom handcrafted window coverings, curtains, shades, blinds and soft furnishings. Serving Milton, Burlington, Oakville, Mississauga and surrounding areas.`} 
+                />
+
                 <Header3 />
 
                 <div className="page-content">

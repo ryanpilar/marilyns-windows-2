@@ -9,6 +9,8 @@ import 'react-image-lightbox/style.css'; // This only needs to be imported once 
 import Header2 from '../Common/Header2';
 import Footer from '../Common/Footer';
 import Banner from '../Segments/Banner';
+import SEO from '../Segments/SEO';
+
 
 
 // const bnrimg = require('./../../images/banner/sewing-machine-lamp-freepic.png');
@@ -91,6 +93,11 @@ const Gallery22 = () => {
     
     return (
         <>
+            <SEO 
+                title={`Marilyn's Windows | Gallery | Beautiful Drapery Ideas`} 
+                description={`Bedroom curtain ideas. Window coverings for patio doors. Living room drapery ideas. Light filtering curtains and blackout blinds. Outdoor curtain ideas.`} 
+            />
+
             <Header2 />
 
             <div className="page-content ">

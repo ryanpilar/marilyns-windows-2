@@ -5,6 +5,8 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import Contact from './Contact';
 import Gallery from '../Pages/Gallery22';
+import SEO from '../Segments/SEO';
+
 
 const images = [
     require('./../../images/gallery/portrait/pic1.jpg'),
@@ -28,6 +30,11 @@ class About2 extends React.Component {
         };
         return (
             <>
+                <SEO 
+                    title={`Marilyn's Windows | My Story`} 
+                    description={`Professionally sewing for over 30 years and specializing in the tailored creation of hand-sewn curtains, drapes, blinds, and custom bedding.`} 
+                />
+
                 <div className="section-full p-tb90 bg-gray square_shape2 tm-about2-wrap">
                         <div className="container">
                             <div className="section-content ">
