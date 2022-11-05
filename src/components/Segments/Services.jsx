@@ -128,6 +128,9 @@ const Services = ( {content} ) => {
                                     ))}
 
                                 </div>
+                                <div className="col-sm-12 m-b30">
+                                    <a href="/services" className="site-button outline white button-app m-r15 m-b15"><span>See More of Our Services</span><em /></a>
+                                </div>
 
                             </div>
                         </div>

@@ -71,7 +71,7 @@ class ClientsLogo extends React.Component {
                                                         <div className="item" key={index}>
                                                             <div className="ow-client-logo">
                                                                 <div className="client-logo client-logo-media">
-                                                                    <NavLink to={"aboutme"}><img src={item.image.default} alt="" /></NavLink>
+                                                                    <NavLink to={"#"} ><img src={item.image.default} alt="" /></NavLink>
                                                                 </div>
                                                             </div>
                                                         </div>

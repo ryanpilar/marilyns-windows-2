@@ -153,6 +153,7 @@ class Contact extends React.Component {
                             {/* TITLE START */}
                             <div className="section-head text-left text-black">
                                 <h2 className="text-uppercase font-36">Where to Find us </h2>
+                                
                                 <div className="p-t10">
                                     <ul className="list-inline contact-socials">
                                         <li><a target="_blank" rel="noreferrer" href="https://www.instagram.com/marilynwindowsandinteriors/" className="fa fa-instagram contact-socials" /></li>
@@ -164,6 +165,7 @@ class Contact extends React.Component {
                                 <div className="wt-separator-outer">
                                     <div className="wt-separator bg-black" />
                                 </div>
+                                
                             </div>
                             {/* TITLE END */}
                             <div className="section-content">
@@ -233,10 +235,10 @@ class Contact extends React.Component {
                                             </div>
 
                                             <button type="submit" name="submit" className="site-button black radius-no text-uppercase m-r10">
-                                                <span className="font-12 letter-spacing-5">Submit</span>
+                                                <span className="font-12 letter-spacing-5" aria-label="send email">Submit</span>
                                             </button>
 
-                                            <button onClick={this.resetEmailForm.bind(this)} className="site-button black radius-no text-uppercase">
+                                            <button onClick={this.resetEmailForm.bind(this)} className="site-button black radius-no text-uppercase" aria-label="clear form">
                                                 <span className="font-12 letter-spacing-5">Clear Form</span>
                                             </button>
 
@@ -246,14 +248,14 @@ class Contact extends React.Component {
                                                     <div className="icon-sm"><i className="iconmoon-smartphone-1" /></div>
                                                     <div className="icon-content text-white ">
                                                         <h5 className="m-t0 text-uppercase text-light-purple">Phone number</h5>
-                                                        <p>(905) 878 0626</p>
+                                                        <a href="tel:+9058780939"><p>(905) 878 0626</p></a>
                                                     </div>
                                                 </div>
                                                 <div className="wt-icon-box-wraper left p-b30">
                                                     <div className="icon-sm"><i className="iconmoon-email" /></div>
                                                     <div className="icon-content text-white">
                                                         <h5 className="m-t0  text-uppercase text-light-purple">Email address</h5>
-                                                        <p>marilyn@marilynswindows.com</p>
+                                                        <a href="mailto:marilyn@marilynswindows.com"><p>marilyn@marilynswindows.com</p></a>
                                                     </div>
                                                 </div>
                                                 <div className="wt-icon-box-wraper left">

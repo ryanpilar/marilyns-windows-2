@@ -85,18 +85,25 @@ const LatestProjects = ( {content} ) => {
                             <div className="row">
                                 <div className="col-lg-4 col-md-12 ">
                                     <h2 className="text-uppercase font-36">Latest Projects</h2>
+                                    
                                     <div className="wt-separator-outer">
                                         <div className="wt-separator bg-black" />
+                                        
                                     </div>
                                 </div>
-                                {/* <div className="col-lg-8 col-md-12">
-                                    <ul className="btn-filter-wrap">
+                                <div className="col-lg-8 col-md-12">
+                                    <p> 
+                                        Drapery window treatments are a major component of a room’s aesthetic. 
+                                        The right curtains or sheers help bring a space together into a cohesive design, and can inject color, 
+                                        pattern, texture or simple elegance into the room.
+                                    </p>
+                                    {/* <ul className="btn-filter-wrap">
                                         <li className="btn-filter btn-active" data-filter="*">All</li>
                                         {filters.map((item, index) => (
                                             <li key={index} className="btn-filter" data-filter={item.filter}>{item.label}</li>
                                         ))}
-                                    </ul>
-                                </div> */}
+                                    </ul> */}
+                                </div>
                             </div>
 
                         </div>
@@ -114,7 +121,7 @@ const LatestProjects = ( {content} ) => {
                                             <div className="overlay-bx-2 ">
                                                 <div className="line-amiation">
                                                     <div className="text-white  font-weight-300 p-a40">
-                                                        <h2><NavLink to={"/project-detail"} className="text-white font-20 letter-spacing-1 text-uppercase">{item.fields.cardTitle}</NavLink></h2>
+                                                        <h2 className="text-white font-20 letter-spacing-1 text-uppercase">{item.fields.cardTitle}</h2>
                                                         <p>{item.fields.cardDescription}</p>
                                                         {/* <NavLink to={"/project-detail"} className="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</NavLink> */}
                                                     </div>

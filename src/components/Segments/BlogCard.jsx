@@ -11,22 +11,6 @@ const BlogCard = ({passItem, passIndex}) => {
 
   return (
     <div>
-        {/* <div key={index} className={`${item.filter} masonry-item col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30`}>
-
-            <div className="wt-img-effect ">
-                <img src={item.image.default} alt="" />
-                <div className="overlay-bx-2 ">
-                    <div className="line-amiation">
-                        <div className="text-white font-weight-300 p-a40">
-                            <h2><NavLink to={"/project-detail"} className="text-white font-20 letter-spacing-1 text-uppercase">{item.title}</NavLink></h2>
-                            <p>{item.description}</p>
-                            <NavLink to={"/project-detail"} className="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</NavLink>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div> */}
 
         {/* <div className='row'> */}
             <div key={index} className={`masonry-item col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30`} >

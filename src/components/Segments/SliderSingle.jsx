@@ -133,19 +133,41 @@ const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
                                 }}>
 
                                     {/* LAYER NR. 3 */}
-                                    <div className="tp-caption   tp-resizeme" id="slide-902-layer-3" data-x="['left','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['top','bottom','bottom','bottom']" data-voffset="['0','260','250','190']" data-width="none" data-height="none" data-whitespace="['normal','nowrap','nowrap','nowrap']" data-type="text" data-basealign="slide" data-responsive_offset="off" data-frames="[{&quot;delay&quot;:&quot;+490&quot;,&quot;speed&quot;:750,&quot;sfxcolor&quot;:&quot;#fff&quot;,&quot;sfx_effect&quot;:&quot;blockfromleft&quot;,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;z:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power4.easeInOut&quot;},
-                                {&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]" data-margintop="[0,0,0,0]" data-marginright="[0,0,0,0]" data-marginbottom="[0,0,0,0]" data-marginleft="[0,0,0,0]" data-textalign="['center','inherit','inherit','inherit']" data-paddingtop="[5,5,5,5]" data-paddingright="[5,5,5,5]" data-paddingbottom="[5,5,5,5]" data-paddingleft="[5,5,5,5]" 
-                                    style={{ 
-                                        zIndex: 10, 
-                                        whiteSpace: 'normal', 
-                                        fontSize: 18, 
-                                        lineHeight: 1, 
-                                        fontWeight: 700, 
-                                        color: '#000', 
-                                        letterSpacing: 3, 
-                                        display: 'inline-block',
+                                    <div 
+                                        className="tp-caption tp-resizeme" 
+                                        id="slide-902-layer-3" 
+                                        data-x="['left','center','center','center']" 
+                                        data-hoffset="['0','0','0','0']" 
+                                        data-y="['top','bottom','bottom','bottom']" 
+                                        data-voffset="['0','260','250','190']" 
+                                        data-width="none" 
+                                        data-height="none" 
+                                        data-whitespace="['normal','nowrap','nowrap','nowrap']" 
+                                        data-type="text" 
+                                        data-basealign="slide" 
+                                        data-responsive_offset="off" 
+                                        data-frames="[{&quot;delay&quot;:&quot;+490&quot;,&quot;speed&quot;:750,&quot;sfxcolor&quot;:&quot;#fff&quot;,&quot;sfx_effect&quot;:&quot;blockfromleft&quot;,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;z:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power4.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]" 
+                                        data-margintop="[0,0,0,0]" 
+                                        data-marginright="[0,0,0,0]" 
+                                        data-marginbottom="[0,0,0,0]" 
+                                        data-marginleft="[0,0,0,0]" 
+                                        data-textalign="['center','inherit','inherit','inherit']" 
+                                        data-paddingtop="[5,5,5,5]" 
+                                        data-paddingright="[5,5,5,5]" 
+                                        data-paddingbottom="[5,5,5,5]" 
+                                        data-paddingleft="[5,5,5,5]" 
+                                        style={{ 
+                                            zIndex: 10, 
+                                            whiteSpace: 'normal', 
+                                            fontSize: 18, 
+                                            lineHeight: 1, 
+                                            fontWeight: 700, 
+                                            color: '#000', 
+                                            letterSpacing: 3, 
+                                            display: 'inline-block',
                                         
-                                    }}>
+                                        }}
+                                    >
                                         {heading}
                                     </div>
 

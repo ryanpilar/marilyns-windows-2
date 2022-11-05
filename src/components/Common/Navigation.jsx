@@ -47,11 +47,9 @@ class Navigation extends React.Component {
                             </Link> */}
                             
                         </li>
-                        <li>
-
+                        <li><a href="/aboutme">My Story</a></li>
+                        {/* <li>
                             <Link to={"#"}>About Me</Link>
-                            
-                            
                             <ul className="sub-menu v-sub-menu">
                                 <li>
                                     <Link
@@ -67,11 +65,11 @@ class Navigation extends React.Component {
                                 </li>
                                 <li><NavLink to={"/aboutme"}>My Full Story</NavLink></li>
                             </ul>
-                            
-                        </li>
-                        <li>
+                        </li> */}
+                        <li><a href="/services">Services</a></li>
+                        {/* <li> */}
                             {/* <NavLink to={"/#services"}>Services</NavLink> */}
-                            <Link
+                            {/* <Link
                                 // className="nav-link"
                                 activeClass="active"
                                 to="services"
@@ -81,9 +79,9 @@ class Navigation extends React.Component {
                                 duration={500}
                             >
                                 Services
-                            </Link>
+                            </Link> */}
                             
-                        </li>
+                        {/* </li> */}
 
                         <li><a href="/gallery">Gallery</a></li>
                         

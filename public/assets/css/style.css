@@ -744,6 +744,7 @@ strong { 	font-weight:600;}
 	4. text transform
 ------------------------------------ */
 .text-lowercase {	text-transform: lowercase}
+.text-lowercase::first-letter {	text-transform: capitalize}
 
 .text-uppercase {	text-transform: uppercase}
 
@@ -1931,10 +1932,10 @@ ol.list-num-count.list-outline-none > li:before {background-color:transparent;	c
 }
 
 /* 1.19 Outline */
-.site-button.outline {color: #888; 	background: none; 	border-width:2px; 	border-style:solid; 	border-color:#eee; }
+.site-button.outline {color: #888; 	background: white; 	border-width:2px; 	border-style:solid; 	border-color:#eee; }
 
 /* 1.20 Outline white  */
-.site-button.outline.white {color: #e7e7e7; 	border-color:#e7e7e7; }
+.site-button.outline.white {color: black; 	border-color:#e7e7e7; }
 .site-button.outline.white:hover { color: #666666; }
 
 /* 1.21 Outline black */

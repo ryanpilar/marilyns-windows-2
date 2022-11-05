@@ -34,16 +34,16 @@ class Navigation extends React.Component {
                                 Home
                             </NavLink>
                         </li>
-
-                        <li>
+                        <li><a href="/aboutme">My Story</a></li>
+                        {/* <li>
                             <Link to={"#"}>About Me</Link>
                             <ul className="sub-menu v-sub-menu">
                                 <li><a href="/#about">Quick Story</a></li>
                                 <li><a href="/aboutme">The Full Story</a></li>
                             </ul>
-                        </li>
+                        </li> */}
 
-                        <li><a href="/#services">Services</a></li>
+                        <li><a href="/services">Services</a></li>
 
                         <li><a href="/gallery">Gallery</a></li>
                         {/* <li>

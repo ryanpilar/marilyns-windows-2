@@ -94,7 +94,7 @@ class About extends React.Component {
                                     <div className="text-lowercase">
                                         {this.richTextConversion(this.props.content.bottomParagraph)}
                                     </div>
-                                    <NavLink to={"/aboutus"} className="btn-half site-button button-lg m-b15"><span>Read My Full Story</span><em /></NavLink>
+                                    <NavLink to={"/aboutme"} className="btn-half site-button button-lg m-b15"><span>Read My Full Story</span><em /></NavLink>
                                 </div>
                                 
                                 <div className="col-md-7 col-sm-12">

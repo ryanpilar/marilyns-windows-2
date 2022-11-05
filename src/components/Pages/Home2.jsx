@@ -39,6 +39,7 @@ const Home2 = () => {
                     const galleryContent = allEntries.items.filter( entry => entry.fields.location === 'gallery')
                     const testimonialContent = allEntries.items.filter( entry => entry.fields.location === 'testimonials')
                     const background = allEntries.items.filter( entry => entry.fields.location === 'background')
+                    const sliderContent = allEntries.items.filter( entry => entry.fields.location === 'slider')
 
                     console.log('testimonialContent', testimonialContent)
                     

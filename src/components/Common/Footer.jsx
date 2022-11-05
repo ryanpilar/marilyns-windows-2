@@ -28,8 +28,8 @@ class Footer extends React.Component {
                                 </div>
                                 <div className="col-lg-4 col-md-5 wt-footer-bot-right p-t15">
                                     <ul className="copyrights-nav pull-right">
-                                        <li><NavLink to={"/aboutus"}>Terms  &amp; Condition</NavLink></li>
-                                        <li><NavLink to={"/aboutus"}>Privacy Policy</NavLink></li>
+                                        <li><NavLink to={"/aboutme"}>Terms  &amp; Condition</NavLink></li>
+                                        <li><NavLink to={"/aboutme"}>Privacy Policy</NavLink></li>
                                         {/* <li><NavLink to={"/contactus"}>Contact Us</NavLink></li> */}
                                     </ul>
                                 </div>
