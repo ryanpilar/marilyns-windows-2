@@ -29,24 +29,8 @@ class Navigation extends React.Component {
         return (
             <>
                     <ul className=" nav navbar-nav">
-                        <li>
-                            <NavLink to={"/"}>
-                                Home
-                            </NavLink>
-
-                            {/* <Link
-                                // className="nav-link"
-                                activeClass="active"
-                                to="/"
-                                spy={true}
-                                smooth={true}
-                                offset={-35}
-                                duration={500}
-                            >
-                                Home
-                            </Link> */}
-                            
-                        </li>
+                    <li><a hred="/">Home</a></li>
+                        
                         <li><a href="/aboutme">My Story</a></li>
                         {/* <li>
                             <Link to={"#"}>About Me</Link>
@@ -109,7 +93,7 @@ class Navigation extends React.Component {
                             
                         </li> */}
                         
-                        <li><NavLink to={"/blogs"}>Blog</NavLink></li>
+                        <li><a hred="/blogs">Blog</a></li>
                         
                         <li className="submenu-direction">
                             <Link

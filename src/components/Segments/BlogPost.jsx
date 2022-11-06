@@ -77,7 +77,8 @@ const BlogPost = () => {
         loop:true,
         margin:30,
         nav:true,
-        dots: true,
+        dots: false,
+        autoplay: true,
         navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
         responsive:{
           0:{

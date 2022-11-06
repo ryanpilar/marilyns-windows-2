@@ -135,6 +135,7 @@ const Gallery22 = () => {
                                             {imageList.map((item, index) => (
                                                 <div key={index} className={`${item.fields.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30`}>
                                                     <div className="wt-img-effect ">
+                                                    {console.log('IMAGE FIELDS', item.fields)}
                                                         <img 
                                                             src={item.fields.smallImage[0].secure_url} 
                                                             alt={item.fields.smallImage[0]?.context?.custom?.alt} 
