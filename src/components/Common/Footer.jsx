@@ -20,7 +20,7 @@ class Footer extends React.Component {
                         <div className="container p-t30">
                             <div className="row">
                                 <div className="col-lg-4 col-md-3 wt-footer-bot-left">
-                                <NavLink to={"/"}><img src={require("./../../images/logo-dark.png").default} alt="" width={140} height={58} /></NavLink>
+                                <a href={"/"} aria-label="Back to Home"><img src={require("./../../images/logo-dark.png").default} alt="" width={140} height={58} /></a>
                                 </div>
                                 <div className="col-lg-4 col-md-4 text-center copyright-block p-t15">
                                     <span className="copyrights-text">

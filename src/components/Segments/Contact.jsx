@@ -184,6 +184,8 @@ class Contact extends React.Component {
                                                     id="name"
                                                     name="name"
                                                     className="form-control"
+                                                    aria-label='Your Name'
+                                                    // aria-describedby="Your Name"
                                                     placeholder="Your Name"
                                                     onChange={this.handleChange}
                                                     value={this.state.name}
@@ -199,6 +201,8 @@ class Contact extends React.Component {
                                                     className="form-control"
                                                     id="email"
                                                     name="email"
+                                                    // aria-describedby="Email"
+                                                    aria-label='Email'
                                                     placeholder="Email"
                                                     onChange={this.handleChange}
                                                     value={this.state.email}
@@ -212,6 +216,8 @@ class Contact extends React.Component {
                                                     className="form-control"
                                                     id="phone"
                                                     name="phone"
+                                                    aria-label='Phone Number'
+                                                    // aria-describedby="Phone Number"
                                                     placeholder="Phone"
                                                     onChange={this.handleChange}
                                                     value={this.state.phone}
@@ -226,6 +232,8 @@ class Contact extends React.Component {
                                                     id="message"
                                                     className="form-control"
                                                     rows="3"
+                                                    aria-label='Message Content'
+                                                    // aria-describedby="Message Content"
                                                     placeholder="Your Message"
                                                     onChange={this.handleChange}
                                                     value={this.state.message}

@@ -13,7 +13,7 @@ const BlogCard = ({passItem, passIndex}) => {
     <div>
 
         {/* <div className='row'> */}
-            <div key={index} className={`masonry-item col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30`} >
+            <div key={post.sys.id} className={`masonry-item col-xl-3 col-lg-4 col-md-6 col-sm-6 m-b30`} >
                 <div className="blog-post blog-masonry date-style-1">
                     <div className="wt-post-media wt-img-effect zoom-slow">
                         {/* post could have multiple images, so by default pick the first */}
@@ -23,8 +23,8 @@ const BlogCard = ({passItem, passIndex}) => {
                                 alt={post.fields.blogImages[0].context.custom.alt} 
                                 data-pin-description={post.fields.blogImages[0].context.custom.dataPin}
                                 caption={post.fields.blogImages[0].context.custom.caption} 
-                                width='800'
-                                height='500' 
+                                width={800}
+                                height={500} 
                             />
                         </NavLink>
                     </div>

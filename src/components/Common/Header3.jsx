@@ -53,9 +53,9 @@ class Header3 extends React.Component {
                             <div className="container">
                                 <div className="logo-header">
                                     <div className="logo-header-inner logo-header-one">
-                                        <NavLink to={"./"}>
-                                            <img src={this.state.logo.default} width={221} height={70} alt="Marilyn's Logo" />
-                                        </NavLink>
+                                        
+                                        <a href='/' aria-label="Back to Home"><img src={this.state.logo.default} width={221} height={70} alt="Marilyn's Logo" /></a>
+                                        
                                     </div>
                                 </div>
                                 {/* NAV Toggle Button */}

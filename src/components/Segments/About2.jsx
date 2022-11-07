@@ -53,6 +53,7 @@ class About2 extends React.Component {
                                                         // caption={item.context.custom.caption} 
                                                         width={360}
                                                         height={560} 
+                                                        alt=''
                                                     />
                                                 </div>
                                                 </div>

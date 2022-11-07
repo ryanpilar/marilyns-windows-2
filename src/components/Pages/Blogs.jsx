@@ -27,7 +27,7 @@ const Blogs = () => {
                 })
                 
                 await client.getEntries({content_type: 'blogPosts'}).then( blogEntries => {
-                    console.log('blog entries', blogEntries)
+                    // console.log('blog entries', blogEntries)
                     setBlogPost(blogEntries)
                 })
             }
@@ -94,13 +94,14 @@ const Blogs = () => {
                             <div className="row">
 
                                 {blogPost?.items && (
-                                    <div>
+                                    <>
                                         {blogPost?.items?.map( (postData, index) => (
                                             <>
-                                                <BlogCard key={index} passItem={postData} passIndex={index} />
+                                                {/* {console.log('key test', postData)} */}
+                                                <BlogCard key={postData.sys.id} passItem={postData} passIndex={index} />
                                             </>
                                         ))}
-                                    </div>
+                                    </>
                                 )}
 
                             </div>

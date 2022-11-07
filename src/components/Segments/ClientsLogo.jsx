@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
@@ -71,7 +70,7 @@ class ClientsLogo extends React.Component {
                                                         <div className="item" key={index}>
                                                             <div className="ow-client-logo">
                                                                 <div className="client-logo client-logo-media">
-                                                                    <NavLink to={"#"} ><img src={item.image.default} alt="" /></NavLink>
+                                                                    <a href='#' aria-label="visit product site"><img src={item.image.default} alt="" /></a>
                                                                 </div>
                                                             </div>
                                                         </div>
