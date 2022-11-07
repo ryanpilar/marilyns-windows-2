@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState, useLayoutEffect } from 'react';
 import {createClient} from 'contentful'
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import SliderSingle from './SliderSingle'
 
 
@@ -19,7 +19,7 @@ const Slider22 = () => {
         const getAllEntries = async() => {                          // contentful get data
             try {
                 await client.getEntries({content_type: 'slider'}).then( allEntries => {
-                    console.log('ALL ENTRIES', allEntries)
+                    // console.log('ALL ENTRIES', allEntries)
                     setSliderList(allEntries.items)
                 })
                 

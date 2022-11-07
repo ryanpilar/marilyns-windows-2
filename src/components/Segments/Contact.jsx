@@ -156,10 +156,10 @@ class Contact extends React.Component {
                                 
                                 <div className="p-t10">
                                     <ul className="list-inline contact-socials">
-                                        <li><a target="_blank" rel="noreferrer" href="https://www.instagram.com/marilynwindowsandinteriors/" className="fa fa-instagram contact-socials" /></li>
-                                        <li><a target="_blank" rel="noreferrer" href="https://www.facebook.com/MarilynsWindows/" className="fa fa-facebook contact-socials" /></li>
-                                        <li><a target="_blank" rel="noreferrer" href="https://twitter.com/marilynswindows" className="fa fa-twitter contact-socials" /></li>
-                                        <li><a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/marilynswindows/" className="fa fa-linkedin contact-socials" /></li>
+                                        <li><a target="_blank" rel="noreferrer" href="https://www.facebook.com/MarilynsWindows/" aria-label="My Facebook"><i className="fa fa-facebook" /></a></li>
+                                        <li><a target="_blank" rel="noreferrer" href="https://twitter.com/marilynswindows" aria-label="My Twitter"><i className="fa fa-twitter" /></a></li>
+                                        <li><a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/marilynswindows/" aria-label="My Linkedin"><i className="fa fa-linkedin" /></a></li>
+                                        <li><a target="_blank" rel="noreferrer" href="https://www.instagram.com/marilynwindowsandinteriors/" aria-label="My Instagram"><i className="fa fa-instagram" /></a></li>
                                     </ul>                                    
                                 </div>
                                 <div className="wt-separator-outer">
@@ -247,21 +247,21 @@ class Contact extends React.Component {
                                                 <div className="wt-icon-box-wraper left p-b30">
                                                     <div className="icon-sm"><i className="iconmoon-smartphone-1" /></div>
                                                     <div className="icon-content text-white ">
-                                                        <h5 className="m-t0 text-uppercase text-light-purple">Phone number</h5>
+                                                        <h5 className="m-t0 text-uppercase">Phone number</h5>
                                                         <a href="tel:+9058780939"><p>(905) 878 0626</p></a>
                                                     </div>
                                                 </div>
                                                 <div className="wt-icon-box-wraper left p-b30">
                                                     <div className="icon-sm"><i className="iconmoon-email" /></div>
                                                     <div className="icon-content text-white">
-                                                        <h5 className="m-t0  text-uppercase text-light-purple">Email address</h5>
+                                                        <h5 className="m-t0  text-uppercase">Email address</h5>
                                                         <a href="mailto:marilyn@marilynswindows.com"><p>marilyn@marilynswindows.com</p></a>
                                                     </div>
                                                 </div>
                                                 <div className="wt-icon-box-wraper left">
                                                     <div className="icon-sm"><i className="iconmoon-travel" /></div>
                                                     <div className="icon-content text-white">
-                                                        <h5 className="m-t0  text-uppercase text-light-purple">Address info</h5>
+                                                        <h5 className="m-t0  text-uppercase">Address info</h5>
                                                         <p>468 Valleyview Cr, Milton, ON L9T3L2, Canada</p>
                                                         
                                                     </div>

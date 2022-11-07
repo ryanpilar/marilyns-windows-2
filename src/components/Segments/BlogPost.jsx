@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 
-import { NavLink, useParams } from 'react-router-dom';          // useParams allows the '/post/:id' to work
+import { useParams } from 'react-router-dom';          // useParams allows the '/post/:id' to work
 
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -137,9 +137,18 @@ const BlogPost = () => {
                                     <OwlCarousel className="owl-carousel owl-fade-slider-one owl-btn-vertical-center owl-dots-bottom-right" {...options}>
                                         {singleBlogPost?.fields?.blogImages?.map((item, index) => (
 
-                                            <div className="item" key={item.sys.id}>
+                                            <div className="item" key={index}>
                                                 <div className="aon-thum-bx">
-                                                    <img src={`https:${item?.fields?.file.url}`} alt={item?.fields?.description} />
+                                                    {console.log('BLOG POST', item)}
+
+                                                    <img 
+                                                        src={item.secure_url} 
+                                                        alt={item.context.custom.alt} 
+                                                        data-pin-description={item.context.custom.dataPin}
+                                                        caption={item.context.custom.caption} 
+                                                        width='800'
+                                                        height='500'
+                                                    />
                                                     {/* <img src={item?.fields?.file.url} alt={item?.fields?.description} /> */}
                                                 </div>
                                             </div>
@@ -187,6 +196,7 @@ const BlogPost = () => {
                                                                 hashtag={'#marilynswindowsandinteriors'}
                                                                 quote={`Don't forget to read Marilyn's article: '${singleBlogPost?.fields?.descriptiveTitle}'`}
                                                                 url={blogRoute}
+                                                                aria-label="Share to Facebook"
                                                                 >
                                                                     <a className="fa fa-facebook" />
                                                             </FacebookShareButton>
@@ -196,6 +206,7 @@ const BlogPost = () => {
                                                                 title={`Make sure to checkout this fantastic article by Marilyn: \n'${singleBlogPost?.fields?.descriptiveTitle}':`}
                                                                 hashtags={['marilynswindowsandinteriors']}
                                                                 url={blogRoute}
+                                                                aria-label="Share to Twitter"
                                                                 >
                                                                     <a className="fa fa-twitter" />
                                                             </TwitterShareButton>
@@ -207,7 +218,7 @@ const BlogPost = () => {
                                                                 source={blogRoute}
                                                                 url={blogRoute}
                                                                 >
-                                                                <a target="_blank" rel="noreferrer" href="https://in.linkedin.com" className="fa fa-linkedin" />
+                                                                <a target="_blank" rel="noreferrer" href="https://in.linkedin.com" className="fa fa-linkedin" aria-label="Share to Linkedin"/>
                                                             </LinkedinShareButton>
                                                         </li>
                                                         
@@ -217,24 +228,16 @@ const BlogPost = () => {
                                                                 body="Link to article: " 
                                                                 url={blogRoute}
                                                                 >
-                                                                    <a className="fa fa-envelope" />
+                                                                <a className="fa fa-envelope" aria-label="Share to Email"/>
                                                             </EmailShareButton>
                                                         </li>
                                                         
-                                                        {/* <li>
-                                                            <InstapaperShareButton
-                                                                title={'Check out this article from Marilyn:'}
-                                                                description={singleBlogPost?.fields?.descriptiveTitle}
-                                                                url={blogRoute}
-                                                                >
-                                                                    <a className="fa fa-instagram" />
-                                                            </InstapaperShareButton>
-                                                        </li> */}
                                                         <li>
                                                             <a 
                                                                 className="fa fa-link" 
                                                                 style={{'cursor': 'pointer'}}
                                                                 onClick={() =>  navigator.clipboard.writeText(blogRoute)}
+                                                                aria-label="Copy Link Address"
                                                                 />
                                                         </li>
 

@@ -7,7 +7,7 @@ import 'react-image-lightbox/style.css'; // This only needs to be imported once 
 
 // import { NavLink } from 'react-router-dom';
 import Header2 from '../Common/Header2';
-import Footer from '../Common/Footer';
+// import Footer from '../Common/Footer';
 import Banner from '../Segments/Banner';
 import SEO from '../Segments/SEO';
 
@@ -112,16 +112,16 @@ const Gallery22 = () => {
                         <div className="container">
 
                             {/* PAGINATION START */}
-                            <div className="filter-wrap p-b50">
+                            {/* <div className="filter-wrap p-b50">
                                 <ul className="masonry-filter link-style  text-uppercase">
-                                    <li className="active"><a data-filter="*" href="#">All</a></li>
+                                    <li className="active" aria-hidden="true"><a data-filter="*" href="#" >All</a></li>
                                     
                                     {filters.map((item, index) => (
-                                        <li key={index}><a data-filter={item.filter} href="#">{item.label}</a></li>
+                                        <li key={index}><a data-filter={item.filter} href="#" aria-hidden="true">{item.label}</a></li>
                                     ))}
 
                                 </ul>
-                            </div>
+                            </div> */}
                             {/* PAGINATION END */}
 
                         </div>
@@ -135,12 +135,13 @@ const Gallery22 = () => {
                                             {imageList.map((item, index) => (
                                                 <div key={index} className={`${item.fields.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30`}>
                                                     <div className="wt-img-effect ">
-                                                    {console.log('IMAGE FIELDS', item.fields)}
                                                         <img 
                                                             src={item.fields.smallImage[0].secure_url} 
                                                             alt={item.fields.smallImage[0]?.context?.custom?.alt} 
                                                             caption={item.fields.smallImage[0]?.context?.custom?.caption} 
                                                             data-pin-description={item.fields.smallImage[0]?.context?.custom?.dataPin}
+                                                            width='360'
+                                                            height='560'
                                                             />
                                                         <div className="overlay-bx-2 ">
                                                             <div className="line-amiation">

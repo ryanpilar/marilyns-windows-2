@@ -1,7 +1,7 @@
 import React from 'react';
-import { useEffect, useState, useLayoutEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {createClient} from 'contentful'
-import { Helmet } from 'react-helmet-async';
+// import { Helmet } from 'react-helmet-async';
 
 
 import Header3 from '../Common/Header3';
@@ -43,7 +43,7 @@ const Home2 = () => {
                     const background = allEntries.items.filter( entry => entry.fields.location === 'background')
                     const sliderContent = allEntries.items.filter( entry => entry.fields.location === 'slider')
 
-                    console.log('testimonialContent', testimonialContent)
+                    // console.log('testimonialContent', testimonialContent)
                     
                     setContent({ 
                         about: aboutContent[0].fields, 

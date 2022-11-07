@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+// import { NavLink, Link } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import Contact from './Contact';
-import Gallery from '../Pages/Gallery22';
+
 import SEO from '../Segments/SEO';
 
 
@@ -47,7 +46,14 @@ class About2 extends React.Component {
                                                 <div className="item" key={index}>
                                                 <div className="ow-img wt-img-effect zoom-slow">
                                                 
-                                                    <img src={item.default} alt="" />
+                                                    <img 
+                                                        src={item.default}  
+                                                        // alt={item.context.custom.alt} 
+                                                        // data-pin-description={item.context.custom.dataPin}
+                                                        // caption={item.context.custom.caption} 
+                                                        width={360}
+                                                        height={560} 
+                                                    />
                                                 </div>
                                                 </div>
 

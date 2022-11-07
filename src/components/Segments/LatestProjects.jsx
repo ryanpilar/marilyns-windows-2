@@ -1,7 +1,7 @@
 import React from 'react';
-import { useEffect, useState, useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
@@ -84,26 +84,23 @@ const LatestProjects = ( {content} ) => {
                         <div className="section-head text-left">
                             <div className="row">
                                 <div className="col-lg-4 col-md-12 ">
+                                
                                     <h2 className="text-uppercase font-36">Latest Projects</h2>
                                     
                                     <div className="wt-separator-outer">
                                         <div className="wt-separator bg-black" />
-                                        
                                     </div>
+
                                 </div>
+
                                 <div className="col-lg-8 col-md-12">
                                     <p> 
                                         Drapery window treatments are a major component of a room’s aesthetic. 
                                         The right curtains or sheers help bring a space together into a cohesive design, and can inject color, 
                                         pattern, texture or simple elegance into the room.
                                     </p>
-                                    {/* <ul className="btn-filter-wrap">
-                                        <li className="btn-filter btn-active" data-filter="*">All</li>
-                                        {filters.map((item, index) => (
-                                            <li key={index} className="btn-filter" data-filter={item.filter}>{item.label}</li>
-                                        ))}
-                                    </ul> */}
                                 </div>
+
                             </div>
 
                         </div>
@@ -117,7 +114,14 @@ const LatestProjects = ( {content} ) => {
                                 {content.map((item, index) => (
                                     <div key={index} className={`${item.fields.filter} item fadingcol`}>
                                         <div className="wt-img-effect ">
-                                            <img src={item.fields.smallImage[0].secure_url} alt="" />
+                                            <img 
+                                                src={item.fields.smallImage[0].secure_url} 
+                                                alt={item.fields.smallImage[0].context.custom.alt}
+                                                caption={item.fields.smallImage[0].context.custom.caption}
+                                                data-pin-description={item.fields.smallImage[0].context.custom.dataPin}
+                                                width='360'
+                                                height='560'  
+                                            />
                                             <div className="overlay-bx-2 ">
                                                 <div className="line-amiation">
                                                     <div className="text-white  font-weight-300 p-a40">

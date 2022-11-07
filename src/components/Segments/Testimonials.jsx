@@ -11,7 +11,7 @@ const Testimonials = ({ content, bgimg }) => {
         autoplay: true,
         margin: 80,
         nav: false,
-        dots: true,
+        dots: false,
         navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
         autoplayTimeout: 10000,
         responsive: {
@@ -26,7 +26,6 @@ const Testimonials = ({ content, bgimg }) => {
 
     return (
         <>
-            { console.log('background', bgimg[0].fields) }
             <div className="section-full p-t140 bg-repeat tm-testimonial-wrap" style={{ backgroundImage: `url(${bgimg[0].fields.cloudinaryImage[0].secure_url})` }}>
                 <div className="container">
                     <div className="section-content">
@@ -42,7 +41,6 @@ const Testimonials = ({ content, bgimg }) => {
                         <div className="section-content">
                             
                             <OwlCarousel className="owl-carousel testimonial-home" {...options}>
-                                {console.log('TESTITS', content)}
                                 {content.map( (item, index) => (
                                     <div className="item" key={index}>
                                         <div className="testimonial-6">

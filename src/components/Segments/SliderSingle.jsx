@@ -1,6 +1,6 @@
 import React from 'react';
-import { useEffect, useState, useLayoutEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useLayoutEffect } from 'react';
+// import { NavLink } from 'react-router-dom';
 
 
 const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
@@ -38,7 +38,11 @@ const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
                     data-bgfit="cover" 
                     data-bgparallax={4} 
                     className="rev-slidebg" 
-                    data-no-retina />
+                    data-no-retina 
+                    width='1920'
+                    height='900'    
+                    />
+                    
                 
                 {/* LAYERS */}
                 {/* BACKGROUND VIDEO LAYER */}

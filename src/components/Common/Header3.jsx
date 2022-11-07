@@ -82,10 +82,10 @@ class Header3 extends React.Component {
                                             <div className="dropdown-menu bg-white">
                                                 <div className="top-bar">
                                                     <ul className="social-bx list-inline">
-                                                        <li><a target="_blank" rel="noreferrer" href="https://www.facebook.com/MarilynsWindows/" className="fa fa-facebook" /></li>
-                                                        <li><a target="_blank" rel="noreferrer" href="https://twitter.com/marilynswindows" className="fa fa-twitter" /></li>
-                                                        <li><a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/marilynswindows/" className="fa fa-linkedin" /></li>
-                                                        <li><a target="_blank" rel="noreferrer" href="https://www.instagram.com/marilynwindowsandinteriors/" className="fa fa-instagram" /></li>
+                                                        <li><a target="_blank" rel="noreferrer" href="https://www.facebook.com/MarilynsWindows/" aria-label="My Facebook"><i className="fa fa-facebook" /></a></li>
+                                                        <li><a target="_blank" rel="noreferrer" href="https://twitter.com/marilynswindows" aria-label="My Twitter"><i className="fa fa-twitter" /></a></li>
+                                                        <li><a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/marilynswindows/" aria-label="My Linkedin"><i className="fa fa-linkedin" /></a></li>
+                                                        <li><a target="_blank" rel="noreferrer" href="https://www.instagram.com/marilynwindowsandinteriors/" aria-label="My Instagram"><i className="fa fa-instagram" /></a></li>
                                                     </ul>
                                                 </div>
                                             </div>

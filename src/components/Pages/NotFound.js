@@ -1,11 +1,8 @@
 
 
 import React from 'react';
-import { Link } from "react-router-dom";
 import Header2 from '../Common/Header2';
-import Banner from '../Segments/Banner';
-import About2 from '../Segments/About2';
-import Footer from '../Common/Footer';
+
 
 var bnrimg = require('./../../images/background/bg-11.jpg');
 

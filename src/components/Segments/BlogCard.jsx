@@ -17,7 +17,16 @@ const BlogCard = ({passItem, passIndex}) => {
                 <div className="blog-post blog-masonry date-style-1">
                     <div className="wt-post-media wt-img-effect zoom-slow">
                         {/* post could have multiple images, so by default pick the first */}
-                        <NavLink to={`/post/${post.sys.id}`}><img src={post.fields.blogImages[0].fields.file.url} alt={post.fields.blogImages[0].fields.description} /></NavLink>
+                        <NavLink to={`/post/${post.sys.id}`}>
+                            <img 
+                                src={post.fields.blogImages[0].secure_url} 
+                                alt={post.fields.blogImages[0].context.custom.alt} 
+                                data-pin-description={post.fields.blogImages[0].context.custom.dataPin}
+                                caption={post.fields.blogImages[0].context.custom.caption} 
+                                width='800'
+                                height='500' 
+                            />
+                        </NavLink>
                     </div>
                     <div className="wt-post-info p-a20 bg-gray text-black box-size">
                         <div className="wt-post-title ">

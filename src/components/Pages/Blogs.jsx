@@ -71,7 +71,7 @@ const Blogs = () => {
 
         <Header2 />
         <div className="page-content">
-            <Banner title="Sustainability, Innovation, and Craftmanship" pagename="Work grid" bgimage={bnrimg.default} />
+            <Banner title="Sustainability, Innovation, and Craftmanship" pagename="Blog Post" bgimage={bnrimg.default} />
             
             <div className='container'>
 

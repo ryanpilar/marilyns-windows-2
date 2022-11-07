@@ -107,6 +107,8 @@ const Services = ( {content} ) => {
                                                             alt={item.context.custom.alt} 
                                                             data-pin-description={item.context.custom.dataPin}
                                                             caption={item.context.custom.caption} 
+                                                            width='360'
+                                                            height='560' 
                                                         />
                                                     </div>
                                                 </div>

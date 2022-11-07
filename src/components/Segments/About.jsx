@@ -1,26 +1,11 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { MARKS } from '@contentful/rich-text-types'
-
-// const images = [
-
-//     require('./../../images/gallery/fabric-samples.jpeg'),
-//     require('./../../images/gallery/marilyn-wine.jpg'),
-//     require('./../../images/gallery/sewing-machine-lamp-freepic.png'),
-//     require('./../../images/gallery/bedroom-condo.jpg'),
-//     require('./../../images/gallery/marilyn-professional.jpg'),
-//     require('./../../images/gallery/sewing-machine-working.jpg'),
-//     require('./../../images/gallery/living-room-soft.jpg'),
-//     require('./../../images/gallery/workroom-misc.jpg'),
-//     require('./../../images/gallery/roman-shades.jpeg'),
-//     require('./../../images/gallery/kitchen-cute.png'),
-// ]
-
 
 class About extends React.Component {
     constructor(props) {
@@ -55,7 +40,7 @@ class About extends React.Component {
             autoplayTimeout: 5000,
             //center: true,
             nav: false,
-            dots: true,
+            dots: false,
             navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
             responsive: {
                 0: {
@@ -94,7 +79,7 @@ class About extends React.Component {
                                     <div className="text-lowercase">
                                         {this.richTextConversion(this.props.content.bottomParagraph)}
                                     </div>
-                                    <NavLink to={"/aboutme"} className="btn-half site-button button-lg m-b15"><span>Read My Full Story</span><em /></NavLink>
+                                    <a href="/aboutme" className="btn-half site-button button-lg m-b15"><span>Read My Full Story</span><em /></a>
                                 </div>
                                 
                                 <div className="col-md-7 col-sm-12">
@@ -108,6 +93,8 @@ class About extends React.Component {
                                                             alt={item.context.custom.alt} 
                                                             data-pin-description={item.context.custom.dataPin}
                                                             caption={item.context.custom.caption} 
+                                                            width={800}
+                                                            height={500} 
                                                         />
                                                     </div>
                                                 </div>

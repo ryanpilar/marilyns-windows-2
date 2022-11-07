@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { Link } from "react-scroll";
 
 class Navigation extends React.Component {
@@ -29,87 +29,19 @@ class Navigation extends React.Component {
         return (
             <>
                     <ul className=" nav navbar-nav">
-                    <li><a hred="/">Home</a></li>
+                    
+                        <li><a href="/">Home</a></li>
                         
                         <li><a href="/aboutme">My Story</a></li>
-                        {/* <li>
-                            <Link to={"#"}>About Me</Link>
-                            <ul className="sub-menu v-sub-menu">
-                                <li>
-                                    <Link
-                                        // className="nav-link"
-                                        to="about"
-                                        spy={true}
-                                        smooth={true}
-                                        offset={-35}
-                                        duration={500}
-                                    >
-                                        Quick Story
-                                    </Link>
-                                </li>
-                                <li><NavLink to={"/aboutme"}>My Full Story</NavLink></li>
-                            </ul>
-                        </li> */}
+
                         <li><a href="/services">Services</a></li>
-                        {/* <li> */}
-                            {/* <NavLink to={"/#services"}>Services</NavLink> */}
-                            {/* <Link
-                                // className="nav-link"
-                                activeClass="active"
-                                to="services"
-                                spy={true}
-                                smooth={true}
-                                offset={-35}
-                                duration={500}
-                            >
-                                Services
-                            </Link> */}
-                            
-                        {/* </li> */}
 
                         <li><a href="/gallery">Gallery</a></li>
+
+                        <li><a href="/blogs">Blog</a></li>
+
+                        <li><a href="/#contact">Contact</a></li>
                         
-                        {/* <li>
-                            
-                            <Link to={"#"}>My Work</Link>
-                            <ul className="sub-menu v-sub-menu">
-                                <li>
-                                    <Link
-                                        // className="nav-link"
-                                        activeClass="active"
-                                        to="work"
-                                        spy={true}
-                                        smooth={true}
-                                        offset={-35}
-                                        duration={500}
-                                    >
-                                        Latest Projects
-                                    </Link>
-                                </li>
-                                <li><NavLink to={"/gallery"}>Gallery</NavLink></li>
-                                <li><NavLink to={"/work-masonary"}>Gallery</NavLink></li>
-                                
-                            </ul>
-                            
-                        </li> */}
-                        
-                        <li><a hred="/blogs">Blog</a></li>
-                        
-                        <li className="submenu-direction">
-                            <Link
-                                // className="nav-link"
-                                activeClass="active"
-                                to="contact"
-                                spy={true}
-                                smooth={true}
-                                offset={-20}
-                                duration={500}
-                            >
-                                Contact
-                            </Link>                           
-                            {/* <NavLink to={"#contact"}>Contact</NavLink> */}
-                            
-                        </li>
                     </ul>
             </>
         );

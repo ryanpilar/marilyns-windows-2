@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+// import { NavLink, Link } from 'react-router-dom';
 // import { Link } from "react-scroll";
 
 class Navigation extends React.Component {
@@ -30,7 +30,7 @@ class Navigation extends React.Component {
             <>
                     <ul className=" nav navbar-nav">
                     
-                        <li><a hred="/">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         
                         <li><a href="/aboutme">My Story</a></li>
 
@@ -38,7 +38,7 @@ class Navigation extends React.Component {
 
                         <li><a href="/gallery">Gallery</a></li>
                         
-                        <li><a hred="/blogs">Blog</a></li>
+                        <li><a href="/blogs">Blog</a></li>
 
                         <li><a href="/#contact">Contact</a></li>
 
