@@ -62,7 +62,14 @@ const BlogPost = () => {
 
             const contentfulOptions = {
 
-                renderMark: { [MARKS.CODE]: embedded => <span dangerouslySetInnerHTML={{ __html: embedded }} /> }
+                renderMark: { [MARKS.CODE]: embedded => (
+                    <div className='youtube-wrapper'>
+                        <div className='realtive-parent'>
+                                                                                {/* contentful, you-tube iframe is passed here: */}
+                            <span dangerouslySetInnerHTML={{ __html: embedded }} />         
+                        </div>
+                    </div>
+                ) }
             }
 
             
@@ -189,6 +196,7 @@ const BlogPost = () => {
                                         <div className="wt-box">
                                             <div className="row  p-lr15">
                                                 <h4 className="tagcloud text-uppercase">Share this Post:</h4>
+                                                
                                                 <div className="widget_social_inks">
                                                     <ul className="social-icons social-md social-square social-dark m-b0">
                                                         <li>

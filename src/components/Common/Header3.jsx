@@ -78,7 +78,7 @@ class Header3 extends React.Component {
                                 <div className="extra-nav">
                                     <div className="extra-cell">
                                         <div className="dropdown share-icon-btn">
-                                            <a href="#" className="site-search-btn dropdown-toggle" data-toggle="dropdown" aria-label="My Social Media"><i className="fa fa-share-alt" aria-hidden="true" /></a>
+                                        <button type='button' className="site-search-btn dropdown-toggle" data-toggle="dropdown" aria-label="Toggle My Social Media"><i className="fa fa-share-alt" aria-hidden="true" /></button>
                                             <div className="dropdown-menu bg-white">
                                                 <div className="top-bar">
                                                     <ul className="social-bx list-inline">

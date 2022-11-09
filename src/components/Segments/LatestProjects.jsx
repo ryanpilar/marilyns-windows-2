@@ -6,17 +6,17 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
-const filters = [
-    { label: "Living Space", filter: ".living-col" },
-    { label: "Bedroom", filter: ".bedroom-col" },
-    { label: "Kitchen", filter: ".kitchen-col" },
-    { label: "Outdoor", filter: ".interior-col" },
+// const filters = [
+//     { label: "Living Space", filter: ".living-col" },
+//     { label: "Bedroom", filter: ".bedroom-col" },
+//     { label: "Kitchen", filter: ".kitchen-col" },
+//     { label: "Outdoor", filter: ".interior-col" },
 
 
     // { label: "Building", filter: ".building-col" },
     // { label: "Interior", filter: ".interior-col" },
     // { label: "Restaurant", filter: ".restaurant-col" }
-];
+// ];
 
 const LatestProjects = ( {content} ) => {
 

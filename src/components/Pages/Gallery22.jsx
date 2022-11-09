@@ -22,13 +22,13 @@ const Gallery22 = () => {
     const [ isOpen, setIsOpen ] = useState(false)
     const [ photoIndex, setPhotoIndex ] = useState(0)
 
-    const [ filters, setFilters ] = useState([
-        { label: "House", filter: ".cat-1" },
-        { label: "Building", filter: ".cat-2" },
-        { label: "Office", filter: ".cat-3" },
-        { label: "Bedroom", filter: ".cat-4" },
-        { label: "Interior", filter: ".cat-5" }
-    ]);
+    // const [ filters, setFilters ] = useState([
+    //     { label: "House", filter: ".cat-1" },
+    //     { label: "Building", filter: ".cat-2" },
+    //     { label: "Office", filter: ".cat-3" },
+    //     { label: "Bedroom", filter: ".cat-4" },
+    //     { label: "Interior", filter: ".cat-5" }
+    // ]);
     
 
     const client = createClient({                                   // contentful connect
@@ -202,10 +202,14 @@ const Gallery22 = () => {
                     </div>
                 )}
                 {/* SECTION CONTENT END  */}
+
                 
             </div>
 
-            {/* <Footer /> */}
+            {/* <>
+            {bannerContent && <Footer />}
+            </> */}
+            
         </>
     )
 }

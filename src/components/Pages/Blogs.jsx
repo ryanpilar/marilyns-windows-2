@@ -93,14 +93,11 @@ const Blogs = () => {
                         <div className="container-fluid">
                             <div className="row">
 
-                                {blogPost?.items && (
+                                {blogPost && (
                                     <>
-                                        {blogPost?.items?.map( (postData, index) => (
-                                            <>
-                                                {/* {console.log('key test', postData)} */}
-                                                <BlogCard key={postData.sys.id} passItem={postData} passIndex={index} />
-                                            </>
-                                        ))}
+                                        {blogPost?.items?.map( (postData, index) => 
+                                            <BlogCard key={postData.sys.id} passItem={postData} passIndex={index} />
+                                        )}
                                     </>
                                 )}
 
@@ -112,6 +109,7 @@ const Blogs = () => {
                 {/* SECTION CONTENT END  */}
 
             </div>
+            
         </div>
 
         {/* <Footer /> */}
