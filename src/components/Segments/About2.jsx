@@ -14,19 +14,20 @@ const images = [
 
 ]
 
-class About2 extends React.Component {
-    
-    render() {
-        const options = {
-            loop:true,
-            autoplay:true,
-            autoplayTimeout:3000,
-            margin:30,
-            nav:true,
-            navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-            items:1,
-            dots: false,
-        };
+
+const About2 = ( {carousel} ) => {
+
+    const options = {
+        loop:true,
+        autoplay:true,
+        autoplayTimeout:3000,
+        margin:30,
+        nav:true,
+        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+        items:1,
+        dots: false,
+    };
+
         return (
             <>
                 <SEO 
@@ -40,20 +41,23 @@ class About2 extends React.Component {
                                 <div className="row">
                                     <div className="col-lg-5 col-md-6">
                                         <div className="m-about m-l50 m-r50">
-
+                                        {console.log('carousel', carousel)}
                                         <OwlCarousel className="owl-carousel about-us-carousel owl-btn-bottom-right" {...options}>
-                                            {images.map((item, index) => (
+                                            {carousel.images.map((item, index) => (
                                                 <div className="item" key={index}>
                                                 <div className="ow-img wt-img-effect zoom-slow">
                                                 
                                                     <img 
-                                                        src={item.default}  
+                                                        src={item.secure_url}  
                                                         // alt={item.context.custom.alt} 
                                                         // data-pin-description={item.context.custom.dataPin}
                                                         // caption={item.context.custom.caption} 
+                                                         
+                                                        alt={item.context.custom.alt}
+                                                        caption={item.context.custom.caption}
+                                                        data-pin-description={item.context.custom.dataPin}
                                                         width={360}
-                                                        height={560} 
-                                                        alt=''
+                                                        height={560}
                                                     />
                                                 </div>
                                                 </div>
@@ -106,6 +110,5 @@ class About2 extends React.Component {
             </>
         );
     }
-};
 
 export default About2;

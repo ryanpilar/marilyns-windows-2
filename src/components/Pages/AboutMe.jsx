@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useState, useLayoutEffect } from 'react';
 
 
 import Header2 from '../Common/Header2';
@@ -7,12 +8,46 @@ import About2 from '../Segments/About2';
 // import Story from './../Segments/Story';
 import Footer from '../Common/Footer';
 import SEO from '../Segments/SEO';
+import {createClient} from 'contentful'
 
+const AboutMe = () => {
 
-var bnrimg = require('./../../images/background/bg-11.jpg');
+    const [ banner, setBanner ] = useState(null)
+    const [ imageCarousel, setImageCarousel ] = useState(null)
 
-class AboutMe extends React.Component {
-    render() {
+    const client = createClient({                                   // contentful connect
+        space: process.env.REACT_APP_CONTENTFUL_SPACE,
+        accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+    })
+
+    useEffect( () => {
+
+        const getContentfulContents = async() => {
+            try {
+
+                await client.getEntries().then( allEntries => {
+                    
+                    const contentfulContent = allEntries.items
+                    const aboutContent = contentfulContent.filter( entry => entry.fields.location === 'aboutFull')
+                    console.log('aboutContent', aboutContent)
+                    
+                    setBanner({ image: {
+                        data: aboutContent[0].fields.banner[0] 
+                    }
+                    })
+                    setImageCarousel({
+                        images: aboutContent[0].fields.images
+                    })
+                })
+            }
+            catch (error) {
+                console.log('this error arose from the client.getEntries() call to contentful')
+            }
+        }
+        getContentfulContents()
+
+    }, [])
+
         return (
             <>
                 <SEO 
@@ -21,16 +56,16 @@ class AboutMe extends React.Component {
                     description={`Professionally sewing for over 30 years and specializing in the tailored creation of hand-sewn curtains, drapes, blinds, and custom bedding`} 
                 />
                 <Header2 />
-                <div className="page-content">
-                    <Banner title="Fusing logic with imagination and truth with discovery." pagename="About Us" bgimage={bnrimg.default}/>
-                    <About2 />
-                    {/* <Story /> */}
-                </div>
 
+                { imageCarousel &&
+                    <div className="page-content">
+                        <Banner title="Fusing logic with imagination and truth with discovery." pagename="About Us" bgimage={banner.image.data.secure_url}/>
+                        <About2 carousel={imageCarousel} />
+                    </div>
+                }
                 <Footer />
             </>
         );
     };
-};
 
 export default AboutMe;

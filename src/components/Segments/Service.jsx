@@ -8,7 +8,7 @@ var img3 = require('./../../images/gallery/pic4.jpg');
 var img4 = require('./../../images/gallery/pic5.jpg');
 
 
-const Service = () => {
+const Service = ({process}) => {
 
         
         return (
@@ -28,7 +28,14 @@ const Service = () => {
                                     <div className="row">
                                         <div className="col-md-6 col-sm-12">
                                             <div className="wt-media our-story-pic">
-                                                <img src={img1.default} alt="" />
+                                                <img 
+                                                    src={process.consultation.image.secure_url}  
+                                                    alt={process.consultation.image.context.custom.alt}
+                                                    caption={process.consultation.image.context.custom.caption}
+                                                    data-pin-description={process.consultation.image.context.custom.dataPin}
+                                                    width={360}
+                                                    height={560}
+                                                />
                                             </div>
                                         </div>
                                         <div className="col-md-6 col-sm-12">
@@ -54,14 +61,28 @@ const Service = () => {
                                         </div>
                                         <div className="col-md-6 col-sm-12">
                                             <div className="wt-media our-story-pic">
-                                                <img src={img2.default} alt="" />
+                                            <img 
+                                                src={process.ideas.image.secure_url}  
+                                                alt={process.ideas.image.context.custom.alt}
+                                                caption={process.ideas.image.context.custom.caption}
+                                                data-pin-description={process.ideas.image.context.custom.dataPin}
+                                                width={360}
+                                                height={560}
+                                            />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="row">
                                         <div className="col-md-6 col-sm-12">
                                             <div className="wt-media our-story-pic">
-                                                <img src={img3.default} alt="" />
+                                            <img 
+                                                src={process.install.image.secure_url}  
+                                                alt={process.install.image.context.custom.alt}
+                                                caption={process.install.image.context.custom.caption}
+                                                data-pin-description={process.install.image.context.custom.dataPin}
+                                                width={360}
+                                                height={560}
+                                            />
                                             </div>
                                         </div>
                                         <div className="col-md-6 col-sm-12">
@@ -92,7 +113,14 @@ const Service = () => {
                                         </div>
                                         <div className="col-md-6 col-sm-12">
                                             <div className="wt-media our-story-pic">
-                                                <img src={img4.default} alt="" />
+                                                <img 
+                                                    src={process.warranty.image.secure_url}  
+                                                    alt={process.warranty.image.context.custom.alt}
+                                                    caption={process.warranty.image.context.custom.caption}
+                                                    data-pin-description={process.warranty.image.context.custom.dataPin}
+                                                    width={360}
+                                                    height={560}
+                                                />
                                             </div>
                                         </div>
                                     </div>

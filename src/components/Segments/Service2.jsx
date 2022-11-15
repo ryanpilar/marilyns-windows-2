@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Service2 = () => {
+const Service2 = ( {testimonial} ) => {
   return (
 
     <div className="section-full p-tb90 square_shape1 square_shape3 tm-blog-single-wrap">
@@ -42,7 +42,19 @@ const Service2 = () => {
                                         <blockquote>
                                             <div className="row">
                                                 <div className="col-md-4 col-sm-6 tm-qt-img">
-                                                    <img src={require("./../../images/gallery/pic1.jpg").default} alt=""/>
+                                                    {/* <img src={testimonial.image} alt=""/> */}
+                                                    <img 
+                                                        src={testimonial.image.secure_url}  
+                                                        // alt={item.context.custom.alt} 
+                                                        // data-pin-description={item.context.custom.dataPin}
+                                                        // caption={item.context.custom.caption} 
+                                                         
+                                                        alt={testimonial.image.context.custom.alt}
+                                                        caption={testimonial.image.context.custom.caption}
+                                                        data-pin-description={testimonial.image.context.custom.dataPin}
+                                                        width={800}
+                                                        height={500}
+                                                    />
                                                 </div>
                                                 <div className="col-md-8 col-sm-6">
                                                     
