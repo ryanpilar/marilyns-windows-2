@@ -10,8 +10,6 @@ const Loader = () => {
                 </svg>
             </div>
         </div>
-
-
     );
 };
 

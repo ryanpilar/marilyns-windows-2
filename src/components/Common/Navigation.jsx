@@ -1,6 +1,6 @@
 import React from 'react';
 // import { NavLink } from 'react-router-dom';
-import { Link } from "react-scroll";
+// import { Link } from "react-scroll";
 
 class Navigation extends React.Component {
 

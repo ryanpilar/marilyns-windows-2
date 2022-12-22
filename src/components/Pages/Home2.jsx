@@ -20,7 +20,6 @@ import SEO from '../Segments/SEO';
 
 const Home2 = () => {
 
-    const [ backgroundImages, setBackgroundImages ] = useState(null)
     const [ content, setContent ] = useState(null)
 
     const client = createClient({                                   // contentful connect
@@ -41,7 +40,7 @@ const Home2 = () => {
                     const galleryContent = allEntries.items.filter( entry => entry.fields.location === 'gallery')
                     const testimonialContent = allEntries.items.filter( entry => entry.fields.location === 'testimonials')
                     const background = allEntries.items.filter( entry => entry.fields.location === 'background')
-                    const sliderContent = allEntries.items.filter( entry => entry.fields.location === 'slider')
+                    // const sliderContent = allEntries.items.filter( entry => entry.fields.location === 'slider')
 
                     // console.log('testimonialContent', testimonialContent)
                     
@@ -67,7 +66,7 @@ const Home2 = () => {
         let currentIndex = array.length,  randomIndex;
       
         // While there remain elements to shuffle.
-        while (currentIndex != 0) {
+        while (currentIndex !== 0) {
       
           // Pick a remaining element.
           randomIndex = Math.floor(Math.random() * currentIndex);

@@ -4,9 +4,9 @@ import React from 'react';
 import Header2 from '../Common/Header2';
 
 
-var bnrimg = require('./../../images/background/bg-11.jpg');
+// var bnrimg = require('./../../images/background/bg-11.jpg');
 
-class AboutMe extends React.Component {
+class NotFound extends React.Component {
     render() {
         return (
             <>
@@ -67,5 +67,5 @@ class AboutMe extends React.Component {
     };
 };
 
-export default AboutMe;
+export default NotFound;
 

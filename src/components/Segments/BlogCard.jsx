@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const BlogCard = ({passItem, passIndex}) => {
     // const item = passItem
     const post = passItem
-    const index = passIndex
+    // const index = passIndex
 
 
 

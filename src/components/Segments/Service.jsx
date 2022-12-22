@@ -2,10 +2,10 @@ import React from 'react';
 // import { NavLink } from 'react-router-dom';
 
 
-var img1 = require('./../../images/gallery/pic1.jpg');
-var img2 = require('./../../images/gallery/pic3.jpg');
-var img3 = require('./../../images/gallery/pic4.jpg');
-var img4 = require('./../../images/gallery/pic5.jpg');
+// var img1 = require('./../../images/gallery/pic1.jpg');
+// var img2 = require('./../../images/gallery/pic3.jpg');
+// var img3 = require('./../../images/gallery/pic4.jpg');
+// var img4 = require('./../../images/gallery/pic5.jpg');
 
 
 const Service = ({process}) => {

@@ -99,7 +99,7 @@ const Services = ( {content} ) => {
                                     <div className="circle-content-pic tab-content ">
                                         
                                         {content.cloudinaryImage.map((item, index) => (
-                                            <div className={index == 0 ? `tab-pane active` : `tab-pane`} id={`tab${index}`} key={index}>
+                                            <div className={index === 0 ? `tab-pane active` : `tab-pane`} id={`tab${index}`} key={index}>
                                                 <div className="wt-box">
                                                     <div className="wt-media text-primary m-b20 ">
                                                         <img 

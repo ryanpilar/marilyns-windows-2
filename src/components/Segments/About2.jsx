@@ -7,12 +7,12 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import SEO from '../Segments/SEO';
 
 
-const images = [
-    require('./../../images/gallery/portrait/pic1.jpg'),
-    require('./../../images/gallery/portrait//pic2.jpg'),
-    require('./../../images/gallery/portrait//pic3.jpg'),
+// const images = [
+//     require('./../../images/gallery/portrait/pic1.jpg'),
+//     require('./../../images/gallery/portrait//pic2.jpg'),
+//     require('./../../images/gallery/portrait//pic3.jpg'),
 
-]
+// ]
 
 
 const About2 = ( {carousel} ) => {
