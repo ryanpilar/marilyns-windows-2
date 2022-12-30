@@ -133,16 +133,18 @@ const Gallery22 = () => {
                                         
 
                                             {imageList.map((item, index) => (
-                                                <div key={index} className={`${item.fields.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30`}>
-                                                    <div className="wt-img-effect ">
+                                                <div key={index} className={`${item.fields.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30 `}>
+                                                    <div className="wt-img-effect wt-img-black-bg" >
+                                                    <div className='img-opacity'>
                                                         <img 
+                                                        
                                                             src={item.fields.smallImage[0].secure_url} 
                                                             alt={item.fields.smallImage[0]?.context?.custom?.alt} 
                                                             caption={item.fields.smallImage[0]?.context?.custom?.caption} 
                                                             data-pin-description={item.fields.smallImage[0]?.context?.custom?.dataPin}
                                                             width='360'
                                                             height='560'
-                                                            />
+                                                            /></div>
                                                         <div className="overlay-bx-2 ">
                                                             <div className="line-amiation">
                                                                 <div className="text-white font-weight-300 p-a40">
@@ -169,11 +171,9 @@ const Gallery22 = () => {
                                                 </div>
                                             ))}
                                        
-                                    
                                     {isOpen && (
-
                                         <Lightbox
-
+                                            
                                             mainSrc={imageList[photoIndex].fields.smallImage[0].secure_url}           // there will always be only one image, hence [0]
                                             // nextSrc={projects[(photoIndex + 1) % projects.length].image.default}
                                             // prevSrc={projects[(photoIndex + projects.length - 1) % projects.length].image.default}
@@ -194,6 +194,8 @@ const Gallery22 = () => {
                                                                                     
                                         />
                                     )}
+
+                                    
                                     
                                 </div>
                             </div>

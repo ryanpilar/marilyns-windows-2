@@ -1,12 +1,4 @@
 import React from 'react'; 
-// import { NavLink } from 'react-router-dom';
-
-
-// var img1 = require('./../../images/gallery/pic1.jpg');
-// var img2 = require('./../../images/gallery/pic3.jpg');
-// var img3 = require('./../../images/gallery/pic4.jpg');
-// var img4 = require('./../../images/gallery/pic5.jpg');
-
 
 const Service = ({process}) => {
 
@@ -15,7 +7,9 @@ const Service = ({process}) => {
             <>
                 <div className="section-full bg-gray p-tb90 square_shape1 tw-our-story-wrap">
                         <div className="container">
+
                             <div className="max-mid-container">
+
                                 {/* TITLE START */}
                                 <div className="section-head text-left text-black">
                                     <h2 className="text-uppercase font-36">Our Design Process</h2>
@@ -24,7 +18,11 @@ const Service = ({process}) => {
                                     </div>
                                 </div>
                                 {/* TITLE END */}
+
+                                
                                 <div className="section-content our-story">
+
+                                    {/* CONSULTATION */}
                                     <div className="row">
                                         <div className="col-md-6 col-sm-12">
                                             <div className="wt-media our-story-pic">
@@ -33,20 +31,23 @@ const Service = ({process}) => {
                                                     alt={process.consultation.image.context.custom.alt}
                                                     caption={process.consultation.image.context.custom.caption}
                                                     data-pin-description={process.consultation.image.context.custom.dataPin}
-                                                    width={360}
-                                                    height={560}
+                                                    width={800}
+                                                    height={500}
                                                 />
                                             </div>
                                         </div>
+
                                         <div className="col-md-6 col-sm-12">
                                             <div className="wt-box our-story-detail">
                                                 {/* <h3 className="text-uppercase">1</h3> */}
                                                 <h2 className="text-uppercase">1. Book a consultation</h2>
                                                 <p>Lets connect and talk about your project needs.  </p>
-                                                <a href="/#contact" className="btn-half site-button button-lg m-b15"><span>Make Appointment</span><em /></a>
+                                                <a href="/#contact" className="btn-half site-button button-lg m-b15 text-right"><span>Make Appointment</span><em /></a>
                                             </div>
                                         </div>
                                     </div>
+
+                                    {/* DRAPERY IDEAS */}
                                     <div className="row">
                                         <div className="col-md-6 col-sm-12">
                                             <div className="wt-box our-story-detail">
@@ -66,13 +67,15 @@ const Service = ({process}) => {
                                                 alt={process.ideas.image.context.custom.alt}
                                                 caption={process.ideas.image.context.custom.caption}
                                                 data-pin-description={process.ideas.image.context.custom.dataPin}
-                                                width={360}
-                                                height={560}
+                                                width={800}
+                                                height={500}
                                             />
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
+
+                                    {/* INSTALLATION */}
+                                    <div className="row m-b20">
                                         <div className="col-md-6 col-sm-12">
                                             <div className="wt-media our-story-pic">
                                             <img 
@@ -80,26 +83,28 @@ const Service = ({process}) => {
                                                 alt={process.install.image.context.custom.alt}
                                                 caption={process.install.image.context.custom.caption}
                                                 data-pin-description={process.install.image.context.custom.dataPin}
-                                                width={360}
-                                                height={560}
+                                                width={800}
+                                                height={500}
                                             />
                                             </div>
                                         </div>
+
                                         <div className="col-md-6 col-sm-12">
                                             <div className="wt-box our-story-detail">
-                                                {/* <h3 className="text-uppercase">2015-16</h3> */}
                                                 <h2 className="text-uppercase">3. Professional Installs</h2>
                                                 <p>
                                                     The installation process is easy and enjoyable. We personally install each drape, curtain, 
                                                     blind, shade or accessory to make sure everything is perfect. You’ll see each room come to 
                                                     life as your couture window dressings are placed just as you ordered.
                                                 </p>
-                                                <a href="/#contact" className="btn-half site-button button-lg m-b15"><span>Get Free Estimate</span><em /></a>
+                                                
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
-                                        <div className="col-md-6 col-sm-12">
+
+                                    {/* MAINTENANCE AND WARRANTY */}
+                                    <div className="row ">
+                                        <div className="col-md-6 col-sm-12 ">
                                             <div className="wt-box our-story-detail">
                                                 {/* <h3 className="text-uppercase">2017-18</h3> */}
                                                 <h2 className="text-uppercase">4. Maintenance and Warranty</h2>
@@ -111,6 +116,7 @@ const Service = ({process}) => {
                                                 
                                             </div>
                                         </div>
+
                                         <div className="col-md-6 col-sm-12">
                                             <div className="wt-media our-story-pic">
                                                 <img 
@@ -118,13 +124,16 @@ const Service = ({process}) => {
                                                     alt={process.warranty.image.context.custom.alt}
                                                     caption={process.warranty.image.context.custom.caption}
                                                     data-pin-description={process.warranty.image.context.custom.dataPin}
-                                                    width={360}
-                                                    height={560}
+                                                    width={800}
+                                                    height={500}
                                                 />
                                             </div>
                                         </div>
                                     </div>
+                                    
                                 </div>
+
+                                
                             </div>
                         </div>
                     </div>

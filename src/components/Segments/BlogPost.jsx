@@ -78,9 +78,37 @@ const BlogPost = () => {
             </span>
           ),
         },
-        "embedded-asset-block": (node) => (
-          <img width={`100%`} src={node.data.target.fields.file.url} aria-hidden={true}/>
-        ),
+        renderNode: {
+          "embedded-asset-block": (node) => (
+            <img className="m-t20 m-b30" width={`100%`} src={node.data.target.fields.file.url} aria-hidden={true}/>
+          ),
+          // [BLOCKS.QUOTE]: (node, children) => (
+          //   <div className="p-4">
+          //     <blockquote className="blockquote">
+          //       <span className="p pt-2">
+          //         <i className="fa fa-quote-right text-primary "></i>
+          //         {children}
+          //       </span>
+          //     </blockquote>
+          //   </div>
+          // ),
+          // [BLOCKS.TABLE]: (node, children) => (
+          //   <table className="table table-bordered ">
+          //     <tbody className=" ">{children}</tbody>
+          //   </table>
+          // ),
+          // [BLOCKS.TABLE_ROW]: (node, children) => (
+          //   <tr className="thead-dark">{children}</tr>
+          // ),
+          // [BLOCKS.TABLE_CELL]: (node, children) => (
+          //   <td className="">{children}</td>
+          // ),
+          // [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
+          //   <th className="">
+          //     <h3 className="display-2 text-primary h3">{children}</h3>
+          //   </th>
+          // ),
+        },
       };
 
       return documentToReactComponents(
@@ -96,6 +124,7 @@ const BlogPost = () => {
     margin: 30,
     nav: true,
     dots: false,
+    thumbnail: false,
     autoplay: true,
     navText: [
       '<i class="fa fa-angle-left"></i>',
@@ -126,11 +155,11 @@ const BlogPost = () => {
 
       <Header2 />
       <div className="page-content ">
-        <Banner
+        {/* <Banner
           title="high quality, effective, and inspiring built space."
           pagename="Blog Post"
           bgimage={bnrimg.default}
-        />
+        /> */}
 
         <div className="section-full p-tb90 square_shape1 square_shape3 tm-blog-single-wrap">
           <div className="container">

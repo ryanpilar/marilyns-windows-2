@@ -10,11 +10,11 @@ tpj(document).ready(function() {
 			jsFileLocation:"revolution/js/",
 			sliderLayout:"fullscreen",
 			dottedOverlay:"none",
-			delay:5000,
+			delay:8000,
 			navigation: {
-				keyboardNavigation:"off",
+				keyboardNavigation:"on",
 				keyboard_direction: "horizontal",
-				mouseScrollNavigation:"off",
+				mouseScrollNavigation:"on",
  				mouseScrollReverse:"default",
 				onHoverStop:"off",
 				touch:{
@@ -32,7 +32,7 @@ tpj(document).ready(function() {
 					hide_onmobile:true,
 					hide_under:778,
 					hide_onleave:false,
-					tmp:'<div class="tp-title-wrap">  	<div class="tp-arr-imgholder"></div>    <div class="tp-arr-img-over"></div> </div>',
+					// tmp:'<div class="tp-title-wrap">  	<div class="tp-arr-imgholder"></div>    <div class="tp-arr-img-over"></div> </div>',
 					left: {
 						h_align:"left",
 						v_align:"center",

@@ -156,10 +156,10 @@ class Contact extends React.Component {
                                 
                                 <div className="p-t10">
                                     <ul className="list-inline contact-socials">
-                                        <li><a target="_blank" rel="noreferrer" href="https://www.facebook.com/MarilynsWindows/" aria-label="My Facebook"><i className="fa fa-facebook" /></a></li>
-                                        <li><a target="_blank" rel="noreferrer" href="https://twitter.com/marilynswindows" aria-label="My Twitter"><i className="fa fa-twitter" /></a></li>
-                                        <li><a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/marilynswindows/" aria-label="My Linkedin"><i className="fa fa-linkedin" /></a></li>
-                                        <li><a target="_blank" rel="noreferrer" href="https://www.instagram.com/marilynwindowsandinteriors/" aria-label="My Instagram"><i className="fa fa-instagram" /></a></li>
+                                        <li><a className="p-r15" target="_blank" rel="noreferrer" href="https://www.facebook.com/MarilynsWindows/" aria-label="My Facebook"><i className="fa fa-facebook" /></a></li>
+                                        <li><a className="p-r15" target="_blank" rel="noreferrer" href="https://twitter.com/marilynswindows" aria-label="My Twitter"><i className="fa fa-twitter" /></a></li>
+                                        <li><a className="p-r15" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/marilynswindows/" aria-label="My Linkedin"><i className="fa fa-linkedin" /></a></li>
+                                        <li><a className="p-r15" target="_blank" rel="noreferrer" href="https://www.instagram.com/marilynwindowsandinteriors/" aria-label="My Instagram"><i className="fa fa-instagram" /></a></li>
                                     </ul>                                    
                                 </div>
                                 <div className="wt-separator-outer">
