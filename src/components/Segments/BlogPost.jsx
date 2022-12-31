@@ -157,11 +157,11 @@ const BlogPost = () => {
 
       <Header2 />
       <div className="page-content ">
-        {/* <Banner
+        <Banner
           title="high quality, effective, and inspiring built space."
           pagename="Blog Post"
           bgimage={bnrimg.default}
-        /> */}
+        />
 
         <div className="section-full p-tb90 square_shape1 square_shape3 tm-blog-single-wrap">
           <div className="container">
@@ -188,12 +188,12 @@ const BlogPost = () => {
           {/* BREADCRUMB ROW END */}
 
           {/* TITLE START */}
-          <div className="text-left">
-            <h2 className="text-uppercase font-36">Marilyn's Gallery</h2>
+          {/* <div className="text-left">
+            <h2 className="text-uppercase font-36">Blog Post</h2>
             <div className="wt-separator-outer">
               <div className="wt-separator bg-black" />
             </div>
-          </div>
+          </div> */}
           {/* TITLE END */}
         </div>
 

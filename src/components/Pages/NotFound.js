@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Header2 from '../Common/Header2';
+import Footer from '../Common/Footer';
+
 
 
 // var bnrimg = require('./../../images/background/bg-11.jpg');
@@ -35,6 +37,7 @@ class NotFound extends React.Component {
                                         </div>
                                     </div>
                                     {/* TITLE END */}
+                                    
                                     {/* LISTING WITH SYMBOLES */}
                                     <div className="section-content">
                                         <div className="row">
@@ -45,8 +48,9 @@ class NotFound extends React.Component {
                                                 <ul className="list-arrow">
                                                     <li><a href='/'>Home</a></li>
                                                     <li><a href='/aboutme'>My Story</a></li>
-                                                    <li><a href='/blog'>Blog</a></li>
                                                     <li><a href='/services'>Services</a></li>
+                                                    <li><a href='/gallery'>Gallery</a></li>
+                                                    <li><a href='/blog'>Blog</a></li>
                                                     <li><a href='/#contact'>Contact</a></li>
                                                 </ul>
                                             </div>
@@ -61,7 +65,7 @@ class NotFound extends React.Component {
                     </div>
                 </div>
 
-                {/* <Footer /> */}
+                <Footer />
             </>
         );
     };

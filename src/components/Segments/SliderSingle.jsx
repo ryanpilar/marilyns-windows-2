@@ -75,10 +75,10 @@ const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
         {" "}
       </div>
 
-      <div
+      {/* <div
         className="tp-bannertimer tp-bottom"
         style={{ visibility: "hidden !important" }}
-      />
+      /> */}
     </>
   );
 };

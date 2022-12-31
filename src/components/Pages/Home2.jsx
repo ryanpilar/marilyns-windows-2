@@ -110,8 +110,9 @@ const Home2 = () => {
                     }
                     { content &&
                     <>
-                    <Statistics content={content.stats} />
+                    
                     <Testimonials content={content.testimonials} bgimg={content.background} />
+                    
                     </> 
                     }
                     <Contact />
