@@ -161,10 +161,10 @@ const Gallery22 = () => {
                       key={index}
                       className={`${item.fields.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30 `}
                     >
-                    <div className="wt-img-effect">
-                        <div className="">
-                      {/* <div className="wt-img-effect wt-img-black-bg">
-                        <div className="img-opacity"> */}
+                    {/* <div className="wt-img-effect">
+                        <div className=""> */}
+                      <div className="wt-img-effect wt-img-black-bg">
+                        <div className="img-opacity">
                           <img
                             src={item.fields.smallImage[0].secure_url}
                             alt={
