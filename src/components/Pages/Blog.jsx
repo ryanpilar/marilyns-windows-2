@@ -4,16 +4,16 @@ import { useEffect, useState, useLayoutEffect } from "react";
 import { createClient } from "contentful";
 
 import Header2 from "../Common/Header2";
-import Banner from "./../Segments/Banner";
+import Banner from "../Segments/Banner";
 import BlogCard from "../Segments/BlogCard";
 // import Footer from '../Common/Footer';
 import SEO from "../Segments/SEO";
+import { NavLink } from "react-router-dom";
 
 var bnrimg = require("./../../images/banner/6.jpg");
 
-const Blogs = () => {
+const Blog = () => {
   const [blogPost, setBlogPost] = useState([]);
-  
 
   useEffect(() => {
     const getAllEntries = async () => {
@@ -77,14 +77,31 @@ const Blogs = () => {
 
         <div className="container">
           <div className="container">
+
+            {/* BREADCRUMB ROW */}
+            <div className="">
+              <div className="p-t20 m-r20">
+                <div>
+                  <ul className="wt-breadcrumb breadcrumb-style-2">
+                    <li>
+                      <NavLink to={"/"}>Home</NavLink>
+                    </li>
+                    <li>Blog</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            {/* BREADCRUMB ROW END */}
+
             {/* TITLE START */}
             <div className="text-left">
-              <h2 className="text-uppercase font-36">My Recent Blogs</h2>
+              <h2 className="text-uppercase font-36">Recent Writings</h2>
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />
               </div>
             </div>
             {/* TITLE END */}
+
           </div>
 
           {/* SECTION CONTENT START */}
@@ -99,7 +116,6 @@ const Blogs = () => {
                           key={postData.sys.id}
                           passItem={postData}
                           passIndex={index}
-                          
                         />
                       ))}
                     </>
@@ -117,4 +133,4 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+export default Blog;

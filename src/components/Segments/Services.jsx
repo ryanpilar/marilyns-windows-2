@@ -73,6 +73,7 @@ const Services = ( {content} ) => {
                 >
                     <div className="overlay-main opacity-08 bg-black" />
                     <div className="container">
+                    
                         {/* TITLE START */}
                         <div className="section-head text-left text-white">
                             <h2 className="text-uppercase font-36">Our Services</h2>

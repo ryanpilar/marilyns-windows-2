@@ -2823,15 +2823,20 @@ ol.list-num-count.list-outline-none > li:before {background-color:transparent;	c
 /*13.1 breadcrumb-row-1*/
 
 .wt-breadcrumb{margin:0;	list-style:none;}
-.wt-breadcrumb li {padding:0; 	margin-right:8px;  	color:#fff;	position:relative;	display:inline-block;	font-size:12px;}
-.wt-breadcrumb li a{color:#fff;	}
+.wt-breadcrumb li {padding:0; 	margin-right:8px;  	color:rgb(0, 0, 0);	position:relative;	display:inline-block;	font-size:12px;}
+.wt-breadcrumb li a{color:rgb(0, 0, 0);	}
 .wt-breadcrumb li a:hover{color:#D5DD02;	}
 .wt-breadcrumb li:last-child {color:#D5DD02;}
 .wt-breadcrumb li:first-child a i{font-size: 18px;	vertical-align: text-top;}
 .wt-breadcrumb li:last-child:after {display:none;}
 
+/* breadcrumb line break */
+.breadcrumb-border {
+	border-bottom: solid 1px rgb(61, 61, 61);
+}
+
 /*13.2 Breadcrumb-1*/ 
-.breadcrumb-style-2 li:after {content: "\f101";	margin-left: 8px;	font-family: 'FontAwesome';	color: #fff;	font-size: 16px;	font-weight: normal;}
+.breadcrumb-style-2 li:after {content: "\f101";	margin-left: 8px;	font-family: 'FontAwesome';	color: rgb(0, 0, 0);	font-size: 16px;	font-weight: normal;}
 
 /*-------------------------------------
 	14. Google map 

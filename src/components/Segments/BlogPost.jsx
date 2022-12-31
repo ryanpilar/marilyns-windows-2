@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 
 import { useParams } from "react-router-dom"; // useParams allows the '/post/:id' to work
+import { NavLink } from "react-router-dom";
+
 
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -149,7 +151,7 @@ const BlogPost = () => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | Posts | ${singleBlogPost?.fields?.title}`}
+        title={`Marilyn's Windows | Blog | ${singleBlogPost?.fields?.title}`}
         description={singleBlogPost?.fields?.metaDescription}
       />
 
@@ -164,6 +166,37 @@ const BlogPost = () => {
         <div className="section-full p-tb90 square_shape1 square_shape3 tm-blog-single-wrap">
           <div className="container">
             <div className="max-mid-container">
+
+            <div className="container p-b30">
+          {/* BREADCRUMB ROW */}
+          <div className="">
+            <div className="p-t20 m-r20">
+              <div>
+              
+                <ul className="wt-breadcrumb breadcrumb-style-2">
+                  <li>
+                    <NavLink to={"/"}>Home</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to={"/blog"}>Blog</NavLink>
+                  </li>
+                  <li>Post</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          {/* BREADCRUMB ROW END */}
+
+          {/* TITLE START */}
+          <div className="text-left">
+            <h2 className="text-uppercase font-36">Marilyn's Gallery</h2>
+            <div className="wt-separator-outer">
+              <div className="wt-separator bg-black" />
+            </div>
+          </div>
+          {/* TITLE END */}
+        </div>
+
               <div className="blog-post blog-lg date-style-1 text-black">
                 <div className="wt-post-media">
                   {/*Fade slider*/}

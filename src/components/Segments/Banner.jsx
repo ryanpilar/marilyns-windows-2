@@ -27,7 +27,7 @@ class Banner extends React.Component {
                                         {/* </div> */}
                                         {/* BREADCRUMB ROW */}
                                         <div className="p-tb20">
-                                            <div>
+                                            {/* <div>
                                                 <ul className="wt-breadcrumb breadcrumb-style-2">
                                                     
                                                     
@@ -38,7 +38,7 @@ class Banner extends React.Component {
                                                     
                                                     <li>{this.props.pagename}</li>
                                                 </ul>
-                                            </div>
+                                            </div> */}
                                         </div>
                                         {/* BREADCRUMB ROW END */}
                                     </div>

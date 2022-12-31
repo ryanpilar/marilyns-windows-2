@@ -38,7 +38,7 @@ class Navigation extends React.Component {
 
                         <li><a href="/gallery">Gallery</a></li>
                         
-                        <li><a href="/blogs">Blog</a></li>
+                        <li><a href="/blog">Blog</a></li>
 
                         <li><a href="/#contact">Contact</a></li>
 
