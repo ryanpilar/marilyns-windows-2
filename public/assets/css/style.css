@@ -2581,9 +2581,6 @@ ol.list-num-count.list-outline-none > li:before {background-color:transparent;	c
 
 .wt-img-black-bg {
 	background: rgba(0, 0, 0, 0.7);
-
-	/* background:rgb(0, 0, 0); */
-
 }
 .img-opacity {
 	opacity: 0.65;

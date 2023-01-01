@@ -43,6 +43,7 @@ const LatestProjects = ({ content }) => {
     margin: 20,
     nav: true,
     dots: false,
+    autoplayHoverPause: true, 
     navText: [
       '<i class="fa fa-angle-left"></i>',
       '<i class="fa fa-angle-right"></i>',

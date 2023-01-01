@@ -56,6 +56,16 @@ const Testimonials = ({ content, bgimg }) => {
                                                 <div className="testimonial-detail clearfix">
                                                     <strong className="testimonial-name">{item.fields.fullName}</strong>
                                                     <span className="testimonial-position p-t0">{item.fields.position}</span>
+                                                    
+
+
+                                                </div>
+                                                <div className="">
+                                                    <span className="fa fa-star p-r5" style={{color:'#e7a403'}} />
+                                                    <span className="fa fa-star p-r5" style={{color:'#e7a403'}} />
+                                                    <span className="fa fa-star p-r5" style={{color:'#e7a403'}} />
+                                                    <span className="fa fa-star p-r5" style={{color:'#e7a403'}} />
+                                                    <span className="fa fa-star p-r5" style={{color:'#e7a403'}} />
                                                 </div>
                                                 <div className="testimonial-paragraph text-black p-t15">
                                                     <span className="fa fa-quote-left" />

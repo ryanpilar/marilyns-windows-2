@@ -40,7 +40,7 @@ const Gallery22 = () => {
         await client
           .getEntries({ content_type: "gallery" })
           .then((allEntries) => {
-            // console.log('ALL ENTRIES', allEntries)
+            console.log('ALL ENTRIES', allEntries)
             setImageList(allEntries.items);
             // console.log('NEW STATE', imageList)
           });
