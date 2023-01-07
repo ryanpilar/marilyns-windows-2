@@ -2,31 +2,26 @@ import React from "react";
 import { useEffect, useState, useLayoutEffect } from "react";
 import { createClient } from "contentful";
 
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css"; // This only needs to be imported once in your app
-
 import { NavLink } from "react-router-dom";
 import Header2 from "../Common/Header2";
 // import Footer from '../Common/Footer';
 import Banner from "../Segments/Banner";
 import SEO from "../Segments/SEO";
 
-// const bnrimg = require('./../../images/banner/sewing-machine-lamp-freepic.png');
+import { useParams } from "react-router-dom"
 
-const Gallery22 = () => {
+
+
+const GallerySingle = () => {
+  const { id } = useParams(); // grabs the contentful :id form the address bar
   const [imageList, setImageList] = useState([]);
   const [bannerContent, setBannerContent] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
 
-  // const [ filters, setFilters ] = useState([
-  //     { label: "House", filter: ".cat-1" },
-  //     { label: "Building", filter: ".cat-2" },
-  //     { label: "Office", filter: ".cat-3" },
-  //     { label: "Bedroom", filter: ".cat-4" },
-  //     { label: "Interior", filter: ".cat-5" }
-  // ]);
+  const galleryRoute = `https://marilyns-windows.netlify.app/gallery/room/${id}`;
 
+  
   const client = createClient({
     // contentful connect
     space: process.env.REACT_APP_CONTENTFUL_SPACE,
@@ -34,41 +29,20 @@ const Gallery22 = () => {
   });
 
   useEffect(() => {
-    const getAllEntries = async () => {
-      // contentful get data
+
+    const getEntryById = async () => {
+
       try {
-        await client
-          .getEntries({ content_type: "gallery" })
-          .then((allEntries) => {
-            console.log('ALL ENTRIES', allEntries)
-            setImageList(allEntries.items);
-            // console.log('NEW STATE', imageList)
-          });
+        await client.getEntry(id).then( (blogEntry) => {
+          console.log("GALLERY ENTRY", blogEntry);
+          // setSingleBlogPost(blogEntry);
+        });
       } catch (error) {
-        console.log(
-          "this error arose from the client.getEntries() call to contentful"
-        );
+        console.log("error");
       }
     };
 
-    const getBannerContent = async () => {
-      // contentful get data
-      try {
-        await client
-          .getEntries({ content_type: "banner" })
-          .then((allEntries) => {
-            // console.log('BANNER CONTENT', allEntries.items[0].fields)
-            setBannerContent(allEntries.items[0].fields);
-            // console.log('NEW STATE', imageList)
-          });
-      } catch (error) {
-        console.log(
-          "this error arose from the client.getEntries() call to contentful"
-        );
-      }
-    };
-    getBannerContent();
-    getAllEntries();
+    getEntryById();
   }, []);
 
   useLayoutEffect(() => {
@@ -92,21 +66,23 @@ const Gallery22 = () => {
 
   return (
     <>
+    {/* UPDATE SEO WITH PROPER TITLE FROM CONTENFUL */}
       <SEO
-        title={`Marilyn's Windows | Gallery | Beautiful Drapery Ideas`}
+        title={`Marilyn's Windows | Room | Beautiful Drapery Ideas`}
         description={`Bedroom curtain ideas. Window coverings for patio doors. Living room drapery ideas. Light filtering curtains and blackout blinds. Outdoor curtain ideas.`}
       />
 
       <Header2 />
 
       <div className="page-content ">
-        {bannerContent && (
+
+        {/* {bannerContent && (
           <Banner
             title={bannerContent.heading}
             pagename={bannerContent.pageName}
             bgimage={bannerContent.backgroundImage[0].secure_url}
           />
-        )}
+        )} */}
 
         <div className="container p-b30">
           {/* BREADCRUMB ROW */}
@@ -117,7 +93,10 @@ const Gallery22 = () => {
                   <li>
                     <NavLink to={"/"}>Home</NavLink>
                   </li>
-                  <li>Gallery</li>
+                  <li>
+                    <NavLink to={"/gallery"}>Gallery</NavLink>
+                  </li>
+                  <li>High-def Room</li>
                 </ul>
               </div>
             </div>
@@ -126,7 +105,7 @@ const Gallery22 = () => {
 
           {/* TITLE START */}
           <div className="text-left">
-            <h2 className="text-uppercase font-36">Marilyn's Gallery</h2>
+            <h2 className="text-uppercase font-36">High-def Gallery Image</h2>
             <div className="wt-separator-outer">
               <div className="wt-separator bg-black" />
             </div>
@@ -156,13 +135,12 @@ const Gallery22 = () => {
             <div className="portfolio-wrap mfp-gallery work-grid clearfix">
               <div className="container-fluid">
                 <div className="row">
-                  {imageList.map((item, index) => (
+                  {/* {imageList.map((item, index) => (
                     <div
                       key={index}
                       className={`${item.fields.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30 `}
                     >
-                    {/* <div className="wt-img-effect">
-                        <div className=""> */}
+
                       <div className="wt-img-effect wt-img-black-bg">
                         <div className="img-opacity">
                           <img
@@ -187,19 +165,14 @@ const Gallery22 = () => {
                             <div className="text-white font-weight-300 p-a40">
                               <h2>{item.fields.cardTitle}</h2>
                               <p>{item.fields.cardDescription}</p>
-
-                              {console.log('GALLERY ID', item)}
-
-                              <NavLink to={`/gallery/room/${item.sys.id}`}>
                               <div
                                 className="v-button letter-spacing-4 font-18 text-uppercase p-l20 make-pointer"
-                                // type="button"
-                                // onClick={() => this.setState({ isOpen: true, photoIndex: Number(index) }) }
-                                // aria-hidden="true"
-                                // onClick={() => {
-                                //   setIsOpen(true);
-                                //   setPhotoIndex(Number(index));
-                                // }}
+
+                                aria-hidden="true"
+                                onClick={() => {
+                                  setIsOpen(true);
+                                  setPhotoIndex(Number(index));
+                                }}
                               >
                                 <p>
                                   <i
@@ -209,35 +182,14 @@ const Gallery22 = () => {
                                   Enlarge
                                 </p>
                               </div>
-                              </NavLink>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  ))}
+                  ))} */}
 
-                  {isOpen && (
-                    <Lightbox
-                      mainSrc={
-                        imageList[photoIndex].fields.smallImage[0].secure_url
-                      } // there will always be only one image, hence [0]
-                      // nextSrc={projects[(photoIndex + 1) % projects.length].image.default}
-                      // prevSrc={projects[(photoIndex + projects.length - 1) % projects.length].image.default}
 
-                      // onCloseRequest={() => this.setState({ isOpen: false })}
-                      onCloseRequest={() => setIsOpen(false)}
-                      // onMovePrevRequest={() => this.setState({
-                      // photoIndex: (photoIndex + projects.length - 1) % projects.length,
-                      // })}
-                      // onMoveNextRequest={() =>
-                      // this.setState({
-                      // photoIndex: (photoIndex + 1) % projects.length,
-                      // })}
-                      discourageDownloads={true}
-                      clickOutsideToClose={true}
-                    />
-                  )}
                 </div>
               </div>
             </div>
@@ -254,4 +206,4 @@ const Gallery22 = () => {
   );
 };
 
-export default Gallery22;
+export default GallerySingle;

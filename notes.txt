@@ -7,6 +7,7 @@ Weird things I havn't figured out yet:
 
     2.  when i switch from hardocded images to contentful/cloudinary,the gallery massonry-filter
         no longer works
+
         
 Weird things I had to do: 
 

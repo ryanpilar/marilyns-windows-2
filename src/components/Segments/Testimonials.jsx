@@ -60,7 +60,7 @@ const Testimonials = ({ content, bgimg }) => {
 
 
                                                 </div>
-                                                <div className="">
+                                                <div className="p-b10">
                                                     <span className="fa fa-star p-r5" style={{color:'#e7a403'}} />
                                                     <span className="fa fa-star p-r5" style={{color:'#e7a403'}} />
                                                     <span className="fa fa-star p-r5" style={{color:'#e7a403'}} />

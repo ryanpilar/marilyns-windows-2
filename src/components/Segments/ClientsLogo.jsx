@@ -3,19 +3,24 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
-const logos = [
-    { image: require('./../../images/client-logo/w1.png') },
-    { image: require('./../../images/client-logo/w2.png') },
-    { image: require('./../../images/client-logo/w3.png') },
-    { image: require('./../../images/client-logo/w4.png') },
-    { image: require('./../../images/client-logo/w5.png') },
-    { image: require('./../../images/client-logo/w6.png') },
 
-]
 
-class ClientsLogo extends React.Component {
 
-    render() {
+const ClientsLogo = ({content}) => {
+    console.log('AFFILIATES', content)
+    // const logos = [
+    //     { image: require('./../../images/client-logo/w1.png') },
+    //     { image: require('./../../images/client-logo/w2.png') },
+    //     { image: require('./../../images/client-logo/w3.png') },
+    //     { image: require('./../../images/client-logo/w4.png') },
+    //     { image: require('./../../images/client-logo/w5.png') },
+    //     { image: require('./../../images/client-logo/w6.png') },
+    
+    // ]
+    const logos = content
+
+
+
         const options = {
             loop: true,
             margin: 10,
@@ -70,7 +75,7 @@ class ClientsLogo extends React.Component {
                                                         <div className="item" key={index}>
                                                             <div className="ow-client-logo">
                                                                 <div className="client-logo client-logo-media">
-                                                                    <a href='#' aria-label="visit product site"><img src={item.image.default} alt="" /></a>
+                                                                    <a href={item.fields.companyWebsite} target="_blank" aria-label={`Visit ${item.fields.title}`}><img src={item.fields.logo[0].secure_url} alt={item.fields.logo[0].context.custom.alt} /></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -89,6 +94,6 @@ class ClientsLogo extends React.Component {
             </>
         );
     }
-};
+
 
 export default ClientsLogo;

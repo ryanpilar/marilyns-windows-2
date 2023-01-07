@@ -1,25 +1,28 @@
 import React from 'react';
-
 import { useEffect, useState } from 'react';
 import {createClient} from 'contentful'
 // import { Helmet } from 'react-helmet-async';
 
 
 import Header3 from '../Common/Header3';
-import Slider22 from './../Segments/Slider22';
-import About from './../Segments/About';
-import Services from './../Segments/Services';
-import ClientsLogo from './../Segments/ClientsLogo';
-import Testimonials from './../Segments/Testimonials';
-import LatestProjects from './../Segments/LatestProjects';
-import Statistics from './../Segments/Statistics';
+import Slider22 from '../Segments/Slider22';
+import About from '../Segments/About';
+import Services from '../Segments/Services';
+import ClientsLogo from '../Segments/ClientsLogo';
+import Testimonials from '../Segments/Testimonials';
+import LatestProjects from '../Segments/LatestProjects';
+import Statistics from '../Segments/Statistics';
 import Contact from '../Segments/Contact';
 import Footer from '../Common/Footer';
 import SEO from '../Segments/SEO';
+import { useParams } from "react-router-dom"
 
 
 
-const Home2 = () => {
+const GallerySingle = () => {
+
+    const { id } = useParams(); // grabs the contentful :id form the address bar
+    const galleryRoute = `https://marilyns-windows.netlify.app/gallery/room/${id}`;
 
     const [ content, setContent ] = useState(null)
 
@@ -41,8 +44,9 @@ const Home2 = () => {
                     const galleryContent = allEntries.items.filter( entry => entry.fields.location === 'gallery')
                     const testimonialContent = allEntries.items.filter( entry => entry.fields.location === 'testimonials')
                     const background = allEntries.items.filter( entry => entry.fields.location === 'background')
-                    const affiliates = allEntries.items.filter( entry => entry.fields.location === 'affiliates')
-                    console.log('test contentful call', affiliates)
+                    // const sliderContent = allEntries.items.filter( entry => entry.fields.location === 'slider')
+
+                    // console.log('testimonialContent', testimonialContent)
                     
                     setContent({ 
                         about: aboutContent[0].fields, 
@@ -50,8 +54,7 @@ const Home2 = () => {
                         stats: statsContent[0].fields,
                         projects: galleryContent,
                         testimonials: testimonialContent, 
-                        background: background,
-                        affiliates: affiliates
+                        background: background
                     })
                 })
             }
@@ -63,7 +66,6 @@ const Home2 = () => {
 
     }, [])
 
-    // LATEST PROJECTS Shuffle
     const shuffle = (array) => {
         let currentIndex = array.length,  randomIndex;
       
@@ -100,17 +102,13 @@ const Home2 = () => {
                 <div className="page-content">
 
                     <Slider22 />
-                    
                     { content && 
                     <>
                     <About content={content.about} />
                     <Services content={content.services} /> 
                     </>
                     }
-                    { content &&
-                    <ClientsLogo content={content.affiliates}/>
-                    }
-                    
+                    <ClientsLogo />
                     { content &&
                     <LatestProjects content={selectRandom(content.projects)}/>
                     }
@@ -129,4 +127,4 @@ const Home2 = () => {
         );
     };
 
-export default Home2;
+export default GallerySingle;
