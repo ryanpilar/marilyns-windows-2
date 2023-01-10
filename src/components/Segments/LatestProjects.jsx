@@ -5,6 +5,7 @@ import { useLayoutEffect } from "react";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import { NavLink } from "react-router-dom";
 
 // const filters = [
 //     { label: "Living Space", filter: ".living-col" },
@@ -18,6 +19,10 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 // ];
 
 const LatestProjects = ({ content }) => {
+
+  // const galleryRoute = `/gallery/room/:`
+
+
   useLayoutEffect(() => {
     function loadScript(src) {
       return new Promise(function (resolve, reject) {
@@ -138,17 +143,25 @@ const LatestProjects = ({ content }) => {
                     </div>
                   </div>
 
-                  <div className="overlay-bx-2 ">
-                    <div className="line-amiation">
-                      <div className="text-white  font-weight-300 p-a40">
-                        <h2 className="text-white font-20 letter-spacing-1 text-uppercase">
-                          {item.fields.cardTitle}
-                        </h2>
-                        <p>{item.fields.cardDescription}</p>
-                        {/* <NavLink to={"/project-detail"} className="v-button letter-spacing-4 font-12 text-uppercase p-l20">Read More</NavLink> */}
+                  <NavLink to={`/gallery/room/${item.sys.id}`}>
+                    <div className="overlay-bx-2 ">
+                      <div className="line-amiation">
+                        <div className="text-white  font-weight-300 p-a40">
+                          <h2 className="text-white font-20 letter-spacing-1 text-uppercase">
+                            {item.fields.cardTitle}
+                          </h2>
+                          <p>{item.fields.cardDescription}</p>
+                          {/* <NavLink
+                            to={""}
+                            className="v-button letter-spacing-4 font-12 text-uppercase p-l20"
+                          >
+                            Read More
+                          </NavLink> */}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </NavLink>
+
                 </div>
               </div>
             ))}

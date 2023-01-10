@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- QUESTION is this where we link to a cdn? -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="We are a high-end sewing workroom, focusing on custom drapery"
+    />
 
-<head>
-  <meta charset="utf-8" />
-  <!-- QUESTION is this where we link to a cdn? -->
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="We are a high-end sewing workroom, focusing on custom drapery" />
-  
-
-  <!-- structured data suggestion from, https://ahrefs.com/blog/structured-data/ -->
-  <!-- <script type="application/ld+json">
+    <!-- structured data suggestion from, https://ahrefs.com/blog/structured-data/ -->
+    <!-- <script type="application/ld+json">
     {
       "@context": "https://schema.org/",
       "@type": "Organization",
@@ -22,108 +23,165 @@
     }
     </script> -->
 
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.png" />
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <title>Marilyn's Windows | High End Custom Drapes in Milton, Ontario</title>
+
+    <!-- BOOTSTRAP STYLE SHEET -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="%PUBLIC_URL%/assets/css/bootstrap.min.css"
+    />
+
+    <!-- FONTAWESOME STYLE SHEET -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="%PUBLIC_URL%/assets/css/fontawesome/css/font-awesome.min.css"
+    />
+
+    <!-- MAGNIFIC POPUP STYLE SHEET -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="%PUBLIC_URL%/assets/css/magnific-popup.min.css"
+    />
+
+    <!-- LOADER STYLE SHEET -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="%PUBLIC_URL%/assets/css/loader.min.css"
+    />
+
+    <!-- MAIN STYLE SHEET -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="%PUBLIC_URL%/assets/css/style.css"
+    />
+
+    <!-- REVOLUTION SLIDER CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="%PUBLIC_URL%/assets/css/rev-slider-4.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="%PUBLIC_URL%/assets/plugins/revolution/revolution/css/settings.css"
+    />
+
+    <!-- REVOLUTION NAVIGATION STYLE -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="%PUBLIC_URL%/assets/plugins/revolution/revolution/css/navigation.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="%PUBLIC_URL%/assets/plugins/revolution-addons/beforeafter/css/revolution.addon.beforeafter.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,800,800i,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Crete+Round:400,400i&amp;subset=latin-ext"
+      rel="stylesheet"
+    />
+
+    <!-- Additional Google Fonts -->
 
 
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-  <title>Marilyn's Windows | High End Custom Drapes in Milton, Ontario</title>
-
-  <!-- BOOTSTRAP STYLE SHEET -->
-  <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/assets/css/bootstrap.min.css">
-
-  <!-- FONTAWESOME STYLE SHEET -->
-  <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/assets/css/fontawesome/css/font-awesome.min.css" />
-
-  <!-- MAGNIFIC POPUP STYLE SHEET -->
-  <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/assets/css/magnific-popup.min.css">
-  
-  <!-- LOADER STYLE SHEET -->
-  <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/assets/css/loader.min.css">
-
-  <!-- MAIN STYLE SHEET -->
-  <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/assets/css/style.css">
-
-  <!-- REVOLUTION SLIDER CSS -->
-  <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/assets/css/rev-slider-4.css">
-  <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/assets/plugins/revolution/revolution/css/settings.css">
-
-  <!-- REVOLUTION NAVIGATION STYLE -->
-  <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/assets/plugins/revolution/revolution/css/navigation.css">
-  <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/assets/plugins/revolution-addons/beforeafter/css/revolution.addon.beforeafter.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,800,800i,900"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css?family=Crete+Round:400,400i&amp;subset=latin-ext"
-    rel="stylesheet">  
-
-  <!-- <meta http-equiv="Content-Security-Policy" 
+    <!-- <meta http-equiv="Content-Security-Policy" 
         content="policy definition here" /> -->
-</head>
+  </head>
 
-<body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
 
-  <!-- JAVASCRIPT  FILES ========================================= -->
-  <script src="%PUBLIC_URL%/assets/js/jquery-1.12.4.min.js"></script><!-- JQUERY.MIN JS -->
-  <script src="%PUBLIC_URL%/assets/js/bootstrap.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+    <!-- JAVASCRIPT  FILES ========================================= -->
+    <script src="%PUBLIC_URL%/assets/js/jquery-1.12.4.min.js"></script>
+    <!-- JQUERY.MIN JS -->
+    <script src="%PUBLIC_URL%/assets/js/bootstrap.min.js"></script>
+    <!-- BOOTSTRAP.MIN JS -->
 
-  <script src="%PUBLIC_URL%/assets/js/magnific-popup.min.js"></script><!-- MAGNIFIC-POPUP JS -->
+    <script src="%PUBLIC_URL%/assets/js/magnific-popup.min.js"></script>
+    <!-- MAGNIFIC-POPUP JS -->
 
-  <script src="%PUBLIC_URL%/assets/js/waypoints.min.js"></script><!-- WAYPOINTS JS -->
+    <script src="%PUBLIC_URL%/assets/js/waypoints.min.js"></script>
+    <!-- WAYPOINTS JS -->
 
-  <script src="%PUBLIC_URL%/assets/js/waypoints-sticky.min.js"></script><!-- COUNTERUP JS -->
+    <script src="%PUBLIC_URL%/assets/js/waypoints-sticky.min.js"></script>
+    <!-- COUNTERUP JS -->
 
-  <script src="%PUBLIC_URL%/assets/js/counterup.min.js"></script><!-- counterup.min.js -->
+    <script src="%PUBLIC_URL%/assets/js/counterup.min.js"></script>
+    <!-- counterup.min.js -->
 
-  <!-- <script src="%PUBLIC_URL%/assets/js/particles.js"></script> -->
-  <!-- particles.js -->
+    <!-- <script src="%PUBLIC_URL%/assets/js/particles.js"></script> -->
+    <!-- particles.js -->
 
-  <script src="%PUBLIC_URL%/assets/js/custom.js"></script><!-- IMAGE POPUP -->
+    <script src="%PUBLIC_URL%/assets/js/custom.js"></script>
+    <!-- IMAGE POPUP -->
 
-  <script src="%PUBLIC_URL%/assets/js/isotope.pkgd.min.js"></script><!-- MASONRY.js -->
-  <script src="%PUBLIC_URL%/assets/js/imagesloaded.pkgd.min.js"></script><!-- MASONRY.js -->
+    <script src="%PUBLIC_URL%/assets/js/isotope.pkgd.min.js"></script>
+    <!-- MASONRY.js -->
+    <script src="%PUBLIC_URL%/assets/js/imagesloaded.pkgd.min.js"></script>
+    <!-- MASONRY.js -->
 
-  <script src="%PUBLIC_URL%/assets/js/owl.carousel.min.js"></script><!-- OWL  SLIDER  -->
-  <script src="%PUBLIC_URL%/assets/js/jquery.owl-filter.js"></script>
+    <script src="%PUBLIC_URL%/assets/js/owl.carousel.min.js"></script>
+    <!-- OWL  SLIDER  -->
+    <script src="%PUBLIC_URL%/assets/js/jquery.owl-filter.js"></script>
 
-  
+    <script src="%PUBLIC_URL%/assets/js/app.js"></script>
+    <!-- app.js -->
 
-  <script src="%PUBLIC_URL%/assets/js/app.js"></script><!-- app.js -->
+    <script src="%PUBLIC_URL%/assets/js/shortcode.js"></script>
+    <!-- shortcode.js -->
 
-  <script src="%PUBLIC_URL%/assets/js/shortcode.js"></script><!-- shortcode.js -->
+    <script src="%PUBLIC_URL%/assets/js/isotope.pkgd.min.js"></script>
+    <!-- isotope  -->
 
-  <script src="%PUBLIC_URL%/assets/js/isotope.pkgd.min.js"></script><!-- isotope  -->
+    <!-- REVEAL ADD-ON FILES -->
 
-  <!-- REVEAL ADD-ON FILES -->
+    <script
+      type="text/javascript"
+      src="%PUBLIC_URL%/assets/plugins/revolution/revolution-addons/reveal/js/revolution.addon.revealer.min.js"
+    ></script>
 
-  <script type='text/javascript'
-    src='%PUBLIC_URL%/assets/plugins/revolution/revolution-addons/reveal/js/revolution.addon.revealer.min.js'></script>
+    <!-- TYPEWRITER ADD-ON FILES -->
 
-  <!-- TYPEWRITER ADD-ON FILES -->
-
-  <!-- <script type='text/javascript'
+    <!-- <script type='text/javascript'
     src='%PUBLIC_URL%/assets/plugins/revolution/revolution-addons/typewriter/js/revolution.addon.typewriter.min.js'></script> -->
 
-  <!-- REVOLUTION JS FILES -->
+    <!-- REVOLUTION JS FILES -->
 
-  <script src="%PUBLIC_URL%/assets/plugins/revolution/revolution/js/jquery.themepunch.tools.min.js"></script>
-  <script src="%PUBLIC_URL%/assets/plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="%PUBLIC_URL%/assets/plugins/revolution/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="%PUBLIC_URL%/assets/plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js"></script>
 
-  <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
-  <script src="%PUBLIC_URL%/assets/plugins/revolution/revolution/js/extensions/revolution-plugin.js"></script>
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+    <script src="%PUBLIC_URL%/assets/plugins/revolution/revolution/js/extensions/revolution-plugin.js"></script>
 
-  <!-- REVOLUTION SLIDER SCRIPT FILES -->
-  <script src="%PUBLIC_URL%/assets/js/rev-script-1.js"></script>
+    <!-- REVOLUTION SLIDER SCRIPT FILES -->
+    <script src="%PUBLIC_URL%/assets/js/rev-script-1.js"></script>
 
-  <script type='text/javascript'
-    src='%PUBLIC_URL%/assets/plugins/revolution-addons/beforeafter/js/revolution.addon.beforeafter.min.js'></script>
-
-</body>
-
+    <script
+      type="text/javascript"
+      src="%PUBLIC_URL%/assets/plugins/revolution-addons/beforeafter/js/revolution.addon.beforeafter.min.js"
+    ></script>
+  </body>
 </html>

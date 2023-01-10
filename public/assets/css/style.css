@@ -735,6 +735,7 @@ strong {
 
 h1 {
   font-family: "Poppins", sans-serif;
+  /* font-family: 'PT Serif', 'Poppins', 'sans-serif'; */
   font-weight: 600;
   font-size: 40px;
   line-height: 46px;
@@ -743,6 +744,7 @@ h1 {
 
 h2 {
   font-family: "Poppins", sans-serif;
+  /* font-family: 'PT Serif', 'Poppins', 'sans-serif'; */
   font-weight: 600;
   font-size: 24px;
   line-height: 30px;
@@ -751,6 +753,7 @@ h2 {
 
 h3 {
   font-family: "Poppins", sans-serif;
+  /* font-family: 'PT Serif', 'Poppins', 'sans-serif'; */
   font-weight: 600;
   font-size: 20px;
   line-height: 26px;
@@ -760,6 +763,7 @@ h3 {
 
 h4 {
   font-family: "Poppins", sans-serif;
+  /* font-family: 'PT Serif', 'Poppins', 'sans-serif'; */
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
@@ -769,6 +773,7 @@ h4 {
 
 h5 {
   font-family: "Poppins", sans-serif;
+  /* font-family: 'PT Serif', 'Poppins', 'sans-serif'; */
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
@@ -778,6 +783,7 @@ h5 {
 
 h6 {
   font-family: "Poppins", sans-serif;
+  /* font-family: 'PT Serif', 'Poppins', 'sans-serif'; */
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
@@ -2143,6 +2149,9 @@ ol.list-num-count.list-outline-none > li:before {
 .text-dark-blue {
   color: #405395 !important;
 }
+.text-brownish {
+	color: #d5c2ba !important;
+  }
 /*-------------------------------------
 	2. background color
 -------------------------------------*/

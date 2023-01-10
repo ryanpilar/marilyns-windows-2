@@ -255,21 +255,21 @@ class Contact extends React.Component {
                                                 <div className="wt-icon-box-wraper left p-b30">
                                                     <div className="icon-sm"><i className="iconmoon-smartphone-1" /></div>
                                                     <div className="icon-content text-white ">
-                                                        <h5 className="m-t0 text-uppercase">Phone number</h5>
+                                                        <h5 className="m-t0 text-uppercase text-brownish">Phone number</h5>
                                                         <a href="tel:+9058780939"><p>(905) 878 0626</p></a>
                                                     </div>
                                                 </div>
                                                 <div className="wt-icon-box-wraper left p-b30">
                                                     <div className="icon-sm"><i className="iconmoon-email" /></div>
                                                     <div className="icon-content text-white">
-                                                        <h5 className="m-t0  text-uppercase">Email address</h5>
+                                                        <h5 className="m-t0  text-uppercase text-brownish">Email address</h5>
                                                         <a href="mailto:marilyn@marilynswindows.com"><p>marilyn@marilynswindows.com</p></a>
                                                     </div>
                                                 </div>
                                                 <div className="wt-icon-box-wraper left">
                                                     <div className="icon-sm"><i className="iconmoon-travel" /></div>
                                                     <div className="icon-content text-white">
-                                                        <h5 className="m-t0  text-uppercase">Address info</h5>
+                                                        <h5 className="m-t0  text-uppercase text-brownish">Address info</h5>
                                                         <p>468 Valleyview Cr, Milton, ON L9T3L2, Canada</p>
                                                         
                                                     </div>

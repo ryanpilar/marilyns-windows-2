@@ -1,6 +1,15 @@
 Don't forget to do when pushing production
     1.  Change the blogRoute for the React-Shares, currently set to a netlify path
     2.  Change the galleryRoute for the React-Shares, currently set to a netlify path
+    3. 
+
+Upgrades in future
+    1.  Load Gallery in patches of 8 images and have a 'load more' btn.
+
+Things I would do differently
+    1.  Set up cloudinary images differently. Have a dynamic template string so you don't
+        have to go in one by one in contenful
+            -   but what if the image doesn't line up correctly? What are your position options then?
 
 
 Weird things I havn't figured out yet:
