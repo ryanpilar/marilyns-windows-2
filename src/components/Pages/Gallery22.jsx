@@ -5,11 +5,12 @@ import { createClient } from "contentful";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css"; // This only needs to be imported once in your app
 
-import { NavLink } from "react-router-dom";
-import Header2 from "../Common/Header2";
+import { NavLink } from "react-router-dom"
+import Header2 from "../Common/Header2"
 // import Footer from '../Common/Footer';
-import Banner from "../Segments/Banner";
+import Banner from "../Segments/Banner"
 import SEO from "../Segments/SEO";
+import Footer from "../Common/Footer";
 
 // const bnrimg = require('./../../images/banner/sewing-machine-lamp-freepic.png');
 
@@ -33,6 +34,12 @@ const Gallery22 = () => {
     accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
   });
 
+  const sortPriority = (imgList) => {
+    imgList.sort((a, b) => {
+      return a.fields.priority - b.fields.priority;
+    });
+  };
+
   useEffect(() => {
     const getAllEntries = async () => {
       // contentful get data
@@ -40,9 +47,15 @@ const Gallery22 = () => {
         await client
           .getEntries({ content_type: "gallery" })
           .then((allEntries) => {
-            console.log('ALL ENTRIES', allEntries)
+            // console.log("ALL ENTRIES", allEntries);
+            // const sortedImages = sortPriority(allEntries.items)
+            const sortedImages = allEntries.items.sort((a, b) => {
+              return a.fields.priority - b.fields.priority;
+            });
+            // console.log("sorted", sortedImages);
             setImageList(allEntries.items);
             // console.log('NEW STATE', imageList)
+            // sortPriority()
           });
       } catch (error) {
         console.log(
@@ -69,6 +82,7 @@ const Gallery22 = () => {
     };
     getBannerContent();
     getAllEntries();
+    setIsOpen(true);
   }, []);
 
   useLayoutEffect(() => {
@@ -161,7 +175,7 @@ const Gallery22 = () => {
                       key={index}
                       className={`${item.fields.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30 `}
                     >
-                    {/* <div className="wt-img-effect">
+                      {/* <div className="wt-img-effect">
                         <div className=""> */}
                       <div className="wt-img-effect wt-img-black-bg">
                         <div className="img-opacity">
@@ -188,27 +202,16 @@ const Gallery22 = () => {
                               <h2>{item.fields.cardTitle}</h2>
                               <p>{item.fields.cardDescription}</p>
 
-                              {console.log('GALLERY ID', item)}
-
                               <NavLink to={`/gallery/room/${item.sys.id}`}>
-                              <div
-                                className="v-button letter-spacing-4 font-18 text-uppercase p-l20 make-pointer"
-                                // type="button"
-                                // onClick={() => this.setState({ isOpen: true, photoIndex: Number(index) }) }
-                                // aria-hidden="true"
-                                // onClick={() => {
-                                //   setIsOpen(true);
-                                //   setPhotoIndex(Number(index));
-                                // }}
-                              >
-                                <p>
-                                  <i
-                                    className="fa fa-search"
-                                    aria-hidden="true"
-                                  ></i>{" "}
-                                  Enlarge
-                                </p>
-                              </div>
+                                <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
+                                  <p>
+                                    <i
+                                      className="fa fa-search"
+                                      aria-hidden="true"
+                                    ></i>{" "}
+                                    Zoom 
+                                  </p>
+                                </div>
                               </NavLink>
                             </div>
                           </div>
@@ -216,28 +219,6 @@ const Gallery22 = () => {
                       </div>
                     </div>
                   ))}
-
-                  {isOpen && (
-                    <Lightbox
-                      mainSrc={
-                        imageList[photoIndex].fields.smallImage[0].secure_url
-                      } // there will always be only one image, hence [0]
-                      // nextSrc={projects[(photoIndex + 1) % projects.length].image.default}
-                      // prevSrc={projects[(photoIndex + projects.length - 1) % projects.length].image.default}
-
-                      // onCloseRequest={() => this.setState({ isOpen: false })}
-                      onCloseRequest={() => setIsOpen(false)}
-                      // onMovePrevRequest={() => this.setState({
-                      // photoIndex: (photoIndex + projects.length - 1) % projects.length,
-                      // })}
-                      // onMoveNextRequest={() =>
-                      // this.setState({
-                      // photoIndex: (photoIndex + 1) % projects.length,
-                      // })}
-                      discourageDownloads={true}
-                      clickOutsideToClose={true}
-                    />
-                  )}
                 </div>
               </div>
             </div>
@@ -246,10 +227,6 @@ const Gallery22 = () => {
         )}
         {/* SECTION CONTENT END  */}
       </div>
-
-      {/* <>
-            {bannerContent && <Footer />}
-            </> */}
     </>
   );
 };

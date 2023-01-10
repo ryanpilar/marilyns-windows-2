@@ -8,12 +8,20 @@ import Header2 from "../Common/Header2";
 import Banner from "../Segments/Banner";
 import SEO from "../Segments/SEO";
 
-import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom";
+import Footer from "../Common/Footer";
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+} from "react-share";
 
-
+import toast, { Toaster } from "react-hot-toast";
 
 const GallerySingle = () => {
-  const { id } = useParams(); // grabs the contentful :id form the address bar
+  const { id } = useParams(); // grabs the contentful :id from the address bar (:id)
+  const [imageData, setImageData] = useState(null);
   const [imageList, setImageList] = useState([]);
   const [bannerContent, setBannerContent] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +29,19 @@ const GallerySingle = () => {
 
   const galleryRoute = `https://marilyns-windows.netlify.app/gallery/room/${id}`;
 
-  
+  const clipboardToast = () =>
+    toast.success("Copied! Check your clipboard for link.", {
+      duration: 6000,
+      // icon: '👏',
+      style: {
+        borderRadius: "10px",
+        background: "#333",
+        color: "#fff",
+      },
+    });
+
+
+
   const client = createClient({
     // contentful connect
     space: process.env.REACT_APP_CONTENTFUL_SPACE,
@@ -29,13 +49,11 @@ const GallerySingle = () => {
   });
 
   useEffect(() => {
-
     const getEntryById = async () => {
-
       try {
-        await client.getEntry(id).then( (blogEntry) => {
-          console.log("GALLERY ENTRY", blogEntry);
-          // setSingleBlogPost(blogEntry);
+        await client.getEntry(id).then((galleryEntry) => {
+          console.log("GALLERY ENTRY", galleryEntry);
+          setImageData(galleryEntry);
         });
       } catch (error) {
         console.log("error");
@@ -66,16 +84,15 @@ const GallerySingle = () => {
 
   return (
     <>
-    {/* UPDATE SEO WITH PROPER TITLE FROM CONTENFUL */}
+      {/* UPDATE SEO WITH PROPER TITLE FROM CONTENFUL */}
       <SEO
-        title={`Marilyn's Windows | Room | Beautiful Drapery Ideas`}
-        description={`Bedroom curtain ideas. Window coverings for patio doors. Living room drapery ideas. Light filtering curtains and blackout blinds. Outdoor curtain ideas.`}
+        title={`Marilyn's Windows | Room | ${imageData?.fields?.cardTitle}`}
+        description={`${imageData?.fields?.metaDescription}`}
       />
 
       <Header2 />
 
       <div className="page-content ">
-
         {/* {bannerContent && (
           <Banner
             title={bannerContent.heading}
@@ -84,124 +101,183 @@ const GallerySingle = () => {
           />
         )} */}
 
-        <div className="container p-b30">
-          {/* BREADCRUMB ROW */}
-          <div className="">
-            <div className="p-t20 m-r20">
-              <div>
-                <ul className="wt-breadcrumb breadcrumb-style-2">
-                  <li>
-                    <NavLink to={"/"}>Home</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={"/gallery"}>Gallery</NavLink>
-                  </li>
-                  <li>High-def Room</li>
-                </ul>
+        <>
+          <div
+            id="work"
+            className="section-full p-t10 p-lr80 latest_project-outer square_shape3"
+          >
+            <div className="">
+              <div className="section-content">
+                {/* BREADCRUMB ROW */}
+                <div className="">
+                  <div className="p-t20 m-r20 m-b10">
+                    <div>
+                      <ul className="wt-breadcrumb breadcrumb-style-2">
+                        <li>
+                          <NavLink to={"/"}>Home</NavLink>
+                        </li>
+                        <li>
+                          <NavLink to={"/gallery"}>Gallery</NavLink>
+                        </li>
+                        <li>High-def Room</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                {/* BREADCRUMB ROW END */}
               </div>
             </div>
-          </div>
-          {/* BREADCRUMB ROW END */}
 
-          {/* TITLE START */}
-          <div className="text-left">
-            <h2 className="text-uppercase font-36">High-def Gallery Image</h2>
-            <div className="wt-separator-outer">
-              <div className="wt-separator bg-black" />
+            <div className="section-content">
+              {/* IMG CONTENT START */}
+              {imageData && (
+                <div className="section-full p-t0 p-b40 tm-work-wrap">
+                  {/* <div className="container"> */}
+                  <img
+                    src={imageData.fields.largeImage[0].secure_url}
+                    alt={imageData.fields.largeImage[0]?.context?.custom?.alt}
+                    caption={
+                      imageData.fields.largeImage[0]?.context?.custom?.caption
+                    }
+                    data-pin-description={
+                      imageData.fields.largeImage[0]?.context?.custom?.dataPin
+                    }
+                    width="2000"
+                    height="1200"
+                  />
+                  {/* </div> */}
+                </div>
+              )}
+              {/* IMG CONTENT END  */}
             </div>
-          </div>
-          {/* TITLE END */}
-        </div>
 
-        {/* SECTION CONTENT START */}
-        {imageList && (
-          <div className="section-full p-t40 p-b90 tm-work-wrap">
-            <div className="container">
-              {/* PAGINATION START */}
-              {/* <div className="filter-wrap p-b50">
-                                <ul className="masonry-filter link-style  text-uppercase">
-                                    <li className="active" aria-hidden="true"><a data-filter="*" href="#" >All</a></li>
-                                    
-                                    {filters.map((item, index) => (
-                                        <li key={index}><a data-filter={item.filter} href="#" aria-hidden="true">{item.label}</a></li>
-                                    ))}
+            {/* HEADING AND PARAGRAPH START */}
+            {/* TITLE START */}
+            <div className="section-head text-left">
+              {imageData && (
+                <>
+                  <div className="row">
+                    <div className="col-md-6 col-lg-6">
+                      <div className="col-sm-12">
+                        <h2 className="text-uppercase font-36">
+                          {imageData.fields.cardTitle}
+                        </h2>
 
-                                </ul>
-                            </div> */}
-              {/* PAGINATION END */}
-            </div>
-            {/* GALLERY CONTENT START */}
-
-            <div className="portfolio-wrap mfp-gallery work-grid clearfix">
-              <div className="container-fluid">
-                <div className="row">
-                  {/* {imageList.map((item, index) => (
-                    <div
-                      key={index}
-                      className={`${item.fields.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30 `}
-                    >
-
-                      <div className="wt-img-effect wt-img-black-bg">
-                        <div className="img-opacity">
-                          <img
-                            src={item.fields.smallImage[0].secure_url}
-                            alt={
-                              item.fields.smallImage[0]?.context?.custom?.alt
-                            }
-                            caption={
-                              item.fields.smallImage[0]?.context?.custom
-                                ?.caption
-                            }
-                            data-pin-description={
-                              item.fields.smallImage[0]?.context?.custom
-                                ?.dataPin
-                            }
-                            width="360"
-                            height="560"
-                          />
-                        </div>
-                        <div className="overlay-bx-2 ">
-                          <div className="line-amiation">
-                            <div className="text-white font-weight-300 p-a40">
-                              <h2>{item.fields.cardTitle}</h2>
-                              <p>{item.fields.cardDescription}</p>
-                              <div
-                                className="v-button letter-spacing-4 font-18 text-uppercase p-l20 make-pointer"
-
-                                aria-hidden="true"
-                                onClick={() => {
-                                  setIsOpen(true);
-                                  setPhotoIndex(Number(index));
-                                }}
-                              >
-                                <p>
-                                  <i
-                                    className="fa fa-search"
-                                    aria-hidden="true"
-                                  ></i>{" "}
-                                  Enlarge
-                                </p>
-                              </div>
-                            </div>
-                          </div>
+                        <div className="wt-separator-outer">
+                          <div className="wt-separator bg-black" />
                         </div>
                       </div>
+
+                      <div className="col-sm-12">
+                        <p className="p-r30">
+                          {imageData.fields.cardDescription}
+                        </p>
+                      </div>
                     </div>
-                  ))} */}
+                  </div>
+                  <div className="row"></div>
+                </>
+              )}
+            </div>
+            {/* TITLE END */}
+            {/* HEADING AND PARAGRAPH END */}
 
+            <div className="section-content m-t20 ">
+              <div className="m-b15 p-lr15">
+                {/* react-shares here */}
 
+                <div className="wt-box">
+                  <div className="row  p-lr15">
+                    <h4 className="tagcloud text-uppercase">
+                      Share this Post:
+                    </h4>
+
+                    <div className="widget_social_inks">
+                      <ul className="social-icons social-md social-square social-dark m-b0">
+                        <li>
+                          <FacebookShareButton
+                            hashtag={"#marilynswindowsandinteriors"}
+                            quote={`Checkout this fantastic room by Marilyn: '${imageData?.fields?.descriptiveTitle}'`}
+                            url={galleryRoute}
+                            aria-label="Share to Facebook"
+                          >
+                            <a className="fa fa-facebook" />
+                          </FacebookShareButton>
+                        </li>
+                        <li>
+                          <TwitterShareButton
+                            title={`Another Fantastic Room by Marilyn: '${imageData?.fields?.descriptiveTitle}':`}
+                            hashtags={["marilynswindowsandinteriors"]}
+                            url={galleryRoute}
+                            aria-label="Share to Twitter"
+                          >
+                            <a className="fa fa-twitter" />
+                          </TwitterShareButton>
+                        </li>
+                        <li>
+                          <LinkedinShareButton
+                            title={imageData?.fields?.descriptiveTitle}
+                            summary={imageData?.fields?.metaDescription}
+                            source={galleryRoute}
+                            url={galleryRoute}
+                          >
+                            <a
+                              target="_blank"
+                              rel="noreferrer"
+                              href="https://in.linkedin.com"
+                              className="fa fa-linkedin"
+                              aria-label="Share to Linkedin"
+                            />
+                          </LinkedinShareButton>
+                        </li>
+
+                        <li>
+                          <EmailShareButton
+                            subject={`Share or save this room example from Marilyn's Gallery: '${imageData?.fields?.descriptiveTitle}'`}
+                            body="Link to a high-def image: "
+                            url={galleryRoute}
+                          >
+                            <a
+                              className="fa fa-envelope"
+                              aria-label="Share to Email"
+                            />
+                          </EmailShareButton>
+                        </li>
+
+                        <li>
+                          <a
+                            className="fa fa-link"
+                            style={{ cursor: "pointer" }}
+                            onClick={() => {
+                              navigator.clipboard.writeText(galleryRoute);
+                              clipboardToast();
+                            }}
+                            aria-label="Copy Link Address"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
+              {/* <a
+                href="/gallery"
+                className="site-button black button-app m-r15 m-b15 "
+              >
+                <span className="text-center">Visit My Gallery</span>
+              </a> */}
             </div>
-            {/* GALLERY CONTENT END */}
+
+            <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
+              <strong>Beautiful</strong>
+              <span className="text-black">Designs</span>
+            </div>
           </div>
-        )}
-        {/* SECTION CONTENT END  */}
+        </>
       </div>
 
-      {/* <>
-            {bannerContent && <Footer />}
-            </> */}
+      <Footer />
+      <Toaster position="bottom-center" reverseOrder={false} />
     </>
   );
 };

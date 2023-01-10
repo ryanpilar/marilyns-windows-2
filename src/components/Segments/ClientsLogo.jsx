@@ -8,20 +8,12 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 const ClientsLogo = ({content}) => {
     console.log('AFFILIATES', content)
-    // const logos = [
-    //     { image: require('./../../images/client-logo/w1.png') },
-    //     { image: require('./../../images/client-logo/w2.png') },
-    //     { image: require('./../../images/client-logo/w3.png') },
-    //     { image: require('./../../images/client-logo/w4.png') },
-    //     { image: require('./../../images/client-logo/w5.png') },
-    //     { image: require('./../../images/client-logo/w6.png') },
-    
-    // ]
     const logos = content
 
 
 
         const options = {
+            autoplay: true,
             loop: true,
             margin: 10,
             nav: true,

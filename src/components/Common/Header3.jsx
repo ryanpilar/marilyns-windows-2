@@ -1,6 +1,5 @@
 import React from "react";
 import Navigation from "./Navigation";
-// import { NavLink } from 'react-router-dom';
 
 class Header3 extends React.Component {
   isMenuActive;

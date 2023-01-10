@@ -6,13 +6,16 @@ const Service2 = ({ testimonial }) => {
       <div className="container">
         <div className="max-mid-container">
 
-          {/* TITLE START */}
-          <div className="section-head text-left text-black">
-            <h2 className="text-uppercase font-40">
-              We Make Custom Window Coverings for Halton and surrounding areas
-            </h2>
+                  {/* TITLE START */}
+                  <div className="section-head text-left text-black">
+            <h2 className="text-uppercase font-36">Our Services</h2>
+            <div className="wt-separator-outer">
+              <div className="wt-separator bg-black" />
+            </div>
           </div>
           {/* TITLE END */}
+
+
           
           <div className="blog-post date-style-1 blog-detail text-black">
 
@@ -30,16 +33,11 @@ const Service2 = ({ testimonial }) => {
                 Each fold, crease, and thread is quality, and crafted to last.
               </p>
 
-              <blockquote>
+              {/* <blockquote>
                 <div className="row">
                   <div className="col-md-4 col-sm-6 tm-qt-img">
-                    {/* <img src={testimonial.image} alt=""/> */}
                     <img
                       src={testimonial.image.secure_url}
-                      // alt={item.context.custom.alt}
-                      // data-pin-description={item.context.custom.dataPin}
-                      // caption={item.context.custom.caption}
-
                       alt={testimonial.image.context.custom.alt}
                       caption={testimonial.image.context.custom.caption}
                       data-pin-description={
@@ -61,7 +59,8 @@ const Service2 = ({ testimonial }) => {
                     </div>
                   </div>
                 </div>
-              </blockquote>
+              </blockquote> */}
+
             </div>
             <div className="row"></div>
           </div>
@@ -69,13 +68,21 @@ const Service2 = ({ testimonial }) => {
 
         <div className="max-mid-container">
           {/* TITLE START */}
-          <div className="section-head text-left text-black">
+          {/* <div className="section-head text-left text-black">
             <h2 className="text-uppercase font-36">Our Services</h2>
             <div className="wt-separator-outer">
               <div className="wt-separator bg-black" />
             </div>
-          </div>
+          </div> */}
           {/* TITLE END */}
+
+                    {/* TITLE START */}
+                    <div className="section-head text-left text-black">
+            <h2 className="text-uppercase font-25">
+              We Make Custom Window Coverings for Halton and surrounding areas
+            </h2>
+          </div>
+          {/* TITLE END */} 
           <div className="section-content m-b50">
             <div className="row">
               <div className="col-md-6 col-sm-6 m-b30">

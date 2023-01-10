@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import Header2 from "../Common/Header2";
 import Banner from "./../Segments/Banner";
+import Banner2 from "../Segments/Banner2";
 // import Story from './../Segments/Story';
 import Service from "./../Segments/Service";
 import Service2 from "../Segments/Service2";
@@ -73,29 +74,40 @@ const Services = () => {
       <div className="page-content">
         {banner && (
           <Banner
+            // heading="Services"
             title="Serving Milton, Georgetown, Burlington, Oakville Mississauga and surrounding areas."
             pagename="Services"
             bgimage={banner.image}
           />
         )}
 
-
         <div className="container">
-                            <div className="max-mid-container">
-        {/* BREADCRUMB ROW */}
-          <div className="p-t20">
-            <div>
-              <ul className="wt-breadcrumb breadcrumb-style-2">
-                <li>
-                  <NavLink to={"/"}>Home</NavLink>
-                </li>
-                <li>Services</li>
-              </ul>
+          <div className="max-mid-container">
+            {/* BREADCRUMB ROW */}
+            <div className="p-t20">
+              <div>
+                <ul className="wt-breadcrumb breadcrumb-style-2">
+                  <li>
+                    <NavLink to={"/"}>Home</NavLink>
+                  </li>
+                  <li>Services</li>
+                </ul>
+              </div>
             </div>
-          </div></div></div>
+          </div>
+        </div>
         {/* BREADCRUMB ROW END */}
 
         {testimonial && <Service2 testimonial={testimonial} />}
+
+        {/* {banner && (
+          <Banner2
+            // heading="The Creative Process"
+            title="Free Consultation - Drapery and Design Ideas - 600 Fabric Books - Professional Installation - Maintenance and Warranty."
+            pagename="Services"
+            bgimage={banner.image}
+          />
+        )} */}
 
         {designProcess && <Service process={designProcess} />}
       </div>

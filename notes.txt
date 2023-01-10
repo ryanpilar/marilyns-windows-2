@@ -1,3 +1,7 @@
+Don't forget to do when pushing production
+    1.  Change the blogRoute for the React-Shares, currently set to a netlify path
+    2.  Change the galleryRoute for the React-Shares, currently set to a netlify path
+
 
 Weird things I havn't figured out yet:
     1.  when i switched from hardcoded images to contentful/cloudinary my blog and gallery

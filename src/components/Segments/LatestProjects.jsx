@@ -43,7 +43,7 @@ const LatestProjects = ({ content }) => {
     margin: 20,
     nav: true,
     dots: false,
-    autoplayHoverPause: true, 
+    autoplayHoverPause: true,
     navText: [
       '<i class="fa fa-angle-left"></i>',
       '<i class="fa fa-angle-right"></i>',
@@ -82,28 +82,31 @@ const LatestProjects = ({ content }) => {
         id="work"
         className="section-full p-t90 p-lr80 latest_project-outer square_shape3"
       >
-        {/* TITLE START */}
-        <div className="section-head text-left">
-          <div className="row">
-            <div className="col-lg-4 col-md-12 ">
-              <h2 className="text-uppercase font-36">Latest Projects</h2>
-
-              <div className="wt-separator-outer">
-                <div className="wt-separator bg-black" />
+        <div class="container">
+          <div class="section-content">
+            {/* TITLE START */}
+            <div className="section-head text-left">
+              <div className="row">
+                <div className="col-lg-4 col-md-12 ">
+                  <h2 className="text-uppercase font-36">Latest Projects</h2>
+                  <div className="wt-separator-outer">
+                    <div className="wt-separator bg-black" />
+                  </div>
+                </div>
+                <div className="col-lg-8 col-md-12">
+                  <p className="p-r30">
+                    Drapery window treatments are a major component of a room’s
+                    aesthetic. The right curtains or sheers help bring a space
+                    together into a cohesive design, and can inject color,
+                    pattern, texture or simple elegance into the room.
+                  </p>
+                </div>
               </div>
             </div>
-
-            <div className="col-lg-8 col-md-12">
-              <p>
-                Drapery window treatments are a major component of a room’s
-                aesthetic. The right curtains or sheers help bring a space
-                together into a cohesive design, and can inject color, pattern,
-                texture or simple elegance into the room.
-              </p>
-            </div>
+            {/* TITLE END */}
           </div>
         </div>
-        {/* TITLE END */}
+
         {/* IMAGE CAROUSEL START */}
         <div className="section-content">
           {/* <OwlCarousel className="owl-carousel  owl-btn-bottom-left" {...options}> */}
@@ -119,7 +122,7 @@ const LatestProjects = ({ content }) => {
               >
                 <div className="wt-img-effect ">
                   <div className="wt-img-black-bg">
-                    <div className='img-opacity'>
+                    <div className="img-opacity">
                       <img
                         src={item.fields.smallImage[0].secure_url}
                         alt={item.fields.smallImage[0].context.custom.alt}

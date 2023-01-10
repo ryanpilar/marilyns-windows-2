@@ -42,6 +42,7 @@ const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
       {/* LAYERS */}
 
       {/* LAYER NR. 8 */}
+
       {/* Border Part */}
       <div
         className="tp-caption tp-shape tp-shapewrapper "
@@ -66,7 +67,7 @@ const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
         data-paddingleft="[0,0,0,0]"
         style={{
           zIndex: 5,
-          backgroundColor: "rgba(170, 203, 226, .15)",
+          backgroundColor: "rgba(170, 203, 226, 0)",
           borderColor: "rgb(255,255,255)",
           borderStyle: "solid",
           borderWidth: "0px 80px 80px 80px",
