@@ -5073,10 +5073,12 @@ ol.list-num-count.list-outline-none > li:before {
   color: rgb(0, 0, 0);
 }
 .wt-breadcrumb li a:hover {
-  color: #d5dd02;
+  /* color: #d5dd02; */
+  color: #989b9e
 }
 .wt-breadcrumb li:last-child {
-  color: #d5dd02;
+  /* color: #d5dd02; */
+  color: #989b9e
 }
 .wt-breadcrumb li:first-child a i {
   font-size: 18px;

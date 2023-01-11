@@ -31,8 +31,8 @@ const Services = () => {
           const servicesContent = contentfulContent.filter(
             (entry) => entry.fields.location === "servicesFull"
           );
-          console.log("servicessssssContent", servicesContent);
 
+          
           setBanner({
             image: servicesContent[0].fields.topBanner[0].secure_url,
           });
@@ -65,7 +65,7 @@ const Services = () => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | Services | Custom Sewing Workroom`}
+        title={`Marilyn's Windows | Services | Sewing Custom Drapery`}
         description={`Specializing in hand-sewn drapes, high-end blinds and custom bedding. Marilyn's work defines the art of couture curtains and interior design.`}
       />
 

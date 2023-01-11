@@ -7,7 +7,7 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 
 const ClientsLogo = ({content}) => {
-    console.log('AFFILIATES', content)
+    // console.log('AFFILIATES', content)
     const logos = content
 
 

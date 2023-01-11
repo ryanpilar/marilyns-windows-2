@@ -63,7 +63,7 @@ const Blog = () => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | Blog |  Interesting Things About Drapes`}
+        title={`Marilyn's Windows | Blog |  I Write Interesting Things About Drapes`}
         description={`Interesting articles about interior design and the wonderful world of drapery. Learn about industry trends or read frequently asked questions.`}
       />
 

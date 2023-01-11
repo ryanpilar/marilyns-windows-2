@@ -45,17 +45,16 @@ const Gallery22 = () => {
       // contentful get data
       try {
         await client
-          .getEntries({ content_type: "gallery" })
+          .getEntries({ content_type: "gallery", order: "fields.priority" })
           .then((allEntries) => {
-            // console.log("ALL ENTRIES", allEntries);
-            // const sortedImages = sortPriority(allEntries.items)
-            const sortedImages = allEntries.items.sort((a, b) => {
-              return a.fields.priority - b.fields.priority;
-            });
-            // console.log("sorted", sortedImages);
+
+            // allEntries.items.sort((a, b) => {
+            //   return a.fields.priority - b.fields.priority;
+            // });
+
             setImageList(allEntries.items);
-            // console.log('NEW STATE', imageList)
-            // sortPriority()
+
+            
           });
       } catch (error) {
         console.log(

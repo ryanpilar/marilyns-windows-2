@@ -50,7 +50,7 @@ const Home2 = () => {
           const affiliates = allEntries.items.filter(
             (entry) => entry.fields.location === "affiliates"
           );
-          console.log("test contentful call", affiliates);
+        //   console.log("test contentful call", affiliates);
 
           setContent({
             about: aboutContent[0].fields,

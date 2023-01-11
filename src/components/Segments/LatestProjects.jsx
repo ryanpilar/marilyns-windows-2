@@ -143,7 +143,7 @@ const LatestProjects = ({ content }) => {
                     </div>
                   </div>
 
-                  <NavLink to={`/gallery/room/${item.sys.id}`}>
+                  {/* <NavLink to={`/gallery/room/${item.sys.id}`}> */}
                     <div className="overlay-bx-2 ">
                       <div className="line-amiation">
                         <div className="text-white  font-weight-300 p-a40">
@@ -155,12 +155,24 @@ const LatestProjects = ({ content }) => {
                             to={""}
                             className="v-button letter-spacing-4 font-12 text-uppercase p-l20"
                           >
+                          
                             Read More
                           </NavLink> */}
+                          <NavLink to={`/gallery/room/${item.sys.id}`}>
+                                <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
+                                  <p>
+                                    <i
+                                      className="fa fa-search"
+                                      aria-hidden="true"
+                                    ></i>{" "}
+                                    Zoom 
+                                  </p>
+                                </div>
+                              </NavLink>
                         </div>
                       </div>
                     </div>
-                  </NavLink>
+                  {/* </NavLink> */}
 
                 </div>
               </div>

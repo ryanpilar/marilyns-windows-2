@@ -19,6 +19,8 @@ import {
 
 import toast, { Toaster } from "react-hot-toast";
 
+import Loader from "../Segments/Loader";
+
 const GallerySingle = () => {
   const { id } = useParams(); // grabs the contentful :id from the address bar (:id)
   const [imageData, setImageData] = useState(null);
@@ -26,8 +28,13 @@ const GallerySingle = () => {
   const [bannerContent, setBannerContent] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
+  const [spinner, setSpinner] = useState(true)
 
   const galleryRoute = `https://marilyns-windows.netlify.app/gallery/room/${id}`;
+
+  const toggleSpinner = () => {
+    setSpinner( prevState => !prevState )
+}
 
   const clipboardToast = () =>
     toast.success("Copied! Check your clipboard for link.", {
@@ -52,8 +59,9 @@ const GallerySingle = () => {
     const getEntryById = async () => {
       try {
         await client.getEntry(id).then((galleryEntry) => {
-          console.log("GALLERY ENTRY", galleryEntry);
+          // console.log("GALLERY ENTRY", galleryEntry);
           setImageData(galleryEntry);
+          toggleSpinner()
         });
       } catch (error) {
         console.log("error");
@@ -84,9 +92,10 @@ const GallerySingle = () => {
 
   return (
     <>
+      
       {/* UPDATE SEO WITH PROPER TITLE FROM CONTENFUL */}
       <SEO
-        title={`Marilyn's Windows | Room | ${imageData?.fields?.cardTitle}`}
+        title={`Marilyn's Windows | Gallery Room | ${imageData?.fields?.cardTitle}`}
         description={`${imageData?.fields?.metaDescription}`}
       />
 
@@ -119,7 +128,7 @@ const GallerySingle = () => {
                         <li>
                           <NavLink to={"/gallery"}>Gallery</NavLink>
                         </li>
-                        <li>High-def Room</li>
+                        <li>High-Def Photo</li>
                       </ul>
                     </div>
                   </div>
@@ -127,10 +136,17 @@ const GallerySingle = () => {
                 {/* BREADCRUMB ROW END */}
               </div>
             </div>
-
+            { spinner && <Loader /> }
             <div className="section-content">
               {/* IMG CONTENT START */}
+
+               
+              
+              <>
+              
               {imageData && (
+                <>
+                
                 <div className="section-full p-t0 p-b40 tm-work-wrap">
                   {/* <div className="container"> */}
                   <img
@@ -147,7 +163,15 @@ const GallerySingle = () => {
                   />
                   {/* </div> */}
                 </div>
+                </>
+
               )}
+
+              </>
+              
+              
+              
+              
               {/* IMG CONTENT END  */}
             </div>
 
@@ -278,6 +302,7 @@ const GallerySingle = () => {
 
       <Footer />
       <Toaster position="bottom-center" reverseOrder={false} />
+      
     </>
   );
 };
