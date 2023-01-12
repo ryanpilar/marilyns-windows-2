@@ -28,13 +28,13 @@ const GallerySingle = () => {
   const [bannerContent, setBannerContent] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
-  const [spinner, setSpinner] = useState(true)
+  const [spinner, setSpinner] = useState(true);
 
   const galleryRoute = `https://marilyns-windows.netlify.app/gallery/room/${id}`;
 
   const toggleSpinner = () => {
-    setSpinner( prevState => !prevState )
-}
+    setSpinner((prevState) => !prevState);
+  };
 
   const clipboardToast = () =>
     toast.success("Copied! Check your clipboard for link.", {
@@ -46,8 +46,6 @@ const GallerySingle = () => {
         color: "#fff",
       },
     });
-
-
 
   const client = createClient({
     // contentful connect
@@ -61,7 +59,7 @@ const GallerySingle = () => {
         await client.getEntry(id).then((galleryEntry) => {
           // console.log("GALLERY ENTRY", galleryEntry);
           setImageData(galleryEntry);
-          toggleSpinner()
+          toggleSpinner();
         });
       } catch (error) {
         console.log("error");
@@ -92,7 +90,6 @@ const GallerySingle = () => {
 
   return (
     <>
-      
       {/* UPDATE SEO WITH PROPER TITLE FROM CONTENFUL */}
       <SEO
         title={`Marilyn's Windows | Gallery Room | ${imageData?.fields?.cardTitle}`}
@@ -136,42 +133,37 @@ const GallerySingle = () => {
                 {/* BREADCRUMB ROW END */}
               </div>
             </div>
-            { spinner && <Loader /> }
-            <div className="section-content text-center">
+            {spinner && <Loader />}
+            <div className="section-content">
               {/* IMG CONTENT START */}
 
-               
-              
               <>
-              
-              {imageData && (
-                <>
-                
-                <div className="section-full p-t0 p-b40 tm-work-wrap">
-                  {/* <div className="container"> */}
-                  <img
-                    src={imageData.fields.largeImage[0].secure_url}
-                    alt={imageData.fields.largeImage[0]?.context?.custom?.alt}
-                    caption={
-                      imageData.fields.largeImage[0]?.context?.custom?.caption
-                    }
-                    data-pin-description={
-                      imageData.fields.largeImage[0]?.context?.custom?.dataPin
-                    }
-                    width="2000"
-                    height="1200"
-                  />
-                  {/* </div> */}
-                </div>
-                </>
-
-              )}
-
+                {imageData && (
+                  <>
+                    <div className="section-full p-t0 p-b40 tm-work-wrap">
+                      {/* <div className="container"> */}
+                      <img
+                        src={imageData.fields.largeImage[0].secure_url}
+                        alt={
+                          imageData.fields.largeImage[0]?.context?.custom?.alt
+                        }
+                        caption={
+                          imageData.fields.largeImage[0]?.context?.custom
+                            ?.caption
+                        }
+                        data-pin-description={
+                          imageData.fields.largeImage[0]?.context?.custom
+                            ?.dataPin
+                        }
+                        width={2000}
+                        height={1200}
+                      />
+                      {/* </div> */}
+                    </div>
+                  </>
+                )}
               </>
-              
-              
-              
-              
+
               {/* IMG CONTENT END  */}
             </div>
 
@@ -291,14 +283,12 @@ const GallerySingle = () => {
                 <span className="text-center">Visit My Gallery</span>
               </a> */}
             </div>
-
           </div>
         </>
       </div>
 
       <Footer />
       <Toaster position="bottom-center" reverseOrder={false} />
-      
     </>
   );
 };
