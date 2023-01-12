@@ -182,7 +182,7 @@ const LatestProjects = ({ content }) => {
 
         {/* <div className="section-content "> */}
 
-        <div className="section-content m-t20 ">
+        <div className="section-content m-t20 m-b40">
           <a
             href="/gallery"
             className="site-button black button-app m-r15 m-b15 "
@@ -193,10 +193,10 @@ const LatestProjects = ({ content }) => {
 
         {/* </div> */}
 
-        <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
+        {/* <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
           <strong>Awesome</strong>
           <span className="text-black">Designs</span>
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -16,18 +16,18 @@ class Banner extends React.Component {
           {/* <div className="m-a10 p-a15 bdr-1 bdr-primary"> */}
 
           <div className="container">
-            {/* <div className='bdr-1 bdr-primary '> */}
+
             <div className="wt-bnr-inr-entry">
-              {/* <div className='banner-bg-white'> */}
-              <div className="banner-title-outer">
+              <div className='banner-bg-white'>
+              {/* <div className="banner-title-outer">
                 <div className="banner-title-name">
                     <h1>{this.props.heading}</h1>
                   <h2 className="text-white text-uppercase letter-spacing-5 font-18 font-weight-300">
                     {this.props.title}
                   </h2>
                 </div>
+              </div> */}
               </div>
-              {/* </div> */}
               {/* BREADCRUMB ROW */}
               <div className="p-tb20">
                 {/* <div>

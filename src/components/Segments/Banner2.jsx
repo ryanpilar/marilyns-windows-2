@@ -16,7 +16,7 @@ class Banner2 extends React.Component {
           <div className="m-a10 p-a30 ">
 
           <div className="container">
-            {/* <div className=''> */}
+            <div className=''>
             <div className="wt-bnr-inr-entry">
               <div className='banner-bg-white'>
               <div className="banner-title-outer">
@@ -31,7 +31,7 @@ class Banner2 extends React.Component {
 
 
             </div>
-            {/* </div> */}
+            </div>
           </div>
 
           </div>

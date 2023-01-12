@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // useParams allows the '/post/:id' to work
 import { NavLink } from "react-router-dom";
 
-
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
@@ -13,6 +12,7 @@ import Header2 from "../Common/Header2";
 import Footer from "../Common/Footer";
 import Banner from "./../Segments/Banner";
 import SEO from "../Segments/SEO";
+import RelatedBlog from "./RelatedBlog";
 
 import {
   EmailShareButton,
@@ -30,6 +30,10 @@ import toast, { Toaster } from "react-hot-toast";
 var bnrimg = require("./../../images/banner/2.jpg");
 
 const BlogPost = () => {
+
+  var bgimg = require('./../../images/background/ptn-1.png');
+
+
   const client = createClient({
     space: process.env.REACT_APP_CONTENTFUL_SPACE,
     accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
@@ -68,6 +72,7 @@ const BlogPost = () => {
   }, []);
 
   const richTextConversion = () => {
+    
     if (singleBlogPost?.fields?.postContent) {
       const contentfulOptions = {
         renderMark: {
@@ -82,7 +87,12 @@ const BlogPost = () => {
         },
         renderNode: {
           "embedded-asset-block": (node) => (
-            <img className="m-t20 m-b30" width={`100%`} src={node.data.target.fields.file.url} aria-hidden={true}/>
+            <img
+              className="m-t20 m-b30"
+              width={`100%`}
+              src={node.data.target.fields.file.url}
+              aria-hidden={true}
+            />
           ),
           // [BLOCKS.QUOTE]: (node, children) => (
           //   <div className="p-4">
@@ -166,36 +176,34 @@ const BlogPost = () => {
         <div className="section-full p-tb90 square_shape1 square_shape3 tm-blog-single-wrap">
           <div className="container">
             <div className="max-mid-container">
+              <div className="container p-b30">
+                {/* BREADCRUMB ROW */}
+                <div className="">
+                  <div className="p-t20 m-r20">
+                    <div>
+                      <ul className="wt-breadcrumb breadcrumb-style-2">
+                        <li>
+                          <NavLink to={"/"}>Home</NavLink>
+                        </li>
+                        <li>
+                          <NavLink to={"/blog"}>Blog</NavLink>
+                        </li>
+                        <li>Post</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                {/* BREADCRUMB ROW END */}
 
-            <div className="container p-b30">
-          {/* BREADCRUMB ROW */}
-          <div className="">
-            <div className="p-t20 m-r20">
-              <div>
-              
-                <ul className="wt-breadcrumb breadcrumb-style-2">
-                  <li>
-                    <NavLink to={"/"}>Home</NavLink>
-                  </li>
-                  <li>
-                    <NavLink to={"/blog"}>Blog</NavLink>
-                  </li>
-                  <li>Post</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          {/* BREADCRUMB ROW END */}
-
-          {/* TITLE START */}
-          {/* <div className="text-left">
+                {/* TITLE START */}
+                {/* <div className="text-left">
             <h2 className="text-uppercase font-36">Blog Post</h2>
             <div className="wt-separator-outer">
               <div className="wt-separator bg-black" />
             </div>
           </div> */}
-          {/* TITLE END */}
-        </div>
+                {/* TITLE END */}
+              </div>
 
               <div className="blog-post blog-lg date-style-1 text-black">
                 <div className="wt-post-media">
@@ -260,7 +268,9 @@ const BlogPost = () => {
                         <li className="post-date">
                           <strong>{singleBlogPost?.fields?.dateCreated}</strong>
                         </li>
-                        <li className="post-comment">{singleBlogPost?.fields?.blogAuthor}</li>
+                        <li className="post-comment">
+                          {singleBlogPost?.fields?.blogAuthor}
+                        </li>
                       </ul>
                     </div>
 
@@ -362,8 +372,20 @@ const BlogPost = () => {
             </div>
           </div>
         </div>
+        <div className="section-full p-tb90 tm-blog-single-wrap"
+        style={{ backgroundImage: "url(" + bgimg.default + ")" }}>
+          <div className="container">
+            <div className="max-mid-container">
+              <RelatedBlog id={id}/>
+            </div>
+          </div>
+        </div>
       </div>
-
+      <Banner
+          title="high quality, effective, and inspiring built space."
+          pagename="Blog Post"
+          bgimage={bnrimg.default}
+        />
       <Footer />
       <Toaster position="bottom-center" reverseOrder={false} />
     </>

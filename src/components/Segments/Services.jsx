@@ -4,17 +4,17 @@ import { useLayoutEffect } from 'react';
 const servicesleft = [
     {
         counter: 0,
-        title: 'Artisan Drapery',
+        title: 'Custom Drapery',
         description: 'Trendy fabrics in an array of styles can elegantly complete a room or complement other window treatments',
     },
     {
         counter: 1,
-        title: 'Natural Organic Drapes',
+        title: 'Custom Blinds',
         description: 'Renewable material solutions, environmentally friendly',
     },
     {
         counter: 2,
-        title: 'Valances and Cornices',
+        title: 'Window Seats & Throw Pillows',
         description: 'Eye-catching accessories that can stand alone or complement your window treatments',
     }
 ]
@@ -22,7 +22,7 @@ const servicesleft = [
 const servicesright = [
     {
         counter: 3,
-        title: 'Drapery',
+        title: 'Window Seats& Throw Pillows',
         description: 'We can make any design unique and complementary to your style.',
     },
     {

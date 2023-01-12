@@ -78,7 +78,7 @@ const AboutMe = () => {
               </div>
             </div>
           </div>
-          {/* BREADCRUMB ROW END */}
+
 
           <About2 carousel={imageCarousel} />
         </div>

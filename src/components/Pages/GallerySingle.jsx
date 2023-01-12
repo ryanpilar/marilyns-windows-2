@@ -137,7 +137,7 @@ const GallerySingle = () => {
               </div>
             </div>
             { spinner && <Loader /> }
-            <div className="section-content">
+            <div className="section-content text-center">
               {/* IMG CONTENT START */}
 
                
@@ -217,7 +217,7 @@ const GallerySingle = () => {
                     </h4>
 
                     <div className="widget_social_inks">
-                      <ul className="social-icons social-md social-square social-dark m-b0">
+                      <ul className="social-icons social-md social-square social-dark m-b40">
                         <li>
                           <FacebookShareButton
                             hashtag={"#marilynswindowsandinteriors"}
@@ -292,10 +292,6 @@ const GallerySingle = () => {
               </a> */}
             </div>
 
-            <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
-              <strong>Beautiful</strong>
-              <span className="text-black">Designs</span>
-            </div>
           </div>
         </>
       </div>

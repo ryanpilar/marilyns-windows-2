@@ -74,7 +74,7 @@ const Services = () => {
       <div className="page-content">
         {banner && (
           <Banner
-            // heading="Services"
+            heading="Services"
             title="Serving Milton, Georgetown, Burlington, Oakville Mississauga and surrounding areas."
             pagename="Services"
             bgimage={banner.image}

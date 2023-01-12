@@ -11,9 +11,11 @@ import SEO from "../Segments/SEO";
 import { NavLink } from "react-router-dom";
 
 var bnrimg = require("./../../images/banner/6.jpg");
+// var bnrimg = require("./../../images/banner/6.jpg");
 
 const Blog = () => {
   const [blogPost, setBlogPost] = useState([]);
+  const [blogBanner, setBlogBanner] = useState(null)
 
   useEffect(() => {
     const getAllEntries = async () => {
@@ -31,6 +33,14 @@ const Blog = () => {
             // console.log('blog entries', blogEntries)
             setBlogPost(blogEntries);
           });
+
+        await client
+          .getEntries({ content_type: "blog" })
+          .then((blogBanner) => {
+            console.log('blogBanner', blogBanner)
+            setBlogBanner(blogBanner.items[0].fields.backgroundImage[0].secure_url);
+          });
+
       } catch (error) {
         console.log(
           "this error arose from the client.getEntries() call to contentful"
@@ -69,15 +79,18 @@ const Blog = () => {
 
       <Header2 />
       <div className="page-content">
+      {blogBanner && (
         <Banner
           title="Sustainability, Innovation, and Craftmanship"
           pagename="Blog Post"
-          bgimage={bnrimg.default}
+          bgimage={blogBanner}
         />
+
+      )}
+
 
         <div className="container">
           <div className="container">
-
             {/* BREADCRUMB ROW */}
             <div className="">
               <div className="p-t20 m-r20">
@@ -101,7 +114,6 @@ const Blog = () => {
               </div>
             </div>
             {/* TITLE END */}
-
           </div>
 
           {/* SECTION CONTENT START */}

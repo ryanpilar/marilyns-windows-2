@@ -26,7 +26,7 @@ const Testimonials = ({ content, bgimg }) => {
 
     return (
         <>
-            <div className="section-full p-t140 bg-repeat tm-testimonial-wrap" style={{ backgroundImage: `url(${bgimg[0].fields.cloudinaryImage[0].secure_url})` }}>
+            <div className="section-full p-t70 bg-repeat tm-testimonial-wrap" style={{ backgroundImage: `url(${bgimg[0].fields.cloudinaryImage[0].secure_url})` }}>
                 <div className="container">
                     <div className="section-content">
                         {/* TITLE START */}
