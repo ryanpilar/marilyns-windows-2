@@ -119,7 +119,7 @@ const GallerySingle = () => {
               <div className="section-content">
                 {/* BREADCRUMB ROW */}
                 <div className="">
-                  <div className="p-t20 m-r20 m-b10">
+                  <div className="p-t40 m-r40 m-b10">
                     <div>
                       <ul className="wt-breadcrumb breadcrumb-style-2">
                         <li>

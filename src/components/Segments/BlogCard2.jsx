@@ -8,8 +8,6 @@ const BlogCard2 = ({ item, index }) => {
     isHover: false,
   });
 
-  // const post = passItem;
-
   const handleHover = () => {
     setBlackOpacity({ isHover: !blackOpacity.isHover });
   };
@@ -19,9 +17,17 @@ const BlogCard2 = ({ item, index }) => {
       <div className="item" key={index}>
         <div className="blog-post blog-grid date-style-1">
           <div className="wt-post-media wt-img-effect zoom-slow">
-            <NavLink to={`/post/${item.sys.id}`}>
-              <img src={item.fields.blogImages[0].secure_url} />
-            </NavLink>
+            <div
+              className={blackOpacity.isHover ? "" : "wt-img-black-bg"}
+              onMouseEnter={handleHover}
+              onMouseLeave={handleHover}
+            >
+              <div className={blackOpacity.isHover ? "" : "img-opacity"}>
+                <NavLink to={`/post/${item.sys.id}`}>
+                  <img src={item.fields.blogImages[0].secure_url} />
+                </NavLink>
+              </div>
+            </div>
           </div>
           <div className="wt-post-info p-a20 bg-gray text-black">
             <div className="wt-post-title ">

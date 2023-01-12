@@ -168,7 +168,7 @@ const Gallery22 = () => {
 
             <div className="portfolio-wrap mfp-gallery work-grid clearfix">
               <div className="container-fluid">
-                <div className="row m-lr20">
+                <div className="row m-lr40">
                   {imageList.map((item, index) => (
                     <div
                       key={index}
