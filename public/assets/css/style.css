@@ -10482,6 +10482,19 @@ New Menu Style for mobile device (august/2021)
   margin-left: auto;
   margin-right: auto;
 }
+.max-mid2-container {
+  max-width: 2000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.max-mid-bigger-container {
+  max-width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
 .tp-loader.spinner3 {
   display: none;
 }
@@ -10523,7 +10536,7 @@ New Menu Style for mobile device (august/2021)
     max-width: 750px;
     margin-left: auto;
     margin-right: auto;
-    padding: 90px 15px 0px 15px;
+    padding: 45px 15px 0px 15px;
   }
   .tm-whoweare-wrap {
     max-width: 750px;
@@ -10733,7 +10746,7 @@ New Menu Style for mobile device (august/2021)
     margin-bottom: 20px;
   }
   .tm-work-wrap {
-    padding-top: 40px;
+    padding-top: 15px;
     padding-bottom: 10px;
   }
   .tm-work-detail-wrap {

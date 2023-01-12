@@ -20,6 +20,7 @@ import {
 import toast, { Toaster } from "react-hot-toast";
 
 import Loader from "../Segments/Loader";
+import LatestProjects2 from "../Segments/LatestProjects2";
 
 const GallerySingle = () => {
   const { id } = useParams(); // grabs the contentful :id from the address bar (:id)
@@ -53,6 +54,31 @@ const GallerySingle = () => {
     accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
   });
 
+  const selectRandom = (projects) => {
+    return shuffle(projects).slice(0, 9);
+  };
+
+  // LATEST PROJECTS Shuffle
+  const shuffle = (array) => {
+    let currentIndex = array.length,
+      randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex !== 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
+  };
+
   useEffect(() => {
     const getEntryById = async () => {
       try {
@@ -61,6 +87,16 @@ const GallerySingle = () => {
           setImageData(galleryEntry);
           toggleSpinner();
         });
+
+        await client
+          .getEntries({ content_type: "gallery" })
+          .then((allEntries) => {
+            // allEntries.items.sort((a, b) => {
+            //   return a.fields.priority - b.fields.priority;
+            // });
+            console.log("allEntries.items", allEntries.items);
+            setImageList(allEntries.items);
+          });
       } catch (error) {
         console.log("error");
       }
@@ -91,49 +127,41 @@ const GallerySingle = () => {
   return (
     <>
       {/* UPDATE SEO WITH PROPER TITLE FROM CONTENFUL */}
-      <div className="fullscreen-container">
-        <SEO
-          title={`Marilyn's Windows | Gallery Room | ${imageData?.fields?.cardTitle}`}
-          description={`${imageData?.fields?.metaDescription}`}
-        />
-        <Header2 />
-        <div className="page-content ">
-          {/* {bannerContent && (
-            <Banner
-              title={bannerContent.heading}
-              pagename={bannerContent.pageName}
-              bgimage={bannerContent.backgroundImage[0].secure_url}
-            />
-          )} */}
-          <>
-            <div
-              id="work"
-              className="section-full p-t10 p-lr80 latest_project-outer square_shape3"
-            >
+      {/* <div className=""> */}
+      <SEO
+        title={`Marilyn's Windows | Gallery Room | ${imageData?.fields?.cardTitle}`}
+        description={`${imageData?.fields?.metaDescription}`}
+      />
+      <Header2 />
+      <div className="page-content">
+        <div className="">
+          <div className="max-mid-bigger-container">
+            <div className="">
+              {/* BREADCRUMB ROW */}
               <div className="">
-                <div className="section-content">
-                  {/* BREADCRUMB ROW */}
-                  <div className="">
-                    <div className="p-t40 m-r40 m-b10">
-                      <div>
-                        <ul className="wt-breadcrumb breadcrumb-style-2">
-                          <li>
-                            <NavLink to={"/"}>Home</NavLink>
-                          </li>
-                          <li>
-                            <NavLink to={"/gallery"}>Gallery</NavLink>
-                          </li>
-                          <li>High-Def Photo</li>
-                        </ul>
-                      </div>
-                    </div>
+                <div className="p-t00 m-r40 m-b10">
+                  <div>
+                    <ul className="wt-breadcrumb breadcrumb-style-2">
+                      <li>
+                        <NavLink to={"/"}>Home</NavLink>
+                      </li>
+                      <li>
+                        <NavLink to={"/gallery"}>Gallery</NavLink>
+                      </li>
+                      <li>High-Def Photo</li>
+                    </ul>
                   </div>
-                  {/* BREADCRUMB ROW END */}
                 </div>
               </div>
+              {/* BREADCRUMB ROW END */}
+            </div>
+          </div>
+
+          <div className="max-mid-bigger-container">
+            <div className="">
+              {/* IMG CONTENT START */}
               {spinner && <Loader />}
-              <div className="section-content">
-                {/* IMG CONTENT START */}
+              <div className="section-content ">
                 <>
                   {imageData && (
                     <>
@@ -160,16 +188,34 @@ const GallerySingle = () => {
                     </>
                   )}
                 </>
-                {/* IMG CONTENT END  */}
               </div>
+              {/* IMG CONTENT END  */}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container">
+        {/* {bannerContent && (
+            <Banner
+              title={bannerContent.heading}
+              pagename={bannerContent.pageName}
+              bgimage={bannerContent.backgroundImage[0].secure_url}
+            />
+          )} */}
+        <>
+          <div className="">
+            <div id="work" className="section-full p-t10 latest_project-outer">
+              <div className=""></div>
+
               {/* HEADING AND PARAGRAPH START */}
               {/* TITLE START */}
               <div className="section-head text-left">
                 {imageData && (
                   <>
                     <div className="row">
-                      <div className="col-md-6 col-lg-6">
-                        <div className="col-sm-12">
+                      <div className="col-md-7 col-lg-7">
+                        <div className="">
                           <h2 className="text-uppercase font-36">
                             {imageData.fields.cardTitle}
                           </h2>
@@ -177,7 +223,7 @@ const GallerySingle = () => {
                             <div className="wt-separator bg-black" />
                           </div>
                         </div>
-                        <div className="col-sm-12">
+                        <div className="">
                           <p className="p-r30">
                             {imageData.fields.cardDescription}
                           </p>
@@ -188,10 +234,11 @@ const GallerySingle = () => {
                   </>
                 )}
               </div>
+
               {/* TITLE END */}
               {/* HEADING AND PARAGRAPH END */}
               <div className="section-content m-t20 ">
-                <div className="m-b15 p-lr15">
+                <div className="m-b15">
                   {/* react-shares here */}
                   <div className="wt-box">
                     <div className="row  p-lr15">
@@ -272,13 +319,25 @@ const GallerySingle = () => {
                 </a> */}
               </div>
             </div>
-          </>
+          </div>
+
+          {/* <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
+            <strong>30+ Years</strong>
+            <span className="text-black">Working Experience</span>
+          </div> */}
+        </>
+      </div>
+
+      {imageList && (
+        <div className="page-content">
+          <LatestProjects2 />
         </div>
-        <Footer />
-        <Toaster position="bottom-center" reverseOrder={false} />
-        </div>
-            </>
-      
+      )}
+
+      <Footer />
+      <Toaster position="bottom-center" reverseOrder={false} />
+      {/* </div> */}
+    </>
   );
 };
 
