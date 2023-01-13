@@ -31,9 +31,7 @@ import webSitePaths from "../../assets/js/webSitePaths";
 var bnrimg = require("./../../images/banner/2.jpg");
 
 const BlogPost = () => {
-
-  var bgimg = require('./../../images/background/ptn-1.png');
-
+  var bgimg = require("./../../images/background/ptn-1.png");
 
   const client = createClient({
     space: process.env.REACT_APP_CONTENTFUL_SPACE,
@@ -43,7 +41,7 @@ const BlogPost = () => {
   const { id } = useParams(); // grabs the contentful :id form the address bar
 
   const [singleBlogPost, setSingleBlogPost] = useState([]);
-  const blogRoute = webSitePaths.blogRoute + id
+  const blogRoute = webSitePaths.blogRoute + id;
 
   const clipboardToast = () =>
     toast.success("Copied! Check your clipboard for link.", {
@@ -72,7 +70,6 @@ const BlogPost = () => {
   }, []);
 
   const richTextConversion = () => {
-    
     if (singleBlogPost?.fields?.postContent) {
       const contentfulOptions = {
         renderMark: {
@@ -372,20 +369,28 @@ const BlogPost = () => {
             </div>
           </div>
         </div>
-        <div className="section-full p-tb90 tm-blog-single-wrap"
-        style={{ backgroundImage: "url(" + bgimg.default + ")" }}>
+        {/* <div style={{borderTop: '1px solid lightgrey'}}> */}
+        <div
+          className="section-full p-tb90 tm-blog-single-wrap"
+          style={{ backgroundImage: "url(" + bgimg.default + ")" }}
+        >
           <div className="container">
             <div className="max-mid-container">
-              <RelatedBlog id={id}/>
+              <RelatedBlog id={id} />
             </div>
           </div>
         </div>
+
+
+        {/* </div> */}
+        
+
       </div>
-      <Banner
+      {/* <Banner
           title="high quality, effective, and inspiring built space."
           pagename="Blog Post"
           bgimage={bnrimg.default}
-        />
+        /> */}
       <Footer />
       <Toaster position="bottom-center" reverseOrder={false} />
     </>

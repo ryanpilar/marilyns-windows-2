@@ -332,7 +332,10 @@ const GallerySingle = () => {
           </div> */}
         </>
       </div>
-
+      <div className='container'><div class="container">
+        <div  style={{width: '100%', height: '5px', borderBottom: '2px solid lightgrey'}}></div>
+      </div></div>
+      
       {imageList && (
         <div className="page-content">
           <LatestProjects2 />
