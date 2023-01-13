@@ -33,7 +33,6 @@ const GallerySingle = () => {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [spinner, setSpinner] = useState(true);
 
-  // const galleryRoute = `https://marilyns-windows.netlify.app/gallery/room/${id}`;
   const galleryRoute = webSitePaths.galleryRoomRoute + id
 
   const toggleSpinner = () => {
