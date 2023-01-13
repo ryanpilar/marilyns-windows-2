@@ -165,7 +165,7 @@ const GallerySingle = () => {
                 <>
                   {imageData && (
                     <>
-                      <div className="section-full p-t0 p-b40 tm-work-wrap">
+                      <div className="section-full p-t0 p-b40 tm-work-wrap text-center">
                         {/* <div className="container"> */}
                         <img
                           src={imageData.fields.largeImage[0].secure_url}
