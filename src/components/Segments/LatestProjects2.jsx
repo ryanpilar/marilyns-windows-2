@@ -9,10 +9,12 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { NavLink } from "react-router-dom";
 
+import webSitePaths from "../../assets/js/webSitePaths";
+
 const LatestProjects2 = ({ content }) => {
   const [imageList, setImageList] = useState(null);
 
-  const galleryRoute = `https://marilyns-windows.netlify.app/gallery/room/`;
+  const galleryRoute = webSitePaths.galleryRoomRoute;
 
   const client = createClient({
     // contentful connect
@@ -192,13 +194,7 @@ const LatestProjects2 = ({ content }) => {
                               {item.fields.cardTitle}
                             </h2>
                             <p>{item.fields.cardDescription}</p>
-                            {/* <NavLink
-                            to={""}
-                            className="v-button letter-spacing-4 font-12 text-uppercase p-l20"
-                          >
-                          
-                            Read More
-                          </NavLink> */}
+
                             <a href={galleryRoute + `${item.sys.id}`}>
                               <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
                                 <p>
