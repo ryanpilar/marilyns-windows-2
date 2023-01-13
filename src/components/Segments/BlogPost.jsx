@@ -26,6 +26,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { MARKS } from "@contentful/rich-text-types";
 
 import toast, { Toaster } from "react-hot-toast";
+import webSitePaths from "../../assets/js/webSitePaths";
 
 var bnrimg = require("./../../images/banner/2.jpg");
 
@@ -42,8 +43,7 @@ const BlogPost = () => {
   const { id } = useParams(); // grabs the contentful :id form the address bar
 
   const [singleBlogPost, setSingleBlogPost] = useState([]);
-
-  const blogRoute = `https://marilyns-windows.netlify.app/post/${id}`;
+  const blogRoute = webSitePaths.blogRoute + id
 
   const clipboardToast = () =>
     toast.success("Copied! Check your clipboard for link.", {

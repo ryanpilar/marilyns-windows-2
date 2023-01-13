@@ -22,6 +22,8 @@ import toast, { Toaster } from "react-hot-toast";
 import Loader from "../Segments/Loader";
 import LatestProjects2 from "../Segments/LatestProjects2";
 
+import webSitePaths from "../../assets/js/webSitePaths";
+
 const GallerySingle = () => {
   const { id } = useParams(); // grabs the contentful :id from the address bar (:id)
   const [imageData, setImageData] = useState(null);
@@ -31,7 +33,8 @@ const GallerySingle = () => {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [spinner, setSpinner] = useState(true);
 
-  const galleryRoute = `https://marilyns-windows.netlify.app/gallery/room/${id}`;
+  // const galleryRoute = `https://marilyns-windows.netlify.app/gallery/room/${id}`;
+  const galleryRoute = webSitePaths.galleryRoomRoute + id
 
   const toggleSpinner = () => {
     setSpinner((prevState) => !prevState);
