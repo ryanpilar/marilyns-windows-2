@@ -23,6 +23,8 @@ import Loader from "../Segments/Loader";
 import LatestProjects2 from "../Segments/LatestProjects2";
 
 import webSitePaths from "../../assets/js/webSitePaths";
+import Statistics2 from "../Segments/Statistics2";
+import Statistics3 from "../Segments/Statistics3";
 
 const GallerySingle = () => {
   const { id } = useParams(); // grabs the contentful :id from the address bar (:id)
@@ -167,7 +169,8 @@ const GallerySingle = () => {
                 <>
                   {imageData && (
                     <>
-                      <div className="section-full p-t0 p-b40 tm-work-wrap text-center">
+                      <div className="section-full p-t0 p-b40 tm-work-wrap text-center" width={2000}
+                          height={1200}>
                         {/* <div className="container"> */}
                         <img
                           src={imageData.fields.largeImage[0].secure_url}
@@ -335,7 +338,8 @@ const GallerySingle = () => {
           <LatestProjects2 />
         </div>
       )}
-
+      {/* <Statistics2 /> */}
+      {/* <Statistics3 /> */}
       <Footer />
       <Toaster position="bottom-center" reverseOrder={false} />
       {/* </div> */}
