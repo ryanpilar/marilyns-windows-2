@@ -58,7 +58,7 @@ const BlogCard2 = ({ item, index }) => {
             <div className="wt-post-text">
               <p>{item.fields.blogSummary}</p>
             </div>
-            <a href={blogRoute + `${item.sys.id}`} className="site-button black radius-no text-uppercase">
+            <a href={`/post/` + `${item.sys.id}`} className="site-button black radius-no text-uppercase">
             <span className="font-12 letter-spacing-5"> Read More </span>                </a>
             {/* <NavLink
               to={"/project-detail"}

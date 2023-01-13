@@ -21,6 +21,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 import Loader from "../Segments/Loader";
 import LatestProjects2 from "../Segments/LatestProjects2";
+import webSitePaths from "../Segments/WebSitePath";
 
 const GallerySingle = () => {
   const { id } = useParams(); // grabs the contentful :id from the address bar (:id)
@@ -31,7 +32,9 @@ const GallerySingle = () => {
   const [photoIndex, setPhotoIndex] = useState(0);
   const [spinner, setSpinner] = useState(true);
 
-  const galleryRoute = `https://marilyns-windows.netlify.app/gallery/room/${id}`;
+  // const galleryRoomRoute = webSitePaths.galleryRoomRoute
+  const gallery = webSitePaths.galleryRoute
+  const galleryRoute = `${webSitePaths.galleryRoomRoute}${id}`;
 
   const toggleSpinner = () => {
     setSpinner((prevState) => !prevState);
@@ -94,7 +97,7 @@ const GallerySingle = () => {
             // allEntries.items.sort((a, b) => {
             //   return a.fields.priority - b.fields.priority;
             // });
-            console.log("allEntries.items", allEntries.items);
+            // console.log("allEntries.items", allEntries.items);
             setImageList(allEntries.items);
           });
       } catch (error) {
@@ -138,7 +141,7 @@ const GallerySingle = () => {
           <div className="max-mid-bigger-container">
             <div className="">
               {/* BREADCRUMB ROW */}
-              <div className="">
+              {/* <div className="">
                 <div className="p-t00 m-r40 m-b10">
                   <div>
                     <ul className="wt-breadcrumb breadcrumb-style-2">
@@ -152,7 +155,7 @@ const GallerySingle = () => {
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div> */}
               {/* BREADCRUMB ROW END */}
             </div>
           </div>
@@ -165,7 +168,8 @@ const GallerySingle = () => {
                 <>
                   {imageData && (
                     <>
-                      <div className="section-full p-t0 p-b40 tm-work-wrap">
+                      <div className="section-full p-t0 p-b40 tm-work-wrap text-center">
+                      
                         {/* <div className="container"> */}
                         <img
                           src={imageData.fields.largeImage[0].secure_url}

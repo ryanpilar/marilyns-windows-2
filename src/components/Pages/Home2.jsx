@@ -116,9 +116,7 @@ const Home2 = () => {
           </>
         )}
 
-        {content && <ClientsLogo content={content.affiliates} />}
 
-        {content && <LatestProjects content={selectRandom(content.projects)} />}
 
         {content && (
           <Testimonials
@@ -126,6 +124,12 @@ const Home2 = () => {
             bgimg={content.background}
           />
         )}
+
+        {content && <LatestProjects content={selectRandom(content.projects)} />}
+
+
+        {content && <ClientsLogo content={content.affiliates} />}
+
 
         <Contact />
       </div>

@@ -1,7 +1,7 @@
 Don't forget to do when pushing production
     1.  Change the blogRoute for the React-Shares, currently set to a netlify path
     2.  Change the galleryRoute for the React-Shares, currently set to a netlify path
-    3. 
+    3.  Change blogRoute and galleryRoute for 'recomended' cards in blogPost and GalleryPost
 
 Upgrades in future
     1.  Load Gallery in patches of 8 images and have a 'load more' btn.
@@ -16,7 +16,9 @@ Weird things I havn't figured out yet:
     1.  when i switched from hardcoded images to contentful/cloudinary my blog and gallery
         card stacking sometimes skips spots.
 
-        And some content seems to collapse and the footer is not where it should be
+        And some content seems to collapse and the footer is not where it should be, it wanders to the
+        top, but only in the single card view. if the viewport is large enough to hold two card horizontally
+        it doesn't do it!
 
     2.  when i switch from hardocded images to contentful/cloudinary,the gallery massonry-filter
         no longer works

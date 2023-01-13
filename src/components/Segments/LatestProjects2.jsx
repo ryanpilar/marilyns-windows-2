@@ -8,11 +8,12 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { NavLink } from "react-router-dom";
+import webSitePath from "./WebSitePath";
 
-const LatestProjects2 = ({ content }) => {
+const LatestProjects2 = () => {
   const [imageList, setImageList] = useState(null);
 
-  const galleryRoute = `https://marilyns-windows.netlify.app/gallery/room/`;
+  const galleryRoute = webSitePath.galleryRoute;
 
   const client = createClient({
     // contentful connect
@@ -130,8 +131,8 @@ const LatestProjects2 = ({ content }) => {
         id="work"
         className="section-full p-t90 latest_project-outer square_shape3"
       >
-        <div class="container">
-          <div class="section-content">
+        <div className="container">
+          <div className="section-content">
             {/* TITLE START */}
             <div className="section-head text-left">
               <div className="row">
