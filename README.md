@@ -1,7 +1,8 @@
 # 🧵 marilyns-windows
 
 ---
-![drapery](https://user-images.githubusercontent.com/102194829/198898881-5e9d8606-3cef-4c85-8793-3554129eb680.png)
+
+![image](https://user-images.githubusercontent.com/102194829/212281363-f9593f5b-b2f8-4981-92b8-0f54bf6d96d8.png)
 
 -- site under construction --
 https://marilyns-windows.netlify.app/
