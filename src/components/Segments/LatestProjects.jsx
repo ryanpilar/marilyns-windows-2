@@ -87,8 +87,8 @@ const LatestProjects = ({ content }) => {
         id="work"
         className="section-full p-t90 p-lr80 latest_project-outer square_shape3"
       >
-        <div className="container">
-          <div className="section-content">
+        <div class="container">
+          <div class="section-content">
             {/* TITLE START */}
             <div className="section-head text-left">
               <div className="row">

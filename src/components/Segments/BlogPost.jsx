@@ -300,7 +300,6 @@ const BlogPost = () => {
                                     url={blogRoute}
                                     aria-label="Share to Facebook"
                                   >
-                                  
                                     <a className="fa fa-facebook" />
                                   </FacebookShareButton>
                                 </li>
