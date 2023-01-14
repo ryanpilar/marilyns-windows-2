@@ -31,7 +31,7 @@ const Testimonials = ({ content, bgimg }) => {
                     <div className="section-content">
                         {/* TITLE START */}
                         <div className="section-head text-left">
-                            <h2 className="text-uppercase font-36">Testimonials</h2>
+                            <h2 className="text-uppercase font-34">Testimonials</h2>
                             <div className="wt-separator-outer">
                                 <div className="wt-separator bg-black" />
                             </div>

@@ -6,7 +6,7 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 
 
-const ClientsLogo = ({content}) => {
+const ClientsLogo = ({content, paragraph}) => {
     // console.log('AFFILIATES', content)
     const logos = content
 
@@ -27,7 +27,7 @@ const ClientsLogo = ({content}) => {
                     items: 2
                 },
                 767: {
-                    items: 3
+                    items: 2
                 },
                 1000: {
                     items: 3
@@ -46,13 +46,33 @@ const ClientsLogo = ({content}) => {
 
                                         {/* <div className='container container-logo'> */}
                                             <div className='p-b50'>
-                                                <div className="col-md-12 col-sm-12 p-b30">
+                                                <div className="col-md-8 col-sm-12 p-b10">
+
                                                     {/* TITLE START */}
                                                     <div className="text-left">
-                                                        <h2 className="text-uppercase font-36 text-white">My Premium Suppliers</h2>
+                                                        <h2 className="text-uppercase font-34 text-white">Our Premium Suppliers</h2>
                                                         <div className="wt-separator-outer">
                                                             <div className="wt-separator bg-white" />
                                                         </div>
+
+                                                        { paragraph && (
+                                                            <div className="text-white m-t30">
+                                                            <h4 className="text-brownish">Blinds, Smart Blinds, Shutters & Sheers:</h4>
+                                                            <p className="text-white for-affiliates m-b40 p-l30">
+                                                                <a className="p-r10" href="https://www.hunterdouglas.ca/" target='_blank'>Hunter Douglas</a> | 
+                                                                <a className="p-lr10" href="https://www.altawindowfashions.ca/" target='_blank'>Alta Window Fashions & Shadeomatic</a> | 
+                                                                <a className="p-lr10" href="https://www.shadex.com/" target='_blank'>Shadex</a>
+                                                            </p>
+                                                            <h4 className="text-brownish">Designer Fabrics:</h4>
+                                                            <p className="text-white for-affiliates p-l30">
+                                                                <a className="p-r10" href="https://robertallendesign.com/" target='_blank' rel="noreferrer" aria-label="Robert Allen's Home page">Robert Allen Design</a> | 
+                                                                <a className="p-lr10" href="https://uniquefinefabrics.com/" target='_blank' rel="noreferrer" aria-label="Uniques's home page">Unique Fine Fabrics</a> | 
+                                                                <a className="p-lr10" href="https://equusfabrics.com/" target='_blank' rel="noreferrer" aria-label="Equus home page">Equus Fabrics</a> | 
+                                                                <a className="p-lr10" href="https://www.soletexfabrics.com/" target='_blank' rel="noreferrer" aria-label="Soletex Home page">Soletex Fabrics</a> 
+                                                            </p>
+                                                        </div>
+                                                        )}
+                                                        
                                                     </div>
                                                     {/* TITLE END */}
                                                 </div>

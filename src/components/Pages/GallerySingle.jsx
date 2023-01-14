@@ -221,7 +221,7 @@ const GallerySingle = () => {
                     <div className="row">
                       <div className="col-md-7 col-lg-7">
                         <div className="">
-                          <h2 className="text-uppercase font-36">
+                          <h2 className="text-uppercase font-34">
                             {imageData.fields.cardTitle}
                           </h2>
                           <div className="wt-separator-outer">

@@ -11,11 +11,14 @@ import Footer from "../Common/Footer";
 import SEO from "../Segments/SEO";
 import { createClient } from "contentful";
 import { NavLink } from "react-router-dom";
+import Contact from "../Segments/Contact";
+import ClientsLogo from "../Segments/ClientsLogo";
 
 const Services = () => {
   const [banner, setBanner] = useState(null);
   const [testimonial, setTestimonial] = useState(null);
   const [designProcess, setDesignProcess] = useState(null);
+  const [affiliates, setAffiliates] = useState(null)
 
   const client = createClient({
     // contentful connect
@@ -26,34 +29,42 @@ const Services = () => {
   useEffect(() => {
     const getContentfulContents = async () => {
       try {
-        await client.getEntries().then((allEntries) => {
-          const contentfulContent = allEntries.items;
-          const servicesContent = contentfulContent.filter(
-            (entry) => entry.fields.location === "servicesFull"
-          );
+        await client
+          .getEntries({ content_type: "servicesFull" })
 
-          
-          setBanner({
-            image: servicesContent[0].fields.topBanner[0].secure_url,
+          // await client.getEntries()
+          .then((allEntries) => {
+            const servicesContent = allEntries.items;
+
+            setBanner({
+              image: servicesContent[0].fields.topBanner[0].secure_url,
+            });
+            setTestimonial({
+              image: servicesContent[0].fields.testimonialImage[0],
+            });
+            setDesignProcess({
+              consultation: {
+                image: servicesContent[0].fields.consultationImage[0],
+              },
+              ideas: {
+                image: servicesContent[0].fields.draperyIdeaImage[0],
+              },
+              install: {
+                image: servicesContent[0].fields.installImage[0],
+              },
+              warranty: {
+                image: servicesContent[0].fields.warrantyImage[0],
+              },
+            });
           });
-          setTestimonial({
-            image: servicesContent[0].fields.testimonialImage[0],
-          });
-          setDesignProcess({
-            consultation: {
-              image: servicesContent[0].fields.consultationImage[0],
-            },
-            ideas: {
-              image: servicesContent[0].fields.draperyIdeaImage[0],
-            },
-            install: {
-              image: servicesContent[0].fields.installImage[0],
-            },
-            warranty: {
-              image: servicesContent[0].fields.warrantyImage[0],
-            },
-          });
-        });
+          await client
+          .getEntries({ content_type: "affiliates" })
+          .then((allEntries) => {
+            const affiliatesContent = allEntries.items;
+
+            setAffiliates(affiliatesContent);
+            
+          });  
       } catch (error) {
         console.log(
           "this error arose from the client.getEntries() call to contentful"
@@ -108,10 +119,13 @@ const Services = () => {
             bgimage={banner.image}
           />
         )} */}
-
+        
         {designProcess && <Service process={designProcess} />}
+        { affiliates && <ClientsLogo content={affiliates} paragraph={true}/>}
       </div>
 
+      
+      <Contact />
       <Footer />
     </>
   );

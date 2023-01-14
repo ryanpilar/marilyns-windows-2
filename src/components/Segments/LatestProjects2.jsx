@@ -138,7 +138,7 @@ const LatestProjects2 = ({ content }) => {
             <div className="section-head text-left">
               <div className="row">
                 <div className="col-lg-4 col-md-12 ">
-                  <h2 className="text-uppercase font-40">
+                  <h2 className="text-uppercase font-34">
                     More From The Gallery
                   </h2>
                   <div className="wt-separator-outer">

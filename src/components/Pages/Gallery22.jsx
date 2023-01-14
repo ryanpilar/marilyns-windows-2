@@ -139,7 +139,7 @@ const Gallery22 = () => {
 
           {/* TITLE START */}
           <div className="text-left">
-            <h2 className="text-uppercase font-36">Marilyn's Gallery</h2>
+            <h2 className="text-uppercase font-34">Marilyn's Gallery</h2>
             <div className="wt-separator-outer">
               <div className="wt-separator bg-black" />
             </div>
@@ -151,31 +151,19 @@ const Gallery22 = () => {
         {imageList && (
           <div className="section-full p-t40 p-b90 tm-work-wrap">
             <div className="container">
-              {/* PAGINATION START */}
-              {/* <div className="filter-wrap p-b50">
-                                <ul className="masonry-filter link-style  text-uppercase">
-                                    <li className="active" aria-hidden="true"><a data-filter="*" href="#" >All</a></li>
-                                    
-                                    {filters.map((item, index) => (
-                                        <li key={index}><a data-filter={item.filter} href="#" aria-hidden="true">{item.label}</a></li>
-                                    ))}
 
-                                </ul>
-                            </div> */}
-              {/* PAGINATION END */}
             </div>
             {/* GALLERY CONTENT START */}
 
             <div className="portfolio-wrap mfp-gallery work-grid clearfix">
               <div className="container-fluid">
-                <div className="row m-lr20">
+                <div className="row m-lr10">
                   {imageList.map((item, index) => (
                     <div
                       key={index}
                       className={`${item.fields.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30 `}
                     >
-                      {/* <div className="wt-img-effect">
-                        <div className=""> */}
+
                       <div className="wt-img-effect wt-img-black-bg">
                         <div className="img-opacity">
                           <img

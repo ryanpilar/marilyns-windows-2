@@ -112,7 +112,7 @@ const Home2 = () => {
         {content && (
           <>
             <About content={content.about} />
-            <Services content={content.services} />
+            <Services content={content.services} showButton={true} />
           </>
         )}
 

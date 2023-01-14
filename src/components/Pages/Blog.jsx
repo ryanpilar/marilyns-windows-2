@@ -108,7 +108,7 @@ const Blog = () => {
 
             {/* TITLE START */}
             <div className="text-left">
-              <h2 className="text-uppercase font-36">Recent Writings</h2>
+              <h2 className="text-uppercase font-34">Recent Writings</h2>
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />
               </div>

@@ -65,18 +65,18 @@ class About extends React.Component {
           <div className="container">
             <div className="section-content">
               <div className="row">
-                <div className="col-md-5 col-sm-12 text-uppercase text-black">
-                  <span className="font-30 font-weight-300">
+                <div className="col-md-5 col-sm-12 text-black">
+                  <span className="font-30 font-weight-300 text-uppercase ">
                     {this.props.content.span}
                   </span>
-                  <h2 className="font-40">{this.props.content.heading}</h2>
+                  <h2 className="font-34 text-uppercase ">{this.props.content.heading}</h2>
 
                   {/* richTextConverstion renders in a <p> */}
-                  <div className="text-lowercase">
+                  <div className="">
                     {this.richTextConversion(this.props.content.topParagraph)}
                   </div>
 
-                  <div className="text-lowercase">
+                  <div className="">
                     {this.richTextConversion(
                       this.props.content.bottomParagraph
                     )}

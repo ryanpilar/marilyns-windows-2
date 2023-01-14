@@ -38,7 +38,7 @@ const servicesright = [
 ]
 
 
-const Services = ( {content} ) => {
+const Services = ( {content, showButton} ) => {
 
     useLayoutEffect(() => {
         function loadScript(src) {
@@ -73,15 +73,32 @@ const Services = ( {content} ) => {
                 >
                     <div className="overlay-main opacity-08 bg-black" />
                     <div className="container">
+
+          <div class="section-content">
+            {/* TITLE START */}
+            <div className="section-head text-left">
+              <div className="row">
+                <div className="section-head text-white col-lg-4 col-md-12 m-t30">
+                  <h2 className="text-uppercase font-34 ">Our Services</h2>
+                  <div className="wt-separator-outer">
+                    <div className="wt-separator bg-white" />
+                  </div>
+                </div>
+                <div className="col-lg-8 col-md-12">
+                  <p className="p-r30 text-left text-white">
+                    Everything we do is custom. All work is handmade, using premium exclusive fabrics, products and hardware.
+                  </p>
+                  <p className="p-r30 text-left text-white">
+                    Our work boldly displays uncompromised quality, attention to detail and everything we do is backed by 
+                    exceptional service.
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* TITLE END */}
+          </div>
                     
-                        {/* TITLE START */}
-                        <div className="section-head text-left text-white">
-                            <h2 className="text-uppercase font-36">Our Services</h2>
-                            <div className="wt-separator-outer">
-                                <div className="wt-separator bg-white" />
-                            </div>
-                        </div>
-                        {/* TITLE END */}
+
                         
                         <div className="section-content circle-block-outer" data-toggle="tab-hover">
                             <div className="row">
@@ -132,9 +149,12 @@ const Services = ( {content} ) => {
                                     ))}
 
                                 </div>
-                                <div className="col-sm-12 m-b30">
+                                { showButton && (
+                                    <div className="col-sm-12 m-b30">
                                     <a href="/services" className="site-button outline white button-app m-r15 m-b15"><span>See More of Our Services</span><em /></a>
                                 </div>
+                                )}
+                                
 
                             </div>
                         </div>

@@ -605,6 +605,12 @@ a:focus {
 p a {
   color: #333333;
 }
+.for-affiliates a,
+.for-affiliates a :active,
+.for-affiliates a :hover,
+.for-affiliates a :focus {
+  color: white;
+}
 
 img {
   border-style: none;
@@ -2132,7 +2138,7 @@ ol.list-num-count.list-outline-none > li:before {
   color: #f5f6f6;
 }
 .text-gray-dark {
-  color: #d3d3d3;
+  color: #acacac;
 }
 .text-red {
   color: #99090a;
@@ -3702,7 +3708,7 @@ ol.list-num-count.list-outline-none > li:before {
 /*Separator defualt*/
 .wt-separator {
   display: inline-block;
-  height: 3px;
+  height: 4px;
   width: 50px;
   position: relative;
 }
