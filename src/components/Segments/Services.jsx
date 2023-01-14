@@ -77,18 +77,17 @@ const Services = ( {content, showButton} ) => {
           <div class="section-content">
             {/* TITLE START */}
             <div className="section-head text-left">
-              <div className="row">
-                <div className="section-head text-white col-lg-4 col-md-12 m-t30">
+              <div className="row m-t30">
+                <div className="section-head text-white col-lg-4 col-md-12 ">
                   <h2 className="text-uppercase font-34 ">Our Services</h2>
                   <div className="wt-separator-outer">
                     <div className="wt-separator bg-white" />
                   </div>
                 </div>
-                <div className="col-lg-8 col-md-12">
+                <div className="col-lg-8 col-md-12" >
                   <p className="p-r30 text-left text-white">
                     Everything we do is custom. All work is handmade, using premium exclusive fabrics, products and hardware.
-                  </p>
-                  <p className="p-r30 text-left text-white">
+                  
                     Our work boldly displays uncompromised quality, attention to detail and everything we do is backed by 
                     exceptional service.
                   </p>
