@@ -73,7 +73,6 @@ const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
           borderWidth: "0px 80px 80px 80px",
         }}
       >
-        {/* {" "} */}
       </div>
 
       {/* <div

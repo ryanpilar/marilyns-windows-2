@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
@@ -26,7 +25,7 @@ const RelatedBlog = ({id}) => {
         items: 2,
       },
       767: {
-        items: 3,
+        items: 2,
       },
       1000: {
         items: 3,
@@ -34,7 +33,7 @@ const RelatedBlog = ({id}) => {
     },
   };
 
-  const [blogPost, setBlogPost] = React.useState([]);
+  const [blogPost, setBlogPost] = React.useState(null);
 
   const removeDouble = (entries, blogId) => {
     const filtered = entries.filter((post) => post.sys.id !== blogId);

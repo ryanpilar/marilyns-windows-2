@@ -601,8 +601,18 @@ a:hover,
 a:focus {
   color: #333333;
 }
-
-p a {
+a.link-style,
+a.link-style:active {
+  color: rgb(235, 172, 89);
+}
+/* a.link-style:active, */
+a.link-style:hover {
+  color: #000000;
+}
+a.link-style:focus {
+  color: rgb(216, 255, 250);
+}
+a.link-style:focus p a {
   color: #333333;
 }
 .for-affiliates a,
@@ -2155,9 +2165,13 @@ ol.list-num-count.list-outline-none > li:before {
 .text-dark-blue {
   color: #405395 !important;
 }
+.text-dark-see {
+  color: #e7ccb8 !important;
+}
 .text-brownish {
-	color: #d5c2ba !important;
-  }
+  /* color: #d5c2ba !important; */
+  color: #e7ccb8 !important;
+}
 /*-------------------------------------
 	2. background color
 -------------------------------------*/
@@ -2770,6 +2784,7 @@ ol.list-num-count.list-outline-none > li:before {
   border-width: 1px;
   border-style: solid;
   border-color: #ddd;
+  box-shadow: 8px 12px 10px rgba(0, 0, 0, 0.1);
 }
 
 .wt-icon-box-wraper.bx-style-2.center [class*="wt-icon-box-"],
@@ -2858,6 +2873,10 @@ ol.list-num-count.list-outline-none > li:before {
 .wt-info.border-4,
 .wt-info.border-5 {
   border-top: none;
+}
+
+.wt-white-spaces {
+  white-space: pre-wrap;
 }
 
 /*-------------------------------------
@@ -3621,21 +3640,27 @@ ol.list-num-count.list-outline-none > li:before {
 }
 
 /* 1.45(5) half effect button outline style */
-.btn-half {
+.btn-half,
+.btn-half2 {
   cursor: pointer;
   background-color: #000;
   z-index: 0;
   display: inline-block;
   position: relative;
 }
+.btn-half2 {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 2px solid black;
+}
 
-.btn-half span {
+.btn-half span,
+.btn-half2 span {
   color: #fff;
   display: block;
   padding-left: 0%;
   padding-right: 25px;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 5px;
   transform: scaleX(0.9);
   transform-origin: center left;
@@ -3643,8 +3668,12 @@ ol.list-num-count.list-outline-none > li:before {
   position: relative;
   z-index: 1;
 }
+.btn-half2 span {
+  color: black;
+}
 
-.btn-half em {
+.btn-half em,
+.btn-half2 em {
   position: absolute;
   height: 1px;
   background: #fff;
@@ -3656,15 +3685,21 @@ ol.list-num-count.list-outline-none > li:before {
   transition: all 0.3s ease;
   z-index: 1;
 }
+.btn-half2 em {
+  background: black;
+}
 
 .btn-half:before,
 .btn-half:after {
   content: "";
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgb(255, 255, 255, 1);
+  /* background-color: rgba(255, 255, 255, 1); */
+
   height: 50%;
   width: 0;
   position: absolute;
-  transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  /* transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86); */
+  transition: 0.5s;
 }
 
 .btn-half:before {
@@ -3681,6 +3716,10 @@ ol.list-num-count.list-outline-none > li:before {
 .btn-half.site-button:hover {
   background-color: #000;
 }
+.btn-half2.site-button:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid white;
+}
 .btn-half:hover:before {
   width: 100%;
   right: 0;
@@ -3693,10 +3732,17 @@ ol.list-num-count.list-outline-none > li:before {
 }
 
 .btn-half:hover span {
-  color: #fff;
+  color: rgb(0, 0, 0);
 }
 .btn-half:hover em {
-  background: #fff;
+  background: rgb(0, 0, 0);
+  transform: scaleX(0.75);
+}
+.btn-half2:hover span {
+  color: rgb(255, 255, 255);
+}
+.btn-half2:hover em {
+  background: rgb(255, 255, 255);
   transform: scaleX(1);
 }
 /*-------------------------------------
@@ -5080,11 +5126,11 @@ ol.list-num-count.list-outline-none > li:before {
 }
 .wt-breadcrumb li a:hover {
   /* color: #d5dd02; */
-  color: #989b9e
+  color: #989b9e;
 }
 .wt-breadcrumb li:last-child {
   /* color: #d5dd02; */
-  color: #989b9e
+  color: #989b9e;
 }
 .wt-breadcrumb li:first-child a i {
   font-size: 18px;
@@ -5826,6 +5872,20 @@ blockquote {
   font-family: "Crete Round", serif;
 }
 
+blockquote.transparentBanner {
+  padding: 30px 20px 30px 80px;
+  font-size: 15px;
+  font-style: italic;
+  color: #f6f7f8;
+  margin-top: 10%;
+  line-height: 30px;
+  position: relative;
+  background: transparent;
+  clear: both;
+  border: none;
+  font-family: "Crete Round", serif;
+}
+
 blockquote p {
   font-size: 12px;
   color: #000;
@@ -5840,6 +5900,16 @@ blockquote:before {
   font-family: "FontAwesome";
   color: #555555;
   font-size: 35px;
+  position: absolute;
+  left: 20px;
+  top: 38px;
+  font-style: normal;
+}
+blockquote.transparentBanner:before {
+  content: "\f10d";
+  font-family: "FontAwesome";
+  color: #f6f7f8;
+  font-size: 55px;
   position: absolute;
   left: 20px;
   top: 38px;
@@ -9647,6 +9717,7 @@ ol.commentlist li::after {
 }
 
 .circle-block-outer .wt-icon-box-wraper:hover .icon-content h4,
+.circle-block-outer .wt-icon-box-wraper:hover .icon-content h3,
 .circle-block-outer .wt-icon-box-wraper:hover .icon-content p {
   color: #000;
 }
@@ -9697,6 +9768,7 @@ ol.commentlist li::after {
   right: -200px;
   top: 30px;
   width: 310px;
+  box-shadow: 7px 15px 10px rgba(0, 0, 0, 0.5);
 }
 .contact-info .icon-content p {
   word-break: normal;
@@ -9904,6 +9976,8 @@ ol.commentlist li::after {
 .our-story .our-story-detail {
   padding: 15px 30px;
   margin: 62px 0px;
+  /* box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5); */
+  box-shadow: 10px 15px 10px rgba(0, 0, 0, 0.1);
 }
 .our-story .our-story-detail p {
   font-size: 12px;

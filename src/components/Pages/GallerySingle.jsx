@@ -4,8 +4,6 @@ import { createClient } from "contentful";
 
 import { NavLink } from "react-router-dom";
 import Header2 from "../Common/Header2";
-// import Footer from '../Common/Footer';
-import Banner from "../Segments/Banner";
 import SEO from "../Segments/SEO";
 
 import { useParams } from "react-router-dom";
@@ -23,16 +21,12 @@ import Loader from "../Segments/Loader";
 import LatestProjects2 from "../Segments/LatestProjects2";
 
 import webSitePaths from "../../assets/js/webSitePaths";
-import Statistics2 from "../Segments/Statistics2";
-import Statistics3 from "../Segments/Statistics3";
+
 
 const GallerySingle = () => {
   const { id } = useParams(); // grabs the contentful :id from the address bar (:id)
   const [imageData, setImageData] = useState(null);
   const [imageList, setImageList] = useState([]);
-  const [bannerContent, setBannerContent] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [photoIndex, setPhotoIndex] = useState(0);
   const [spinner, setSpinner] = useState(true);
 
   const galleryRoute = webSitePaths.galleryRoomRoute + id
@@ -57,31 +51,6 @@ const GallerySingle = () => {
     space: process.env.REACT_APP_CONTENTFUL_SPACE,
     accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
   });
-
-  const selectRandom = (projects) => {
-    return shuffle(projects).slice(0, 9);
-  };
-
-  // LATEST PROJECTS Shuffle
-  const shuffle = (array) => {
-    let currentIndex = array.length,
-      randomIndex;
-
-    // While there remain elements to shuffle.
-    while (currentIndex !== 0) {
-      // Pick a remaining element.
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
-      ];
-    }
-
-    return array;
-  };
 
   useEffect(() => {
     const getEntryById = async () => {
@@ -341,8 +310,7 @@ const GallerySingle = () => {
           <LatestProjects2 />
         </div>
       )}
-      {/* <Statistics2 /> */}
-      {/* <Statistics3 /> */}
+
       <Footer />
       <Toaster position="bottom-center" reverseOrder={false} />
       {/* </div> */}

@@ -5,6 +5,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
 import SEO from "../Segments/SEO";
+import { Link } from "react-router-dom";
 
 // const images = [
 //     require('./../../images/gallery/portrait/pic1.jpg'),
@@ -125,13 +126,13 @@ const About2 = ({ carousel }) => {
                     <span>Hire Marilyn</span>
                     <em />
                   </a>
-                  <a
-                    href="/services"
+                  <Link
+                    to="/services"
                     className="btn-half site-button button-lg m-b15"
                   >
                     <span>See My Services</span>
                     <em />
-                  </a>
+                  </Link>
 
                   {/* <NavLink to="/#contact" element={<Contact />}>Contact me</NavLink>
                                             <NavLink to="/gallery" element={<Gallery />}>Visit My Gallery</NavLink> */}

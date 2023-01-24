@@ -1,4 +1,3 @@
-import React from "react";
 // import { NavLink } from 'react-router-dom';
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -6,14 +5,23 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { MARKS } from "@contentful/rich-text-types";
+import { NavLink } from "react-router-dom";
 
-class About extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = null;
-  }
+import { createClient } from "contentful";
+import { useEffect, useState, useLayoutEffect } from "react";
 
-  richTextConversion = (richText) => {
+const About = () => {
+  const [content, setContent] = useState(null);
+
+  const client = createClient({
+    // contentful connect
+    space: process.env.REACT_APP_CONTENTFUL_SPACE,
+    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+  });
+
+  const richTextConversion = (richText) => {
+    // process rich text coming from contentful
+
     if (richText) {
       const contentfulOptions = {
         renderMark: {
@@ -28,102 +36,136 @@ class About extends React.Component {
     }
   };
 
-  render() {
-    const images = this.props.content.cloudinaryImage;
-
-    const options = {
-      smartSpeed: 700,
-      loop: true,
-      margin: 0,
-      autoplay: true,
-      autoplayTimeout: 5000,
-      //center: true,
-      nav: false,
-      dots: false,
-      navText: [
-        '<i class="fa fa-angle-left"></i>',
-        '<i class="fa fa-angle-right"></i>',
-      ],
-      responsive: {
-        0: {
-          items: 1,
-        },
-        480: {
-          items: 1,
-        },
-        767: {
-          items: 1,
-        },
-        1000: {
-          items: 1,
-        },
-      },
+  useEffect(() => {
+    const getAllEntries = async () => {
+      // contentful get data
+      try {
+        await client
+          .getEntries({ content_type: "about" })
+          .then((allEntries) => {
+            // console.log("content entries", allEntries.items);
+            setContent(allEntries.items[0].fields);
+          });
+      } catch (error) {
+        console.log(
+          "this error arose from the client.getEntries() call to contentful"
+        );
+      }
     };
-    return (
-      <>
-        <div id="about" className="section-full p-t90 bg-gray tm-welcome-warp">
-          <div className="container">
-            <div className="section-content">
-              <div className="row">
+
+    getAllEntries();
+  }, []);
+
+  // Carousel UX Options
+  const options = {
+    smartSpeed: 700,
+    loop: true,
+    margin: 0,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    //center: true,
+    nav: false,
+    dots: false,
+    navText: [
+      '<i class="fa fa-angle-left"></i>',
+      '<i class="fa fa-angle-right"></i>',
+    ],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      480: {
+        items: 1,
+      },
+      767: {
+        items: 1,
+      },
+      1000: {
+        items: 1,
+      },
+    },
+  };
+
+  return (
+    <>
+      <div id="about" className="section-full p-t90 bg-gray tm-welcome-warp">
+        <div className="container">
+          <div className="section-content">
+            <div className="row">
+              {content && (
                 <div className="col-md-5 col-sm-12 text-black">
-                  <span className="font-30 font-weight-300 text-uppercase ">
-                    {this.props.content.span}
+                  <span className="font-22 font-weight-400 text-uppercase ">
+                    {content.span}
                   </span>
-                  <h2 className="font-34 text-uppercase ">{this.props.content.heading}</h2>
+                  <h1 className="text-uppercase font-28 font-weight-550">{content.heading}</h1>
 
                   {/* richTextConverstion renders in a <p> */}
                   <div className="">
-                    {this.richTextConversion(this.props.content.topParagraph)}
+                    {richTextConversion(content.topParagraph)}
                   </div>
 
                   <div className="">
-                    {this.richTextConversion(
-                      this.props.content.bottomParagraph
-                    )}
+                    {richTextConversion(content.bottomParagraph)}
                   </div>
-                  <a
-                    href="/aboutme"
-                    className="btn-half site-button button-lg m-b15"
+                  <NavLink
+                    to={"/aboutme"}
+                    className="btn-half text-white site-button button-md m-b15 m-r15"
                   >
-                    <span>Read My Full Story</span>
+                    <span className="p-lr5">My Story</span>
                     <em />
-                  </a>
-                </div>
+                  </NavLink>
 
-                <div className="col-md-7 col-sm-12">
-                  <div className="m-carousel-1 m-l100">
-                    <OwlCarousel
-                      className="owl-carousel home-carousel-1 owl-btn-vertical-center"
-                      {...options}
-                    >
-                      {images.map((item, index) => (
-                        <div className="item" key={index}>
-                          <div className="ow-img wt-img-effect zoom-slow">
-                            <img
-                              src={item.secure_url}
-                              alt={item.context.custom.alt}
-                              data-pin-description={item.context.custom.dataPin}
-                              caption={item.context.custom.caption}
-                              width={800}
-                              height={500}
-                            />
-                          </div>
-                        </div>
-                      ))}
-                    </OwlCarousel>
-                  </div>
+                  <NavLink
+                    to={"/gallery"}
+                    className="btn-half text-white site-button button-md m-b15"
+                  >
+                    <span className="p-lr5"> Gallery</span>
+                    <em />
+                  </NavLink>
                 </div>
+              )}
+              <div className="col-md-7 col-sm-12">
+                {content && (
+                  <>
+                    <div className="m-carousel-1 m-l100">
+                      <OwlCarousel
+                        className="owl-carousel home-carousel-1 owl-btn-vertical-center"
+                        {...options}
+                      >
+                        {content.cloudinaryImage.map((item, index) => (
+                          <div className="item" key={index}>
+                            <div className="ow-img wt-img-effect zoom-slow">
+                              <img
+                                src={item.secure_url}
+                                alt={item.context.custom.alt}
+                                data-pin-description={
+                                  item.context.custom.dataPin
+                                }
+                                caption={item.context.custom.caption}
+                                width={800}
+                                height={500}
+                              />
+                            </div>
+                          </div>
+                        ))}
+                      </OwlCarousel>
+                    </div>
+                  </>
+                )}
               </div>
-              <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
-                <strong>30+ Years</strong>
-                <span className="text-black">Working Experience</span>
-              </div>
+            </div>
+
+            <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
+              <strong>30+ Years</strong>
+              <span className="text-black">Working Experience</span>
             </div>
           </div>
         </div>
-      </>
-    );
-  }
-}
+      </div>
+    </>
+  );
+};
 
 export default About;
+
+

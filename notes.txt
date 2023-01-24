@@ -1,3 +1,5 @@
+Run Node 16.8.0
+
 Don't forget to do when pushing production
     1.  Change the blogRoute for the React-Shares, currently set to a netlify path
     2.  Change the galleryRoute for the React-Shares, currently set to a netlify path

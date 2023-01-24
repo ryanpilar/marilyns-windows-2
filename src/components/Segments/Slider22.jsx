@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState, useLayoutEffect } from "react";
 import { createClient } from "contentful";
-// import { NavLink } from 'react-router-dom';
 import SliderSingle from "./SliderSingle";
 
 const Slider22 = () => {
@@ -20,7 +19,6 @@ const Slider22 = () => {
         await client
           .getEntries({ content_type: "slider" })
           .then((allEntries) => {
-            // console.log('ALL ENTRIES', allEntries)
             setSliderList(allEntries.items);
           });
       } catch (error) {
@@ -99,7 +97,6 @@ const Slider22 = () => {
                 data-param10
                 data-description
               >
-                {/* {console.log('SLIDER LIST LIST', sliderList)} */}
                 <SliderSingle
                   image={sliderList[0].fields.cloudinaryImage}
                   heading={sliderList[0].fields.heading}
@@ -107,7 +104,7 @@ const Slider22 = () => {
                   smallSpan={sliderList[0].fields.smallSpan}
                 />
               </li>
-
+              {/* SLIDER #2 */}
               <li
                 data-index="rs-903"
                 data-transition="fadethroughdark"
@@ -136,7 +133,6 @@ const Slider22 = () => {
                 data-param10
                 data-description
               >
-                {/* {console.log('SLIDER LIST LIST', sliderList)} */}
                 <SliderSingle
                   image={sliderList[1].fields.cloudinaryImage}
                   heading={sliderList[1].fields.heading}
@@ -144,7 +140,7 @@ const Slider22 = () => {
                   smallSpan={sliderList[1].fields.smallSpan}
                 />
               </li>
-
+              {/* SLIDER #3 */}
               <li
                 data-index="rs-904"
                 data-transition="fadethroughdark"
@@ -173,7 +169,6 @@ const Slider22 = () => {
                 data-param10
                 data-description
               >
-                {/* {console.log('SLIDER LIST LIST', sliderList)} */}
                 <SliderSingle
                   image={sliderList[2].fields.cloudinaryImage}
                   heading={sliderList[2].fields.heading}
@@ -193,6 +188,5 @@ const Slider22 = () => {
     </>
   );
 };
-// };
 
 export default Slider22;

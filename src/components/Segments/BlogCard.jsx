@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const BlogCard = ({ passItem, passIndex }) => {
   // const item = passItem
@@ -29,7 +29,7 @@ const BlogCard = ({ passItem, passIndex }) => {
             >
               <div className={blackOpacity.isHover ? "" : "img-opacity"}>
                 {/* post could have multiple images, so by default pick the first */}
-                <NavLink to={`/post/${post.sys.id}`}>
+                <Link to={`/blog/post/${post.sys.id}`}>
                   <img
                     src={post.fields.blogImages[0].secure_url}
                     alt={post.fields.blogImages[0].context.custom.alt}
@@ -40,19 +40,19 @@ const BlogCard = ({ passItem, passIndex }) => {
                     width={800}
                     height={500}
                   />
-                </NavLink>
+                </Link>
               </div>
             </div>
           </div>
           <div className="wt-post-info p-a20 bg-gray text-black box-size">
             <div className="wt-post-title ">
               <h2 className="post-title">
-                <NavLink
-                  to={`/post/${post.sys.id}`}
+                <Link
+                  to={`/blog/post/${post.sys.id}`}
                   className="text-black font-16 letter-spacing-2 font-weight-600"
                 >
                   {post.fields.descriptiveTitle}
-                </NavLink>
+                </Link>
               </h2>
             </div>
             <div className="wt-post-meta ">
@@ -68,12 +68,12 @@ const BlogCard = ({ passItem, passIndex }) => {
             <div className="wt-post-text">
               <p>{post.fields.blogSummary}</p>
             </div>
-            <NavLink
-              to={`/post/${post.sys.id}`}
+            <Link
+              to={`/blog/post/${post.sys.id}`}
               className="site-button black radius-no text-uppercase "
             >
               <span className="font-12 letter-spacing-5"> Read More </span>
-            </NavLink>
+            </Link>
           </div>
         </div>
       </div>

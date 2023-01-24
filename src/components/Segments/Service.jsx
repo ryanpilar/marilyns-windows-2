@@ -43,11 +43,11 @@ const Service = ({ process }) => {
                 <div className="col-md-6 col-sm-12">
                   <div className="wt-box our-story-detail">
                     {/* <h3 className="text-uppercase">1</h3> */}
-                    <h2 className="text-uppercase">1. Book a consultation</h2>
+                    <h3 className="font-24 font-weight-500 text-uppercase">1. Book a consultation</h3>
                     <p>Lets connect and talk about your project needs. </p>
 
                     <a
-                      href="/#contact"
+                      href="#contact"
                       className="btn-half site-button button-lg m-tb15 text-right"
                     >
                       <span>Make Appointment</span>
@@ -62,9 +62,9 @@ const Service = ({ process }) => {
                 <div className="col-md-6 col-sm-12">
                   <div className="wt-box our-story-detail">
                     {/* <h3 className="text-uppercase">2</h3> */}
-                    <h2 className="text-uppercase">
+                    <h3 className="font-24 font-weight-500 text-uppercase">
                       2. Drapery Ideas, Fabric Samples and Measurements
-                    </h2>
+                    </h3>
                     <p>
                       My drapery workroom has over 600 fabric books from over 20
                       of the very best designers. We bring you a curated
@@ -109,7 +109,7 @@ const Service = ({ process }) => {
 
                 <div className="col-md-6 col-sm-12">
                   <div className="wt-box our-story-detail">
-                    <h2 className="text-uppercase">3. Professional Installs</h2>
+                    <h3 className="font-24 font-weight-500 text-uppercase">3. Professional Installs</h3>
                     <p>
                       The installation process is easy and enjoyable. We
                       personally install each drape, curtain, blind, shade or
@@ -126,9 +126,9 @@ const Service = ({ process }) => {
                 <div className="col-md-6 col-sm-12 ">
                   <div className="wt-box our-story-detail">
                     {/* <h3 className="text-uppercase">2017-18</h3> */}
-                    <h2 className="text-uppercase">
+                    <h3 className="font-24 font-weight-500 text-uppercase">
                       4. Maintenance and Warranty
-                    </h2>
+                    </h3>
                     <p>
                       Benefit from years of professional experience, top-quality
                       custom designs and materials, and superior customer

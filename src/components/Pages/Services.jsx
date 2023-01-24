@@ -18,13 +18,25 @@ const Services = () => {
   const [banner, setBanner] = useState(null);
   const [testimonial, setTestimonial] = useState(null);
   const [designProcess, setDesignProcess] = useState(null);
-  const [affiliates, setAffiliates] = useState(null)
+  const [affiliates, setAffiliates] = useState(null);
 
   const client = createClient({
     // contentful connect
     space: process.env.REACT_APP_CONTENTFUL_SPACE,
     accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
   });
+  
+  useEffect(() => {
+    window.addEventListener('load', () => {
+      window.scrollTo(0, 0);
+    });
+
+    return () => {
+      window.removeEventListener('load', () => {
+        window.scrollTo(0, 0);
+      });
+    };
+  }, []);
 
   useEffect(() => {
     const getContentfulContents = async () => {
@@ -57,14 +69,13 @@ const Services = () => {
               },
             });
           });
-          await client
+        await client
           .getEntries({ content_type: "affiliates" })
           .then((allEntries) => {
             const affiliatesContent = allEntries.items;
 
             setAffiliates(affiliatesContent);
-            
-          });  
+          });
       } catch (error) {
         console.log(
           "this error arose from the client.getEntries() call to contentful"
@@ -76,8 +87,8 @@ const Services = () => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | Services | Sewing Custom Drapery`}
-        description={`Specializing in hand-sewn drapes, high-end blinds and custom bedding. Marilyn's work defines the art of couture curtains and interior design.`}
+        title={`Marilyn's Windows | Services | Sewing Custom Drapery for the Halton Region`}
+        description={`Specializing in custom drapery, high-end blinds and custom soft furnishings. Marilyn's work defines the art of couture drapery and interior design.`}
       />
 
       <Header2 />
@@ -105,26 +116,26 @@ const Services = () => {
                 </ul>
               </div>
             </div>
+            {/* BREADCRUMB ROW END */}
           </div>
         </div>
-        {/* BREADCRUMB ROW END */}
 
-        {testimonial && <Service2 testimonial={testimonial} />}
-
-        {/* {banner && (
-          <Banner2
-            // heading="The Creative Process"
-            title="Free Consultation - Drapery and Design Ideas - 600 Fabric Books - Professional Installation - Maintenance and Warranty."
-            pagename="Services"
-            bgimage={banner.image}
-          />
-        )} */}
+        <Service2 />
         
         {designProcess && <Service process={designProcess} />}
-        { affiliates && <ClientsLogo content={affiliates} paragraph={true}/>}
+        {affiliates && <ClientsLogo content={affiliates} supplierList={true} />}
+
+        {banner && (
+          <Banner
+            // heading="The Creative Process"
+            title="Free Consultation - Drapery and Design Ideas - 600 Fabric Books - Professional Installation - Maintenance and Warranty."
+            // pagename="Services"
+            quote="The difference in the quality is extreme. Finally, when you can have warranties and worry-free assistance years after you have ordered the product, it is remarkable and reaffirming as to why the investment is so worthwhile. - Gunding and Hans LLP"
+            bgimage={banner.image}
+          />
+        )}
       </div>
 
-      
       <Contact />
       <Footer />
     </>

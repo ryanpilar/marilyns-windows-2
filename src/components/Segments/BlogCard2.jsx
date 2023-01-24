@@ -1,11 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import webSitePaths from "../../assets/js/webSitePaths";
 
 const BlogCard2 = ({ item, index }) => {
   // const item = passItem
-  const blogRoute = webSitePaths.blogRoute
+  const blogRoute = webSitePaths.blogRoute;
   const [blackOpacity, setBlackOpacity] = React.useState({
     isHover: false,
   });
@@ -25,21 +25,21 @@ const BlogCard2 = ({ item, index }) => {
               onMouseLeave={handleHover}
             >
               <div className={blackOpacity.isHover ? "" : "img-opacity"}>
-                <a href={blogRoute + `${item.sys.id}`}>
+                <Link to={`/blog/post/${item.sys.id}`}>
                   <img src={item.fields.blogImages[0].secure_url} />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
           <div className="wt-post-info p-a20 bg-gray text-black">
             <div className="wt-post-title ">
               <h2 className="post-title">
-                <a
-                  href={blogRoute + `${item.sys.id}`}
+                <Link
+                  to={`/blog/post/${item.sys.id}`}
                   className="text-black font-16 letter-spacing-2 font-weight-600"
                 >
                   {item.fields.title}
-                </a>
+                </Link>
               </h2>
             </div>
             <div className="wt-post-meta ">
@@ -49,7 +49,7 @@ const BlogCard2 = ({ item, index }) => {
                 </li>
                 <li className="post-author">
                   {/* <NavLink to={""}> */}
-                    By <span>{item.fields.blogAuthor}</span>
+                  By <span>{item.fields.blogAuthor}</span>
                   {/* </NavLink>{" "} */}
                 </li>
               </ul>
@@ -57,8 +57,12 @@ const BlogCard2 = ({ item, index }) => {
             <div className="wt-post-text">
               <p>{item.fields.blogSummary}</p>
             </div>
-            <a href={`/post/` + `${item.sys.id}`} className="site-button black radius-no text-uppercase">
-            <span className="font-12 letter-spacing-5"> Read More </span>                </a>
+            <Link
+              to={item.sys.id}
+              className="site-button black radius-no text-uppercase"
+            >
+              <span className="font-12 letter-spacing-5"> Read More </span>{" "}
+            </Link>
             {/* <NavLink
               to={"/project-detail"}
               className="site-button black radius-no text-uppercase"

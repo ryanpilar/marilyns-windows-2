@@ -6,16 +6,15 @@ import { createClient } from "contentful";
 import Header2 from "../Common/Header2";
 import Banner from "../Segments/Banner";
 import BlogCard from "../Segments/BlogCard";
-// import Footer from '../Common/Footer';
+import Footer from "../Common/Footer";
 import SEO from "../Segments/SEO";
 import { NavLink } from "react-router-dom";
 
-var bnrimg = require("./../../images/banner/6.jpg");
 // var bnrimg = require("./../../images/banner/6.jpg");
 
 const Blog = () => {
-  const [blogPost, setBlogPost] = useState([]);
-  const [blogBanner, setBlogBanner] = useState(null)
+  const [blogPost, setBlogPost] = useState(null);
+  const [blogBanner, setBlogBanner] = useState(null);
 
   useEffect(() => {
     const getAllEntries = async () => {
@@ -30,17 +29,14 @@ const Blog = () => {
         await client
           .getEntries({ content_type: "blogPosts" })
           .then((blogEntries) => {
-            // console.log('blog entries', blogEntries)
             setBlogPost(blogEntries);
           });
 
-        await client
-          .getEntries({ content_type: "blog" })
-          .then((blogBanner) => {
-            console.log('blogBanner', blogBanner)
-            setBlogBanner(blogBanner.items[0].fields.backgroundImage[0].secure_url);
-          });
-
+        await client.getEntries({ content_type: "blog" }).then((blogBanner) => {
+          setBlogBanner(
+            blogBanner.items[0].fields.backgroundImage[0].secure_url
+          );
+        });
       } catch (error) {
         console.log(
           "this error arose from the client.getEntries() call to contentful"
@@ -70,6 +66,18 @@ const Blog = () => {
     loadScript("./assets/js/custom.js");
   }, []);
 
+  useEffect(() => {
+    window.addEventListener('load', () => {
+      window.scrollTo(0, 0);
+    });
+
+    return () => {
+      window.removeEventListener('load', () => {
+        window.scrollTo(0, 0);
+      });
+    };
+  }, []);
+
   return (
     <>
       <SEO
@@ -78,16 +86,15 @@ const Blog = () => {
       />
 
       <Header2 />
+
       <div className="page-content">
-      {blogBanner && (
-        <Banner
-          title="Sustainability, Innovation, and Craftmanship"
-          pagename="Blog Post"
-          bgimage={blogBanner}
-        />
-
-      )}
-
+        {blogBanner && (
+          <Banner
+            title="Sustainability, Innovation, and Craftmanship"
+            pagename="Blog Post"
+            bgimage={blogBanner}
+          />
+        )}
 
         <div className="container">
           <div className="container">
@@ -115,13 +122,14 @@ const Blog = () => {
             </div>
             {/* TITLE END */}
           </div>
-
-          {/* SECTION CONTENT START */}
+          
+          {/* BLOG LIST START */}
+          {blogPost && (
           <div className="section-full p-tb90 tm-work-wrap">
-            <div className="portfolio-wrap mfp-gallery work-grid clearfix">
-              <div className="container-fluid">
+            <div className="container-fluid   ">
+              <div className="portfolio-wrap mfp-gallery work-grid clearfix ">
                 <div className="row">
-                  {blogPost && (
+                  
                     <>
                       {blogPost?.items?.map((postData, index) => (
                         <BlogCard
@@ -131,16 +139,18 @@ const Blog = () => {
                         />
                       ))}
                     </>
-                  )}
+                  
                 </div>
               </div>
             </div>
           </div>
-          {/* SECTION CONTENT END  */}
+          )}
+          {/* BLOG LIST END  */}
+          
         </div>
       </div>
 
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

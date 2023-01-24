@@ -1,11 +1,11 @@
 import React from "react";
-import { useLayoutEffect } from "react";
+import { createClient } from "contentful";
+import { useEffect, useState, useLayoutEffect } from "react";
 
-// import { NavLink } from 'react-router-dom';
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // const filters = [
 //     { label: "Living Space", filter: ".living-col" },
@@ -18,10 +18,34 @@ import { NavLink } from "react-router-dom";
 // { label: "Restaurant", filter: ".restaurant-col" }
 // ];
 
-const LatestProjects = ({ content }) => {
+const LatestProjects = () => {
+  const [content, setContent] = useState(null);
 
-  // const galleryRoute = `/gallery/room/:`
+  const client = createClient({
+    // contentful connect
+    space: process.env.REACT_APP_CONTENTFUL_SPACE,
+    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+  });
 
+  useEffect(() => {
+    const getAllEntries = async () => {
+      // contentful get data
+      try {
+        await client
+          .getEntries({ content_type: "gallery" })
+          .then((allEntries) => {
+            // console.log("gallery entries", allEntries.items);
+            setContent(selectRandom(allEntries.items));
+          });
+      } catch (error) {
+        console.log(
+          "this error arose from the client.getEntries() call to contentful"
+        );
+      }
+    };
+
+    getAllEntries();
+  }, []);
 
   useLayoutEffect(() => {
     function loadScript(src) {
@@ -41,6 +65,31 @@ const LatestProjects = ({ content }) => {
 
     loadScript("./assets/js/custom.js");
   }, []);
+
+  // LATEST PROJECTS Shuffle
+  const shuffle = (array) => {
+    let currentIndex = array.length,
+      randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex !== 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
+  };
+
+  const selectRandom = (projects) => {
+    return shuffle(projects).slice(0, 9);
+  };
 
   const options = {
     loop: true,
@@ -76,7 +125,7 @@ const LatestProjects = ({ content }) => {
         items: 4,
       },
       1366: {
-        items: 5,
+        items: 4,
       },
     },
   };
@@ -87,8 +136,8 @@ const LatestProjects = ({ content }) => {
         id="work"
         className="section-full p-t90 p-lr80 latest_project-outer square_shape3"
       >
-        <div class="container">
-          <div class="section-content">
+        <div className="container">
+          <div className="section-content">
             {/* TITLE START */}
             <div className="section-head text-left">
               <div className="row">
@@ -98,7 +147,7 @@ const LatestProjects = ({ content }) => {
                     <div className="wt-separator bg-black" />
                   </div>
                 </div>
-                <div className="col-lg-8 col-md-12">
+                <div className="col-lg-8 col-md-9 col-sm-12">
                   <p className="p-r30">
                     Drapery window treatments are a major component of a room’s
                     aesthetic. The right curtains or sheers help bring a space
@@ -114,84 +163,76 @@ const LatestProjects = ({ content }) => {
 
         {/* IMAGE CAROUSEL START */}
         <div className="section-content">
-          {/* <OwlCarousel className="owl-carousel  owl-btn-bottom-left" {...options}> */}
+          {content && (
+            <OwlCarousel
+              className="owl-carousel owl-carousel-filter  owl-btn-bottom-left"
+              {...options}
+            >
+              <>
+                {selectRandom(content).map((item, index) => (
+                  <div
+                    key={index}
+                    className={`${item.fields.filter} item fadingcol`}
+                  >
+                    <div className="wt-img-effect ">
+                      <div className="wt-img-black-bg">
+                        <div className="img-opacity">
+                          <img
+                            src={item.fields.smallImage[0].secure_url}
+                            alt={item.fields.smallImage[0].context.custom.alt}
+                            caption={
+                              item.fields.smallImage[0].context.custom.caption
+                            }
+                            data-pin-description={
+                              item.fields.smallImage[0].context.custom.dataPin
+                            }
+                            width="360"
+                            height="560"
+                          />
+                        </div>
+                      </div>
 
-          <OwlCarousel
-            className="owl-carousel owl-carousel-filter  owl-btn-bottom-left"
-            {...options}
-          >
-            {content.map((item, index) => (
-              <div
-                key={index}
-                className={`${item.fields.filter} item fadingcol`}
-              >
-                <div className="wt-img-effect ">
-                  <div className="wt-img-black-bg">
-                    <div className="img-opacity">
-                      <img
-                        src={item.fields.smallImage[0].secure_url}
-                        alt={item.fields.smallImage[0].context.custom.alt}
-                        caption={
-                          item.fields.smallImage[0].context.custom.caption
-                        }
-                        data-pin-description={
-                          item.fields.smallImage[0].context.custom.dataPin
-                        }
-                        width="360"
-                        height="560"
-                      />
-                    </div>
-                  </div>
+                      {/* <NavLink to={`/gallery/room/${item.sys.id}`}> */}
+                      <div className="overlay-bx-2 ">
+                        <div className="line-amiation">
+                          <div className="text-white  font-weight-300 p-a40">
+                            <h3 className="text-white font-20 letter-spacing-1 text-uppercase">
+                              {item.fields.cardTitle}
+                            </h3>
+                            <p>{item.fields.cardDescription}</p>
 
-                  {/* <NavLink to={`/gallery/room/${item.sys.id}`}> */}
-                    <div className="overlay-bx-2 ">
-                      <div className="line-amiation">
-                        <div className="text-white  font-weight-300 p-a40">
-                          <h2 className="text-white font-20 letter-spacing-1 text-uppercase">
-                            {item.fields.cardTitle}
-                          </h2>
-                          <p>{item.fields.cardDescription}</p>
-                          {/* <NavLink
-                            to={""}
-                            className="v-button letter-spacing-4 font-12 text-uppercase p-l20"
-                          >
-                          
-                            Read More
-                          </NavLink> */}
-                          <NavLink to={`/gallery/room/${item.sys.id}`}>
-                                <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
-                                  <p>
-                                    <i
-                                      className="fa fa-search"
-                                      aria-hidden="true"
-                                    ></i>{" "}
-                                    Zoom 
-                                  </p>
-                                </div>
-                              </NavLink>
+                            <Link to={`/gallery/room/${item.sys.id}`}>
+                              <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
+                                <p>
+                                  <i
+                                    className="fa fa-search"
+                                    aria-hidden="true"
+                                  ></i>{" "}
+                                  Zoom
+                                </p>
+                              </div>
+                            </Link>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  {/* </NavLink> */}
-
-                </div>
-              </div>
-            ))}
-          </OwlCarousel>
+                  </div>
+                ))}
+              </>
+            </OwlCarousel>
+          )}
         </div>
-
-        {/* <div className="section-content "> */}
+        {/* IMAGE CAROUSEL END */}
 
         <div className="section-content m-t20 m-b40">
-          <a
-            href="/gallery"
-            className="site-button black button-app m-r15 m-b15 "
+          <Link
+            to="/gallery"
+            // className="site-button black button-app m-r15 m-b15 "
+            className="btn-half site-button button-lg  font-30 m-tb15 text-right"
           >
-            <span className="text-center">Visit My Gallery</span>
-          </a>
+            <span className="">Visit My Gallery</span><em />
+          </Link>
         </div>
-
-        {/* </div> */}
 
         {/* <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
           <strong>Awesome</strong>

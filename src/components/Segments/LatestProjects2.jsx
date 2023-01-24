@@ -3,11 +3,10 @@ import { useLayoutEffect } from "react";
 import { useEffect, useState } from "react";
 import { createClient } from "contentful";
 
-
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import webSitePaths from "../../assets/js/webSitePaths";
 
@@ -50,7 +49,6 @@ const LatestProjects2 = ({ content }) => {
   useEffect(() => {
     const getEntryById = async () => {
       try {
-       
         await client
           .getEntries({ content_type: "gallery" })
           .then((allEntries) => {
@@ -109,7 +107,7 @@ const LatestProjects2 = ({ content }) => {
         items: 2,
       },
       767: {
-        items: 3,
+        items: 2,
       },
       991: {
         items: 3,
@@ -132,8 +130,8 @@ const LatestProjects2 = ({ content }) => {
         id="work"
         className="section-full p-t90 latest_project-outer square_shape3"
       >
-        <div class="container">
-          <div class="section-content">
+        <div className="container">
+          <div className="section-content">
             {/* TITLE START */}
             <div className="section-head text-left">
               <div className="row">
@@ -153,87 +151,78 @@ const LatestProjects2 = ({ content }) => {
 
         {/* IMAGE CAROUSEL START */}
         <div className="container">
-
-        <div className="section-content">
-          {/* <OwlCarousel className="owl-carousel  owl-btn-bottom-left" {...options}> */}
-
-          <OwlCarousel
-            className="owl-carousel owl-carousel-filter  owl-btn-bottom-left"
-            {...options}
-          >
+          <div className="section-content">
+            {/* <OwlCarousel className="owl-carousel  owl-btn-bottom-left" {...options}> */}
             {imageList && (
-              <>
-                {imageList.map((item, index) => (
-                  <div
-                    key={index}
-                    className={`${item.fields.filter} item fadingcol`}
-                  >
-                    <div className="wt-img-effect ">
-                      <div className="wt-img-black-bg">
-                        <div className="img-opacity">
-                          <img
-                            src={item.fields.smallImage[0].secure_url}
-                            alt={item.fields.smallImage[0].context.custom.alt}
-                            caption={
-                              item.fields.smallImage[0].context.custom.caption
-                            }
-                            data-pin-description={
-                              item.fields.smallImage[0].context.custom.dataPin
-                            }
-                            width="360"
-                            height="560"
-                          />
+              <OwlCarousel
+                className="owl-carousel owl-carousel-filter  owl-btn-bottom-left"
+                {...options}
+              >
+                <>
+                  {imageList.map((item, index) => (
+                    <div
+                      key={index}
+                      className={`${item.fields.filter} item fadingcol`}
+                    >
+                      <div className="wt-img-effect ">
+                        <div className="wt-img-black-bg">
+                          <div className="img-opacity">
+                            <img
+                              src={item.fields.smallImage[0].secure_url}
+                              alt={item.fields.smallImage[0].context.custom.alt}
+                              caption={
+                                item.fields.smallImage[0].context.custom.caption
+                              }
+                              data-pin-description={
+                                item.fields.smallImage[0].context.custom.dataPin
+                              }
+                              width="360"
+                              height="560"
+                            />
+                          </div>
                         </div>
-                      </div>
 
-                      {/* <NavLink to={`/gallery/room/${item.sys.id}`}> */}
-                      <div className="overlay-bx-2 ">
-                        <div className="line-amiation">
-                          <div className="text-white  font-weight-300 p-a40">
-                            <h2 className="text-white font-20 letter-spacing-1 text-uppercase">
-                              {item.fields.cardTitle}
-                            </h2>
-                            <p>{item.fields.cardDescription}</p>
+                        <div className="overlay-bx-2 ">
+                          <div className="line-amiation">
+                            <div className="text-white  font-weight-300 p-a40">
+                              <h2 className="text-white font-20 letter-spacing-1 text-uppercase">
+                                {item.fields.cardTitle}
+                              </h2>
+                              <p>{item.fields.cardDescription}</p>
 
-                            <a href={galleryRoute + `${item.sys.id}`}>
-                              <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
-                                <p>
-                                  <i
-                                    className="fa fa-search"
-                                    aria-hidden="true"
-                                  ></i>{" "}
-                                  Zoom
-                                </p>
-                              </div>
-                            </a>
+                              <Link to={`${item.sys.id}`}>
+                                <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
+                                  <p>
+                                    <i
+                                      className="fa fa-search"
+                                      aria-hidden="true"
+                                    ></i>{" "}
+                                    Zoom
+                                  </p>
+                                </div>
+                              </Link>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      {/* </NavLink> */}
                     </div>
-                  </div>
-                ))}
-              </>
+                  ))}
+                </>
+              </OwlCarousel>
             )}
 
-            
-          </OwlCarousel>
-
-          <div className="section-content m-t20 m-b40">
-          <a
-            href="/gallery"
-            className="site-button black button-app m-r15 m-b15 "
-          >
-            <span className="text-center">Visit My Gallery</span>
-          </a>
+            <div className="section-content m-t20 m-b40">
+              <Link
+                to="/gallery"
+                className="site-button black button-app m-r15 m-b15 "
+              >
+                <span className="text-center">Visit My Gallery</span>
+              </Link>
+            </div>
+          </div>
         </div>
-
-        </div>
-        </div>
-
 
         {/* <div className="section-content "> */}
-
 
         {/* </div> */}
 
