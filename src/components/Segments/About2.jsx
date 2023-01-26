@@ -39,7 +39,6 @@ const About2 = ({ carousel }) => {
       <div className="section-full p-b90 bg-gray square_shape2 tm-about2-wrap">
         <div className="container">
           <div className="section-content ">
-
             {/* TITLE START */}
             <div className="p-b50 text-left">
               <h2 className="text-uppercase font-36">Mariyn's Story</h2>
@@ -84,15 +83,19 @@ const About2 = ({ carousel }) => {
                   <h2 className="font-40">
                     Our mission is the best Development &amp; interior design.
                   </h2>
+
                   <p>
                     <b>INTERIOR DESIGNER IN MILTON, ONTARIO.</b>
                   </p>
+                 
+                  
+                  
                   <p className="text-lowercase">
-                    Marilyn discovered her love for couture as a little girl,
-                    sewing miniature gowns and dresses for her doll collections
-                    by hand. Throughout school, she worked long hours to
-                    purchase her first professional sewing machine, which she
-                    still uses to craft her many custom projects to this day.
+                    I discovered her love for couture as a little girl, sewing
+                    miniature gowns and dresses for her doll collections by
+                    hand. Throughout school, she worked long hours to purchase
+                    her first professional sewing machine, which she still uses
+                    to craft her many custom projects to this day.
                   </p>
                   <p className="text-lowercase">
                     After pursuing a degree in Textiles at the University of

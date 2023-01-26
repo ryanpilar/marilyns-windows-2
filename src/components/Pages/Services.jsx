@@ -13,6 +13,7 @@ import { createClient } from "contentful";
 import { NavLink } from "react-router-dom";
 import Contact from "../Segments/Contact";
 import ClientsLogo from "../Segments/ClientsLogo";
+import { useLocation } from "react-router-dom";
 
 const Services = () => {
   const [banner, setBanner] = useState(null);
@@ -25,18 +26,26 @@ const Services = () => {
     space: process.env.REACT_APP_CONTENTFUL_SPACE,
     accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
   });
-  
+
+  const location = useLocation();
+
   useEffect(() => {
-    window.addEventListener('load', () => {
+    window.addEventListener("load", () => {
       window.scrollTo(0, 0);
     });
 
     return () => {
-      window.removeEventListener('load', () => {
+      window.removeEventListener("load", () => {
         window.scrollTo(0, 0);
       });
     };
   }, []);
+
+  // useEffect(() => {
+  //   if (!location.hash) {
+  //     window.scrollTo(0, 0);
+  //   }
+  // }, [location])
 
   useEffect(() => {
     const getContentfulContents = async () => {
@@ -92,7 +101,6 @@ const Services = () => {
       />
 
       <Header2 />
-
       <div className="page-content">
         {banner && (
           <Banner
@@ -102,7 +110,9 @@ const Services = () => {
             bgimage={banner.image}
           />
         )}
+      </div>
 
+      <div className="page-content">
         <div className="container">
           <div className="max-mid-container">
             {/* BREADCRUMB ROW */}
@@ -120,24 +130,45 @@ const Services = () => {
           </div>
         </div>
 
-        <Service2 />
-        
-        {designProcess && <Service process={designProcess} />}
-        {affiliates && <ClientsLogo content={affiliates} supplierList={true} />}
+        {banner && (
+          <>
+            <Service2 />
+
+            {designProcess && <Service process={designProcess} />}
+            {affiliates && (
+              <ClientsLogo content={affiliates} supplierList={true} />
+            )}
+          </>
+        )}
 
         {banner && (
           <Banner
-            // heading="The Creative Process"
+            heading="Some Words From Marilyn"
             title="Free Consultation - Drapery and Design Ideas - 600 Fabric Books - Professional Installation - Maintenance and Warranty."
             // pagename="Services"
-            quote="The difference in the quality is extreme. Finally, when you can have warranties and worry-free assistance years after you have ordered the product, it is remarkable and reaffirming as to why the investment is so worthwhile. - Gunding and Hans LLP"
+            quote="I am a skilled and experienced sewing professional with a
+                  passion for creating beautiful and functional drapery and
+                  every other custom window treatment you can imagine. I have a
+                  deep understanding of various fabrics, patterns, and
+                  techniques, and I am able to use this knowledge to create
+                  custom designs that meet my clients' needs."
+            quote2="I am also able to work with a wide range of clients, 
+                  from individual customers to large fashion brands, and I am 
+                  always willing to go the extra mile to ensure their satisfaction. 
+                  I am organized, detail-oriented, and able to work under tight 
+                  deadlines, making me an ideal candidate for any project. Overall, 
+                  I am a dedicated and talented sewing professional who is committed 
+                  to creating beautiful and high-quality products."
             bgimage={banner.image}
           />
         )}
       </div>
-
-      <Contact />
-      <Footer />
+      {banner && (
+        <>
+          <Contact />
+          <Footer />
+        </>
+      )}
     </>
   );
 };

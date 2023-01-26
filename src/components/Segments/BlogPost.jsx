@@ -61,7 +61,7 @@ const BlogPost = () => {
     const getEntryById = async () => {
       try {
         await client.getEntry(id).then((blogEntry) => {
-          console.log("BLOG ENTRY", blogEntry);
+          // console.log("BLOG ENTRY", blogEntry);
           setSingleBlogPost(blogEntry);
         });
       } catch (error) {
@@ -165,9 +165,10 @@ const BlogPost = () => {
 
   return (
     <>
+    <ScrollToTop />
       {singleBlogPost && (
         <>
-        <ScrollToTop />
+        
           <SEO
             title={`Marilyn's Windows | Blog | ${singleBlogPost?.fields?.title}`}
             description={singleBlogPost?.fields?.metaDescription}
@@ -216,7 +217,7 @@ const BlogPost = () => {
                             (item, index) => (
                               <div className="item" key={index}>
                                 <div className="aon-thum-bx">
-                                  {console.log("BLOG POST", item)}
+                                  {/* {console.log("BLOG POST", item)} */}
 
                                   <img
                                     src={item.secure_url}
@@ -362,9 +363,7 @@ const BlogPost = () => {
 
             {/* </div> */}
           </div>
-        </>
-      )}
-      <div className="page-content ">
+                <div className="page-content ">
         <div
           className="section-full p-tb90 tm-blog-single-wrap"
           style={{ backgroundImage: "url(" + bgimg.default + ")" }}
@@ -376,6 +375,9 @@ const BlogPost = () => {
           </div>
         </div>
       </div>
+        </>
+      )}
+
       <Footer />
       <Toaster position="bottom-center" reverseOrder={false} />
     </>

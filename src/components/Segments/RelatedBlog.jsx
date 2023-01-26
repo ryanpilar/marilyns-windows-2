@@ -54,10 +54,10 @@ const RelatedBlog = ({id}) => {
         await client
           .getEntries({ content_type: "blogPosts" })
           .then((blogEntries) => {
-            console.log("blog entries", blogEntries.items);
+            // console.log("blog entries", blogEntries.items);
 
             const filteredEntries = removeDouble(blogEntries.items, id);
-            console.log("filtered", filteredEntries);
+            // console.log("filtered", filteredEntries);
 
             setBlogPost(filteredEntries);
           });
@@ -91,9 +91,9 @@ const RelatedBlog = ({id}) => {
                 {...options}
               >
                 {blogPost.map((item, index) => (
-                  <div>
+                  <>
                     <BlogCard2 item={item} key={index} />
-                  </div>
+                  </>
                 ))}
               </OwlCarousel>
             )}

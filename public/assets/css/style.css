@@ -572,7 +572,9 @@ story======================================
 /*======================================
 1. GENERAL 
 ======================================*/
-
+html {
+  scroll-padding-top: 150px;;
+}
 body {
   background-color: #fff;
   font-family: "Poppins", sans-serif !important;
@@ -582,6 +584,7 @@ body {
   padding: 0;
   margin: 0;
   overflow-x: hidden;
+  
 }
 
 a {
@@ -1063,7 +1066,7 @@ dl dd {
 .list-chevron-circle,
 .list-arrow-circle,
 .list-times-circle {
-  margin: 0 0 20px 0;
+  margin: 0 0 5px 0;
   padding: 0;
   list-style: none;
 }
@@ -1750,6 +1753,9 @@ ol.list-num-count.list-outline-none > li:before {
 }
 .m-t150 {
   margin-top: 150px;
+}
+.m-tauto {
+  margin-top: auto;
 }
 
 /*-------------------------------------
@@ -8958,6 +8964,12 @@ ol.commentlist li::after {
   display: table;
   clear: both;
 }
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
 
 /*======================================
 32. Inner pages 
@@ -9646,6 +9658,9 @@ ol.commentlist li::after {
 .square_shape4:after {
   left: -820px;
   top: -260px;
+}
+.square-relative {
+  position:relative !important;
 }
 
 /*=========================
