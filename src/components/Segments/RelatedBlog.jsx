@@ -37,7 +37,7 @@ const RelatedBlog = ({id}) => {
 
   const removeDouble = (entries, blogId) => {
     const filtered = entries.filter((post) => post.sys.id !== blogId);
-    console.log("filtered", filtered);
+    // console.log("filtered", filtered);
     return filtered;
   };
 
@@ -77,7 +77,7 @@ const RelatedBlog = ({id}) => {
         <div className="section-content">
           {/* TITLE START */}
           <div className="text-left">
-            <h2 className="text-uppercase font-45 font-weight-500">More From Marilyn</h2>
+            <h2 className="text-uppercase font-32 font-weight-500">More From Marilyn</h2>
             <div className="wt-separator-outer">
               <div className="wt-separator bg-black" />
             </div>
@@ -91,9 +91,9 @@ const RelatedBlog = ({id}) => {
                 {...options}
               >
                 {blogPost.map((item, index) => (
-                  <>
+                  
                     <BlogCard2 item={item} key={index} />
-                  </>
+                  
                 ))}
               </OwlCarousel>
             )}

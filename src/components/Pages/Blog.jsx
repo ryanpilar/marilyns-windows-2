@@ -11,10 +11,17 @@ import SEO from "../Segments/SEO";
 import { Link } from "react-router-dom";
 import RelatedBlog from "../Segments/RelatedBlog";
 
-
 const Blog = () => {
   const [blogPost, setBlogPost] = useState(null);
   const [blogBanner, setBlogBanner] = useState(null);
+
+  const [blackOpacity, setBlackOpacity] = React.useState({
+    isHover: false,
+  });
+
+  const handleHover = () => {
+    setBlackOpacity({ isHover: !blackOpacity.isHover });
+  };
 
   useEffect(() => {
     const getAllEntries = async () => {
@@ -97,7 +104,7 @@ const Blog = () => {
         )}
 
         <div className="container">
-          <div className="container">
+          <div className="">
             {/* BREADCRUMB ROW */}
             <div className="">
               <div className="p-t20 m-r20">
@@ -115,7 +122,9 @@ const Blog = () => {
 
             {/* TITLE START */}
             <div className="text-left">
-              <h2 className="text-uppercase font-45 font-weight-500">Learn With Marilyn</h2>
+              <h2 className="text-uppercase font-45 font-weight-500">
+                Learn With Marilyn
+              </h2>
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />
               </div>
@@ -123,15 +132,141 @@ const Blog = () => {
             {/* TITLE END */}
           </div>
 
-          {blogPost && (
-            <div className="section-full p-tb20 tm-work-wrap">
-              <div className="container-fluid">
-                <div className="container">
+          <div className="container">
+            <div className="container">
+              <div className="row m-t30">
+                <div className="col-lg-7 col-md-9 col-sm-12 m-b0">
+                  <p className="p-r30 text-left">
+                    Welcome to our blog page! Join us as we share our design
+                    inspiration, tips and tricks, and behind-the-scenes stories
+                    from our projects.
+                  </p>
+                  <p className="p-r30 text-left">
+                    Whether you're a homeowner, designer, or just looking for
+                    inspiration, we invite you to explore the world of window
+                    coverings with us.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="m-t30 m-b60">
+            <div className="news-listing ">
+              {/* TITLE START */}
+              <div className="text-left">
+                <h2 className="text-uppercase font-32 font-weight-500">
+                  Most Recent Post
+                </h2>
+                <div className="wt-separator-outer">
+                  <div className="wt-separator bg-black" />
+                </div>
+              </div>
+              {/* TITLE END */}
+
+              {/* MOST RECENT POST START */}
+              {blogPost && (
+                <div className=" m-t30">
                   <div className="">
-                    {/* MAKE A LIST OF BLOG LINKs START */}
-                    <div className="link-container m-b50">
-                      <ul className="list-arrow ">
-                        {blogPost?.items?.map((post, index) => (
+                    <div className="blog-post blog-md date-style-1 clearfix bdr-2 bdr-gray-light m-b60 bg-gray">
+                      <div className="wt-post-media wt-img-effect zoom-slow">
+                        <div
+                          className={
+                            blackOpacity.isHover ? "" : "wt-img-black-bg"
+                          }
+                          onMouseEnter={handleHover}
+                          onMouseLeave={handleHover}
+                        >
+                          <div
+                            className={
+                              blackOpacity.isHover ? "" : "img-opacity"
+                            }
+                          >
+                            <Link to={`/blog/post/${blogPost.items[0].sys.id}`}>
+                              <img
+                                src={
+                                  blogPost.items[0].fields.blogImages[0]
+                                    .secure_url
+                                }
+                                alt={
+                                  blogPost.items[0].fields.blogImages[0].context
+                                    .alt
+                                }
+                              />
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="wt-post-info p-tb30 text-black">
+                        <div className="wt-post-title ">
+                          <h2 className="post-title">
+                            <Link
+                              to={`/blog/post/${blogPost.items[0].sys.id}`}
+                              className="text-black font-20 letter-spacing-1 font-weight-600"
+                            >
+                              {blogPost.items[0].fields.descriptiveTitle}
+                            </Link>
+                          </h2>
+                        </div>
+                        <div className="wt-post-meta ">
+                          <ul>
+                            <li className="post-date">
+                              <strong>
+                                {blogPost.items[0].fields.dateCreated}
+                              </strong>{" "}
+                            </li>
+                            <li className="post-author">
+                              <Link
+                                to={`/blog/post/${blogPost.items[0].sys.id}`}
+                              >
+                                By{" "}
+                                <span>
+                                  {blogPost.items[0].fields.blogAuthor}
+                                </span>
+                              </Link>{" "}
+                            </li>
+                          </ul>
+                        </div>
+                        <div className="wt-post-text">
+                          <p>{blogPost.items[0].fields.blogSummary}</p>
+                        </div>
+                        <Link
+                          to={`/blog/post/${blogPost.items[0].sys.id}`}
+                          // className="v-button letter-spacing-4 font-12 text-uppercase"
+                          className="link-style font-14 letter-spacing-4 text-uppercase"
+                        >
+                          Read More
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/* MOST RECENT POST END */}
+            </div>
+          </div>
+
+          {blogPost && (
+            <>
+              <RelatedBlog id={blogPost.items[0].sys.id} />
+              <div className="section-full p-tb20 tm-work-wrap">
+                <div className="container-fluid">
+                  <div className="">
+                    <div className="">
+                      {/* TITLE START */}
+                      <div className="text-left m-b30">
+                        <h2 className="text-uppercase font-32 font-weight-500">
+                          All Posts sFrom Marilyn
+                        </h2>
+                        <div className="wt-separator-outer">
+                          <div className="wt-separator bg-black" />
+                        </div>
+                      </div>
+                      {/* TITLE END */}
+
+                      {/* MAKE A LIST OF BLOG LINKs START */}
+                      <div className="link-container m-b50">
+                        <ul className="list-arrow ">
+                          {blogPost?.items?.map((post, index) => (
                             <li key={index} className="p-a5 m-a5">
                               <Link
                                 to={`/blog/post/${post.sys.id}`}
@@ -140,31 +275,29 @@ const Blog = () => {
                                 {post.fields.descriptiveTitle}
                               </Link>
                             </li>
-                          )
-                        )}
-                      </ul>
+                          ))}
+                        </ul>
+                      </div>
+                      {/* MAKE A LIST OF BLOG LINKs END */}
                     </div>
-                    {/* MAKE A LIST OF BLOG LINKs END */}
                   </div>
-                </div>
 
-                <RelatedBlog />
-
-                <div className="portfolio-wrap mfp-gallery work-grid clearfix ">
-                  <div className="row">
-                    <>
-                      {/* {blogPost?.items?.map((postData, index) => (
+                  <div className="portfolio-wrap mfp-gallery work-grid clearfix ">
+                    <div className="row">
+                      <>
+                        {/* {blogPost?.items?.map((postData, index) => (
                         <BlogCard
                           key={postData.sys.id}
                           passItem={postData}
                           passIndex={index}
                         />
                       ))} */}
-                    </>
+                      </>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </>
           )}
         </div>
       </div>

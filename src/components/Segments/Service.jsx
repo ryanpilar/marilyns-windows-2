@@ -19,7 +19,7 @@ const Service = ({ process }) => {
                 <div className="wt-separator bg-black" />
               </div>
               <p className="">
-                From design to installation, we will work with you to bring your
+                From consultation, design to installation, we will work with you to bring your
                 project ideas to life. I am excited to learn more about your
                 vision and help you turn it into a reality.
               </p>
