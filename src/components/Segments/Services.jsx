@@ -15,13 +15,9 @@ const servicesleft = [
   {
     counter: 1,
     title: "BLINDS & SMART BLINDS",
-    description: `Window blinds are a great way to control light and privacy in your home. 
-    They come in a variety of materials, such as wood, metal, and vinyl, and can be 
-    adjusted to different positions to block or filter light. They can also add a 
-    decorative touch to your windows.
-    
-    We have Roller blinds, cellular shades, dual or zebra shades, 
-      light filtering & blackout, smart motorized blinds and home automation!`,
+    description: `Control light and privacy. 
+    Comes in a variety of materials, like wood, metal, vinyl, and can be 
+    made to block/filter light.`,
   },
 
   {

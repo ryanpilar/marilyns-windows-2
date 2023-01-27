@@ -153,7 +153,7 @@ const Services = () => {
                   techniques, and I am able to use this knowledge to create
                   custom designs that meet my clients' needs."
             quote2="I am also able to work with a wide range of clients, 
-                  from individual customers to large fashion brands, and I am 
+                  from individual customers to talented interior designers, and I am 
                   always willing to go the extra mile to ensure their satisfaction. 
                   I am organized, detail-oriented, and able to work under tight 
                   deadlines, making me an ideal candidate for any project. Overall, 

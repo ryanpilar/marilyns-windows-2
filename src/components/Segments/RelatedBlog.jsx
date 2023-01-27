@@ -56,7 +56,7 @@ const RelatedBlog = ({id}) => {
           .then((blogEntries) => {
             // console.log("blog entries", blogEntries.items);
 
-            const filteredEntries = removeDouble(blogEntries.items, id);
+            const filteredEntries = id ? removeDouble(blogEntries.items, id) : blogEntries.items;
             // console.log("filtered", filteredEntries);
 
             setBlogPost(filteredEntries);
@@ -77,7 +77,7 @@ const RelatedBlog = ({id}) => {
         <div className="section-content">
           {/* TITLE START */}
           <div className="text-left">
-            <h2 className="text-uppercase font-45">More From Marilyn</h2>
+            <h2 className="text-uppercase font-45 font-weight-500">More From Marilyn</h2>
             <div className="wt-separator-outer">
               <div className="wt-separator bg-black" />
             </div>

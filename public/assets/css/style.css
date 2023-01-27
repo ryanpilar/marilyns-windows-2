@@ -44,6 +44,8 @@ Version: 3.0
 	-------------------------------------
 	2. listing before numbers
 	-------------------------------------
+	3. listing for links in blog
+	-------------------------------------
 
 ======================================
 5. BOX SPACING (Padding & Margin)
@@ -1209,6 +1211,32 @@ ol.list-num-count.list-outline > li:before {
 ol.list-num-count.list-outline-none > li:before {
   background-color: transparent;
   color: #000;
+}
+
+/*-------------------------------------
+	3. listing for links in blog
+-------------------------------------*/
+
+.link-container ul{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0px;
+
+}
+.link-container li {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .link-container ul{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .link-container ul{
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 /*======================================
