@@ -46,6 +46,8 @@ Version: 3.0
 	-------------------------------------
 	3. listing for links in blog
 	-------------------------------------
+	4. listing for AboutMe magazine style
+	-------------------------------------
 
 ======================================
 5. BOX SPACING (Padding & Margin)
@@ -1240,6 +1242,18 @@ ol.list-num-count.list-outline-none > li:before {
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+/*-------------------------------------
+	4. listing for AboutMe magazine style
+-------------------------------------*/
+
+.column-container {
+  /* border-top: 1px solid lightgray; */
+  margin: 5px;
+  padding-top: 5px;
+
+}
+
 
 /*======================================
 5. BOX SPACING (Padding & Margin)
