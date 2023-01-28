@@ -7,28 +7,25 @@ const AboutImages = () => {
   ];
   return (
     <div className="wt-post-media clearfix m-b30">
-      {/* <ul className="grid-post">
-        {images.map((item, index) => (
-          <li key={index}>
-            <div className="portfolio-item wt-img-effect zoom-slow">
-              <img className="img-responsive" src={item.image.default} alt="" />
-            </div>
-          </li>
-        ))}
-      </ul> */}
-
       <div class="row">
-          <div className="grid-post ">
-            {images.map((item, index) => (
-
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div key={index}className="portfolio-item wt-img-effect zoom-slow m-a20 add-box-shadow ">
-                      <img className="img-responsive" src={item.image.default} alt="" />
-                    </div>
+        <div className=" ">
+          {images.map((item, index) => (
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="add-box-shadow p-a10 m-a10">
+                <div
+                  key={index}
+                  className="portfolio-item wt-img-effect zoom-slow "
+                >
+                  <img
+                    className="img-responsive"
+                    src={item.image.default}
+                    alt=""
+                  />
                 </div>
-
-            ))}
-          </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
