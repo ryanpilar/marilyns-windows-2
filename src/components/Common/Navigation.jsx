@@ -1,6 +1,8 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 // import { Link } from "react-scroll";
+import { HashLink } from "react-router-hash-link";
+
 
 class Navigation extends React.Component {
 
@@ -30,17 +32,27 @@ class Navigation extends React.Component {
             <>
                     <ul className=" nav navbar-nav">
                     
-                        <li><a href="/">Home</a></li>
+                        <li><NavLink to="/">Home</NavLink></li>
                         
-                        <li><a href="/aboutme">My Story</a></li>
+                        <li><NavLink to="/aboutme">My Story</NavLink></li>
 
-                        <li><a href="/services">Services</a></li>
+                        <li><NavLink to="/services">Services</NavLink></li>
 
-                        <li><a href="/gallery">Gallery</a></li>
+                        <li><NavLink to="/gallery">Gallery</NavLink></li>
 
-                        <li><a href="/blog">Blog</a></li>
+                        <li><NavLink to="/blog">Blog</NavLink></li>
 
-                        <li><a href="/#contact">Contact</a></li>
+                        {/* <li><NavLink to="/#contact">Contact</NavLink></li> */}
+
+                        <li>                      <HashLink
+                        smooth
+                        className=""
+                        to="/services/#contact"
+                       
+                      >
+                        Contact
+                      </HashLink></li>
+
                         
                     </ul>
             </>

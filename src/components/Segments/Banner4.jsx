@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 class Banner4 extends React.Component {
   render() {

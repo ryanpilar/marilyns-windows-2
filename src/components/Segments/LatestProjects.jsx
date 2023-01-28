@@ -149,11 +149,18 @@ const LatestProjects = () => {
                 </div>
                 <div className="col-lg-8 col-md-9 col-sm-12">
                   <p className="p-r30">
-                    Drapery window treatments are a major component of a room’s
-                    aesthetic. The right curtains or sheers help bring a space
-                    together into a cohesive design, and can inject color,
-                    pattern, texture or simple elegance into the room.
+                    Explore our gallery of window treatment designs and discover
+                    the artistry that goes into every project. From elegant
+                    drapes to functional shades, we offer a range of options to
+                    fit any design style. <Link
+                      className="link-style font-14 text-uppercase"
+                      to="/gallery"
+                    >
+                      Click here to see the full gallery
+                    </Link>
+                    .
                   </p>
+                  
                 </div>
               </div>
             </div>
@@ -230,7 +237,8 @@ const LatestProjects = () => {
             // className="site-button black button-app m-r15 m-b15 "
             className="btn-half site-button button-lg  font-30 m-tb15 text-right"
           >
-            <span className="">Visit My Gallery</span><em />
+            <span className="">Visit My Gallery</span>
+            <em />
           </Link>
         </div>
 

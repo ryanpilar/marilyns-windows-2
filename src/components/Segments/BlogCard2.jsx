@@ -17,7 +17,7 @@ const BlogCard2 = ({ item, index }) => {
   return (
     <div>
       <div className="item" key={index}>
-        <div className="blog-post blog-grid date-style-1">
+        <div className="blog-post blog-grid date-style-1 add-box-shadow">
           <div className="wt-post-media wt-img-effect zoom-slow">
             <div
               className={blackOpacity.isHover ? "" : "wt-img-black-bg"}
@@ -58,7 +58,7 @@ const BlogCard2 = ({ item, index }) => {
               <p>{item.fields.blogSummary}</p>
             </div>
             <Link
-              to={item.sys.id}
+              to={`/blog/post/${item.sys.id}`}
               className="site-button black radius-no text-uppercase"
             >
               <span className="font-12 letter-spacing-5"> Read More </span>{" "}

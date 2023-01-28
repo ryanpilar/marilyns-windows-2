@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState, useLayoutEffect } from "react";
 import { createClient } from "contentful";
 
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Header2 from "../Common/Header2";
 import SEO from "../Segments/SEO";
 
@@ -116,10 +116,10 @@ const GallerySingle = () => {
                   <div>
                     <ul className="wt-breadcrumb breadcrumb-style-2">
                       <li>
-                        <NavLink to={"/"}>Home</NavLink>
+                        <Link to={"/"}>Home</Link>
                       </li>
                       <li>
-                        <NavLink to={"/gallery"}>Gallery</NavLink>
+                        <Link to={"/gallery"}>Gallery</Link>
                       </li>
                       <li>High-Def Photo</li>
                     </ul>

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import ScrollToTop from "./ScrollToTop";
 
 import { useParams } from "react-router-dom"; // useParams allows the '/blog/post/:id' to work
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -192,10 +192,10 @@ const BlogPost = () => {
                         <div>
                           <ul className="wt-breadcrumb breadcrumb-style-2">
                             <li>
-                              <NavLink to={"/"}>Home</NavLink>
+                              <Link to={"/"}>Home</Link>
                             </li>
                             <li>
-                              <NavLink to={"/blog"}>Blog</NavLink>
+                              <Link to={"/blog"}>Blog</Link>
                             </li>
                             <li>Post</li>
                           </ul>

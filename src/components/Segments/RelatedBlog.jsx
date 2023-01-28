@@ -77,7 +77,7 @@ const RelatedBlog = ({id}) => {
         <div className="section-content">
           {/* TITLE START */}
           <div className="text-left">
-            <h2 className="text-uppercase font-32 font-weight-500">More From Marilyn</h2>
+            <h2 className="text-uppercase font-40 font-weight-500">More From Marilyn</h2>
             <div className="wt-separator-outer">
               <div className="wt-separator bg-black" />
             </div>

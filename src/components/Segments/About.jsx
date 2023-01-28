@@ -1,11 +1,13 @@
-// import { NavLink } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { MARKS } from "@contentful/rich-text-types";
+import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+
 
 import { createClient } from "contentful";
 import { useEffect, useState, useLayoutEffect } from "react";

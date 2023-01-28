@@ -1,4 +1,4 @@
-import Header3 from "../Common/Header3";
+import Header2 from "../Common/Header2";
 import Slider22 from "./../Segments/Slider22";
 import About from "./../Segments/About";
 import Services from "./../Segments/Services";
@@ -10,7 +10,7 @@ import Contact from "../Segments/Contact";
 import Footer from "../Common/Footer";
 import SEO from "../Segments/SEO";
 
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 
 const Home2 = () => {
 
@@ -26,6 +26,27 @@ const Home2 = () => {
     };
   }, []);
 
+  useLayoutEffect(() => {
+    function loadScript(src) {
+      return new Promise(function (resolve, reject) {
+        var script = document.createElement("script");
+        script.src = src;
+        script.addEventListener("load", function () {
+          resolve();
+        });
+        script.addEventListener("error", function (e) {
+          reject(e);
+        });
+        document.body.appendChild(script);
+        document.body.removeChild(script);
+      });
+    }
+
+    loadScript("./assets/js/custom.js");
+  }, []);
+
+
+
   return (
     <>
       <SEO
@@ -34,7 +55,7 @@ const Home2 = () => {
         description={`Custom handcrafted window coverings, curtains, shades, blinds and soft furnishings. Serving Milton, Burlington, Oakville, Mississauga and surrounding areas.`}
       />
 
-      <Header3 />
+      <Header2 />
 
       <div className="page-content">
         <Slider22 />

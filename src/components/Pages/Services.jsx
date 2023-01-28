@@ -10,7 +10,7 @@ import Service2 from "../Segments/Service2";
 import Footer from "../Common/Footer";
 import SEO from "../Segments/SEO";
 import { createClient } from "contentful";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Contact from "../Segments/Contact";
 import ClientsLogo from "../Segments/ClientsLogo";
 import { useLocation } from "react-router-dom";
@@ -101,6 +101,7 @@ const Services = () => {
       />
 
       <Header2 />
+      
       <div className="page-content">
         {banner && (
           <Banner
@@ -120,7 +121,7 @@ const Services = () => {
               <div>
                 <ul className="wt-breadcrumb breadcrumb-style-2">
                   <li>
-                    <NavLink to={"/"}>Home</NavLink>
+                    <Link to={"/"}>Home</Link>
                   </li>
                   <li>Services</li>
                 </ul>
@@ -163,7 +164,7 @@ const Services = () => {
           />
         )}
       </div>
-      {banner && (
+      {banner && designProcess &&  affiliates && (
         <>
           <Contact />
           <Footer />

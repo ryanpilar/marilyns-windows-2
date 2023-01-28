@@ -3,7 +3,7 @@ import Navigation2 from './Navigation2';
 // import { NavLink } from 'react-router-dom';
 
 class Header2 extends React.Component {
-    // isMenuActive
+    isMenuActive
     constructor(props) {
         super(props);
         this.state = { logo: require('./../../images/logo-dark.png') };
@@ -17,24 +17,26 @@ class Header2 extends React.Component {
         this.setState({ isMenuActive: !this.state.isMenuActive });
     };
 
+    handleScroll = () => {
+        const offset = window.scrollY;
+
+        const stickyheader = document.querySelector('.sticky-header');
+
+        if (offset >= 100) {
+            stickyheader.classList.add('is-fixed');
+            stickyheader.classList.add('color-fill');
+
+        } else {
+            stickyheader.classList.remove('is-fixed');
+            stickyheader.classList.remove('color-fill');
+        }
+    }
+
     componentDidMount() {
 
-        const handleScroll = () => {
-            const offset = window.scrollY;
+        
 
-            const stickyheader = document.querySelector('.sticky-header ');
-
-            if (offset >= 100) {
-                stickyheader.classList.add('is-fixed');
-                stickyheader.classList.add('color-fill');
-
-            } else {
-                stickyheader.classList.remove('is-fixed');
-                stickyheader.classList.remove('color-fill');
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', this.handleScroll());
 
         window.updateTopMostParent = (logopath) => {
             this.setState({ logo: logopath });

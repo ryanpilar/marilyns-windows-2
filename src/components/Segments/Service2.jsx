@@ -44,10 +44,11 @@ const Service2 = ({ testimonial }) => {
   ];
 
   return (
-    <div className="">
+    <div className="square_shape1 ">
       {/* <div className="section-full  p-t20 p-b90 square_shape1 square_shape3 tm-blog-single-wrap "> */}
       <div className="section-full  p-t20 p-b90 tm-blog-single-wrap ">
         <div className="container ">
+        
           <div className="max-mid-container ">
             {/* TITLE START */}
             <div className="section-head text-left text-black">
@@ -87,71 +88,6 @@ const Service2 = ({ testimonial }) => {
                       </HashLink>
                     </li>
 
-                    {/* NESTED LIST START */}
-                    {/* <ul className="p-l15 list-angle-right">
-                      <li className="text-gray-dark">
-                        <HashLink
-                          smooth
-                          className="text-gray-dark p-lr5"
-                          to="#customDraperey"
-                          aria-label="scroll down to Custom Drapery"
-                        >
-                          Custom Drapery
-                        </HashLink>
-                      </li>
-                      <li className="text-gray-dark">
-                        <HashLink
-                          smooth
-                          className="text-gray-dark p-lr5"
-                          to="#draperyHardware"
-                          aria-label="scroll down to Custom Drapery Hardware"
-                        >
-                          Custom Drapery Hardware
-                        </HashLink>
-                      </li>
-                      <li className="text-gray-dark">
-                        <HashLink
-                          smooth
-                          className="text-gray-dark p-lr5"
-                          to="#blinds"
-                          aria-label="scroll down to Blinds & Smart Blinds"
-                        >
-                          Blinds & Smart Blinds
-                        </HashLink>
-                      </li>
-                      <li className="text-gray-dark">
-                        <HashLink
-                          smooth
-                          className="text-gray-dark p-lr5"
-                          to="#silouette"
-                          aria-label="scroll down to Sunset Shades"
-                        >
-                          Sunset Shades
-                        </HashLink>
-                      </li>
-                      <li className="text-gray-dark">
-                        <HashLink
-                          smooth
-                          className="text-gray-dark p-lr5"
-                          to="#shutters"
-                          aria-label="scroll down to Shutters"
-                        >
-                          Shutters
-                        </HashLink>
-                      </li>
-                      <li className="text-gray-dark">
-                        <HashLink
-                          smooth
-                          className="text-gray-dark p-lr5"
-                          to="#throwPillows"
-                          aria-label="scroll down to Window Seats & Throw Cushions"
-                        >
-                          Window Seats & Throw Cushions
-                        </HashLink>
-                      </li>
-                    </ul> */}
-                    {/* NESTED LIST END */}
-
                     <li className="">
                       <HashLink
                         smooth
@@ -162,50 +98,8 @@ const Service2 = ({ testimonial }) => {
                         The Design Process
                       </HashLink>
                     </li>
-                    {/* NESTED LIST START */}
-                    {/* <ul className="p-l15 list-angle-right">
-                      <li className="text-gray-dark">
-                        <HashLink
-                          smooth
-                          className="text-gray-dark p-lr5"
-                          to="#consultation"
-                          aria-label="scroll down to Consultation"
-                        >
-                          Book Consultation
-                        </HashLink>
-                      </li>
-                      <li className="text-gray-dark">
-                        <HashLink
-                          smooth
-                          className="text-gray-dark p-lr5"
-                          to="#ideas"
-                          aria-label="scroll down to Ideas"
-                        >
-                          Ideas, Fabric Samples & Measurements
-                        </HashLink>
-                      </li>
-                      <li className="text-gray-dark">
-                        <HashLink
-                          smooth
-                          className="text-gray-dark p-lr5"
-                          to="#install"
-                          aria-label="scroll down to Install"
-                        >
-                          Install
-                        </HashLink>
-                      </li>
-                      <li className="text-gray-dark">
-                        <HashLink
-                          smooth
-                          className="text-gray-dark p-lr5"
-                          to="#warranty"
-                          aria-label="scroll down to Maintenance & Warranty"
-                        >
-                          Maintenance & Warranty
-                        </HashLink>
-                      </li>
-                    </ul> */}
-                    {/* NESTED LIST END */}
+
+
                     <li className="">
                       <HashLink
                         smooth
@@ -226,21 +120,7 @@ const Service2 = ({ testimonial }) => {
                         Contact Us
                       </HashLink>
                     </li>
-                    {/* <li className="">
-                      <HashLink
-                        smooth
-                        className="link-style font-14 text-uppercase p-lr10"
-                        to="#customDraperey"
-                        aria-label="scroll down to Custom Drapery"
-                      >
-                        Custom Drapery
-                      </HashLink>
-                    </li> */}
-                    {/* <a className="p-r10" href="#locations" aria-label="scroll down to locations served">Locations</a> |
-                  <a className="p-lr10" href="#selectService" aria-label="scroll down to select services">Select Services</a> | */}
-                    {/* <a className="p-lr10" href="#designProcess" aria-label="scroll down to design process">The Design Process</a> | */}
-                    {/* <a className="p-lr10" href="#premiumSuppliers" aria-label="scroll down to premium suppliers served">Our Premium Suppliers</a> | */}
-                    {/* <a className="p-lr10" href="#contact" aria-label="scroll down to contact us">Contact Us</a> */}
+
                   </ul>
                 </div>
                 <div className="wt-post-text col-md-8 col-sm-12">
@@ -259,13 +139,15 @@ const Service2 = ({ testimonial }) => {
                     detail and everything we do is backed by warranties and the
                     exceptional service that we are known for.
                   </p>
+
+
                   <p>
                     We are experts at pairing your needs with the best custom
                     window treatment solutions on the market.
                   </p>
                   <p>
                     All work is handmade in our Canadian workroom, using only
-                    the best fabrics, products and hardware. We treat every
+                    the best fabrics, products and top-of-the-line hardware. We treat every
                     window, accent pillow, and piece of decor in your home like
                     it is a work of art. Each fold, crease, and thread is
                     quality, and crafted to last.
@@ -323,6 +205,7 @@ const Service2 = ({ testimonial }) => {
               <div className="row"></div>
             </div>
           </div>
+
           <div className="max-mid-container " id="selectServices">
             {/* TITLE START */}
             <div className="section-head text-left text-black">

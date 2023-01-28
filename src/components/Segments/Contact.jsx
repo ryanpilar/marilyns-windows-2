@@ -141,7 +141,7 @@ class Contact extends React.Component {
     const { errors } = this.state;
     return (
       <>
-        {this.state.spinner && <Loader />}
+        {/* {this.state.spinner && <Loader />} */}
         {/* <Header2 /> */}
         <div id="contact" className="page-content">
           {/* SECTION CONTENTG START */}
@@ -337,7 +337,7 @@ class Contact extends React.Component {
                             <h3 className="m-a0 p-b5  text-uppercase text-brownish font-16 p-a0">
                               Address info
                             </h3>
-                            <p>468 Valleyview Cr, Milton, ON L9T3L2, Canada</p>
+                            <p>468 Valleyview Cr, Milton, ON L9T 3L2, Canada</p>
                           </div>
                         </div>
                       </div>

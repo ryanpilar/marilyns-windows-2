@@ -141,6 +141,8 @@ Version: 3.0
 	-------------------------------------
 	10. for images
 	-------------------------------------
+  11. box shadow
+	-------------------------------------
 
 ======================================
 10. IMAGES OVERLAY EFFECTS (overly animation on images)  
@@ -2950,6 +2952,16 @@ ol.list-num-count.list-outline-none > li:before {
   -o-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
+
+/*-------------------------------------
+	11. box shadow
+-------------------------------------*/
+
+.add-box-shadow {
+  box-shadow: 8px 12px 10px rgba(0, 0, 0, 0.1);
+
+}
+
 
 /*-------------------------------------
 	1. effect 1
@@ -6043,6 +6055,7 @@ blockquote.transparentBanner:before {
 -------------------------------------*/
 .blog-md .wt-post-media {
   width: 650px;
+  
 }
 .blog-md .wt-post-media img {
   width: 100%;

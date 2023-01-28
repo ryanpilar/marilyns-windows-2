@@ -3,6 +3,7 @@ import Navigation from "./Navigation";
 
 class Header3 extends React.Component {
   isMenuActive;
+  
   constructor(props) {
     super(props);
     this.state = { logo: require("./../../images/logo-dark.png") };
@@ -18,7 +19,7 @@ class Header3 extends React.Component {
     const handleScroll = () => {
       const offset = window.scrollY;
 
-      const stickyheader = document.querySelector(".sticky-header ");
+      const stickyheader = document.querySelector(".sticky-header");
 
       if (offset >= 100) {
         stickyheader.classList.add("is-fixed");

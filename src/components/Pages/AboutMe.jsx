@@ -8,7 +8,7 @@ import About2 from "../Segments/About2";
 import Footer from "../Common/Footer";
 import SEO from "../Segments/SEO";
 import { createClient } from "contentful";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const AboutMe = () => {
   const [banner, setBanner] = useState(null);
@@ -71,7 +71,7 @@ const AboutMe = () => {
               <div>
                 <ul className="wt-breadcrumb breadcrumb-style-2">
                   <li>
-                    <NavLink to={"/"}>Home</NavLink>
+                    <Link to={"/"}>Home</Link>
                   </li>
                   <li>My Story</li>
                 </ul>

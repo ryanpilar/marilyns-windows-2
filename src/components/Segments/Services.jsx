@@ -1,6 +1,6 @@
 import React from "react";
 import { useLayoutEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { createClient } from "contentful";
 import { useEffect, useState } from "react";
 
@@ -126,13 +126,16 @@ const Services = ({ showButton }) => {
                   </div>
                   <div className="col-lg-8 col-md-9 col-sm-12 m-b40">
                     <p className="p-r30 text-left text-white">
-                      In our Canadian workroom, all drapery is handcrafted and
-                      sewn using premium products, exclusive fabrics and
-                      hardware. We are Industry leaders in the design and
-                      fabrication of bespoke window coverings.
+                      In our Canadian workroom, each piece of drapery is
+                      meticulously handcrafted and sewn with the finest
+                      materials, premium fabrics, and top-of-the-line hardware.
+                      As industry leaders in bespoke window coverings design and
+                      fabrication, we pride ourselves on creating truly
+                      one-of-a-kind pieces.
                     </p>
+
                     <p className="p-r30 text-left text-white">
-                      We specialize in high-end blinds, shades, shutters, and we
+                      We Specialize in high-end blinds, shades, and shutters, and we
                       also love to finish off rooms with custom throw pillows,
                       cushions, and other soft furnishings.
                     </p>
@@ -141,17 +144,15 @@ const Services = ({ showButton }) => {
                       whether you are perfecting an interior design or
                       considering energy efficiency, privacy, automation, light
                       filtering & blackout, and the list goes on.{" "}
-                      <NavLink to={"/services"} className="text-dark-see">
-                        Click here, to read more about our services
-                      </NavLink>
+                      <Link
+                        className="link-style font-14 text-uppercase"
+                        to="/services"
+                      >
+                        Click here to deep dive into our services
+                      </Link>
                       .
                     </p>
-                    {/* <p className="p-r30 text-left text-white">
-                    Our work
-                    boldly displays uncompromised quality, attention to detail
-                    and everything we do is backed by exceptional service and
-                    warranties.
-                  </p> */}
+
                   </div>
                 </div>
               </div>
@@ -238,13 +239,13 @@ const Services = ({ showButton }) => {
 
                 {showButton && (
                   <div className="col-sm-12 m-tb30 text-center">
-                    <NavLink
+                    <Link
                       to={"/services"}
                       className="btn-half2 site-button button-xl font-weight-600 font-30 m-tb15 text-right"
                     >
                       <span>See More Services</span>
                       <em />
-                    </NavLink>
+                    </Link>
                   </div>
                 )}
               </div>

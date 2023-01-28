@@ -154,7 +154,7 @@ const Blog = () => {
             <div className="news-listing ">
               {/* TITLE START */}
               <div className="text-left">
-                <h2 className="text-uppercase font-32 font-weight-500">
+                <h2 className="text-uppercase font-40 font-weight-500">
                   Most Recent Post
                 </h2>
                 <div className="wt-separator-outer">
@@ -167,7 +167,7 @@ const Blog = () => {
               {blogPost && (
                 <div className=" m-t30">
                   <div className="">
-                    <div className="blog-post blog-md date-style-1 clearfix bdr-2 bdr-gray-light m-b60 bg-gray">
+                    <div className="blog-post blog-md date-style-1 clearfix bdr-2 bdr-gray-light m-b60 bg-gray add-box-shadow">
                       <div className="wt-post-media wt-img-effect zoom-slow">
                         <div
                           className={
@@ -255,7 +255,7 @@ const Blog = () => {
                       {/* TITLE START */}
                       <div className="text-left m-b30">
                         <h2 className="text-uppercase font-32 font-weight-500">
-                          All Posts sFrom Marilyn
+                          All Posts From Marilyn
                         </h2>
                         <div className="wt-separator-outer">
                           <div className="wt-separator bg-black" />

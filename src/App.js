@@ -8,6 +8,7 @@ import Loader from "./components/Segments/Loader";
 const App = () => {
   
   return (
+    
     <div className="App">
       <Components />  
       <ScrolToTop/>
