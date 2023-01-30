@@ -211,7 +211,7 @@ const TermsOfService = () => {
                             </li>
                           </ul>
                         </div>
-                        <div className="wt-post-text col-md-7 col-sm-12">
+                        <div className="wt-post-text col-md-7 col-sm-12 col-xs-12">
                           <p>
                             Welcome to our website, which is owned and operated
                             by Marilyn’s Windows (the "Company"). By using our

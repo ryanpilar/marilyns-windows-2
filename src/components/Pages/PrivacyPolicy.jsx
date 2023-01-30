@@ -171,7 +171,7 @@ const PrivacyPolicy = () => {
                             </li>
                           </ul>
                         </div>
-                        <div className="wt-post-text col-md-7 col-sm-12">
+                        <div className="wt-post-text col-md-7 col-sm-12 col-xs-12">
                           <p>
                             At Marilyn’s Windows, we are committed to protecting
                             your privacy and ensuring that your personal

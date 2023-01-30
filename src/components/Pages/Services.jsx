@@ -101,15 +101,16 @@ const Services = () => {
         description={`Specializing in custom drapery, high-end blinds and custom soft furnishings. Marilyn's work defines the art of couture drapery and interior design.`}
       />
       <Header3 />
-      {affiliates && banner && designProcess && (
       <div className="page-content">
-        
+
+        {affiliates && banner && designProcess && (
           <>
-            <Banner
+            {/* <Banner
               heading="Services"
               title="Serving Milton, Georgetown, Burlington, Oakville Mississauga and surrounding areas."
+              pagename="Services"
               bgimage={banner.image}
-            />
+            /> */}
 
             <div className="container">
               <div className="max-mid-container">
@@ -137,7 +138,7 @@ const Services = () => {
             {/* <Banner
               heading="Some Words From Marilyn"
               title="Free Consultation - Drapery and Design Ideas - 600 Fabric Books - Professional Installation - Maintenance and Warranty."
-
+              // pagename="Services"
               quote="I am a skilled and experienced sewing professional with a
                   passion for creating beautiful and functional drapery and
                   every other custom window treatment you can imagine. I have a
@@ -155,9 +156,8 @@ const Services = () => {
             /> */}
             <Contact />
           </>
+        )}
       </div>
-      )}
-
 
       <Footer />
     </>

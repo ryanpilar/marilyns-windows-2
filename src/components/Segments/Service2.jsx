@@ -46,10 +46,10 @@ const Service2 = ({ testimonial }) => {
   return (
     <div className="">
       {/* <div className="section-full  p-t20 p-b90 square_shape1 square_shape3 tm-blog-single-wrap "> */}
-      <div className="section-full  p-t20 p-b90 ">
+      <div className="section-full  p-t20 p-b90 tm-blog-single-wrap ">
         <div className="container ">
         
-          <div className="">
+          <div className="max-mid-container ">
             {/* TITLE START */}
             <div className="section-head text-left text-black">
               <h1 className="text-uppercase font-45 font-weight-500">
@@ -60,70 +60,71 @@ const Service2 = ({ testimonial }) => {
               </div>
             </div>
             {/* TITLE END */}
-            <div className="text-black  ">
+            <div className="blog-post date-style-1 blog-detail text-black m-tauto ">
               <div className="row">
-                <div className="col-md-4 col-sm-12 col-xs-12 ">
+                <div className="wt-post-text col-md-4 col-sm-12 col-xs-12 float-right ">
                   <h2 className="font-weight-550 text-uppercase font-22 m-t0 m-b5 p-t0">
                     Quick Links
                   </h2>
-                  {/* <ul className="p-l40 ">
-                    <li className="m-a0"> */}
+                  <ul className="p-l40 ">
+                    <li className="m-a0">
                       <HashLink
                         smooth
-                        // className="link-style font-14 text-uppercase p-lr10"
-                        to="/services/#locations"
-                        // aria-label="scroll down to locations served"
+                        className="link-style font-14 text-uppercase p-lr10"
+                        to="#locations"
+                        aria-label="scroll down to locations served"
                       >
                         Location
                       </HashLink>
-                    {/* </li>
-                    <li className=""> */}
+                    </li>
+                    <li className="">
                       <HashLink
                         smooth
                         className="link-style font-14 text-uppercase p-lr10"
-                        to="/services/#selectServices"
-                        // aria-label="scroll down to select services"
+                        to="#selectServices"
+                        aria-label="scroll down to select services"
                       >
                         Select Services
                       </HashLink>
-                    {/* </li>
+                    </li>
 
-                    <li className=""> */}
+                    <li className="">
                       <HashLink
                         smooth
                         className="link-style font-14 text-uppercase p-lr10"
-                        to="/services/#designProcess"
-                        // aria-label="scroll down to design process"
+                        to="#designProcess"
+                        aria-label="scroll down to design process"
                       >
                         The Design Process
                       </HashLink>
-                    {/* </li>
+                    </li>
 
 
-                    <li className=""> */}
+                    <li className="">
                       <HashLink
                         smooth
                         className="link-style font-14 text-uppercase p-lr10"
-                        to="/services/#clientsLogo"
-                        // aria-label="scroll down to premium suppliers served"
+                        to="#clientsLogo"
+                        aria-label="scroll down to premium suppliers served"
                       >
                         Our Premium Suppliers
                       </HashLink>
-                    {/* </li>
-                    <li className=""> */}
+                    </li>
+                    <li className="">
                       <HashLink
                         smooth
                         className="link-style font-14 text-uppercase p-lr10"
-                        to="/services/#contact"
-                        // aria-label="scroll down to contact us"
+                        to="#contact"
+                        aria-label="scroll down to contact us"
                       >
                         Contact Us
                       </HashLink>
-                    {/* </li>
+                      
+                    </li>
 
-                  </ul> */}
+                  </ul>
                 </div>
-                <div className="wt-post-text col-md-8 col-sm-12">
+                <div className="wt-post-text col-md-8 col-sm-12 col-xs-12">
                   {/* <p>
                     For over 30 years, Marilyn’s Windows has been providing
                     exquisitely handcrafted custom drapery to luxury homeowners,
@@ -157,7 +158,7 @@ const Service2 = ({ testimonial }) => {
             </div>
             {/* LOCATIONS */}
             {/* TITLE START */}
-            <div id="locations" className="text-left text-black">
+            <div id="locations" className="section-head text-left text-black">
               <h2 className="text-uppercase font-34">Location</h2>
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />
