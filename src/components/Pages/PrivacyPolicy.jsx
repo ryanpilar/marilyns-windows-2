@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-import Header2 from "../Common/Header2";
+import Header3 from "../Common/Header3";
 import Banner from "../Segments/Banner";
 
 import Footer from "../Common/Footer";
@@ -62,7 +62,7 @@ const PrivacyPolicy = () => {
         description={`Our privacy policy outlines how we collect, use and protect your personal information. Learn more about how we keep your data safe and secure on our website.`}
       />
 
-      <Header2 />
+      <Header3 />
 
       <div className="page-content">
         {banner && (

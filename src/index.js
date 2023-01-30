@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import { HelmetProvider } from 'react-helmet-async';
 import reportWebVitals from './reportWebVitals';
+// import smoothscroll from 'smoothscroll-polyfill'
+
+// smoothscroll.polyfill();
+
 
 ReactDOM.render(
   <HelmetProvider>

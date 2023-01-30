@@ -142,7 +142,6 @@ class Contact extends React.Component {
     return (
       <>
         {/* {this.state.spinner && <Loader />} */}
-        {/* <Header2 /> */}
         <div id="contact" className="page-content">
           {/* SECTION CONTENTG START */}
           <div className="section-full p-tb80 tm-shortcode-wrap">

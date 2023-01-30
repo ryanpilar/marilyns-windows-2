@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-import Header2 from "../Common/Header2";
+import Header3 from "../Common/Header3";
 import Banner from "../Segments/Banner";
 import About2 from "../Segments/About2";
 import AboutImages from "../Segments/AboutImages";
@@ -58,7 +58,7 @@ const AboutMe = () => {
         title={`Marilyn's Windows | My Story `}
         description={`Professionally sewing for over 30 years and specializing in the tailored creation of hand-sewn curtains, drapes, blinds, and custom bedding`}
       />
-      <Header2 />
+      <Header3 />
 
       {imageCarousel && (
         <div className="page-content">
@@ -85,7 +85,7 @@ const AboutMe = () => {
               <AboutColumns>
                 <div className="row m-t20 text-black">
                   <div className="section-content">
-                  <div className="col-sm-12"><h2>Some Heading Content</h2></div>
+                  <div className="col-sm-12"><h2>Some Heading Content</h2><b>INTERIOR DESIGNER IN MILTON, ONTARIO.</b></div>
                     <div className="col-lg-6 col-md-6 col-sm-12 p-r40">
                     
                       <p>
@@ -163,7 +163,7 @@ const AboutMe = () => {
               <AboutColumns>
                 <div className="row m-t20 text-black">
                   <div className="section-content">
-                  <div className="col-sm-12"><h2>Some Heading Content</h2></div>
+                  <div className="col-sm-12"><h2>Some Heading Content</h2><b>INTERIOR DESIGNER IN MILTON, ONTARIO.</b></div>
                     <div className="col-lg-6 col-md-6 col-sm-12 p-r40">
                     
                       <p>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-import Header2 from "../Common/Header2";
+import Header3 from "../Common/Header3";
 import Banner from "../Segments/Banner";
 
 import Footer from "../Common/Footer";
@@ -62,7 +62,7 @@ const TermsOfService = () => {
         description={`Marilyn's Windows specializes in creating custom made drapes and window coverings. Learn more about our terms of service and commitment to customer satisfaction.`}
       />
 
-      <Header2 />
+      <Header3 />
 
       <div className="page-content">
         {banner && (

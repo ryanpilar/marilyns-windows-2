@@ -5,7 +5,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
 import SEO from "../Segments/SEO";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // const images = [
 //     require('./../../images/gallery/portrait/pic1.jpg'),
@@ -84,7 +84,7 @@ const About2 = ({ carousel }) => {
                 Our mission is the best Development &amp; interior design.
               </h2>
 
-              <p>
+              <p className="">
                 <b>INTERIOR DESIGNER IN MILTON, ONTARIO.</b>
               </p>
 
@@ -105,6 +105,22 @@ const About2 = ({ carousel }) => {
                 hand-sewn curtains, drapes, blinds, and home bedding and accents
                 with the world’s finest fabrics, hardware, and accessories.
               </p>
+              <div class="m-t40">
+                <NavLink
+                      to={"/gallery"}
+                      className="btn-half text-white site-button button-md m-b15 m-r15"
+                    >
+                      <span className="p-lr5">Gallery</span>
+                      <em />
+                    </NavLink>
+                    <NavLink
+                      to={"/blog"}
+                      className="btn-half text-white site-button button-md m-b15"
+                    >
+                      <span className="p-lr5"> Blog</span>
+                      <em />
+                    </NavLink>
+              </div>
             </div>
           </div>
         </div>

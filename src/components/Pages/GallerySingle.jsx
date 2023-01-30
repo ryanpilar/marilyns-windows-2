@@ -3,7 +3,7 @@ import { useEffect, useState, useLayoutEffect } from "react";
 import { createClient } from "contentful";
 
 import { Link } from "react-router-dom";
-import Header2 from "../Common/Header2";
+import Header3 from "../Common/Header3";
 import SEO from "../Segments/SEO";
 
 import { useParams } from "react-router-dom";
@@ -105,7 +105,7 @@ const GallerySingle = () => {
         title={`Marilyn's Windows | Gallery Room | ${imageData?.fields?.cardTitle}`}
         description={`${imageData?.fields?.metaDescription}`}
       />
-      <Header2 />
+      <Header3 />
       <div className="page-content">
         <div className="">
           <div className="max-mid-bigger-container">

@@ -9,7 +9,7 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
-import Header2 from "../Common/Header2";
+import Header3 from "../Common/Header3";
 import Footer from "../Common/Footer";
 import Banner from "./../Segments/Banner";
 import SEO from "../Segments/SEO";
@@ -174,7 +174,7 @@ const BlogPost = () => {
             description={singleBlogPost?.fields?.metaDescription}
           />
 
-          <Header2 />
+          <Header3 />
           <div className="page-content ">
             <Banner
               title="high quality, effective, and inspiring built space."

@@ -3,7 +3,7 @@ import { useEffect, useState, useLayoutEffect } from "react";
 
 import { createClient } from "contentful";
 
-import Header2 from "../Common/Header2";
+import Header3 from "../Common/Header3";
 import Banner from "../Segments/Banner";
 import BlogCard from "../Segments/BlogCard";
 import Footer from "../Common/Footer";
@@ -92,7 +92,7 @@ const Blog = () => {
         description={`Interesting articles about interior design and the wonderful world of drapery. Learn about industry trends or read frequently asked questions.`}
       />
 
-      <Header2 />
+      <Header3 />
 
       <div className="page-content">
         {blogBanner && (
@@ -122,8 +122,8 @@ const Blog = () => {
 
             {/* TITLE START */}
             <div className="text-left">
-              <h2 className="text-uppercase font-45 font-weight-500">
-                Learn With Marilyn
+              <h2 className="text-uppercase font-50 font-weight-500">
+                Marilyn's Blog
               </h2>
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />

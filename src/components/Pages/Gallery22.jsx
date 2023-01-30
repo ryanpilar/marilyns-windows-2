@@ -2,7 +2,7 @@ import { useEffect, useState, useLayoutEffect } from "react";
 import { createClient } from "contentful";
 
 import { NavLink } from "react-router-dom";
-import Header2 from "../Common/Header2";
+import Header3 from "../Common/Header3";
 // import Footer from '../Common/Footer';
 import Banner from "../Segments/Banner";
 import SEO from "../Segments/SEO";
@@ -105,7 +105,7 @@ const Gallery22 = () => {
 
       {bannerContent && imageList && (
         <>
-          <Header2 />
+          <Header3 />
 
           <div className="page-content ">
             <Banner

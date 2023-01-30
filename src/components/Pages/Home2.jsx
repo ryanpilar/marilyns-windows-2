@@ -1,4 +1,4 @@
-import Header2 from "../Common/Header2";
+import Header3 from "../Common/Header3";
 import Slider22 from "./../Segments/Slider22";
 import About from "./../Segments/About";
 import Services from "./../Segments/Services";
@@ -55,7 +55,7 @@ const Home2 = () => {
         description={`Custom handcrafted window coverings, curtains, shades, blinds and soft furnishings. Serving Milton, Burlington, Oakville, Mississauga and surrounding areas.`}
       />
 
-      <Header2 />
+      <Header3 />
 
       <div className="page-content">
         <Slider22 />

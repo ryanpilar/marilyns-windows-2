@@ -1,5 +1,5 @@
 import React from "react";
-import Header2 from "../Common/Header2";
+import Header3 from "../Common/Header3";
 import Footer from "../Common/Footer";
 import SEO from "../Segments/SEO";
 
@@ -14,7 +14,7 @@ class NotFound extends React.Component {
           description={`Custom handcrafted window coverings, curtains, shades, blinds and soft furnishings. Serving Milton, Burlington, Oakville, Mississauga and surrounding areas.`}
         />
         
-        <Header2 />
+        <Header3 />
         <div className="page-content">
           <div className="section-full p-tb90 bg-gray square_shape2 tm-about2-wrap">
             <div className="container">

@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-import Header2 from "../Common/Header2";
+import Header3 from "../Common/Header3";
 import Banner from "./../Segments/Banner";
 import Banner2 from "../Segments/Banner2";
 // import Story from './../Segments/Story';
@@ -93,83 +93,73 @@ const Services = () => {
     };
     getContentfulContents();
   }, []);
+
   return (
     <>
       <SEO
         title={`Marilyn's Windows | Services | Sewing Custom Drapery for the Halton Region`}
         description={`Specializing in custom drapery, high-end blinds and custom soft furnishings. Marilyn's work defines the art of couture drapery and interior design.`}
       />
-
-      <Header2 />
-      
+      <Header3 />
+      {affiliates && banner && designProcess && (
       <div className="page-content">
-        {banner && (
-          <Banner
-            heading="Services"
-            title="Serving Milton, Georgetown, Burlington, Oakville Mississauga and surrounding areas."
-            pagename="Services"
-            bgimage={banner.image}
-          />
-        )}
-      </div>
+        
+          <>
+            <Banner
+              heading="Services"
+              title="Serving Milton, Georgetown, Burlington, Oakville Mississauga and surrounding areas."
+              bgimage={banner.image}
+            />
 
-      <div className="page-content">
-        <div className="container">
-          <div className="max-mid-container">
-            {/* BREADCRUMB ROW */}
-            <div className="p-t20">
-              <div>
-                <ul className="wt-breadcrumb breadcrumb-style-2">
-                  <li>
-                    <Link to={"/"}>Home</Link>
-                  </li>
-                  <li>Services</li>
-                </ul>
+            <div className="container">
+              <div className="max-mid-container">
+                {/* BREADCRUMB ROW */}
+                <div className="p-t20">
+                  <div>
+                    <ul className="wt-breadcrumb breadcrumb-style-2">
+                      <li>
+                        <Link to={"/"}>Home</Link>
+                      </li>
+                      <li>Services</li>
+                    </ul>
+                  </div>
+                </div>
+                {/* BREADCRUMB ROW END */}
               </div>
             </div>
-            {/* BREADCRUMB ROW END */}
-          </div>
-        </div>
 
-        {banner && (
-          <>
             <Service2 />
 
-            {designProcess && <Service process={designProcess} />}
-            {affiliates && (
-              <ClientsLogo content={affiliates} supplierList={true} />
-            )}
-          </>
-        )}
+            <Service process={designProcess} />
 
-        {banner && (
-          <Banner
-            heading="Some Words From Marilyn"
-            title="Free Consultation - Drapery and Design Ideas - 600 Fabric Books - Professional Installation - Maintenance and Warranty."
-            // pagename="Services"
-            quote="I am a skilled and experienced sewing professional with a
+            <ClientsLogo content={affiliates} supplierList={true} />
+
+            {/* <Banner
+              heading="Some Words From Marilyn"
+              title="Free Consultation - Drapery and Design Ideas - 600 Fabric Books - Professional Installation - Maintenance and Warranty."
+
+              quote="I am a skilled and experienced sewing professional with a
                   passion for creating beautiful and functional drapery and
                   every other custom window treatment you can imagine. I have a
                   deep understanding of various fabrics, patterns, and
                   techniques, and I am able to use this knowledge to create
                   custom designs that meet my clients' needs."
-            quote2="I am also able to work with a wide range of clients, 
+              quote2="I am also able to work with a wide range of clients, 
                   from individual customers to talented interior designers, and I am 
                   always willing to go the extra mile to ensure their satisfaction. 
                   I am organized, detail-oriented, and able to work under tight 
                   deadlines, making me an ideal candidate for any project. Overall, 
                   I am a dedicated and talented sewing professional who is committed 
                   to creating beautiful and high-quality products."
-            bgimage={banner.image}
-          />
-        )}
+              bgimage={banner.image}
+            /> */}
+            <Contact />
+          </>
       </div>
-      {banner && designProcess &&  affiliates && (
-        <>
-          <Contact />
-          <Footer />
-        </>
       )}
+
+
+      <Footer />
     </>
   );
 };
