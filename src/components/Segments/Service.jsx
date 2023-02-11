@@ -1,5 +1,5 @@
 import React from "react";
-import { RedditIcon } from "react-share";
+// import { RedditIcon } from "react-share";
 
 const Service = ({ process }) => {
   const pokaDots = require("../../assets/media/images/ptn-1.png");
