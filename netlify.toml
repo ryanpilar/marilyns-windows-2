@@ -1,9 +1,0 @@
-[build]
-  command = "CI= npm run build"
-  publish = "public"
-
-[[plugins]]
-  package = "@netlify/plugin-sitemap"
-  [plugins.inputs]
-    baseUrl = "https://marilyns-windows.netlify.app/"
-    urlPrefix = "/"
