@@ -99,7 +99,7 @@ const About = () => {
                   <span className="font-22 font-weight-400 text-uppercase ">
                     {content.span}
                   </span>
-                  <h1 className="text-uppercase font-28 font-weight-550">{content.heading}</h1>
+                  <h1 className="text-uppercase font-30">{content.heading}</h1>
 
                   {/* richTextConverstion renders in a <p> */}
                   <div className="">
@@ -129,16 +129,16 @@ const About = () => {
               <div className="col-md-7 col-sm-12">
                 {content && (
                   <>
-                    <div className="m-carousel-1 m-l100">
+                    <div className="m-carousel-1 m-l100 add-box-shadow2">
                       <OwlCarousel
                         className="owl-carousel home-carousel-1 owl-btn-vertical-center"
                         {...options}
                       >
                         {content.cloudinaryImage.map((item, index) => (
-                          <div className="item" key={index}>
+                          <div className="item " key={index}>
                             <div className="ow-img wt-img-effect zoom-slow">
                               <img
-                                src={item.secure_url}
+                                src={item.secure_url} 
                                 alt={item.context.custom.alt}
                                 data-pin-description={
                                   item.context.custom.dataPin

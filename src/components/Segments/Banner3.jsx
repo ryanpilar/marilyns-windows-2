@@ -1,16 +1,16 @@
-import React from "react";
-// import { NavLink } from "react-router-dom";
+import React from 'react'
 
-
-const Banner = ({ bgimage, title, posLeft, posRight }) => {
+const Banner3 = ({ bgimage, title, posLeft, posRight }) => {
+    console.log('bgimg', bgimage)
   return (
     <>
+    
       <div
-        className="wt-bnr-inr overlay-wraper bg-parallax bg-top-center "
-        data-stellar-background-ratio="0.5"
-        style={{ backgroundImage: "url(" + bgimage + ")" }}
+        className="wt-bnr-inr3 overlay-wraper bg-parallax bg-top-center "
+        // data-stellar-background-ratio="0.5"
+        // style={{ backgroundImage: "url(" + bgimage + ")" }}
       >
-        <div className="overlay-main bg-black opacity-04 " />
+        <div className="overlay-main bg-black opacity-01 " />
         {/* <div className='overlay-secondary' /> */}
         {/* <div> */}
         {/* <div className="m-a10 p-a15 bdr-1 bdr-primary"> */}
@@ -35,19 +35,7 @@ const Banner = ({ bgimage, title, posLeft, posRight }) => {
         {/* </div> */}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Banner;
-
-// class Banner extends React.Component {
-//   render() {
-//     return (
-//       <>
-
-//       </>
-//     );
-//   }
-// }
-
-// export default Banner;
+export default Banner3

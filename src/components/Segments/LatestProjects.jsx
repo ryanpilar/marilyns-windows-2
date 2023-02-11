@@ -130,6 +130,8 @@ const LatestProjects = () => {
     },
   };
 
+
+
   return (
     <>
       <div

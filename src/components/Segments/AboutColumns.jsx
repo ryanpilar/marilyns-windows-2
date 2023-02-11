@@ -2,7 +2,7 @@
 const AboutColumns = ({children}) => {
   return (
     <>
-<div class="container column-container">
+<div className="container column-container">
     
         {children}
 </div>

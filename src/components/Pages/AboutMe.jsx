@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 const AboutMe = () => {
   const [banner, setBanner] = useState(null);
   const [imageCarousel, setImageCarousel] = useState(null);
+  const [imagesTwo, setImagesTwo] = useState(null);
 
   const client = createClient({
     // contentful connect
@@ -31,7 +32,6 @@ const AboutMe = () => {
           const aboutContent = contentfulContent.filter(
             (entry) => entry.fields.location === "aboutFull"
           );
-          console.log("aboutContent", aboutContent);
 
           setBanner({
             image: {
@@ -41,6 +41,7 @@ const AboutMe = () => {
           setImageCarousel({
             images: aboutContent[0].fields.images,
           });
+          setImagesTwo(aboutContent[0].fields.images2);
         });
       } catch (error) {
         console.log(
@@ -63,31 +64,38 @@ const AboutMe = () => {
       {imageCarousel && (
         <div className="page-content">
           <Banner
-            title="Fusing logic with imagination and truth with discovery."
+            title="Marilyn's Story"
             pagename="About Us"
             bgimage={banner.image.data.secure_url}
+            posRight={true}
           />
 
           <div className="section-full p-b90 bg-gray square_shape1 square_shape2 tm-about2-wrap">
             {/* BREADCRUMB ROW */}
             <div className="container ">
-              <div className="p-tb20">
-                <ul className="wt-breadcrumb breadcrumb-style-2">
-                  <li>
-                    <Link to={"/"}>Home</Link>
-                  </li>
-                  <li>My Story</li>
-                </ul>
+              <div className="p-t20 p-l20">
+                <div className="row">
+                  <div className="col-sm-12">
+                    <ul className="wt-breadcrumb breadcrumb-style-2">
+                      <li>
+                        <Link to={"/"}>Home</Link>
+                      </li>
+                      <li>My Story</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
 
-              <About2 carousel={imageCarousel} />
+              <About2 images={imageCarousel} />
 
               <AboutColumns>
                 <div className="row m-t20 text-black">
                   <div className="section-content">
-                  <div className="col-sm-12"><h2>Some Heading Content</h2><b>INTERIOR DESIGNER IN MILTON, ONTARIO.</b></div>
-                    <div className="col-lg-6 col-md-6 col-sm-12 p-r40">
-                    
+                    <div className="col-sm-12">
+                      <h2>Some Heading Content</h2>
+                      <b>INTERIOR DESIGNER IN MILTON, ONTARIO.</b>
+                    </div>
+                    <div className="col-lg-6 col-md-6 col-sm-12 p-r30">
                       <p>
                         For over 30 years, Marilyn has specialized in the
                         tailored creation of hand-sewn curtains, drapes, blinds,
@@ -159,13 +167,17 @@ const AboutMe = () => {
                   </div>
                 </div>
               </AboutColumns>
-              <AboutImages />
+
+              {imagesTwo && <AboutImages images={imagesTwo} />}
+
               <AboutColumns>
                 <div className="row m-t20 text-black">
                   <div className="section-content">
-                  <div className="col-sm-12"><h2>Some Heading Content</h2><b>INTERIOR DESIGNER IN MILTON, ONTARIO.</b></div>
+                    <div className="col-sm-12">
+                      <h2>Some Heading Content</h2>
+                      <b>INTERIOR DESIGNER IN MILTON, ONTARIO.</b>
+                    </div>
                     <div className="col-lg-6 col-md-6 col-sm-12 p-r40">
-                    
                       <p>
                         For over 30 years, Marilyn has specialized in the
                         tailored creation of hand-sewn curtains, drapes, blinds,
@@ -176,19 +188,17 @@ const AboutMe = () => {
                         machines. Together with her team of professional
                         seamstresses and installers, Marilyn is defining the
                         exquisite art of custom design and couture window
-                        dressings.
-                      
-                        is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard
-                        dummy text ever since the 1500s, when an unknown printer
-                        took a galley of type and scrambled it to make a type
-                        specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining
-                        essentially unchanged. It was popularised in the 1960s
-                        with the release of Letraset sheets containing Lorem
-                        Ipsum passages, and more recently with desktop
-                        publishing software like Aldus PageMaker including
-                        versions of Lorem Ipsum.
+                        dressings. is simply dummy text of the printing and
+                        typesetting industry. Lorem Ipsum has been the
+                        industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and
+                        scrambled it to make a type specimen book. It has
+                        survived not only five centuries, but also the leap into
+                        electronic typesetting, remaining essentially unchanged.
+                        It was popularised in the 1960s with the release of
+                        Letraset sheets containing Lorem Ipsum passages, and
+                        more recently with desktop publishing software like
+                        Aldus PageMaker including versions of Lorem Ipsum.
                       </p>
                       <p>
                         is simply dummy text of the printing and typesetting
@@ -201,19 +211,17 @@ const AboutMe = () => {
                         with the release of Letraset sheets containing Lorem
                         Ipsum passages, and more recently with desktop
                         publishing software like Aldus PageMaker including
-                        versions of Lorem Ipsum.
-                      
-                        is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard
-                        dummy text ever since the 1500s, when an unknown printer
-                        took a galley of type and scrambled it to make a type
-                        specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining
-                        essentially unchanged. It was popularised in the 1960s
-                        with the release of Letraset sheets containing Lorem
-                        Ipsum passages, and more recently with desktop
-                        publishing software like Aldus PageMaker including
-                        versions of Lorem Ipsum.
+                        versions of Lorem Ipsum. is simply dummy text of the
+                        printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and
+                        scrambled it to make a type specimen book. It has
+                        survived not only five centuries, but also the leap into
+                        electronic typesetting, remaining essentially unchanged.
+                        It was popularised in the 1960s with the release of
+                        Letraset sheets containing Lorem Ipsum passages, and
+                        more recently with desktop publishing software like
+                        Aldus PageMaker including versions of Lorem Ipsum.
                       </p>
                     </div>
                     <div className="col-lg-6 col-md-6 col-sm-12 p-r40">
@@ -228,19 +236,17 @@ const AboutMe = () => {
                         with the release of Letraset sheets containing Lorem
                         Ipsum passages, and more recently with desktop
                         publishing software like Aldus PageMaker including
-                        versions of Lorem Ipsum.
-                      
-                        is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard
-                        dummy text ever since the 1500s, when an unknown printer
-                        took a galley of type and scrambled it to make a type
-                        specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining
-                        essentially unchanged. It was popularised in the 1960s
-                        with the release of Letraset sheets containing Lorem
-                        Ipsum passages, and more recently with desktop
-                        publishing software like Aldus PageMaker including
-                        versions of Lorem Ipsum.
+                        versions of Lorem Ipsum. is simply dummy text of the
+                        printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and
+                        scrambled it to make a type specimen book. It has
+                        survived not only five centuries, but also the leap into
+                        electronic typesetting, remaining essentially unchanged.
+                        It was popularised in the 1960s with the release of
+                        Letraset sheets containing Lorem Ipsum passages, and
+                        more recently with desktop publishing software like
+                        Aldus PageMaker including versions of Lorem Ipsum.
                       </p>
                       <p>
                         For over 30 years, Marilyn has specialized in the
@@ -252,19 +258,17 @@ const AboutMe = () => {
                         machines. Together with her team of professional
                         seamstresses and installers, Marilyn is defining the
                         exquisite art of custom design and couture window
-                        dressings.
-                      
-                        is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard
-                        dummy text ever since the 1500s, when an unknown printer
-                        took a galley of type and scrambled it to make a type
-                        specimen book. It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining
-                        essentially unchanged. It was popularised in the 1960s
-                        with the release of Letraset sheets containing Lorem
-                        Ipsum passages, and more recently with desktop
-                        publishing software like Aldus PageMaker including
-                        versions of Lorem Ipsum.
+                        dressings. is simply dummy text of the printing and
+                        typesetting industry. Lorem Ipsum has been the
+                        industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and
+                        scrambled it to make a type specimen book. It has
+                        survived not only five centuries, but also the leap into
+                        electronic typesetting, remaining essentially unchanged.
+                        It was popularised in the 1960s with the release of
+                        Letraset sheets containing Lorem Ipsum passages, and
+                        more recently with desktop publishing software like
+                        Aldus PageMaker including versions of Lorem Ipsum.
                       </p>
                     </div>
                     {/* <div className="col-lg-4 col-md-6 col-sm-12">

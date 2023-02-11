@@ -98,19 +98,21 @@ const Services = () => {
     <>
       <SEO
         title={`Marilyn's Windows | Services | Sewing Custom Drapery for the Halton Region`}
-        description={`Specializing in custom drapery, high-end blinds and custom soft furnishings. Marilyn's work defines the art of couture drapery and interior design.`}
+        description={`Specializing in custom drapery, high-end blinds and custom soft furnishings. Marilyn's work defines the art of couture drapery and window treatment design.`}
       />
       <Header3 />
       <div className="page-content">
 
         {affiliates && banner && designProcess && (
           <>
-            {/* <Banner
+            <Banner
               heading="Services"
-              title="Serving Milton, Georgetown, Burlington, Oakville Mississauga and surrounding areas."
+              title="Our Services Offered"
               pagename="Services"
               bgimage={banner.image}
-            /> */}
+              posLeft={true}
+              // posRight={true}
+            />
 
             <div className="container">
               <div className="max-mid-container">

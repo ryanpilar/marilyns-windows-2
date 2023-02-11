@@ -101,11 +101,11 @@ const ClientsLogo = ({ supplierList }) => {
                         </div>
 
                         {supplierList && (
-                          <div className="text-white m-t30 m-b40">
+                          <div className="text-brownish m-t30 m-b40">
                             <h3 className="text-brownish">
                               Blinds, Smart Blinds, Shutters & Sheers:
                             </h3>
-                            <p className="text-white for-affiliates m-b40 p-l30">
+                            <p className="for-affiliates m-b40 p-l30">
                               {/* <a
                                 className="p-r10"
                                 href="https://www.hunterdouglas.ca/"
@@ -128,10 +128,20 @@ const ClientsLogo = ({ supplierList }) => {
                                 target="_blank"
                               >
                                 Shadex
+                              </a>{" "}
+                              |
+                              <a
+                                className="p-lr10"
+                                href="https://maxxmar.com/"
+                                target="_blank"
+                                rel="noreferrer"
+                                aria-label="Maxxmar Window Fashion's home page"
+                              >
+                                Maxxmar Window Fashions
                               </a>
                             </p>
                             <h3 className="text-brownish">Designer Fabrics:</h3>
-                            <p className="text-white for-affiliates p-l30">
+                            <p className="for-affiliates p-l30">
                               <a
                                 className="p-r10"
                                 href="https://robertallendesign.com/"
@@ -180,10 +190,66 @@ const ClientsLogo = ({ supplierList }) => {
                                 aria-label="JF Fabric's Home page"
                               >
                                 Joanne Fabrics
+                              </a>
+                              
+                              
+                              {" "}
+                              |
+                              <a
+                                className="p-lr10"
+                                href="https://maxwellfabrics.com/Homepage"
+                                target="_blank"
+                                rel="noreferrer"
+                                aria-label="Maxwell Fabric's home page"
+                              >
+                                Maxwell Fabrics
                               </a>{" "}
+                              |
+                              <a
+                                className="p-lr10"
+                                href="https://www.alendelfabrics.com/"
+                                target="_blank"
+                                rel="noreferrer"
+                                aria-label="Alendel Fabric's home page"
+                              >
+                                Alendel Fabrics
+                              </a>{" "}
+                              |
+                              <a
+                                className="p-lr10"
+                                href="https://fscontract.ca/"
+                                target="_blank"
+                                rel="noreferrer"
+                                aria-label="Four Seasons Decorative Fabric's home page"
+                              >
+                                Four Seasons Decorative Fabrics
+                              </a>{" "}
+                              |
+                              <a
+                                className="p-lr10"
+                                href="https://europeantextiles.ca/"
+                                target="_blank"
+                                rel="noreferrer"
+                                aria-label="European Textile's home page"
+                              >
+                                European Textiles
+                              </a>{" "}
+                              |
+                              <a
+                                className="p-lr10"
+                                href="http://signaturetextiles.ca/"
+                                target="_blank"
+                                rel="noreferrer"
+                                aria-label="Signature Textile's home page"
+                              >
+                                Signature Textiles
+                              </a>
+
+
+
                             </p>
                             <h3 className="text-brownish">Premium Hardware:</h3>
-                            <p className="text-white for-affiliates p-l30">
+                            <p className="for-affiliates p-l30">
                               <a
                                 className="p-r10"
                                 href="https://www.jffabrics.com/"

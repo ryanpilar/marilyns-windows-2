@@ -124,103 +124,105 @@ const LatestProjects2 = ({ content }) => {
     },
   };
 
+  
+
+
   return (
     <>
       <div
         id="work"
         className="section-full p-t90 latest_project-outer square_shape3"
       >
-        <div className="container">
-          <div className="section-content">
-            {/* TITLE START */}
-            <div className="section-head text-left">
-              <div className="row">
-                <div className="col-lg-4 col-md-12 ">
-                  <h2 className="text-uppercase font-34">
-                    More From The Gallery
-                  </h2>
-                  <div className="wt-separator-outer">
-                    <div className="wt-separator bg-black" />
+      <div class="container">
+        
+          <div className="container">
+            <div className="section-content">
+              {/* TITLE START */}
+              <div className="section-head text-left">
+                <div className="row">
+                  <div className="col-lg-4 col-md-12 ">
+                    <h2 className="text-uppercase font-34">
+                      More From The Gallery
+                    </h2>
+                    <div className="wt-separator-outer">
+                      <div className="wt-separator bg-black" />
+                    </div>
                   </div>
                 </div>
               </div>
+              {/* TITLE END */}
             </div>
-            {/* TITLE END */}
           </div>
-        </div>
-
-        {/* IMAGE CAROUSEL START */}
-        <div className="container">
-          <div className="section-content">
-            {/* <OwlCarousel className="owl-carousel  owl-btn-bottom-left" {...options}> */}
-            {imageList && (
-              <OwlCarousel
-                className="owl-carousel owl-carousel-filter  owl-btn-bottom-left"
-                {...options}
-              >
-                <>
-                  {imageList.map((item, index) => (
-                    <div
-                      key={index}
-                      className={`${item.fields.filter} item fadingcol`}
-                    >
-                      <div className="wt-img-effect ">
-                        <div className="wt-img-black-bg">
-                          <div className="img-opacity">
-                            <img
-                              src={item.fields.smallImage[0].secure_url}
-                              alt={item.fields.smallImage[0].context.custom.alt}
-                              caption={
-                                item.fields.smallImage[0].context.custom.caption
-                              }
-                              data-pin-description={
-                                item.fields.smallImage[0].context.custom.dataPin
-                              }
-                              width="360"
-                              height="560"
-                            />
+          {/* IMAGE CAROUSEL START */}
+          <div className="container">
+            <div className="section-content">
+              {/* <OwlCarousel className="owl-carousel  owl-btn-bottom-left" {...options}> */}
+              {imageList && (
+                <OwlCarousel
+                  className="owl-carousel owl-carousel-filter  owl-btn-bottom-left"
+                  {...options}
+                >
+                  <>
+                    {imageList.map((item, index) => (
+                      <div
+                        key={index}
+                        className={`${item.fields.filter} item fadingcol`}
+                      >
+                        <div className="wt-img-effect ">
+                          <div className="wt-img-black-bg">
+                            <div className="img-opacity">
+                              <img
+                                src={item.fields.smallImage[0].secure_url}
+                                alt={item.fields.smallImage[0].context.custom.alt}
+                                caption={
+                                  item.fields.smallImage[0].context.custom.caption
+                                }
+                                data-pin-description={
+                                  item.fields.smallImage[0].context.custom.dataPin
+                                }
+                                width="360"
+                                height="560"
+                              />
+                            </div>
                           </div>
-                        </div>
-
-                        <div className="overlay-bx-2 ">
-                          <div className="line-amiation">
-                            <div className="text-white  font-weight-300 p-a40">
-                              <h2 className="text-white font-20 letter-spacing-1 text-uppercase">
-                                {item.fields.cardTitle}
-                              </h2>
-                              <p>{item.fields.cardDescription}</p>
-
-                              <Link to={`${item.sys.id}`}>
-                                <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
-                                  <p>
-                                    <i
-                                      className="fa fa-search"
-                                      aria-hidden="true"
-                                    ></i>{" "}
-                                    Zoom
-                                  </p>
-                                </div>
-                              </Link>
+                          <div className="overlay-bx-2 ">
+                            <div className="line-amiation">
+                              <div className="text-white  font-weight-300 p-a40">
+                                <h2 className="text-white font-20 letter-spacing-1 text-uppercase">
+                                  {item.fields.cardTitle}
+                                </h2>
+                                <p>{item.fields.cardDescription}</p>
+                                <Link to={`${item.sys.id}`}>
+                                  <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
+                                    <p>
+                                      <i
+                                        className="fa fa-search"
+                                        aria-hidden="true"
+                                      ></i>{" "}
+                                      Zoom
+                                    </p>
+                                  </div>
+                                </Link>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                </>
-              </OwlCarousel>
-            )}
-
-            <div className="section-content m-t20 m-b40">
-              <Link
-                to="/gallery"
-                className="site-button black button-app m-r15 m-b15 "
-              >
-                <span className="text-center">Visit My Gallery</span>
-              </Link>
+                    ))}
+                  </>
+                </OwlCarousel>
+              )}
+              <div className="section-content m-t20 m-b40">
+                <Link
+                  to="/gallery"
+                  className="site-button black button-app m-r15 m-b15 "
+                >
+                  <span className="text-center">Visit My Gallery</span>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+      </div>
 
         {/* <div className="section-content "> */}
 

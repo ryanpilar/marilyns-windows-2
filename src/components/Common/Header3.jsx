@@ -14,23 +14,25 @@ class Header3 extends React.Component {
   handleMenuToggle = () => {
     this.setState({ isMenuActive: !this.state.isMenuActive });
   };
+  handleScroll = () => {
+        const offset = window.scrollY;
 
+        const stickyheader = document.querySelector('.sticky-header');
+
+        if (offset >= 100) {
+            stickyheader.classList.add('is-fixed');
+            stickyheader.classList.add('color-fill');
+
+        } else {
+            stickyheader.classList.remove('is-fixed');
+            stickyheader.classList.remove('color-fill');
+        }
+    }
   componentDidMount() {
-    const handleScroll = () => {
-      const offset = window.scrollY;
 
-      const stickyheader = document.querySelector(".sticky-header");
+    
 
-      if (offset >= 100) {
-        stickyheader.classList.add("is-fixed");
-        stickyheader.classList.add("color-fill");
-      } else {
-        stickyheader.classList.remove("is-fixed");
-        stickyheader.classList.remove("color-fill");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", this.handleScroll());
 
     window.updateTopMostParent = (logopath) => {
       this.setState({ logo: logopath });

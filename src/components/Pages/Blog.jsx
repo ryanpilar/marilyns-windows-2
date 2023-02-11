@@ -97,9 +97,11 @@ const Blog = () => {
       <div className="page-content">
         {blogBanner && (
           <Banner
-            title="Sustainability, Innovation, and Craftmanship"
+            title="Marilyn's Blog"
             pagename="Blog Post"
             bgimage={blogBanner}
+            // posLeft={true}
+            posRight={true}
           />
         )}
 
@@ -122,9 +124,9 @@ const Blog = () => {
 
             {/* TITLE START */}
             <div className="text-left">
-              <h2 className="text-uppercase font-50 font-weight-500">
+              {/* <h2 className="text-uppercase font-50 font-weight-500">
                 Marilyn's Blog
-              </h2>
+              </h2> */}
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />
               </div>
@@ -132,8 +134,8 @@ const Blog = () => {
             {/* TITLE END */}
           </div>
 
-          <div className="container">
-            <div className="container">
+          <div className="">
+            <div className="">
               <div className="row m-t30">
                 <div className="col-lg-7 col-md-9 col-sm-12 m-b0">
                   <p className="p-r30 text-left">
@@ -154,7 +156,7 @@ const Blog = () => {
             <div className="news-listing ">
               {/* TITLE START */}
               <div className="text-left">
-                <h2 className="text-uppercase font-40 font-weight-500">
+                <h2 className="text-uppercase font-34">
                   Most Recent Post
                 </h2>
                 <div className="wt-separator-outer">
@@ -254,7 +256,7 @@ const Blog = () => {
                     <div className="">
                       {/* TITLE START */}
                       <div className="text-left m-b30">
-                        <h2 className="text-uppercase font-32 font-weight-500">
+                        <h2 className="text-uppercase font-34">
                           All Posts From Marilyn
                         </h2>
                         <div className="wt-separator-outer">

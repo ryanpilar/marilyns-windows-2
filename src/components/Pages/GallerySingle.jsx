@@ -8,6 +8,7 @@ import SEO from "../Segments/SEO";
 
 import { useParams } from "react-router-dom";
 import Footer from "../Common/Footer";
+import Banner3 from "../Segments/Banner3";
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -22,14 +23,14 @@ import LatestProjects2 from "../Segments/LatestProjects2";
 
 import webSitePaths from "../../assets/js/webSitePaths";
 
-
 const GallerySingle = () => {
   const { id } = useParams(); // grabs the contentful :id from the address bar (:id)
   const [imageData, setImageData] = useState(null);
   const [imageList, setImageList] = useState([]);
   const [spinner, setSpinner] = useState(true);
+  const [galleryBanner, setGalleryBanner] = useState(null);
 
-  const galleryRoute = webSitePaths.galleryRoomRoute + id
+  const galleryRoute = webSitePaths.galleryRoomRoute + id;
 
   const toggleSpinner = () => {
     setSpinner((prevState) => !prevState);
@@ -53,6 +54,18 @@ const GallerySingle = () => {
   });
 
   useEffect(() => {
+    window.addEventListener("load", () => {
+      window.scrollTo(0, 0);
+    });
+
+    return () => {
+      window.removeEventListener("load", () => {
+        window.scrollTo(0, 0);
+      });
+    };
+  }, []);
+
+  useEffect(() => {
     const getEntryById = async () => {
       try {
         await client.getEntry(id).then((galleryEntry) => {
@@ -67,7 +80,7 @@ const GallerySingle = () => {
             // allEntries.items.sort((a, b) => {
             //   return a.fields.priority - b.fields.priority;
             // });
-            console.log("allEntries.items", allEntries.items);
+            // console.log("allEntries.items", allEntries.items);
             setImageList(allEntries.items);
           });
       } catch (error) {
@@ -76,6 +89,28 @@ const GallerySingle = () => {
     };
 
     getEntryById();
+  }, []);
+
+  useEffect(() => {
+    const getBanner = async () => {
+      try {
+        await client
+          .getEntries({ content_type: "banner" })
+          .then((galleryBanner) => {
+            console.log(
+              "info",
+              galleryBanner.items[0].fields.backgroundImage[0].secure_url
+            );
+            setGalleryBanner(
+              galleryBanner.items[0].fields.backgroundImage[0].secure_url
+            );
+          });
+      } catch (error) {
+        console.log("error");
+      }
+    };
+
+    getBanner();
   }, []);
 
   useLayoutEffect(() => {
@@ -106,13 +141,24 @@ const GallerySingle = () => {
         description={`${imageData?.fields?.metaDescription}`}
       />
       <Header3 />
+
       <div className="page-content">
+        {galleryBanner && (
+          <Banner3
+            title="Gallery Photo"
+            pagename="Blog Post"
+            bgimage={galleryBanner}
+            // posLeft={true}
+            posRight={true}
+          />
+        )}
+
         <div className="">
-          <div className="max-mid-bigger-container">
+          <div className="container">
             <div className="">
               {/* BREADCRUMB ROW */}
               <div className="">
-                <div className="p-t00 m-r40 m-b10">
+                <div className="p-tb20 m-r40 m-b00">
                   <div>
                     <ul className="wt-breadcrumb breadcrumb-style-2">
                       <li>
@@ -124,13 +170,17 @@ const GallerySingle = () => {
                       <li>High-Def Photo</li>
                     </ul>
                   </div>
+
+                  {/* <div className="wt-separator-outer">
+                    <div className="wt-separator bg-black" />
+                  </div> */}
                 </div>
               </div>
               {/* BREADCRUMB ROW END */}
             </div>
           </div>
 
-          <div className="max-mid-bigger-container">
+          <div className="container">
             <div className="">
               {/* IMG CONTENT START */}
               {spinner && <Loader />}
@@ -138,8 +188,11 @@ const GallerySingle = () => {
                 <>
                   {imageData && (
                     <>
-                      <div className="section-full p-t0 p-b40 tm-work-wrap text-center" width={2000}
-                          height={1200}>
+                      <div
+                        className="section-full p-t0 p-b40 tm-work-wrap text-center"
+                        width={2000}
+                        height={1200}
+                      >
                         {/* <div className="container"> */}
                         <img
                           src={imageData.fields.largeImage[0].secure_url}
@@ -178,7 +231,7 @@ const GallerySingle = () => {
             />
           )} */}
         <>
-          <div className="">
+          <div className="container">
             <div id="work" className="section-full p-t10 latest_project-outer">
               <div className=""></div>
 
@@ -301,11 +354,19 @@ const GallerySingle = () => {
           </div> */}
         </>
       </div>
-      <div className='container'><div class="container">
-        <div  style={{width: '100%', height: '5px', borderBottom: '2px solid lightgrey'}}></div>
-      </div></div>
-      
-      {imageList && (
+      <div className="container">
+        <div className="container">
+          <div
+            style={{
+              width: "100%",
+              height: "5px",
+              borderBottom: "2px solid lightgrey",
+            }}
+          ></div>
+        </div>
+      </div>
+
+      {imageData && (
         <div className="page-content">
           <LatestProjects2 />
         </div>

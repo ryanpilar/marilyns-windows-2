@@ -18,7 +18,7 @@ const BlogCard2 = ({ item, index }) => {
     <div>
       <div className="item" key={index}>
         <div className="blog-post blog-grid date-style-1 add-box-shadow">
-          <div className="wt-post-media wt-img-effect zoom-slow">
+          <div className="wt-post-media wt-img-effect zoom-slow bg-black ">
             <div
               className={blackOpacity.isHover ? "" : "wt-img-black-bg"}
               onMouseEnter={handleHover}

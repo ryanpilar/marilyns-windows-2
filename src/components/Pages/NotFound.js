@@ -2,6 +2,7 @@ import React from "react";
 import Header3 from "../Common/Header3";
 import Footer from "../Common/Footer";
 import SEO from "../Segments/SEO";
+import { HashLink } from "react-router-hash-link";
 
 // var bnrimg = require('./../../images/background/bg-11.jpg');
 
@@ -60,7 +61,10 @@ class NotFound extends React.Component {
                             <a href="/blog">Blog</a>
                           </li>
                           <li>
-                            <a href="/#contact">Contact</a>
+                          <HashLink smooth className="" to="/services/#contact">
+              Contact
+            </HashLink>
+                            {/* <a href="/#contact">Contact</a> */}
                           </li>
                         </ul>
                       </div>

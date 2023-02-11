@@ -4,6 +4,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { createClient } from "contentful";
 import BlogCard2 from "./BlogCard2";
+import { useEffect } from "react";
 
 const RelatedBlog = ({id}) => {
   var bgimg = require("./../../images/background/ptn-1.png");
@@ -71,13 +72,25 @@ const RelatedBlog = ({id}) => {
     getAllEntries();
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("load", () => {
+      window.scrollTo(0, 0);
+    });
+
+    return () => {
+      window.removeEventListener("load", () => {
+        window.scrollTo(0, 0);
+      });
+    };
+  }, []);
+
   return (
     <>
       <div>
         <div className="section-content">
           {/* TITLE START */}
           <div className="text-left">
-            <h2 className="text-uppercase font-40 font-weight-500">More From Marilyn</h2>
+            <h2 className="text-uppercase font-34">More From Marilyn</h2>
             <div className="wt-separator-outer">
               <div className="wt-separator bg-black" />
             </div>

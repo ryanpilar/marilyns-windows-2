@@ -52,9 +52,9 @@ const Service2 = ({ testimonial }) => {
           <div className="max-mid-container ">
             {/* TITLE START */}
             <div className="section-head text-left text-black">
-              <h1 className="text-uppercase font-45 font-weight-500">
-                Overview of Services
-              </h1>
+              <h2 className="text-uppercase font-34">
+                Overview
+              </h2>
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />
               </div>
@@ -166,7 +166,7 @@ const Service2 = ({ testimonial }) => {
             </div>
             {/* TITLE END */}
             <div className="blog-post date-style-1 blog-detail text-black">
-              <div className="wt-post-text p-b30 col-md-8 col-sm-12">
+              <div className="wt-post-text p-b30 col-md-8 col-sm-12 p-l0">
                 <p>
                   Providing custom window treatment design solutions for
                   residential and commercial spaces across the Halton Region:
@@ -217,7 +217,7 @@ const Service2 = ({ testimonial }) => {
             </div>
             {/* TITLE END */}
             <div className="blog-post date-style-1 blog-detail text-black p-b10">
-              <div className="wt-post-text col-md-9 col-sm-12 ">
+              <div className="wt-post-text col-md-9 col-sm-12 p-l0">
                 {/* <p className="p-r30 text-left text-black">
                   We are a market leader in the production of bespoke window
                   coverings
@@ -417,11 +417,11 @@ const Service2 = ({ testimonial }) => {
                           {" "}
                           <li className="m-l10">
                             <Link
-                              to={""}
+                              to={"/blog/post/314gqvz8CGTSTqpyWdwEek"}
                               className="text-uppercase link-style font-14"
                             >
                               <div className="m-l10">
-                              Unleash Your Inner Designer: A Guide to Choosing Custom Shutters that Fit Your Style, Budget and Function no-click-yet
+                              A Comprehensive Guide to Choosing Custom-Fit Shutters
                               </div>
                             </Link>
                           </li>

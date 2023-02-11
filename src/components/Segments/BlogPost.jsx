@@ -11,7 +11,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 
 import Header3 from "../Common/Header3";
 import Footer from "../Common/Footer";
-import Banner from "./../Segments/Banner";
+import Banner3 from "./../Segments/Banner3";
 import SEO from "../Segments/SEO";
 import RelatedBlog from "./RelatedBlog";
 
@@ -32,17 +32,21 @@ import webSitePaths from "../../assets/js/webSitePaths";
 var bnrimg = require("./../../images/banner/2.jpg");
 
 const BlogPost = () => {
+  const [blogPostBanner, setBlogPostBanner] = useState(null);
+
   var bgimg = require("./../../images/background/ptn-1.png");
 
-  const client = createClient({
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
+
 
   const { id } = useParams(); // grabs the contentful :id form the address bar
 
   const [singleBlogPost, setSingleBlogPost] = useState([]);
   const blogRoute = webSitePaths.blogRoute + id;
+
+    const client = createClient({
+    space: process.env.REACT_APP_CONTENTFUL_SPACE,
+    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+  });
 
   const clipboardToast = () =>
     toast.success("Copied! Check your clipboard for link.", {
@@ -55,9 +59,32 @@ const BlogPost = () => {
       },
     });
 
+  useEffect(() => {
+    window.addEventListener("load", () => {
+      window.scrollTo(0, 0);
+    });
 
+    return () => {
+      window.removeEventListener("load", () => {
+        window.scrollTo(0, 0);
+      });
+    };
+  }, []);
 
   useEffect(() => {
+    const getBanner = async () => {
+      try {
+        await client
+          .getEntries({ content_type: "blogPostBanner" })
+          .then((blogBanner) => {
+            console.log("info", blogBanner.items[0].fields.image[0].secure_url);
+            setBlogPostBanner(blogBanner.items[0].fields.image[0].secure_url);
+          });
+      } catch (error) {
+        console.log("error");
+      }
+    };
+
     const getEntryById = async () => {
       try {
         await client.getEntry(id).then((blogEntry) => {
@@ -69,6 +96,7 @@ const BlogPost = () => {
       }
     };
 
+    getBanner();
     getEntryById();
   }, []);
 
@@ -141,7 +169,7 @@ const BlogPost = () => {
     margin: 30,
     nav: true,
     dots: false,
-    thumbnail: false,
+    // thumbnail: false,
     autoplay: true,
     navText: [
       '<i class="fa fa-angle-left"></i>',
@@ -165,10 +193,9 @@ const BlogPost = () => {
 
   return (
     <>
-    <ScrollToTop />
-      {singleBlogPost && (
+      {/* <ScrollToTop /> */}
+      {singleBlogPost && blogPostBanner && (
         <>
-        
           <SEO
             title={`Marilyn's Windows | Blog | ${singleBlogPost?.fields?.title}`}
             description={singleBlogPost?.fields?.metaDescription}
@@ -176,11 +203,21 @@ const BlogPost = () => {
 
           <Header3 />
           <div className="page-content ">
-            <Banner
+            {blogPostBanner && (
+              <Banner3
+                title="Blog Posting"
+                pagename="Blog Post"
+                bgimage={blogPostBanner}
+                // posLeft={true}
+                posRight={true}
+              />
+            )}
+
+            {/* <Banner
               title="high quality, effective, and inspiring built space."
               pagename="Blog Post"
               bgimage={bnrimg.default}
-            />
+            /> */}
 
             <div className="section-full p-tb90 square_shape1 square_shape3 tm-blog-single-wrap">
               <div className="container">
@@ -242,7 +279,7 @@ const BlogPost = () => {
                       <div className="wt-post-info p-t30">
                         <div className="wt-post-title ">
                           <h2 className="post-title">
-                            <span className="text-black font-45 letter-spacing-1 font-weight-600">
+                            <span className="text-black font-45 letter-spacing-1">
                               {singleBlogPost?.fields?.descriptiveTitle}
                             </span>
                           </h2>
@@ -261,10 +298,12 @@ const BlogPost = () => {
                         </div>
 
                         <div className="wt-divider divider-2px"></div>
-
-                        <div className="wt-post-text">
-                          {richTextConversion()}
+                        <div className="rows">
+                          <div className="wt-post-text col-lg-12 col-md-12 col-sm-12">
+                            {richTextConversion()}
+                          </div>
                         </div>
+
                         <div className="row">
                           <div className="col-md-4 col-sm-6">
                             <div className="wt-box">
@@ -363,18 +402,18 @@ const BlogPost = () => {
 
             {/* </div> */}
           </div>
-                <div className="page-content ">
-        <div
-          className="section-full p-tb90 tm-blog-single-wrap"
-          style={{ backgroundImage: "url(" + bgimg.default + ")" }}
-        >
-          <div className="container">
-            <div className="max-mid-container">
-              <RelatedBlog id={id} />
+          <div className="page-content ">
+            <div
+              className="section-full p-tb90 tm-blog-single-wrap"
+              style={{ backgroundImage: "url(" + bgimg.default + ")" }}
+            >
+              <div className="container">
+                <div className="max-mid-container">
+                  <RelatedBlog id={id} />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
         </>
       )}
 
