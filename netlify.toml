@@ -5,5 +5,5 @@
 [[plugins]]
   package = "@netlify/plugin-sitemap"
   [plugins.inputs]
-    hostname = "https://marilyns-windows.netlify.app"
-    pagesDirectory = "src/components/Pages"
+    baseUrl = "https://marilyns-windows.netlify.app/"
+    urlPrefix = "/"
