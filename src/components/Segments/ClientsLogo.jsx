@@ -4,18 +4,42 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
 import { createClient } from "contentful";
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 
 const ClientsLogo = ({ supplierList }) => {
   const [content, setContent] = useState(null);
 
-  const client = createClient({
-    // contentful connect
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
-
   useEffect(() => {
+    const client = createClient({
+      // contentful connect
+      space: process.env.REACT_APP_CONTENTFUL_SPACE,
+      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+    });
+
+    const shuffle = (array) => {
+    let currentIndex = array.length,
+      randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex !== 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
+  };
+
+  const selectRandom = (projects) => {
+    return shuffle(projects);
+  };
+
     const getAllEntries = async () => {
       // contentful get data
       try {
@@ -58,32 +82,13 @@ const ClientsLogo = ({ supplierList }) => {
       },
     },
   };
-  const shuffle = (array) => {
-    let currentIndex = array.length,
-      randomIndex;
 
-    // While there remain elements to shuffle.
-    while (currentIndex !== 0) {
-      // Pick a remaining element.
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
-      ];
-    }
-
-    return array;
-  };
-
-  const selectRandom = (projects) => {
-    return shuffle(projects);
-  };
   return (
     <>
-      <div id='clientsLogo' className="section-full p-tb40 bg-black square_shape4 tm-client-wrap">
+      <div
+        id="clientsLogo"
+        className="section-full p-tb40 bg-black square_shape4 tm-client-wrap"
+      >
         <div className="p-t48 p-b50 ">
           <div className="container">
             <div className="section-content">
@@ -134,7 +139,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://maxxmar.com/"
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener"
                                 aria-label="Maxxmar Window Fashion's home page"
                               >
                                 Maxxmar Window Fashions
@@ -146,7 +151,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-r10"
                                 href="https://robertallendesign.com/"
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener"
                                 aria-label="Robert Allen's Home page"
                               >
                                 Robert Allen Design
@@ -156,7 +161,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://uniquefinefabrics.com/"
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener"
                                 aria-label="Uniques's home page"
                               >
                                 Unique Fine Fabrics
@@ -166,7 +171,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://equusfabrics.com/"
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener"
                                 aria-label="Equus home page"
                               >
                                 Equus Fabrics
@@ -176,7 +181,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://www.soletexfabrics.com/"
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener"
                                 aria-label="Soletex Home page"
                               >
                                 Soletex Fabrics
@@ -186,20 +191,17 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://www.jffabrics.com/"
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener"
                                 aria-label="JF Fabric's Home page"
                               >
                                 Joanne Fabrics
-                              </a>
-                              
-                              
-                              {" "}
+                              </a>{" "}
                               |
                               <a
                                 className="p-lr10"
                                 href="https://maxwellfabrics.com/Homepage"
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener"
                                 aria-label="Maxwell Fabric's home page"
                               >
                                 Maxwell Fabrics
@@ -209,7 +211,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://www.alendelfabrics.com/"
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener"
                                 aria-label="Alendel Fabric's home page"
                               >
                                 Alendel Fabrics
@@ -219,7 +221,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://fscontract.ca/"
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener"
                                 aria-label="Four Seasons Decorative Fabric's home page"
                               >
                                 Four Seasons Decorative Fabrics
@@ -229,7 +231,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://europeantextiles.ca/"
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener"
                                 aria-label="European Textile's home page"
                               >
                                 European Textiles
@@ -239,14 +241,11 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="http://signaturetextiles.ca/"
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener"
                                 aria-label="Signature Textile's home page"
                               >
                                 Signature Textiles
                               </a>
-
-
-
                             </p>
                             <h3 className="text-brownish">Premium Hardware:</h3>
                             <p className="for-affiliates p-l30">
@@ -254,7 +253,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-r10"
                                 href="https://www.jffabrics.com/"
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener"
                                 aria-label="JF Fabric's Home page"
                               >
                                 JF Hardware
@@ -264,7 +263,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://www.cdhltd.com/"
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener"
                                 aria-label="Canadian Drapery Hardware's home page"
                               >
                                 Canadian Drapery Hardware
@@ -274,7 +273,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://uniquefinefabrics.com/collections/hardware"
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noopener"
                                 aria-label="Equus home page"
                               >
                                 Trax via Unique Fabrics

@@ -48,13 +48,10 @@ const Service2 = ({ testimonial }) => {
       {/* <div className="section-full  p-t20 p-b90 square_shape1 square_shape3 tm-blog-single-wrap "> */}
       <div className="section-full  p-t20 p-b90 tm-blog-single-wrap ">
         <div className="container ">
-        
           <div className="max-mid-container ">
             {/* TITLE START */}
             <div className="section-head text-left text-black">
-              <h2 className="text-uppercase font-34">
-                Overview
-              </h2>
+              <h2 className="text-uppercase font-34">Overview</h2>
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />
               </div>
@@ -99,7 +96,6 @@ const Service2 = ({ testimonial }) => {
                       </HashLink>
                     </li>
 
-
                     <li className="">
                       <HashLink
                         smooth
@@ -119,9 +115,7 @@ const Service2 = ({ testimonial }) => {
                       >
                         Contact Us
                       </HashLink>
-                      
                     </li>
-
                   </ul>
                 </div>
                 <div className="wt-post-text col-md-8 col-sm-12 col-xs-12">
@@ -141,18 +135,41 @@ const Service2 = ({ testimonial }) => {
                     exceptional service that we are known for.
                   </p>
 
-
                   <p>
                     We are experts at pairing your needs with the best custom
                     window treatment solutions on the market.
                   </p>
                   <p>
                     All work is handmade in our Canadian workroom, using only
-                    the best fabrics, products and top-of-the-line hardware. We treat every
-                    window, accent pillow, and piece of decor in your home like
-                    it is a work of art. Each fold, crease, and thread is
-                    quality, and crafted to last.
+                    the best fabrics, products and top-of-the-line hardware. We
+                    treat every window, accent pillow, and piece of decor in
+                    your home like it is a work of art. Each fold, crease, and
+                    thread is quality, and crafted to last.
                   </p>
+                  <div className="m-l20 m-r30 m-t30">
+                  <div className='bdr-dot-2 bdr-gray-light p-tb20 p-l20 p-r10'>
+                    <h3 className='font-16 font-weight-500'>Don't Miss Out!</h3>
+                      <p >
+                    
+                        Be sure to visit{" "}
+                        <Link
+                          to={"/gallery"}
+                          className="text-uppercase link-style font-14"
+                        >
+                          <span className="">The Gallery</span>
+                        </Link>{" "}
+                        to see some of Marilyn's beautiful work. Or read{" "}
+                        <Link
+                          to={"/aboutme"}
+                          className="text-uppercase link-style font-14"
+                        >
+                          <span className="">Marilyn's Story</span>
+                        </Link>{" "}
+                        to gain a better appreciation of where she came from, and
+                        how Marilyn's Windows came to be.
+                      </p>
+                  </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -210,7 +227,7 @@ const Service2 = ({ testimonial }) => {
           <div className="max-mid-container " id="selectServices">
             {/* TITLE START */}
             <div className="section-head text-left text-black">
-              <h2 className="text-uppercase font-34">Services We Offer</h2>
+              <h2 className="text-uppercase font-34">Select Services</h2>
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />
               </div>
@@ -231,7 +248,7 @@ const Service2 = ({ testimonial }) => {
                   Whether you are considering energy efficiency, light
                   filtering, privacy, sound absorption, automation, blackout, or
                   perfecting the design of an interior space, we have window
-                  solutions to match your needs. 
+                  solutions to match your needs.
                 </p>
               </div>
             </div>
@@ -246,25 +263,24 @@ const Service2 = ({ testimonial }) => {
                         title={selectServices[0].title}
                         description={selectServices[0].description}
                       >
-                      <span className="text-uppercase font-weight-500 ">
+                        <span className="text-uppercase font-weight-500 ">
                           Learn with Marilyn:
                         </span>
 
                         <ul className="list-simple list-check m-t20">
                           {" "}
                           <li className="m-l10">
-                          <Link
-                            to={"/blog/post/119dUC52nGbqcnakNBQScT"}
-                            className="link-style font-14"
-                          >
-                            <div className="m-l10">
-                              8 INDISPUTABLE REASONS TO LOVE CUSTOM WINDOW
-                              TREATMENTS
-                            </div>
-                          </Link>
+                            <Link
+                              to={"/blog/post/119dUC52nGbqcnakNBQScT"}
+                              className="link-style font-14"
+                            >
+                              <div className="m-l10">
+                                8 INDISPUTABLE REASONS TO LOVE CUSTOM WINDOW
+                                TREATMENTS
+                              </div>
+                            </Link>
                           </li>
                         </ul>
-                        
                       </ServiceCard>
                     </div>
 
@@ -421,11 +437,11 @@ const Service2 = ({ testimonial }) => {
                               className="text-uppercase link-style font-14"
                             >
                               <div className="m-l10">
-                              A Comprehensive Guide to Choosing Custom-Fit Shutters
+                                A Comprehensive Guide to Choosing Custom-Fit
+                                Shutters
                               </div>
                             </Link>
                           </li>
-                          
                         </ul>
                       </ServiceCard>
                     </div>

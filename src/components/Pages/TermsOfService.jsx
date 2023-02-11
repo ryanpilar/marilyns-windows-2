@@ -14,13 +14,6 @@ import { HashLink } from "react-router-hash-link";
 const TermsOfService = () => {
   const [banner, setBanner] = useState(null);
 
-  const client = createClient({
-    // contentful connect
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
-
-
   useEffect(() => {
     window.addEventListener("load", () => {
       window.scrollTo(0, 0);
@@ -34,6 +27,11 @@ const TermsOfService = () => {
   }, []);
 
   useEffect(() => {
+    const client = createClient({
+      // contentful connect
+      space: process.env.REACT_APP_CONTENTFUL_SPACE,
+      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+    });
     const getContentfulContents = async () => {
       try {
         await client
@@ -68,9 +66,11 @@ const TermsOfService = () => {
         {banner && (
           <Banner
             heading="Services"
-            title="Serving Milton, Georgetown, Burlington, Oakville Mississauga and surrounding areas."
+            title="Terms and Conditions"
             pagename="Services"
             bgimage={banner.image}
+            posLeft={true}
+            // posRight={true}
           />
         )}
       </div>
@@ -102,9 +102,9 @@ const TermsOfService = () => {
                   <div className="max-mid-container ">
                     {/* TITLE START */}
                     <div className="section-head text-left text-black">
-                      <h1 className="text-uppercase font-45 font-weight-500">
+                      {/* <h1 className="text-uppercase font-45 font-weight-500">
                         Our Terms & Conditions
-                      </h1>
+                      </h1> */}
                       <div className="wt-separator-outer">
                         <div className="wt-separator bg-black" />
                       </div>
@@ -112,8 +112,17 @@ const TermsOfService = () => {
                     {/* TITLE END */}
                     <div className="blog-post date-style-1 blog-detail text-black m-tauto ">
                       <div className="row">
-                        <div className="wt-post-text col-md-4 col-sm-12 col-xs-12 float-right ">
-                          <h2 className="font-weight-550 text-uppercase font-22 m-t0 m-b5 p-t0">
+                        <div className="wt-post-text col-md-10 col-sm-12 col-xs-12">
+                          <p>
+                            Welcome to our website, which is owned and operated
+                            by Marilyn’s Windows (the "Company"). By using our
+                            website, you agree to be bound by the following
+                            terms and conditions (the "Terms"). If you do not
+                            agree to these Terms, please do not use our website.
+                          </p>
+                        </div>
+                        <div className="wt-post-text col-md-12 col-sm-12 col-xs-12  ">
+                          <h2 className="font-weight-550 text-uppercase font-22 m-t0 m-b5 p-t20">
                             Quick Links
                           </h2>
                           <ul className="p-l40 ">
@@ -210,15 +219,6 @@ const TermsOfService = () => {
                               </HashLink>
                             </li>
                           </ul>
-                        </div>
-                        <div className="wt-post-text col-md-7 col-sm-12 col-xs-12">
-                          <p>
-                            Welcome to our website, which is owned and operated
-                            by Marilyn’s Windows (the "Company"). By using our
-                            website, you agree to be bound by the following
-                            terms and conditions (the "Terms"). If you do not
-                            agree to these Terms, please do not use our website.
-                          </p>
                         </div>
                       </div>
                     </div>

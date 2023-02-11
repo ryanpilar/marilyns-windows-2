@@ -25,13 +25,10 @@ const AboutImage2 = ( {image} ) => {
             <img
               className=""
               src={image.secure_url}
-              // alt={item.context.custom.alt}
-              // data-pin-description={item.context.custom.dataPin}
-              // caption={item.context.custom.caption}
+              alt={image.context.custom.alt}
+              data-pin-description={image.context.custom.dataPin}
+              caption={image.context.custom.caption}
 
-              // alt={item.context.custom.alt}
-              // caption={item.context.custom.caption}
-              // data-pin-description={item.context.custom.dataPin}
               width={1000}
               height={600}
             />

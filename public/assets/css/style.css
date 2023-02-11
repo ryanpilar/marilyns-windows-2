@@ -597,13 +597,30 @@ body {
 .hatton {
   font-family: "Hatton";
 }
+.hatton-light {
+  font-family: 'Hatton-light';
+}
 .one-word-per-line {
   word-spacing: 9999999px;
+}
+.design-process {
+
 }
 h1.one-word-per-line {
   letter-spacing: 1rem;
   font-size: 9rem;
   line-height: 1;
+
+}
+h3.design-process {
+
+}
+
+h1.one-word-per-line {
+  letter-spacing: 1rem;
+  font-size: 9rem;
+  line-height: 1;
+
 }
 @media only screen and (max-width: 991px) {
   h1.one-word-per-line {

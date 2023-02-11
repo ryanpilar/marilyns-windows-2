@@ -1,6 +1,5 @@
 import React from "react";
 import emailjs from "@emailjs/browser";
-import Loader from "./Loader";
 
 class Contact extends React.Component {
   constructor(props) {

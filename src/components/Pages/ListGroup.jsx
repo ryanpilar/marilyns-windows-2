@@ -2,8 +2,6 @@ import React from 'react';
 
 import Footer from '../Common/Footer';
 
-var bnrimg = require('./../../images/banner/1.jpg');
-
 class ListGroup extends React.Component {
     render() {
         return (

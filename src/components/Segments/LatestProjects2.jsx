@@ -13,40 +13,39 @@ import webSitePaths from "../../assets/js/webSitePaths";
 const LatestProjects2 = ({ content }) => {
   const [imageList, setImageList] = useState(null);
 
-  const galleryRoute = webSitePaths.galleryRoomRoute;
-
-  const client = createClient({
-    // contentful connect
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
-
-  const selectRandom = (projects) => {
-    return shuffle(projects).slice(0, 9);
-  };
-
-  // LATEST PROJECTS Shuffle
-  const shuffle = (array) => {
-    let currentIndex = array.length,
-      randomIndex;
-
-    // While there remain elements to shuffle.
-    while (currentIndex !== 0) {
-      // Pick a remaining element.
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
-      ];
-    }
-
-    return array;
-  };
+  // const galleryRoute = webSitePaths.galleryRoomRoute;
 
   useEffect(() => {
+    const client = createClient({
+      // contentful connect
+      space: process.env.REACT_APP_CONTENTFUL_SPACE,
+      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+    });
+
+    const selectRandom = (projects) => {
+      return shuffle(projects).slice(0, 9);
+    };
+
+    // LATEST PROJECTS Shuffle
+    const shuffle = (array) => {
+      let currentIndex = array.length,
+        randomIndex;
+
+      // While there remain elements to shuffle.
+      while (currentIndex !== 0) {
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+          array[randomIndex],
+          array[currentIndex],
+        ];
+      }
+
+      return array;
+    };
     const getEntryById = async () => {
       try {
         await client
@@ -124,17 +123,13 @@ const LatestProjects2 = ({ content }) => {
     },
   };
 
-  
-
-
   return (
     <>
       <div
         id="work"
         className="section-full p-t90 latest_project-outer square_shape3"
       >
-      <div class="container">
-        
+        <div className="container">
           <div className="container">
             <div className="section-content">
               {/* TITLE START */}
@@ -173,12 +168,16 @@ const LatestProjects2 = ({ content }) => {
                             <div className="img-opacity">
                               <img
                                 src={item.fields.smallImage[0].secure_url}
-                                alt={item.fields.smallImage[0].context.custom.alt}
+                                alt={
+                                  item.fields.smallImage[0].context.custom.alt
+                                }
                                 caption={
-                                  item.fields.smallImage[0].context.custom.caption
+                                  item.fields.smallImage[0].context.custom
+                                    .caption
                                 }
                                 data-pin-description={
-                                  item.fields.smallImage[0].context.custom.dataPin
+                                  item.fields.smallImage[0].context.custom
+                                    .dataPin
                                 }
                                 width="360"
                                 height="560"
@@ -222,7 +221,7 @@ const LatestProjects2 = ({ content }) => {
               </div>
             </div>
           </div>
-      </div>
+        </div>
 
         {/* <div className="section-content "> */}
 

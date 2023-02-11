@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import webSitePaths from "../../assets/js/webSitePaths";
 
 const BlogCard2 = ({ item, index }) => {
   // const item = passItem
-  const blogRoute = webSitePaths.blogRoute;
+
   const [blackOpacity, setBlackOpacity] = React.useState({
     isHover: false,
   });

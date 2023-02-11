@@ -14,11 +14,7 @@ import { HashLink } from "react-router-hash-link";
 const PrivacyPolicy = () => {
   const [banner, setBanner] = useState(null);
 
-  const client = createClient({
-    // contentful connect
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
+
 
 
   useEffect(() => {
@@ -34,6 +30,13 @@ const PrivacyPolicy = () => {
   }, []);
 
   useEffect(() => {
+
+    const client = createClient({
+    // contentful connect
+    space: process.env.REACT_APP_CONTENTFUL_SPACE,
+    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+  });
+
     const getContentfulContents = async () => {
       try {
         await client

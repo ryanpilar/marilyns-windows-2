@@ -18,15 +18,15 @@ const AboutMe = () => {
   const [imageCarousel, setImageCarousel] = useState(null);
   const [imagesTwo, setImagesTwo] = useState(null);
 
-  const client = createClient({
-    // contentful connect
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
-
   useEffect(() => {
     const getContentfulContents = async () => {
       try {
+        const client = createClient({
+          // contentful connect
+          space: process.env.REACT_APP_CONTENTFUL_SPACE,
+          accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+        });
+
         await client.getEntries().then((allEntries) => {
           const contentfulContent = allEntries.items;
           const aboutContent = contentfulContent.filter(

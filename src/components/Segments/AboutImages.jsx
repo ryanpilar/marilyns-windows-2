@@ -1,5 +1,4 @@
-import { createClient } from "contentful";
-import { useState } from "react";
+
 import AboutImage from "./AboutImage";
 
 const AboutImages = ({ images }) => {

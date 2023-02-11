@@ -5,7 +5,7 @@ import { createClient } from "contentful";
 
 import Header3 from "../Common/Header3";
 import Banner from "../Segments/Banner";
-import BlogCard from "../Segments/BlogCard";
+// import BlogCard from "../Segments/BlogCard";
 import Footer from "../Common/Footer";
 import SEO from "../Segments/SEO";
 import { Link } from "react-router-dom";

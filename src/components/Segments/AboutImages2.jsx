@@ -3,7 +3,7 @@ import AboutImage2 from "./AboutImage2";
 
 const AboutImages2 = ( {images} ) => {
 
-console.log('images', images)
+// console.log('images', images)
 
   // const images = [
   //   { image: require("./../../images/blog/default/thum3.jpg") },

@@ -48,7 +48,7 @@ const Service = ({ process }) => {
                 <div className="col-md-6 col-sm-12">
                   <div className="wt-box our-story-detail" id="consultation">
                     {/* <h3 className="text-uppercase">1</h3> */}
-                    <h3 className="font-24 font-weight-500 text-uppercase">
+                    <h3 className="font-24 font-weight-500 text-uppercase ">
                       1. Book a consultation
                     </h3>
                     <p>
@@ -74,7 +74,7 @@ const Service = ({ process }) => {
                 <div className="col-md-6 col-sm-12">
                   <div className="wt-box our-story-detail" id="ideas">
                     {/* <h3 className="text-uppercase">2</h3> */}
-                    <h3 className="font-24 font-weight-500 text-uppercase">
+                    <h3 className="font-24 font-weight-500 text-uppercase ">
                       2. Drapery Ideas, Fabric Samples and Measurements
                     </h3>
                     <p>
@@ -121,7 +121,7 @@ const Service = ({ process }) => {
 
                 <div className="col-md-6 col-sm-12">
                   <div className="wt-box our-story-detail" id="install">
-                    <h3 className="font-24 font-weight-500 text-uppercase">
+                    <h3 className="font-24 font-weight-500 text-uppercase ">
                       3. Professional Installs
                     </h3>
                     <p>
@@ -140,7 +140,7 @@ const Service = ({ process }) => {
                 <div className="col-md-6 col-sm-12 ">
                   <div className="wt-box our-story-detail" id="warranty">
                     {/* <h3 className="text-uppercase">2017-18</h3> */}
-                    <h3 className="font-24 font-weight-500 text-uppercase">
+                    <h3 className="font-24 font-weight-500 text-uppercase ">
                       4. Maintenance and Warranty
                     </h3>
                     <p>

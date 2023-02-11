@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import Header3 from "../Common/Header3";
 import Banner from "./../Segments/Banner";
-import Banner2 from "../Segments/Banner2";
+// import Banner2 from "../Segments/Banner2";
 // import Story from './../Segments/Story';
 import Service from "./../Segments/Service";
 import Service2 from "../Segments/Service2";
@@ -13,21 +13,14 @@ import { createClient } from "contentful";
 import { Link } from "react-router-dom";
 import Contact from "../Segments/Contact";
 import ClientsLogo from "../Segments/ClientsLogo";
-import { useLocation } from "react-router-dom";
 
 const Services = () => {
   const [banner, setBanner] = useState(null);
-  const [testimonial, setTestimonial] = useState(null);
+  // const [testimonial, setTestimonial] = useState(null);
   const [designProcess, setDesignProcess] = useState(null);
   const [affiliates, setAffiliates] = useState(null);
 
-  const client = createClient({
-    // contentful connect
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
 
-  const location = useLocation();
 
   useEffect(() => {
     window.addEventListener("load", () => {
@@ -48,6 +41,12 @@ const Services = () => {
   // }, [location])
 
   useEffect(() => {
+    const client = createClient({
+    // contentful connect
+    space: process.env.REACT_APP_CONTENTFUL_SPACE,
+    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+  });
+
     const getContentfulContents = async () => {
       try {
         await client
@@ -60,9 +59,9 @@ const Services = () => {
             setBanner({
               image: servicesContent[0].fields.topBanner[0].secure_url,
             });
-            setTestimonial({
-              image: servicesContent[0].fields.testimonialImage[0],
-            });
+            // setTestimonial({
+            //   image: servicesContent[0].fields.testimonialImage[0],
+            // });
             setDesignProcess({
               consultation: {
                 image: servicesContent[0].fields.consultationImage[0],
@@ -78,6 +77,7 @@ const Services = () => {
               },
             });
           });
+
         await client
           .getEntries({ content_type: "affiliates" })
           .then((allEntries) => {

@@ -5,21 +5,14 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { MARKS } from "@contentful/rich-text-types";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
-
 import { createClient } from "contentful";
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 
 const About = () => {
   const [content, setContent] = useState(null);
-
-  const client = createClient({
-    // contentful connect
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
 
   const richTextConversion = (richText) => {
     // process rich text coming from contentful
@@ -39,6 +32,11 @@ const About = () => {
   };
 
   useEffect(() => {
+    const client = createClient({
+      // contentful connect
+      space: process.env.REACT_APP_CONTENTFUL_SPACE,
+      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+    });
     const getAllEntries = async () => {
       // contentful get data
       try {
@@ -138,7 +136,7 @@ const About = () => {
                           <div className="item " key={index}>
                             <div className="ow-img wt-img-effect zoom-slow">
                               <img
-                                src={item.secure_url} 
+                                src={item.secure_url}
                                 alt={item.context.custom.alt}
                                 data-pin-description={
                                   item.context.custom.dataPin
@@ -169,5 +167,3 @@ const About = () => {
 };
 
 export default About;
-
-

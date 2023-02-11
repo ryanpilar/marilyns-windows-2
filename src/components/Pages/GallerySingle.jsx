@@ -26,7 +26,7 @@ import webSitePaths from "../../assets/js/webSitePaths";
 const GallerySingle = () => {
   const { id } = useParams(); // grabs the contentful :id from the address bar (:id)
   const [imageData, setImageData] = useState(null);
-  const [imageList, setImageList] = useState([]);
+  // const [imageList, setImageList] = useState([]);
   const [spinner, setSpinner] = useState(true);
   const [galleryBanner, setGalleryBanner] = useState(null);
 
@@ -47,12 +47,6 @@ const GallerySingle = () => {
       },
     });
 
-  const client = createClient({
-    // contentful connect
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
-
   useEffect(() => {
     window.addEventListener("load", () => {
       window.scrollTo(0, 0);
@@ -66,7 +60,14 @@ const GallerySingle = () => {
   }, []);
 
   useEffect(() => {
-    const getEntryById = async () => {
+    const getContentfulEntries = async () => {
+
+      const client = createClient({
+        // contentful connect
+        space: process.env.REACT_APP_CONTENTFUL_SPACE,
+        accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+      });
+
       try {
         await client.getEntry(id).then((galleryEntry) => {
           // console.log("GALLERY ENTRY", galleryEntry);
@@ -74,33 +75,21 @@ const GallerySingle = () => {
           toggleSpinner();
         });
 
-        await client
-          .getEntries({ content_type: "gallery" })
-          .then((allEntries) => {
-            // allEntries.items.sort((a, b) => {
-            //   return a.fields.priority - b.fields.priority;
-            // });
-            // console.log("allEntries.items", allEntries.items);
-            setImageList(allEntries.items);
-          });
-      } catch (error) {
-        console.log("error");
-      }
-    };
+        // await client
+        //   .getEntries({ content_type: "gallery" })
+        //   .then((allEntries) => {
+        //     // allEntries.items.sort((a, b) => {
+        //     //   return a.fields.priority - b.fields.priority;
+        //     // });
+        //     // console.log("allEntries.items", allEntries.items);
+        //     setImageList(allEntries.items);
+        //   });
 
-    getEntryById();
-  }, []);
-
-  useEffect(() => {
-    const getBanner = async () => {
-      try {
         await client
           .getEntries({ content_type: "banner" })
           .then((galleryBanner) => {
-            console.log(
-              "info",
-              galleryBanner.items[0].fields.backgroundImage[0].secure_url
-            );
+            
+            
             setGalleryBanner(
               galleryBanner.items[0].fields.backgroundImage[0].secure_url
             );
@@ -110,8 +99,19 @@ const GallerySingle = () => {
       }
     };
 
-    getBanner();
+    getContentfulEntries();
   }, []);
+
+  // useEffect(() => {
+  //   const getBanner = async () => {
+  //     try {
+
+  //     } catch (error) {
+  //       console.log("error");
+  //     }
+  //   };
+
+  // }, []);
 
   useLayoutEffect(() => {
     function loadScript(src) {
@@ -281,7 +281,7 @@ const GallerySingle = () => {
                               url={galleryRoute}
                               aria-label="Share to Facebook"
                             >
-                              <a className="fa fa-facebook" />
+                              <a className=""><i className="fa fa-facebook" /></a>
                             </FacebookShareButton>
                           </li>
                           <li>
@@ -291,7 +291,7 @@ const GallerySingle = () => {
                               url={galleryRoute}
                               aria-label="Share to Twitter"
                             >
-                              <a className="fa fa-twitter" />
+                              <a className=""><i className="fa fa-twitter" /></a>
                             </TwitterShareButton>
                           </li>
                           <li>
@@ -305,9 +305,9 @@ const GallerySingle = () => {
                                 target="_blank"
                                 rel="noreferrer"
                                 href="https://in.linkedin.com"
-                                className="fa fa-linkedin"
+                                
                                 aria-label="Share to Linkedin"
-                              />
+                              ><i className="fa fa-linkedin" /></a>
                             </LinkedinShareButton>
                           </li>
                           <li>
@@ -317,21 +317,21 @@ const GallerySingle = () => {
                               url={galleryRoute}
                             >
                               <a
-                                className="fa fa-envelope"
+                                
                                 aria-label="Share to Email"
-                              />
+                              ><i className="fa fa-envelope" /></a>
                             </EmailShareButton>
                           </li>
                           <li>
                             <a
-                              className="fa fa-link"
+                              
                               style={{ cursor: "pointer" }}
                               onClick={() => {
                                 navigator.clipboard.writeText(galleryRoute);
                                 clipboardToast();
                               }}
                               aria-label="Copy Link Address"
-                            />
+                            ><i className="fa fa-link" /></a>
                           </li>
                         </ul>
                       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 // import { NavLink, Link } from 'react-router-dom';
-import OwlCarousel from "react-owl-carousel";
+// import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
@@ -17,19 +17,19 @@ import AboutImages2 from "./AboutImages2";
 // ]
 
 const About2 = ({ images }) => {
-  const options = {
-    loop: true,
-    autoplay: true,
-    autoplayTimeout: 3000,
-    margin: 30,
-    nav: true,
-    navText: [
-      '<i class="fa fa-angle-left"></i>',
-      '<i class="fa fa-angle-right"></i>',
-    ],
-    items: 1,
-    dots: false,
-  };
+  // const options = {
+  //   loop: true,
+  //   autoplay: true,
+  //   autoplayTimeout: 3000,
+  //   margin: 30,
+  //   nav: true,
+  //   navText: [
+  //     '<i class="fa fa-angle-left"></i>',
+  //     '<i class="fa fa-angle-right"></i>',
+  //   ],
+  //   items: 1,
+  //   dots: false,
+  // };
 
   return (
     <>

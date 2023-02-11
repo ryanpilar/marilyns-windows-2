@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import ScrollToTop from "./ScrollToTop";
 
 import { useParams } from "react-router-dom"; // useParams allows the '/blog/post/:id' to work
 import { Link } from "react-router-dom";
@@ -29,24 +28,15 @@ import { MARKS } from "@contentful/rich-text-types";
 import toast, { Toaster } from "react-hot-toast";
 import webSitePaths from "../../assets/js/webSitePaths";
 
-var bnrimg = require("./../../images/banner/2.jpg");
-
 const BlogPost = () => {
   const [blogPostBanner, setBlogPostBanner] = useState(null);
 
   var bgimg = require("./../../images/background/ptn-1.png");
 
-
-
   const { id } = useParams(); // grabs the contentful :id form the address bar
 
   const [singleBlogPost, setSingleBlogPost] = useState([]);
   const blogRoute = webSitePaths.blogRoute + id;
-
-    const client = createClient({
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
 
   const clipboardToast = () =>
     toast.success("Copied! Check your clipboard for link.", {
@@ -72,6 +62,10 @@ const BlogPost = () => {
   }, []);
 
   useEffect(() => {
+    const client = createClient({
+      space: process.env.REACT_APP_CONTENTFUL_SPACE,
+      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+    });
     const getBanner = async () => {
       try {
         await client
@@ -193,7 +187,6 @@ const BlogPost = () => {
 
   return (
     <>
-      {/* <ScrollToTop /> */}
       {singleBlogPost && blogPostBanner && (
         <>
           <SEO
@@ -212,12 +205,6 @@ const BlogPost = () => {
                 posRight={true}
               />
             )}
-
-            {/* <Banner
-              title="high quality, effective, and inspiring built space."
-              pagename="Blog Post"
-              bgimage={bnrimg.default}
-            /> */}
 
             <div className="section-full p-tb90 square_shape1 square_shape3 tm-blog-single-wrap">
               <div className="container">
@@ -321,7 +308,7 @@ const BlogPost = () => {
                                         url={blogRoute}
                                         aria-label="Share to Facebook"
                                       >
-                                        <a className="fa fa-facebook" />
+                                        <a className=""><i className="fa fa-facebook" /></a>
                                       </FacebookShareButton>
                                     </li>
                                     <li>
@@ -333,7 +320,7 @@ const BlogPost = () => {
                                         url={blogRoute}
                                         aria-label="Share to Twitter"
                                       >
-                                        <a className="fa fa-twitter" />
+                                        <a className=""><i className="fa fa-twitter" /></a>
                                       </TwitterShareButton>
                                     </li>
                                     <li>
@@ -349,12 +336,12 @@ const BlogPost = () => {
                                         url={blogRoute}
                                       >
                                         <a
-                                          target="_blank"
-                                          rel="noreferrer"
-                                          href="https://in.linkedin.com"
-                                          className="fa fa-linkedin"
-                                          aria-label="Share to Linkedin"
-                                        />
+                                target="_blank"
+                                rel="noreferrer"
+                                href="https://in.linkedin.com"
+                                
+                                aria-label="Share to Linkedin"
+                              ><i className="fa fa-linkedin" /></a>
                                       </LinkedinShareButton>
                                     </li>
 
@@ -365,15 +352,14 @@ const BlogPost = () => {
                                         url={blogRoute}
                                       >
                                         <a
-                                          className="fa fa-envelope"
-                                          aria-label="Share to Email"
-                                        />
+                                
+                                aria-label="Share to Email"
+                              ><i className="fa fa-envelope" /></a>
                                       </EmailShareButton>
                                     </li>
 
                                     <li>
                                       <a
-                                        className="fa fa-link"
                                         style={{ cursor: "pointer" }}
                                         onClick={() => {
                                           navigator.clipboard.writeText(
@@ -382,7 +368,7 @@ const BlogPost = () => {
                                           clipboardToast();
                                         }}
                                         aria-label="Copy Link Address"
-                                      />
+                                        ><i className="fa fa-link" /></a>
                                     </li>
                                   </ul>
                                 </div>

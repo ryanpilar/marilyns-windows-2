@@ -23,13 +23,12 @@ const Gallery22 = () => {
     { label: "Office", filter: ".Office" },
   ];
 
-  const client = createClient({
-    // contentful connect
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
-
   useEffect(() => {
+    const client = createClient({
+      // contentful connect
+      space: process.env.REACT_APP_CONTENTFUL_SPACE,
+      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+    });
     const getAllEntries = async () => {
       // contentful get data
       try {
@@ -167,13 +166,13 @@ const Gallery22 = () => {
                   <div className="filter-wrap p-b50 p-t10">
                     <ul className="masonry-filter link-style  text-uppercase ">
                       <li className="active">
-                        <a data-filter="*" href="#">
+                        <a data-filter="*" href="#" aria-label="Show all items">
                           All
                         </a>
                       </li>
                       {filters.map((item, index) => (
                         <li key={index}>
-                          <a data-filter={item.filter} href="#">
+                          <a data-filter={item.filter} href="#" aria-label="Show select items">
                             {item.label}
                           </a>
                         </li>
@@ -193,13 +192,14 @@ const Gallery22 = () => {
                         key={index}
                         className={`${item.fields.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30 `}
                       >
-                        <div class="add-box-shadow">
+                        <div className="add-box-shadow">
                           <div className="wt-img-effect wt-img-black-bg ">
                             <div className="img-opacity ">
                               <img
                                 src={item.fields.smallImage[0].secure_url}
                                 alt={
-                                  item.fields.smallImage[0]?.context?.custom?.alt
+                                  item.fields.smallImage[0]?.context?.custom
+                                    ?.alt
                                 }
                                 caption={
                                   item.fields.smallImage[0]?.context?.custom
