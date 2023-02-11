@@ -3,7 +3,7 @@
   publish = "public"
 
 [[plugins]]
-  package = "netlify-plugin-sitemap"
+  package = "@netlify/plugin-sitemap"
   [plugins.inputs]
     hostname = "https://marilyns-windows.netlify.app"
     pagesDirectory = "src/components/Pages"
