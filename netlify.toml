@@ -1,6 +1,6 @@
 // In your netlify.toml file:
 [build]
-  command = "CI= npm run build"
+  command = "npm run build"
   publish = "public"
 
 [[plugins]]
