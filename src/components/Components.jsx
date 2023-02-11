@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home2 from './Pages/Home2';
 import AboutMe from './Pages/AboutMe';
 import Services from './Pages/Services';
-import BlogPost from './Segments/BlogPost';
+import BlogPost from './Pages/BlogPost';
 import Blog from './Pages/Blog'
 import Gallery22 from './Pages/Gallery22';
 import GallerySingle from './Pages/GallerySingle'
@@ -12,7 +12,7 @@ import NotFound from './Pages/NotFound';
 import TermsOfService from './Pages/TermsOfService';
 import PrivacyPolicy from './Pages/PrivacyPolicy';
 
-// import Sitemap from './Sitemap'
+import Sitemap from './Sitemap'
 
 
 const Components = () => {
@@ -28,24 +28,56 @@ const Components = () => {
 
                         <Switch>
 
-                            <Route path='/' exact component={Home2} />
-                            <Route path='/aboutme' exact component={AboutMe} />
-                            <Route path='/gallery' exact component={Gallery22} />
+                            <Route path='/' exact component={Home2} 
+                                sitemapIndex='true'
+                                changefreq='weekly'
+                                priority='1'
+                            />
+                            <Route path='/aboutme' exact component={AboutMe} 
+                                sitemapIndex='true'
+                                changefreq='weekly'
+                                priority='0.7'
+                            />
+                            <Route path='/gallery' exact component={Gallery22} 
+                                sitemapIndex='true'
+                                changefreq='weekly'
+                                priority='0.9'
+                            />
                             <Route path='/gallery/room/:id' exact component={ () => <GallerySingle  key={generateRandomKey()}
 
                             /> }  />
-                            <Route path='/blog' exact component={Blog} />
+                            <Route path='/blog' exact component={Blog} 
+                                sitemapIndex='true'
+                                changefreq='weekly'
+                                priority='0.8'
+                            />
                             <Route path='/blog/post/:id' exact component={ () => <BlogPost key={generateRandomKey()}
 
                             /> } />
-                            <Route path='/services' exact component={Services} />
-                            <Route path='/terms' exact component={TermsOfService} />
-                            <Route path='/privacy' exact component={PrivacyPolicy} />
+                            <Route path='/services' exact component={Services} 
+                                sitemapIndex='true'
+                                changefreq='weekly'
+                                priority='0.9'
+                            />
+                            <Route path='/terms' exact component={TermsOfService} 
+                                sitemapIndex='true'
+                                changefreq='yearly'
+                                priority='0.5'
+                            />
+                            <Route path='/privacy' exact component={PrivacyPolicy} 
+                                sitemapIndex='true'
+                                changefreq='yearly'
+                                priority='0.5'
+                            />
 
                             <Route path='*'>
-                                <NotFound />
+                                <NotFound 
+                                    sitemapIndex='true'
+                                    changefreq='yearly'
+                                    priority='0.5'
+                                />
                             </Route>
-                            {/* <Route path="/sitemap" component={<Sitemap />} > </Route> */}
+                            <Route path="/sitemap" component={<Sitemap />} > </Route>
                             {/* <Route component={Error} />
                             <Route component={Error} /> */}
                             

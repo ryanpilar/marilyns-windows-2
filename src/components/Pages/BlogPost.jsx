@@ -10,9 +10,9 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 
 import Header3 from "../Common/Header3";
 import Footer from "../Common/Footer";
-import Banner3 from "./../Segments/Banner3";
+import Banner3 from "../Segments/Banner3";
 import SEO from "../Segments/SEO";
-import RelatedBlog from "./RelatedBlog";
+import RelatedBlog from "../Segments/RelatedBlog";
 
 import {
   EmailShareButton,
