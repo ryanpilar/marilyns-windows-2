@@ -1,11 +1,11 @@
 // In your netlify.toml file:
 [build]
-  command = "npm run build"
+  command = "CI= npm run build"
   publish = "public"
 
 [[plugins]]
   package = "netlify-plugin-sitemap"
 
   [plugins.inputs]
-  hostname = "https://marilyns-windows.netlify.app/"
-  pagesDirectory = "src/components/Pages" 
+  hostname = "https://marilyns-windows.netlify.app"
+  pagesDirectory = "src/components/Pages"
