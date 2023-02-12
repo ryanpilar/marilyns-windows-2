@@ -60,7 +60,7 @@ const Service2 = ({ testimonial }) => {
             <div className="blog-post date-style-1 blog-detail text-black m-tauto ">
               <div className="row">
                 <div className="wt-post-text col-md-4 col-sm-12 col-xs-12 float-right ">
-                  <h2 className="font-weight-550 text-uppercase font-18 m-t0 m-b5 p-t0">
+                  <h2 className="font-weight-500 text-uppercase font-18 m-t0 m-b5 p-t0">
                     Quick Links
                   </h2>
                   <ul className="p-l40 ">
@@ -147,7 +147,7 @@ const Service2 = ({ testimonial }) => {
                       thread is quality, and crafted to last.
                     </p>
                   </div>
-                  <div className="m-l20 m-r30 m-t30">
+                  <div className="m-l20 m-r40 m-t30">
                     <div className="bdr-dot-2 bdr-gray-light p-t20 p-b40 p-l20 p-r12">
                       <h3 className="font-16 font-weight-500 text-uppercase ">
                         Don't Miss Out!

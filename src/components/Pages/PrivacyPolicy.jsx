@@ -14,9 +14,6 @@ import { HashLink } from "react-router-hash-link";
 const PrivacyPolicy = () => {
   const [banner, setBanner] = useState(null);
 
-
-
-
   useEffect(() => {
     window.addEventListener("load", () => {
       window.scrollTo(0, 0);
@@ -30,12 +27,11 @@ const PrivacyPolicy = () => {
   }, []);
 
   useEffect(() => {
-
     const client = createClient({
-    // contentful connect
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
+      // contentful connect
+      space: process.env.REACT_APP_CONTENTFUL_SPACE,
+      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+    });
 
     const getContentfulContents = async () => {
       try {
@@ -71,9 +67,11 @@ const PrivacyPolicy = () => {
         {banner && (
           <Banner
             heading="Services"
-            title="Serving Milton, Georgetown, Burlington, Oakville Mississauga and surrounding areas."
-            pagename="Services"
+            title="Privacy Policy"
+            pagename=""
             bgimage={banner.image}
+            posLeft={true}
+            // posRight={true}
           />
         )}
       </div>
@@ -100,14 +98,14 @@ const PrivacyPolicy = () => {
           <>
             <div className="square_shape1 ">
               {/* <div className="section-full  p-t20 p-b90 square_shape1 square_shape3 tm-blog-single-wrap "> */}
-              <div className="section-full  p-t20 p-b90 tm-blog-single-wrap ">
+              <div className="section-full  p-t0 p-b90 tm-blog-single-wrap ">
                 <div className="container ">
                   <div className="max-mid-container ">
                     {/* TITLE START */}
                     <div className="section-head text-left text-black">
-                      <h1 className="text-uppercase font-45 font-weight-500">
+                      {/* <h1 className="text-uppercase font-45 font-weight-500">
                         Our Privacy Policy
-                      </h1>
+                      </h1> */}
                       <div className="wt-separator-outer">
                         <div className="wt-separator bg-black" />
                       </div>
@@ -116,7 +114,7 @@ const PrivacyPolicy = () => {
                     <div className="blog-post date-style-1 blog-detail text-black m-tauto ">
                       <div className="row">
                         <div className="wt-post-text col-md-4 col-sm-12 col-xs-12 float-right ">
-                          <h2 className="font-weight-550 text-uppercase font-18 m-t0 m-b5 p-t0">
+                          <h2 className="font-weight-500 text-uppercase font-18 m-t0 m-b5 p-t0">
                             Quick Links
                           </h2>
                           <ul className="p-l40 ">
@@ -262,7 +260,9 @@ const PrivacyPolicy = () => {
                           provide services on our behalf, such as website
                           hosting or email distribution. These third parties are
                           prohibited from using your personal information for
-                          any other purpose. We may also be required to disclose your personal information in response to a valid legal request, such as a subpoena or court order.
+                          any other purpose. We may also be required to disclose
+                          your personal information in response to a valid legal
+                          request, such as a subpoena or court order.
                         </p>
                       </div>
                       <div className="row"></div>
@@ -270,15 +270,16 @@ const PrivacyPolicy = () => {
 
                     {/* TITLE START */}
                     <div id="security" className="text-left text-black">
-                      <h2 className="text-uppercase font-20">
-                        Security
-                      </h2>
+                      <h2 className="text-uppercase font-20">Security</h2>
                     </div>
                     {/* TITLE END */}
                     <div className="blog-post date-style-1 blog-detail text-black">
                       <div className="wt-post-text col-md-7 col-sm-12">
                         <p>
-                        We take reasonable precautions to protect your personal information from loss, misuse, and unauthorized access, disclosure, alteration, and destruction.
+                          We take reasonable precautions to protect your
+                          personal information from loss, misuse, and
+                          unauthorized access, disclosure, alteration, and
+                          destruction.
                         </p>
                       </div>
                       <div className="row"></div>
@@ -287,21 +288,21 @@ const PrivacyPolicy = () => {
                     {/* TITLE START */}
                     <div id="changes" className="text-left text-black">
                       <h2 className="text-uppercase font-20">
-                      Changes to this Privacy Policy
+                        Changes to this Privacy Policy
                       </h2>
                     </div>
                     {/* TITLE END */}
                     <div className="blog-post date-style-1 blog-detail text-black">
                       <div className="wt-post-text col-md-7 col-sm-12">
                         <p>
-                        We may update this Privacy Policy from time to time to reflect changes to our information practices. We will post a notice on our website to notify you of any significant changes to our Privacy Policy.
-
+                          We may update this Privacy Policy from time to time to
+                          reflect changes to our information practices. We will
+                          post a notice on our website to notify you of any
+                          significant changes to our Privacy Policy.
                         </p>
                       </div>
                       <div className="row"></div>
                     </div>
-
-
 
                     {/* TITLE START */}
                     <div id="contact" className="text-left text-black">
@@ -313,9 +314,28 @@ const PrivacyPolicy = () => {
                         <p>
                           If you have any questions about these Terms, or if you
                           would like to schedule a consultation for our custom
-                          window treatment solutions, please contact us at
-                          Marilyn’s Windows, 468 Valleyview Cr., Milton,
-                          Ontario, Canada, L9T 3L2, marilyn@marilynswindows.com.
+                          window treatment solutions, please contact us at:
+                          
+                          <p className='p-t10 '>
+                          Marilyn’s Windows
+                            <a
+                              className="link-style font-14 text-uppercase"
+                              href="tel:905-878-0939"
+                            >
+                              <p>(905) 878 0626</p>
+                            </a>
+                            
+                            <a
+                              className="link-style font-14 text-uppercase"
+                              href="mailto:marilyn@marilynswindows.com"
+                            >
+                              <p>marilyn@marilynswindows.com</p>
+                            </a>
+                            <p>
+                              468 Valleyview Cr., Milton, Ontario, Canada, L9T
+                              3L2,
+                            </p>
+                          </p>
                         </p>
                       </div>
                       <div className="row"></div>

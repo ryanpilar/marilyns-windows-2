@@ -53,9 +53,11 @@ const About2 = ({ images }) => {
         <div className="row">
           <div className="col-lg-8 col-md-8 col-sm-12">
             <div className="m-about-containt text-black p-l20 p-r10 m-b20">
-              <span className="font-28 font-weight-300 text-uppercase ">About Marilyn</span>
-              <h2 className="font-40 font-weight-500 text-uppercase ">
-                Our mission is the best Development &amp; interior design.
+              <span className="font-24 font-weight-300 text-uppercase ">
+                About Marilyn
+              </span>
+              <h2 className="font-40 font-weight-500 text-uppercase letter-spacing-2">
+                Our mission is the best Development &amp; interior design
               </h2>
 
               <p className="">
@@ -79,9 +81,11 @@ const About2 = ({ images }) => {
                 hand-sewn curtains, drapes, blinds, and home bedding and accents
                 with the world’s finest fabrics, hardware, and accessories.
               </p>
-              <div className="m-l20 m-r30 m-t30">
-                <div className="bdr-dot-2 bdr-gray-light p-t20 p-b30 p-l20 p-r12 ">
-                  <h3 className="font-16 font-weight-500 text-uppercase ">Don't Miss Out!</h3>
+              <div className="m-l20 m-r40 m-t40">
+                <div className="bdr-dot-2 bdr-gray-light p-t20 p-b30 p-l30 p-r20 ">
+                  <h3 className="font-16 font-weight-500 text-uppercase ">
+                    Don't Miss Out!
+                  </h3>
                   <p>
                     Be sure to visit{" "}
                     <NavLink
@@ -90,35 +94,37 @@ const About2 = ({ images }) => {
                     >
                       <span className="">Marilyn's Blog</span>
                     </NavLink>{" "}
-                    to discover insights and learn more about window treatments. Or visit{" "}
+                    to discover insights and learn more about window treatments.
+                    Or visit{" "}
                     <NavLink
                       to={"/blog"}
                       className="text-uppercase link-style font-14"
                     >
                       <span className="">The Gallery</span>
                     </NavLink>{" "}
-                    to get gain ideas and get visually inspired for your next project.
+                    to get gain ideas and get visually inspired for your next
+                    project.
                   </p>
-                  <div className="m-t40">
-                <NavLink
-                  to={"/gallery"}
-                  className="btn-half text-white site-button button-md m-b15 m-r15"
-                >
-                  <span className="p-lr5">Gallery</span>
-                  <em />
-                </NavLink>
-                <NavLink
-                  to={"/blog"}
-                  className="btn-half text-white site-button button-md m-b15"
-                >
-                  <span className="p-lr5"> Blog</span>
-                  <em />
-                </NavLink>
-              </div>
+                  <div className="m-t40 text-right ">
+                    <NavLink
+                      to={"/gallery"}
+                      className="btn-half pad text-white site-button button-md m-b15 "
+                    >
+                      <span className="p-lr5">Gallery</span>
+                      <em />
+                    </NavLink>
+                    <NavLink
+                      to={"/blog"}
+                      className="btn-half pad text-white site-button button-md m-b15 "
+                    >
+                      <span className="p-lr5"> Blog</span>
+                      <em />
+                    </NavLink>
+                  </div>
                 </div>
-                
               </div>
-              
+
+
             </div>
           </div>
         </div>

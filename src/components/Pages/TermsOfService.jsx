@@ -122,7 +122,7 @@ const TermsOfService = () => {
                           </p>
                         </div>
                         <div className="wt-post-text col-md-12 col-sm-12 col-xs-12  ">
-                          <h2 className="font-weight-550 text-uppercase font-18 m-t0 m-b5 p-t20">
+                          <h2 className="font-weight-500 text-uppercase font-18 m-t0 m-b5 p-t20">
                             Quick Links
                           </h2>
                           <ul className="p-l40 ">
