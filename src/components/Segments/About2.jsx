@@ -45,16 +45,16 @@ const About2 = ({ images }) => {
         <div className="p-b40 p-l20 text-left ">
           {/* <h1 className="text-uppercase font-50">Marilyn's Story</h1> */}
           {/* <div className="wt-separator-outer"> */}
-            <div className="wt-separator bg-black" />
+          <div className="wt-separator bg-black" />
           {/* </div> */}
         </div>
         {/* TITLE END */}
 
         <div className="row">
           <div className="col-lg-8 col-md-8 col-sm-12">
-            <div className="m-about-containt text-uppercase text-black p-l20 p-r10">
-              <span className="font-28 font-weight-300 ">About Marilyn</span>
-              <h2 className="font-40 font-weight-500 ">
+            <div className="m-about-containt text-black p-l20 p-r10 m-b20">
+              <span className="font-28 font-weight-300 text-uppercase ">About Marilyn</span>
+              <h2 className="font-40 font-weight-500 text-uppercase ">
                 Our mission is the best Development &amp; interior design.
               </h2>
 
@@ -62,14 +62,14 @@ const About2 = ({ images }) => {
                 {/* <b>INTERIOR DESIGNER IN MILTON, ONTARIO.</b> */}
               </p>
 
-              <p className="text-lowercase">
+              <p className="">
                 I discovered her love for couture as a little girl, sewing
                 miniature gowns and dresses for her doll collections by hand.
                 Throughout school, she worked long hours to purchase her first
                 professional sewing machine, which she still uses to craft her
                 many custom projects to this day.
               </p>
-              <p className="text-lowercase">
+              <p className="">
                 After pursuing a degree in Textiles at the University of Guelph,
                 Marilyn quickly established herself among Ontario’s elite luxury
                 homeowners, interior designers, custom home builders, real
@@ -79,7 +79,27 @@ const About2 = ({ images }) => {
                 hand-sewn curtains, drapes, blinds, and home bedding and accents
                 with the world’s finest fabrics, hardware, and accessories.
               </p>
-              <div className="m-t40">
+              <div className="m-l20 m-r30 m-t30">
+                <div className="bdr-dot-2 bdr-gray-light p-t20 p-b30 p-l20 p-r12 ">
+                  <h3 className="font-16 font-weight-500 text-uppercase ">Don't Miss Out!</h3>
+                  <p>
+                    Be sure to visit{" "}
+                    <NavLink
+                      to={"/gallery"}
+                      className="text-uppercase link-style font-14"
+                    >
+                      <span className="">Marilyn's Blog</span>
+                    </NavLink>{" "}
+                    to discover insights and learn more about window treatments. Or visit{" "}
+                    <NavLink
+                      to={"/blog"}
+                      className="text-uppercase link-style font-14"
+                    >
+                      <span className="">The Gallery</span>
+                    </NavLink>{" "}
+                    to get gain ideas and get visually inspired for your next project.
+                  </p>
+                  <div className="m-t40">
                 <NavLink
                   to={"/gallery"}
                   className="btn-half text-white site-button button-md m-b15 m-r15"
@@ -95,6 +115,10 @@ const About2 = ({ images }) => {
                   <em />
                 </NavLink>
               </div>
+                </div>
+                
+              </div>
+              
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 // import { RedditIcon } from "react-share";
+import { HashLink } from "react-router-hash-link";
 
 const Service = ({ process }) => {
   const pokaDots = require("../../assets/media/images/ptn-1.png");
@@ -58,13 +59,23 @@ const Service = ({ process }) => {
                       chat over the phone or an in-person meeting.
                     </p>
 
-                    <a
+                    <HashLink
+                        smooth
+                        className="btn-half site-button button-lg m-tb15 text-right"
+                        to="#contact"
+                        aria-label="scroll down to contact"
+                      >
+                        <span>Book Appointment</span>
+                      <em />
+                      </HashLink>
+
+                    {/* <a
                       href="#contact"
                       className="btn-half site-button button-lg m-tb15 text-right"
                     >
                       <span>Make Appointment</span>
                       <em />
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>

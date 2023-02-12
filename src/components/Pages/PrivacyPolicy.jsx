@@ -116,7 +116,7 @@ const PrivacyPolicy = () => {
                     <div className="blog-post date-style-1 blog-detail text-black m-tauto ">
                       <div className="row">
                         <div className="wt-post-text col-md-4 col-sm-12 col-xs-12 float-right ">
-                          <h2 className="font-weight-550 text-uppercase font-22 m-t0 m-b5 p-t0">
+                          <h2 className="font-weight-550 text-uppercase font-18 m-t0 m-b5 p-t0">
                             Quick Links
                           </h2>
                           <ul className="p-l40 ">

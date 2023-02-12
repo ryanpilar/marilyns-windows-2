@@ -610,18 +610,11 @@ h1.one-word-per-line {
   letter-spacing: 1rem;
   font-size: 9rem;
   line-height: 1;
-
-}
-h3.design-process {
-
+  text-shadow: 1.5px 1.5px 2px rgba(214, 181, 167, 0.9);
+  
 }
 
-h1.one-word-per-line {
-  letter-spacing: 1rem;
-  font-size: 9rem;
-  line-height: 1;
 
-}
 @media only screen and (max-width: 991px) {
   h1.one-word-per-line {
     font-size: 7rem;
@@ -1574,6 +1567,9 @@ ol.list-num-count.list-outline-none > li:before {
 }
 .p-r10 {
   padding-right: 10px;
+}
+.p-r12 {
+  padding-right: 12px;
 }
 .p-r15 {
   padding-right: 15px;

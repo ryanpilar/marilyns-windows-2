@@ -60,7 +60,7 @@ const Service2 = ({ testimonial }) => {
             <div className="blog-post date-style-1 blog-detail text-black m-tauto ">
               <div className="row">
                 <div className="wt-post-text col-md-4 col-sm-12 col-xs-12 float-right ">
-                  <h2 className="font-weight-550 text-uppercase font-22 m-t0 m-b5 p-t0">
+                  <h2 className="font-weight-550 text-uppercase font-18 m-t0 m-b5 p-t0">
                     Quick Links
                   </h2>
                   <ul className="p-l40 ">
@@ -119,38 +119,40 @@ const Service2 = ({ testimonial }) => {
                   </ul>
                 </div>
                 <div className="wt-post-text col-md-8 col-sm-12 col-xs-12">
-                  {/* <p>
-                    For over 30 years, Marilyn’s Windows has been providing
-                    exquisitely handcrafted custom drapery to luxury homeowners,
-                    interior designers, home builders and commercial clients.
-                  </p> */}
-                  <p>
-                    Marilyn’s Windows is a high-end workroom that designs and
-                    manufactures all forms of custom window coverings.
-                  </p>
-                  <p>
-                    Whether you need shades, shutters, drapes, or blinds our
-                    work boldly exhibits uncompromised quality, attention to
-                    detail and everything we do is backed by warranties and the
-                    exceptional service that we are known for.
-                  </p>
-
-                  <p>
-                    We are experts at pairing your needs with the best custom
-                    window treatment solutions on the market.
-                  </p>
-                  <p>
-                    All work is handmade in our Canadian workroom, using only
-                    the best fabrics, products and top-of-the-line hardware. We
-                    treat every window, accent pillow, and piece of decor in
-                    your home like it is a work of art. Each fold, crease, and
-                    thread is quality, and crafted to last.
-                  </p>
+                  <div class="">
+                    {/* <p>
+                      For over 30 years, Marilyn’s Windows has been providing
+                      exquisitely handcrafted custom drapery to luxury homeowners,
+                      interior designers, home builders and commercial clients.
+                    </p> */}
+                    <p>
+                      Marilyn’s Windows is a high-end workroom that designs and
+                      manufactures all forms of custom window coverings.
+                    </p>
+                    <p>
+                      Whether you need shades, shutters, drapes, or blinds our
+                      work boldly exhibits uncompromised quality, attention to
+                      detail and everything we do is backed by warranties and the
+                      exceptional service that we are known for.
+                    </p>
+                    <p>
+                      We are experts at pairing your needs with the best custom
+                      window treatment solutions on the market.
+                    </p>
+                    <p>
+                      All work is handmade in our Canadian workroom, using only
+                      the best fabrics, products and top-of-the-line hardware. We
+                      treat every window, accent pillow, and piece of decor in
+                      your home like it is a work of art. Each fold, crease, and
+                      thread is quality, and crafted to last.
+                    </p>
+                  </div>
                   <div className="m-l20 m-r30 m-t30">
-                  <div className='bdr-dot-2 bdr-gray-light p-tb20 p-l20 p-r10'>
-                    <h3 className='font-16 font-weight-500'>Don't Miss Out!</h3>
-                      <p >
-                    
+                    <div className="bdr-dot-2 bdr-gray-light p-t20 p-b40 p-l20 p-r12">
+                      <h3 className="font-16 font-weight-500 text-uppercase ">
+                        Don't Miss Out!
+                      </h3>
+                      <p>
                         Be sure to visit{" "}
                         <Link
                           to={"/gallery"}
@@ -165,10 +167,10 @@ const Service2 = ({ testimonial }) => {
                         >
                           <span className="">Marilyn's Story</span>
                         </Link>{" "}
-                        to gain a better appreciation of where she came from, and
-                        how Marilyn's Windows came to be.
+                        to gain a better appreciation of where she came from,
+                        and how Marilyn's Windows came to be.
                       </p>
-                  </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -226,7 +228,7 @@ const Service2 = ({ testimonial }) => {
 
           <div className="max-mid-container " id="selectServices">
             {/* TITLE START */}
-            <div className="section-head text-left text-black">
+            <div className=" text-left text-black">
               <h2 className="text-uppercase font-34">Select Services</h2>
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />

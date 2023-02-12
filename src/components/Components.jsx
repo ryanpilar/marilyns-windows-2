@@ -12,7 +12,6 @@ import NotFound from './Pages/NotFound';
 import TermsOfService from './Pages/TermsOfService';
 import PrivacyPolicy from './Pages/PrivacyPolicy';
 
-import Sitemap from './Sitemap'
 
 
 const Components = () => {
@@ -77,7 +76,6 @@ const Components = () => {
                                     priority='0.5'
                                 />
                             </Route>
-                            <Route path="/sitemap" component={<Sitemap />} > </Route>
                             {/* <Route component={Error} />
                             <Route component={Error} /> */}
                             
