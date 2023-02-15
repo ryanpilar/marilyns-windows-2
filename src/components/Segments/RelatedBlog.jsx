@@ -6,7 +6,7 @@ import { createClient } from "contentful";
 import BlogCard2 from "./BlogCard2";
 import { useEffect } from "react";
 
-const RelatedBlog = ({id}) => {
+const RelatedBlog = ({ id }) => {
   var bgimg = require("./../../images/background/ptn-1.png");
 
   const options = {
@@ -23,13 +23,13 @@ const RelatedBlog = ({id}) => {
         items: 1,
       },
       480: {
-        items: 2,
+        items: 1,
       },
       767: {
         items: 2,
       },
       1000: {
-        items: 3,
+        items: 2,
       },
     },
   };
@@ -57,7 +57,9 @@ const RelatedBlog = ({id}) => {
           .then((blogEntries) => {
             // console.log("blog entries", blogEntries.items);
 
-            const filteredEntries = id ? removeDouble(blogEntries.items, id) : blogEntries.items;
+            const filteredEntries = id
+              ? removeDouble(blogEntries.items, id)
+              : blogEntries.items;
             // console.log("filtered", filteredEntries);
 
             setBlogPost(filteredEntries);
@@ -90,25 +92,27 @@ const RelatedBlog = ({id}) => {
         <div className="section-content">
           {/* TITLE START */}
           <div className="text-left">
-            <h2 className="text-uppercase font-34">More From Marilyn</h2>
+            <h2 className="text-uppercase font-34 font-weight-400">
+              More From Marilyn
+            </h2>
             <div className="wt-separator-outer">
               <div className="wt-separator bg-black" />
             </div>
           </div>
           {/* TITLE END */}
           {/* CAROUSEL */}
-          <div className="section-content">
+          <div className="section-content ">
             {blogPost && (
-              <OwlCarousel
-                className="owl-carousel blog-related-slider  owl-btn-top-right"
-                {...options}
-              >
-                {blogPost.map((item, index) => (
-                  
+              <div className="">
+                <OwlCarousel
+                  className="owl-carousel blog-related-slider  owl-btn-top-right p-lr10"
+                  {...options}
+                >
+                  {blogPost.map((item, index) => (
                     <BlogCard2 item={item} key={index} />
-                  
-                ))}
-              </OwlCarousel>
+                  ))}
+                </OwlCarousel>
+              </div>
             )}
           </div>
         </div>

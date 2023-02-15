@@ -6,15 +6,9 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 
 import SEO from "../Segments/SEO";
 import { NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 import AboutImages2 from "./AboutImages2";
-
-// const images = [
-//     require('./../../images/gallery/portrait/pic1.jpg'),
-//     require('./../../images/gallery/portrait//pic2.jpg'),
-//     require('./../../images/gallery/portrait//pic3.jpg'),
-
-// ]
 
 const About2 = ({ images }) => {
   // const options = {
@@ -52,82 +46,213 @@ const About2 = ({ images }) => {
 
         <div className="row">
           <div className="col-lg-8 col-md-8 col-sm-12">
-            <div className="m-about-containt text-black p-l20 p-r10 m-b20">
+            <div className="m-about-containt text-black p-l25 p-r10 m-b15">
               <span className="font-24 font-weight-300 text-uppercase ">
-                About Marilyn
+                Designer’s Spotlight
               </span>
-              <h2 className="font-40 font-weight-500 text-uppercase letter-spacing-2">
-                Our mission is the best Development &amp; interior design
-              </h2>
+              {/* <h2 className="font-40 font-weight-500 text-uppercase letter-spacing-2">
+                An Intimate Journey into the Artistry of Marilyn’s Custom Window
+                Treatments
+              </h2> */}
 
-              <p className="">
-                {/* <b>INTERIOR DESIGNER IN MILTON, ONTARIO.</b> */}
+              {/* <p className="">
+                <b>INTERIOR DESIGNER IN MILTON, ONTARIO.</b>
+              </p> */}
+
+              {/* <p className="">
+                Hello, I’m Marilyn. Allow me to take you on a trip down memory
+                lane, where my passion for sewing first blossomed. Join me in
+                revisiting my early beginnings, where my love for sewing first
+                took root and has continued to grow ever since.
               </p>
 
               <p className="">
-                I discovered her love for couture as a little girl, sewing
-                miniature gowns and dresses for her doll collections by hand.
-                Throughout school, she worked long hours to purchase her first
-                professional sewing machine, which she still uses to craft her
-                many custom projects to this day.
-              </p>
-              <p className="">
-                After pursuing a degree in Textiles at the University of Guelph,
-                Marilyn quickly established herself among Ontario’s elite luxury
-                homeowners, interior designers, custom home builders, real
-                estate agents, and insurance companies for her beautifully
-                designed custom curtains and soft furnishings. For over 30
-                years, Marilyn has specialized in the tailored creation of
-                hand-sewn curtains, drapes, blinds, and home bedding and accents
-                with the world’s finest fabrics, hardware, and accessories.
-              </p>
-              <div className="m-l20 m-r40 m-t40">
-                <div className="bdr-dot-2 bdr-gray-light p-t20 p-b30 p-l30 p-r20 ">
-                  <h3 className="font-16 font-weight-500 text-uppercase ">
-                    Don't Miss Out!
-                  </h3>
-                  <p>
-                    Be sure to visit{" "}
-                    <NavLink
-                      to={"/gallery"}
-                      className="text-uppercase link-style font-14"
-                    >
-                      <span className="">Marilyn's Blog</span>
-                    </NavLink>{" "}
-                    to discover insights and learn more about window treatments.
-                    Or visit{" "}
-                    <NavLink
-                      to={"/blog"}
-                      className="text-uppercase link-style font-14"
-                    >
-                      <span className="">The Gallery</span>
-                    </NavLink>{" "}
-                    to get gain ideas and get visually inspired for your next
-                    project.
-                  </p>
-                  <div className="m-t40 text-right ">
-                    <NavLink
-                      to={"/gallery"}
-                      className="btn-half pad text-white site-button button-md m-b15 "
-                    >
-                      <span className="p-lr5">Gallery</span>
-                      <em />
-                    </NavLink>
-                    <NavLink
-                      to={"/blog"}
-                      className="btn-half pad text-white site-button button-md m-b15 "
-                    >
-                      <span className="p-lr5"> Blog</span>
-                      <em />
-                    </NavLink>
-                  </div>
-                </div>
-              </div>
-
-
+                Amidst 600 design books and fabric swatches, my trusty 1962
+                Bernina and its accompanying Serger and Blind Hemmer await (my
+                loyal sewing machines). This journey began with a humble needle
+                and thread, which over 30 years has developed into a thriving
+                career. My love for sewing was rooted in my upbringing on a farm
+                and that is where my story begins.
+              </p> */}
             </div>
           </div>
         </div>
+
+        <div className="row">
+          <div className="wt-post-text col-md-7 col-sm-12 col-xs-12 p-l40 p-b15">
+            <div className="">
+              <h2 className="font-40 font-weight-500 text-uppercase letter-spacing-2 m-t0  p-t0">
+                An Intimate Journey into the Artistry of Marilyn’s Custom Window
+                Treatments
+              </h2>
+              <p className="">
+                Hello, I’m Marilyn. Allow me to take you on a trip down memory
+                lane, where my passion for sewing first blossomed. Join me in
+                revisiting my early beginnings, where my love for sewing first
+                took root and has continued to grow ever since.
+              </p>
+
+              <p className="">
+                Amidst 600 design books and fabric swatches, my trusty 1962
+                Bernina and its accompanying Serger and Blind Hemmer await (my
+                loyal sewing machines). This journey began with a humble needle
+                and thread, which over 30 years has developed into a thriving
+                career. My love for sewing was rooted in my upbringing on a farm
+                and that is where my story begins.
+              </p>
+            </div>
+          </div>
+          <div className="wt-post-text col-md-5 col-sm-12 col-xs-12 p-lr50 float-right ">
+            <div className="quick-links-border">
+              <h2 className="font-weight-500 text-uppercase font-16 m-t0 m-t30 m-b5 p-t0">
+                Table Of Contents
+              </h2>
+              <ul className="list-unstyled p-l10 ">
+                <li className="m-a0">
+                  <HashLink
+                    smooth
+                    className="link-style font-14 text-uppercase "
+                    to="#peaches"
+                    aria-label="scroll down to PEACHES, FABRIC & FACTORIES"
+                  >
+                    <div className="text-capitalize p-lr10">
+                      peaches, fabric & factories
+                    </div>
+                  </HashLink>
+                </li>
+                <ul className="p-l20 list-arrow">
+                  <li className="">
+                    <HashLink
+                      smooth
+                      className="font-14 text-capitalize"
+                      to="#niagara"
+                      aria-label="scroll down to niagara on the lake"
+                    >
+                      <div className="p-lr10">niagara on the lake</div>
+                    </HashLink>
+                  </li>
+
+                  <li className="">
+                    <HashLink
+                      smooth
+                      className="font-14 text-capitalize"
+                      to="#fabricsToCars"
+                      aria-label="scroll down to fabrics to cars and back"
+                    >
+                      <div className="p-lr10 p-tb0 m-tb0">
+                        fabrics to cars and back
+                      </div>
+                    </HashLink>
+                  </li>
+                  <li className="">
+                    <HashLink
+                      smooth
+                      className="font-14 text-capitalize"
+                      to="#backToMyRoots"
+                      aria-label="scroll down to back to my roots"
+                    >
+                      <div className="p-lr10 p-tb0 m-tb0">back to my roots</div>
+                    </HashLink>
+                  </li>
+                </ul>
+                <li className="">
+                  <HashLink
+                    smooth
+                    className="link-style font-14 text-uppercase"
+                    to="#timeless"
+                    aria-label="scroll down to CRAFTING TIMELESS WINDOW TREATMENTS"
+                  >
+                    <div className="p-lr10">
+                      crafting timeless window treatments
+                    </div>
+                  </HashLink>
+                </li>
+                <ul className="p-l20 list-arrow">
+                  <li className="m-a0">
+                    <HashLink
+                      smooth
+                      className="font-14 text-capitalize "
+                      to="#allInclusive"
+                      aria-label="scroll down to all inclusive approach"
+                    >
+                      <div className="p-lr10">all inclusive approach</div>
+                    </HashLink>
+                  </li>
+                  <li className="">
+                    <HashLink
+                      smooth
+                      className="font-14 text-capitalize"
+                      to="#reading"
+                      aria-label="scroll down to reading the room"
+                    >
+                      <div className="p-lr10">reading the room</div>
+                    </HashLink>
+                  </li>
+
+                  <li className="">
+                    <HashLink
+                      smooth
+                      className="font-14 text-capitalize"
+                      to="#fostering"
+                      aria-label="scroll down to fostering a supportive community"
+                    >
+                      <div className="p-lr10 p-tb0 m-tb0">
+                        fostering a supportive community
+                      </div>
+                    </HashLink>
+                  </li>
+                </ul>
+
+                <li className="">
+                  <HashLink
+                    smooth
+                    className="link-style font-14 text-uppercase"
+                    to="#personalizedService"
+                    aria-label="scroll down to PERSONALIZED SERVICE FROM START TO FINISH"
+                  >
+                    <div className="p-lr10 p-tb0 m-tb0">
+                      personalized service from start to finish
+                    </div>
+                  </HashLink>
+                </li>
+                <ul className="p-l20 list-arrow">
+                  <li className="m-a0">
+                    <HashLink
+                      smooth
+                      className="font-14 text-capitalize "
+                      to="#aftercare"
+                      aria-label="scroll down to exceptional aftercare"
+                    >
+                      <div className="p-lr10">exceptional aftercare</div>
+                    </HashLink>
+                  </li>
+                  <li className="">
+                    <HashLink
+                      smooth
+                      className="font-14 text-capitalize"
+                      to="#myWork"
+                      aria-label="scroll down to my work"
+                    >
+                      <div className="p-lr10">my work</div>
+                    </HashLink>
+                  </li>
+
+                  <li className="">
+                    <HashLink
+                      smooth
+                      className="font-14 text-capitalize"
+                      to="#thankYou"
+                      aria-label="scroll down to thank you"
+                    >
+                      <div className="p-lr10 p-tb0 m-tb0">thank you</div>
+                    </HashLink>
+                  </li>
+                </ul>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <div className="row">
           {" "}
           <div className="col-lg-12 col-md-12">
@@ -158,11 +283,11 @@ const About2 = ({ images }) => {
               </OwlCarousel> */}
 
             <div className="">
-              <AboutImages2 images={images} />
+              <AboutImages2 images={images} id="aboutImages2" />
             </div>
 
             {/* </div> */}
-          </div>{" "}
+          </div>
         </div>
       </div>
       {/* </div> */}

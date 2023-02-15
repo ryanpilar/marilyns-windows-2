@@ -23,7 +23,7 @@ import {
 
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { MARKS } from "@contentful/rich-text-types";
+import { MARKS, BLOCKS } from "@contentful/rich-text-types";
 
 import toast, { Toaster } from "react-hot-toast";
 import webSitePaths from "../../assets/js/webSitePaths";
@@ -106,6 +106,10 @@ const BlogPost = () => {
               </span>
             </span>
           ),
+
+          // [BLOCKS.UL_LIST]: (node, children) => (<ul className='list-num-count m-l40'>{children}</ul>),
+          // [BLOCKS.OL_LIST]: (node, children) => (<ol className='list-num-count m-l40'>{children}</ol>),
+          // [BLOCKS.LIST_ITEM]: (node, children) => (<li className='list-num-count m-l40'>{children}</li>),
         },
         renderNode: {
           "embedded-asset-block": (node) => (
@@ -116,26 +120,35 @@ const BlogPost = () => {
               aria-hidden={true}
             />
           ),
-          // [BLOCKS.QUOTE]: (node, children) => (
-          //   <div className="p-4">
-          //     <blockquote className="blockquote">
-          //       <span className="p pt-2">
-          //         <i className="fa fa-quote-right text-primary "></i>
-          //         {children}
-          //       </span>
-          //     </blockquote>
-          //   </div>
-          // ),
+          [BLOCKS.QUOTE]: (node, children) => (
+            <div className="p-4 m-lr30">
+              <blockquote className="blockquote">
+                <span className="p pt-2">
+                  {/* <i className="fa fa-quote-right text-primary "></i> */}
+                  {children}
+                </span>
+              </blockquote>
+            </div>
+          ),
+          [BLOCKS.UL_LIST]: (node, children) => (
+            <ul className="list-simple m-tb40 m-lr20">{children}</ul>
+          ),
+          [BLOCKS.OL_LIST]: (node, children) => (
+            <ol className="list-num-count m-tb40 m-lr20">{children}</ol>
+          ),
+          [BLOCKS.LIST_ITEM]: (node, children) => (
+            <li className="p-tb10">{children}</li>
+          ),
           // [BLOCKS.TABLE]: (node, children) => (
           //   <table className="table table-bordered ">
-          //     <tbody className=" ">{children}</tbody>
+          //     <tbody className="">{children}</tbody>
           //   </table>
           // ),
           // [BLOCKS.TABLE_ROW]: (node, children) => (
-          //   <tr className="thead-dark">{children}</tr>
+          //   <tr className="thead-dark ">{children}</tr>
           // ),
           // [BLOCKS.TABLE_CELL]: (node, children) => (
-          //   <td className="">{children}</td>
+          //   <td className="p-tb30">{children}</td>
           // ),
           // [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
           //   <th className="">
@@ -195,7 +208,7 @@ const BlogPost = () => {
           />
 
           <Header3 />
-          <div className="page-content ">
+          <div className="page-content">
             {blogPostBanner && (
               <Banner3
                 title="Blog Posting"
@@ -227,150 +240,161 @@ const BlogPost = () => {
                       </div>
                     </div>
                   </div>
+                  {/* <div className="container"> */}
+                    <div className="blog-post blog-lg date-style-1 text-black">
+                      <div className="wt-post-media">
+                        {/*Fade slider*/}
 
-                  <div className="blog-post blog-lg date-style-1 text-black">
-                    <div className="wt-post-media">
-                      {/*Fade slider*/}
+                        {singleBlogPost?.fields?.blogImages && (
+                          <OwlCarousel
+                            className="owl-carousel owl-fade-slider-one owl-btn-vertical-center owl-dots-bottom-right"
+                            {...options}
+                          >
+                            {singleBlogPost?.fields?.blogImages?.map(
+                              (item, index) => (
+                                <div className="item" key={index}>
+                                  <div className="aon-thum-bx">
+                                    {/* {console.log("BLOG POST", item)} */}
 
-                      {singleBlogPost?.fields?.blogImages && (
-                        <OwlCarousel
-                          className="owl-carousel owl-fade-slider-one owl-btn-vertical-center owl-dots-bottom-right"
-                          {...options}
-                        >
-                          {singleBlogPost?.fields?.blogImages?.map(
-                            (item, index) => (
-                              <div className="item" key={index}>
-                                <div className="aon-thum-bx">
-                                  {/* {console.log("BLOG POST", item)} */}
-
-                                  <img
-                                    src={item.secure_url}
-                                    alt={item.context.custom.alt}
-                                    data-pin-description={
-                                      item.context.custom.dataPin
-                                    }
-                                    caption={item.context.custom.caption}
-                                    width="800"
-                                    height="500"
-                                  />
+                                    <img
+                                      src={item.secure_url}
+                                      alt={item.context.custom.alt}
+                                      data-pin-description={
+                                        item.context.custom.dataPin
+                                      }
+                                      caption={item.context.custom.caption}
+                                      width="800"
+                                      height="500"
+                                    />
+                                  </div>
                                 </div>
-                              </div>
-                            )
-                          )}
-                        </OwlCarousel>
-                      )}
+                              )
+                            )}
+                          </OwlCarousel>
+                        )}
 
-                      {/*fade slider END*/}
-                    </div>
-                    <div className="">
-                      <div className="wt-post-info p-t30">
-                        <div className="wt-post-title ">
-                          <h2 className="post-title">
-                            <span className="text-black font-45 letter-spacing-1">
-                              {singleBlogPost?.fields?.descriptiveTitle}
-                            </span>
-                          </h2>
-                        </div>
-                        <div className="wt-post-meta">
-                          <ul>
-                            <li className="post-date">
-                              <strong>
-                                {singleBlogPost?.fields?.dateCreated}
-                              </strong>
-                            </li>
-                            <li className="post-comment">
-                              {singleBlogPost?.fields?.blogAuthor}
-                            </li>
-                          </ul>
-                        </div>
-
-                        <div className="wt-divider divider-2px"></div>
-                        <div className="rows">
-                          <div className="wt-post-text col-lg-12 col-md-12 col-sm-12">
-                            {richTextConversion()}
+                        {/*fade slider END*/}
+                      </div>
+                      <div className="">
+                        <div className="wt-post-info p-t30">
+                          <div className="">
+                            <div className="wt-post-title ">
+                              <h2 className="post-title">
+                                <span className="text-black font-45 letter-spacing-1">
+                                  {singleBlogPost?.fields?.descriptiveTitle}
+                                </span>
+                              </h2>
+                            </div>
+                            <div className="wt-post-meta">
+                              <ul>
+                                <li className="post-date">
+                                  <strong>
+                                    {singleBlogPost?.fields?.dateCreated}
+                                  </strong>
+                                </li>
+                                <li className="post-comment">
+                                  {singleBlogPost?.fields?.blogAuthor}
+                                </li>
+                              </ul>
+                            </div>
                           </div>
-                        </div>
 
-                        <div className="row">
-                          <div className="col-md-4 col-sm-6">
-                            <div className="wt-box">
-                              <div className="row  p-lr15">
-                                <h4 className="tagcloud text-uppercase">
-                                  Share this Post:
-                                </h4>
+                          {/* <div className="wt-divider divider-2px"></div> */}
+                          <div className="row">
+                            <div className="wt-post-text col-lg-12 col-md-12 col-sm-12">
+                              {richTextConversion()}
+                            </div>
+                          </div>
 
-                                <div className="widget_social_inks">
-                                  <ul className="social-icons social-md social-square social-dark m-b0">
-                                    <li>
-                                      <FacebookShareButton
-                                        hashtag={"#marilynswindowsandinteriors"}
-                                        quote={`Read Marilyn's article: '${singleBlogPost?.fields?.descriptiveTitle}'`}
-                                        url={blogRoute}
-                                        aria-label="Share to Facebook"
-                                      >
-                                        <a className=""><i className="fa fa-facebook" /></a>
-                                      </FacebookShareButton>
-                                    </li>
-                                    <li>
-                                      <TwitterShareButton
-                                        title={`Checkout this fantastic article by Marilyn: \n'${singleBlogPost?.fields?.descriptiveTitle}':`}
-                                        hashtags={[
-                                          "marilynswindowsandinteriors",
-                                        ]}
-                                        url={blogRoute}
-                                        aria-label="Share to Twitter"
-                                      >
-                                        <a className=""><i className="fa fa-twitter" /></a>
-                                      </TwitterShareButton>
-                                    </li>
-                                    <li>
-                                      <LinkedinShareButton
-                                        title={
-                                          singleBlogPost?.fields
-                                            ?.descriptiveTitle
-                                        }
-                                        summary={
-                                          singleBlogPost?.fields?.blogSummary
-                                        }
-                                        source={blogRoute}
-                                        url={blogRoute}
-                                      >
+                          <div className="row">
+                            <div className="col-md-4 col-sm-6">
+                              <div className="wt-box">
+                                <div className="row  p-lr15">
+                                  <h4 className="tagcloud text-uppercase font-weight-500">
+                                    Share this Post:
+                                  </h4>
+
+                                  <div className="widget_social_inks">
+                                    <ul className="social-icons social-md social-square social-dark m-b0">
+                                      <li>
+                                        <FacebookShareButton
+                                          hashtag={
+                                            "#marilynswindowsandinteriors"
+                                          }
+                                          quote={`Read Marilyn's article: '${singleBlogPost?.fields?.descriptiveTitle}'`}
+                                          url={blogRoute}
+                                          aria-label="Share to Facebook"
+                                        >
+                                          <a className="">
+                                            <i className="fa fa-facebook" />
+                                          </a>
+                                        </FacebookShareButton>
+                                      </li>
+                                      <li>
+                                        <TwitterShareButton
+                                          title={`Checkout this fantastic article by Marilyn: \n'${singleBlogPost?.fields?.descriptiveTitle}':`}
+                                          hashtags={[
+                                            "marilynswindowsandinteriors",
+                                          ]}
+                                          url={blogRoute}
+                                          aria-label="Share to Twitter"
+                                        >
+                                          <a className="">
+                                            <i className="fa fa-twitter" />
+                                          </a>
+                                        </TwitterShareButton>
+                                      </li>
+                                      <li>
+                                        <LinkedinShareButton
+                                          title={
+                                            singleBlogPost?.fields
+                                              ?.descriptiveTitle
+                                          }
+                                          summary={
+                                            singleBlogPost?.fields?.blogSummary
+                                          }
+                                          source={blogRoute}
+                                          url={blogRoute}
+                                        >
+                                          <a
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            href="https://in.linkedin.com"
+                                            aria-label="Share to Linkedin"
+                                          >
+                                            <i className="fa fa-linkedin" />
+                                          </a>
+                                        </LinkedinShareButton>
+                                      </li>
+
+                                      <li>
+                                        <EmailShareButton
+                                          subject={`Read Marilyn's article: ${singleBlogPost?.fields?.descriptiveTitle}`}
+                                          body="Link to article: "
+                                          url={blogRoute}
+                                        >
+                                          <a aria-label="Share to Email">
+                                            <i className="fa fa-envelope" />
+                                          </a>
+                                        </EmailShareButton>
+                                      </li>
+
+                                      <li>
                                         <a
-                                target="_blank"
-                                rel="noreferrer"
-                                href="https://in.linkedin.com"
-                                
-                                aria-label="Share to Linkedin"
-                              ><i className="fa fa-linkedin" /></a>
-                                      </LinkedinShareButton>
-                                    </li>
-
-                                    <li>
-                                      <EmailShareButton
-                                        subject={`Read Marilyn's article: ${singleBlogPost?.fields?.descriptiveTitle}`}
-                                        body="Link to article: "
-                                        url={blogRoute}
-                                      >
-                                        <a
-                                
-                                aria-label="Share to Email"
-                              ><i className="fa fa-envelope" /></a>
-                                      </EmailShareButton>
-                                    </li>
-
-                                    <li>
-                                      <a
-                                        style={{ cursor: "pointer" }}
-                                        onClick={() => {
-                                          navigator.clipboard.writeText(
-                                            blogRoute
-                                          );
-                                          clipboardToast();
-                                        }}
-                                        aria-label="Copy Link Address"
-                                        ><i className="fa fa-link" /></a>
-                                    </li>
-                                  </ul>
+                                          style={{ cursor: "pointer" }}
+                                          onClick={() => {
+                                            navigator.clipboard.writeText(
+                                              blogRoute
+                                            );
+                                            clipboardToast();
+                                          }}
+                                          aria-label="Copy Link Address"
+                                        >
+                                          <i className="fa fa-link" />
+                                        </a>
+                                      </li>
+                                    </ul>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -378,7 +402,7 @@ const BlogPost = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  {/* </div> */}
 
                   {/* <div className="wt-divider divider-3px bg-gray-dark"><i className="icon-dot c-square" /></div> */}
                 </div>

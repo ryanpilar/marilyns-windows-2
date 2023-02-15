@@ -33,7 +33,7 @@ class Footer extends React.Component {
                 </div>
                 <div className="col-lg-4 col-md-4 text-center copyright-block p-t15">
                   <span className="copyrights-text">
-                    © 2022 made with <i className='fa fa-heart heart-change' /> by{" "}
+                    © 2023 made with <i className='fa fa-heart heart-change' /> by{" "}
                     
                     <Link
                       to={{ pathname: "https://ryan-pilar.netlify.app/" }}

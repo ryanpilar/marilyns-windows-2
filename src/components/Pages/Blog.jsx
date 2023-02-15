@@ -8,7 +8,7 @@ import Banner from "../Segments/Banner";
 // import BlogCard from "../Segments/BlogCard";
 import Footer from "../Common/Footer";
 import SEO from "../Segments/SEO";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import RelatedBlog from "../Segments/RelatedBlog";
 
 const Blog = () => {
@@ -156,9 +156,7 @@ const Blog = () => {
             <div className="news-listing ">
               {/* TITLE START */}
               <div className="text-left">
-                <h2 className="text-uppercase font-34">
-                  Most Recent Post
-                </h2>
+                <h2 className="text-uppercase font-34 font-weight-400">Most Recent Post</h2>
                 <div className="wt-separator-outer">
                   <div className="wt-separator bg-black" />
                 </div>
@@ -203,7 +201,7 @@ const Blog = () => {
                           <h2 className="post-title">
                             <Link
                               to={`/blog/post/${blogPost.items[0].sys.id}`}
-                              className="text-black font-20 letter-spacing-1 font-weight-600"
+                              className="text-black font-18 letter-spacing-1 font-weight-600"
                             >
                               {blogPost.items[0].fields.descriptiveTitle}
                             </Link>
@@ -301,6 +299,53 @@ const Blog = () => {
               </div>
             </>
           )}
+        </div>
+        <div className="container ">
+          <div className="row flex-center ">
+            <div className="col-lg-7 col-md-9 m-b60">
+              <div className="m-l20 m-r40 m-t30 ">
+                <div className="bdr-dot-2 bdr-gray-light p-t20 p-b20 p-l20 p-r12 ">
+                  <h3 className="font-16 font-weight-500 text-uppercase ">
+                    Don't Miss Out!
+                  </h3>
+                  <p>
+                    Be sure to visit{" "}
+                    <Link
+                      to={"/gallery"}
+                      className="text-uppercase link-style font-14"
+                    >
+                      <span className="">The Gallery</span>
+                    </Link>{" "}
+                    to see some of Marilyn's beautiful work. Or read{" "}
+                    <Link
+                      to={"/aboutme"}
+                      className="text-uppercase link-style font-14"
+                    >
+                      <span className="">Marilyn's Story</span>
+                    </Link>{" "}
+                    to gain a better appreciation of where she came from, and
+                    how Marilyn's Windows came to be.
+                  </p>
+                  <div className="m-t40  p-r10">
+                    <NavLink
+                      to={"/gallery"}
+                      className="btn-half pad text-white site-button button-md m-b15 "
+                    >
+                      <span className="p-lr5">Gallery</span>
+                      <em />
+                    </NavLink>
+                    <NavLink
+                      to={"/blog"}
+                      className="btn-half pad text-white site-button button-md m-b15 "
+                    >
+                      <span className="p-lr5"> Blog</span>
+                      <em />
+                    </NavLink>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 import ListGroup from "../Pages/ListGroup";
 import ServiceCard from "./ServiceCard";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 const Service2 = ({ testimonial }) => {
@@ -60,7 +60,7 @@ const Service2 = ({ testimonial }) => {
             <div className="blog-post date-style-1 blog-detail text-black m-tauto ">
               <div className="row">
                 <div className="wt-post-text col-md-4 col-sm-12 col-xs-12 float-right ">
-                  <h2 className="font-weight-500 text-uppercase font-18 m-t0 m-b5 p-t0">
+                  <h2 className="font-weight-500 text-uppercase font-16 m-t0 m-b5 p-t0">
                     Quick Links
                   </h2>
                   <ul className="p-l40 ">
@@ -119,7 +119,7 @@ const Service2 = ({ testimonial }) => {
                   </ul>
                 </div>
                 <div className="wt-post-text col-md-8 col-sm-12 col-xs-12">
-                  <div class="">
+                  <div className="">
                     {/* <p>
                       For over 30 years, Marilyn’s Windows has been providing
                       exquisitely handcrafted custom drapery to luxury homeowners,
@@ -132,8 +132,8 @@ const Service2 = ({ testimonial }) => {
                     <p>
                       Whether you need shades, shutters, drapes, or blinds our
                       work boldly exhibits uncompromised quality, attention to
-                      detail and everything we do is backed by warranties and the
-                      exceptional service that we are known for.
+                      detail and everything we do is backed by warranties and
+                      the exceptional service that we are known for.
                     </p>
                     <p>
                       We are experts at pairing your needs with the best custom
@@ -141,37 +141,13 @@ const Service2 = ({ testimonial }) => {
                     </p>
                     <p>
                       All work is handmade in our Canadian workroom, using only
-                      the best fabrics, products and top-of-the-line hardware. We
-                      treat every window, accent pillow, and piece of decor in
-                      your home like it is a work of art. Each fold, crease, and
-                      thread is quality, and crafted to last.
+                      the best fabrics, products and top-of-the-line hardware.
+                      We treat every window, accent pillow, and piece of decor
+                      in your home like it is a work of art. Each fold, crease,
+                      and thread is quality, and crafted to last.
                     </p>
                   </div>
-                  <div className="m-l20 m-r40 m-t30">
-                    <div className="bdr-dot-2 bdr-gray-light p-t20 p-b40 p-l20 p-r12">
-                      <h3 className="font-16 font-weight-500 text-uppercase ">
-                        Don't Miss Out!
-                      </h3>
-                      <p>
-                        Be sure to visit{" "}
-                        <Link
-                          to={"/gallery"}
-                          className="text-uppercase link-style font-14"
-                        >
-                          <span className="">The Gallery</span>
-                        </Link>{" "}
-                        to see some of Marilyn's beautiful work. Or read{" "}
-                        <Link
-                          to={"/aboutme"}
-                          className="text-uppercase link-style font-14"
-                        >
-                          <span className="">Marilyn's Story</span>
-                        </Link>{" "}
-                        to gain a better appreciation of where she came from,
-                        and how Marilyn's Windows came to be.
-                      </p>
-                    </div>
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -185,7 +161,7 @@ const Service2 = ({ testimonial }) => {
             </div>
             {/* TITLE END */}
             <div className="blog-post date-style-1 blog-detail text-black">
-              <div className="wt-post-text p-b30 col-md-8 col-sm-12 p-l0">
+              <div className="wt-post-text p-b30 col-md-8 col-sm-12 ">
                 <p>
                   Providing custom window treatment design solutions for
                   residential and commercial spaces across the Halton Region:
@@ -228,7 +204,7 @@ const Service2 = ({ testimonial }) => {
 
           <div className="max-mid-container " id="selectServices">
             {/* TITLE START */}
-            <div className=" text-left text-black">
+            <div className="section-head text-left text-black">
               <h2 className="text-uppercase font-34">Select Services</h2>
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />

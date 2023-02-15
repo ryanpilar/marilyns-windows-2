@@ -16,7 +16,7 @@ const BlogCard2 = ({ item, index }) => {
   return (
     <div>
       <div className="item" key={index}>
-        <div className="blog-post blog-grid date-style-1 add-box-shadow">
+        <div className="blog-post blog-grid date-style-1 add-box-shadow m-r15">
           <div className="wt-post-media wt-img-effect zoom-slow bg-black ">
             <div
               className={blackOpacity.isHover ? "" : "wt-img-black-bg"}
@@ -35,9 +35,10 @@ const BlogCard2 = ({ item, index }) => {
               <h2 className="post-title">
                 <Link
                   to={`/blog/post/${item.sys.id}`}
-                  className="text-black font-16 letter-spacing-2 font-weight-600"
+                  className="text-black letter-spacing-1 font-weight-600 "
                 >
-                  {item.fields.title}
+                <span className=' font-16 no-line-height'>{item.fields.title}</span>
+                
                 </Link>
               </h2>
             </div>

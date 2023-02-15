@@ -156,6 +156,7 @@ const Services = () => {
                   to creating beautiful and high-quality products."
               bgimage={banner.image}
             /> */}
+            
             <Contact />
           </>
         )}

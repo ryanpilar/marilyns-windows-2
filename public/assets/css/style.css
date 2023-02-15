@@ -34,6 +34,10 @@ Version: 3.0
 	5. text size
 	-------------------------------------
 	6. text bold
+	-------------------------------------
+	7. line-spacing
+	-------------------------------------
+	8. line-height
 
 ======================================
 4. LISTING STYLES 
@@ -1058,6 +1062,9 @@ strong {
 .font-weight-500 {
   font-weight: 500;
 }
+.font-weight-550 {
+  font-weight: 550;
+}
 .font-weight-600 {
   font-weight: 600;
 }
@@ -1086,6 +1093,14 @@ strong {
 .letter-spacing-5 {
   letter-spacing: 5px;
 }
+/*-------------------------------------
+	8. line-height
+------------------------------------ */
+.no-line-height{
+  line-height: 2px !important;
+}
+
+
 /*======================================
 4. LISTING STYLES 
 ======================================*/
@@ -1264,6 +1279,7 @@ ol.list-num-count > li:before {
   font-weight: bold;
   text-align: center;
   font-size: 12px;
+  margin-top: 4px;
 }
 ol.list-num-count.lower-alpha > li:before {
   content: counter(li, lower-alpha);
@@ -1280,6 +1296,10 @@ ol.list-num-count.list-outline-none > li:before {
   background-color: transparent;
   color: #000;
 }
+ol.list-num-count p {
+  margin-left: 15px !important;
+}
+
 
 /*-------------------------------------
 	3. listing for links in blog
@@ -1314,6 +1334,12 @@ ol.list-num-count.list-outline-none > li:before {
   /* border-top: 1px solid lightgray; */
   margin: 5px;
   padding-top: 5px;
+}
+
+.quick-links-border {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  /* margin: 0 20px; */
 }
 
 /*======================================
@@ -1517,6 +1543,9 @@ ol.list-num-count.list-outline-none > li:before {
 }
 .p-l20 {
   padding-left: 20px;
+}
+.p-l25 {
+  padding-left: 25px;
 }
 .p-l30 {
   padding-left: 30px;
@@ -1750,7 +1779,9 @@ ol.list-num-count.list-outline-none > li:before {
 /*-------------------------------------
 	2.1 margin (around)
 -------------------------------------*/
-
+.m-auto {
+  margin: 0 auto !important;
+}
 .m-a-1 {
   margin: -1px;
 }
@@ -2047,6 +2078,7 @@ ol.list-num-count.list-outline-none > li:before {
 /*-------------------------------------
 	2.6 marging (left right)
 -------------------------------------*/
+
 .m-lr0 {
   margin-left: 0;
   margin-right: 0;
@@ -2242,7 +2274,10 @@ ol.list-num-count.list-outline-none > li:before {
 .z-index999 {
   z-index: 999;
 }
-
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
 .flex-bottom-right {
   display: flex;
   justify-content: flex-end;
