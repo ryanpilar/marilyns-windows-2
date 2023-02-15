@@ -103,7 +103,7 @@ class Header3 extends React.Component {
                             <li>
                               <a
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noreferrer noopener"
                                 href="https://www.facebook.com/MarilynsWindows/"
                                 aria-label="My Facebook"
                               >
@@ -113,7 +113,7 @@ class Header3 extends React.Component {
                             <li>
                               <a
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noreferrer noopener"
                                 href="https://twitter.com/marilynswindows"
                                 aria-label="My Twitter"
                               >
@@ -123,7 +123,7 @@ class Header3 extends React.Component {
                             <li>
                               <a
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noreferrer noopener"
                                 href="https://www.linkedin.com/in/marilynswindows/"
                                 aria-label="My Linkedin"
                               >
@@ -133,7 +133,7 @@ class Header3 extends React.Component {
                             <li>
                               <a
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noreferrer noopener"
                                 href="https://www.instagram.com/marilynwindowsandinteriors/"
                                 aria-label="My Instagram"
                               >

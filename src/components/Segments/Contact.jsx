@@ -156,7 +156,7 @@ class Contact extends React.Component {
                       <a
                         className="p-r15"
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noreferrer noopener"
                         href="https://www.facebook.com/MarilynsWindows/"
                         aria-label="My Facebook"
                       >
@@ -167,7 +167,7 @@ class Contact extends React.Component {
                       <a
                         className="p-r15"
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noreferrer noopener"
                         href="https://twitter.com/marilynswindows"
                         aria-label="My Twitter"
                       >
@@ -178,7 +178,7 @@ class Contact extends React.Component {
                       <a
                         className="p-r15"
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noreferrer noopener"
                         href="https://www.linkedin.com/in/marilynswindows/"
                         aria-label="My Linkedin"
                       >
@@ -189,7 +189,7 @@ class Contact extends React.Component {
                       <a
                         className="p-r15"
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noreferrer noopener"
                         href="https://www.instagram.com/marilynwindowsandinteriors/"
                         aria-label="My Instagram"
                       >

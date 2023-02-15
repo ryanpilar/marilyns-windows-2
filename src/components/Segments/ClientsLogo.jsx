@@ -139,7 +139,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://maxxmar.com/"
                                 target="_blank"
-                                rel="noopener"
+                                rel="noreferrer noopener"
                                 aria-label="Maxxmar Window Fashion's home page"
                               >
                                 Maxxmar Window Fashions
@@ -151,7 +151,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-r10"
                                 href="https://robertallendesign.com/"
                                 target="_blank"
-                                rel="noopener"
+                                rel="noreferrer noopener"
                                 aria-label="Robert Allen's Home page"
                               >
                                 Robert Allen Design
@@ -161,7 +161,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://uniquefinefabrics.com/"
                                 target="_blank"
-                                rel="noopener"
+                                rel="noreferrer noopener"
                                 aria-label="Uniques's home page"
                               >
                                 Unique Fine Fabrics
@@ -171,7 +171,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://equusfabrics.com/"
                                 target="_blank"
-                                rel="noopener"
+                                rel="noreferrer noopener"
                                 aria-label="Equus home page"
                               >
                                 Equus Fabrics
@@ -181,7 +181,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://www.soletexfabrics.com/"
                                 target="_blank"
-                                rel="noopener"
+                                rel="noreferrer noopener"
                                 aria-label="Soletex Home page"
                               >
                                 Soletex Fabrics
@@ -191,7 +191,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://www.jffabrics.com/"
                                 target="_blank"
-                                rel="noopener"
+                                rel="noreferrer noopener"
                                 aria-label="JF Fabric's Home page"
                               >
                                 Joanne Fabrics
@@ -201,7 +201,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://maxwellfabrics.com/Homepage"
                                 target="_blank"
-                                rel="noopener"
+                                rel="noreferrer noopener"
                                 aria-label="Maxwell Fabric's home page"
                               >
                                 Maxwell Fabrics
@@ -211,7 +211,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://www.alendelfabrics.com/"
                                 target="_blank"
-                                rel="noopener"
+                                rel="noreferrer noopener"
                                 aria-label="Alendel Fabric's home page"
                               >
                                 Alendel Fabrics
@@ -221,7 +221,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://fscontract.ca/"
                                 target="_blank"
-                                rel="noopener"
+                                rel="noreferrer noopener"
                                 aria-label="Four Seasons Decorative Fabric's home page"
                               >
                                 Four Seasons Decorative Fabrics
@@ -231,7 +231,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://europeantextiles.ca/"
                                 target="_blank"
-                                rel="noopener"
+                                rel="noreferrer noopener"
                                 aria-label="European Textile's home page"
                               >
                                 European Textiles
@@ -241,7 +241,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="http://signaturetextiles.ca/"
                                 target="_blank"
-                                rel="noopener"
+                                rel="noreferrer noopener"
                                 aria-label="Signature Textile's home page"
                               >
                                 Signature Textiles
@@ -253,7 +253,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-r10"
                                 href="https://www.jffabrics.com/"
                                 target="_blank"
-                                rel="noopener"
+                                rel="noreferrer noopener"
                                 aria-label="JF Fabric's Home page"
                               >
                                 JF Hardware
@@ -263,7 +263,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://www.cdhltd.com/"
                                 target="_blank"
-                                rel="noopener"
+                                rel="noreferrer noopener"
                                 aria-label="Canadian Drapery Hardware's home page"
                               >
                                 Canadian Drapery Hardware
@@ -273,7 +273,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://uniquefinefabrics.com/collections/hardware"
                                 target="_blank"
-                                rel="noopener"
+                                rel="noreferrer noopener"
                                 aria-label="Equus home page"
                               >
                                 Trax via Unique Fabrics

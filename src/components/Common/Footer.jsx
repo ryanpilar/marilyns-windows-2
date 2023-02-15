@@ -38,7 +38,7 @@ class Footer extends React.Component {
                     <Link
                       to={{ pathname: "https://ryan-pilar.netlify.app/" }}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noreferrer noopener"
                     >
                       ryanpilar
                     </Link>

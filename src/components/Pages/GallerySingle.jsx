@@ -303,7 +303,7 @@ const GallerySingle = () => {
                             >
                               <a
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noreferrer noopener"
                                 href="https://in.linkedin.com"
                                 
                                 aria-label="Share to Linkedin"
