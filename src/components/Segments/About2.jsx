@@ -144,7 +144,7 @@ const About2 = ({ images }) => {
                       aria-label="scroll down to fabrics to cars and back"
                     >
                       <div className="p-lr10 p-tb0 m-tb0">
-                        fabrics to cars and back
+                        from fabrics to cars and back
                       </div>
                     </HashLink>
                   </li>

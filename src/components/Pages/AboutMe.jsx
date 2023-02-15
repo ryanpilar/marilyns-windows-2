@@ -129,7 +129,7 @@ const AboutMe = () => {
                     professional journey and laid the groundwork for my success.
                   </p>
                   <h4 id='fabricsToCars' className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
-                    Fabrics to Cars and Back
+                    From Fabrics to Cars and Back
                   </h4>
                   <p>
                     I pursued a double major and graduated with a Bachelor of
