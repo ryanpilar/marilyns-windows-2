@@ -47,9 +47,7 @@ const About2 = ({ images }) => {
         <div className="row">
           <div className="col-lg-8 col-md-8 col-sm-12">
             <div className="m-about-containt text-black p-l25 p-r10 m-b15">
-              <span className="font-24 font-weight-300 text-uppercase ">
-                Designer’s Spotlight
-              </span>
+              
               {/* <h2 className="font-40 font-weight-500 text-uppercase letter-spacing-2">
                 An Intimate Journey into the Artistry of Marilyn’s Custom Window
                 Treatments
@@ -79,12 +77,18 @@ const About2 = ({ images }) => {
         </div>
 
         <div className="row">
-          <div className="wt-post-text col-md-7 col-sm-12 col-xs-12 p-l40 p-b15">
+          <div className="wt-post-text col-md-8 col-sm-12 col-xs-12 p-l40 p-b15">
             <div className="">
-              <h2 className="font-40 font-weight-500 text-uppercase letter-spacing-2 m-t0  p-t0">
+            <span className="font-24 font-weight-300 text-uppercase m-b20">
+                Designer’s Spotlight
+              </span>
+              <h2 className="font-40 font-weight-500 text-uppercase letter-spacing-2 m-t15  p-t0">
                 An Intimate Journey into the Artistry of Marilyn’s Custom Window
                 Treatments
               </h2>
+              <h4 className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
+                    Introduction
+                  </h4>
               <p className="">
                 Hello, I’m Marilyn. Allow me to take you on a trip down memory
                 lane, where my passion for sewing first blossomed. Join me in
@@ -102,11 +106,11 @@ const About2 = ({ images }) => {
               </p>
             </div>
           </div>
-          <div className="wt-post-text col-md-5 col-sm-12 col-xs-12 p-lr50 float-right ">
+          <div className="wt-post-text col-md-4 col-sm-12 col-xs-12 p-lr50 float-right ">
             <div className="quick-links-border">
-              <h2 className="font-weight-500 text-uppercase font-16 m-t0 m-t30 m-b5 p-t0">
+              <h4 className="font-weight-600 text-uppercase font-16 m-t0 m-t30 m-b5 p-t0">
                 Table Of Contents
-              </h2>
+              </h4>
               <ul className="list-unstyled p-l10 ">
                 <li className="m-a0">
                   <HashLink
@@ -158,7 +162,7 @@ const About2 = ({ images }) => {
                 <li className="">
                   <HashLink
                     smooth
-                    className="link-style font-14 text-uppercase"
+                    className="link-style font-14 text-capitalize"
                     to="#timeless"
                     aria-label="scroll down to CRAFTING TIMELESS WINDOW TREATMENTS"
                   >
@@ -206,7 +210,7 @@ const About2 = ({ images }) => {
                 <li className="">
                   <HashLink
                     smooth
-                    className="link-style font-14 text-uppercase"
+                    className="link-style font-14 text-capitalize"
                     to="#personalizedService"
                     aria-label="scroll down to PERSONALIZED SERVICE FROM START TO FINISH"
                   >
