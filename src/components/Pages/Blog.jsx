@@ -335,10 +335,10 @@ const Blog = () => {
                       <em />
                     </NavLink>
                     <NavLink
-                      to={"/blog"}
+                      to={"/aboutme"}
                       className="btn-half pad text-white site-button button-md m-b15 "
                     >
-                      <span className="p-lr5"> Blog</span>
+                      <span className="p-lr5"> My Story</span>
                       <em />
                     </NavLink>
                   </div>

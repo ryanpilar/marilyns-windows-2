@@ -124,6 +124,7 @@ const About2 = ({ images }) => {
                     </div>
                   </HashLink>
                 </li>
+                <li>
                 <ul className="p-l20 list-arrow">
                   <li className="">
                     <HashLink
@@ -159,6 +160,9 @@ const About2 = ({ images }) => {
                     </HashLink>
                   </li>
                 </ul>
+                </li>
+                
+
                 <li className="">
                   <HashLink
                     smooth
@@ -171,6 +175,7 @@ const About2 = ({ images }) => {
                     </div>
                   </HashLink>
                 </li>
+                <li>
                 <ul className="p-l20 list-arrow">
                   <li className="m-a0">
                     <HashLink
@@ -206,6 +211,8 @@ const About2 = ({ images }) => {
                     </HashLink>
                   </li>
                 </ul>
+                </li>
+                
 
                 <li className="">
                   <HashLink
@@ -219,7 +226,7 @@ const About2 = ({ images }) => {
                     </div>
                   </HashLink>
                 </li>
-                <ul className="p-l20 list-arrow">
+<li>                <ul className="p-l20 list-arrow">
                   <li className="m-a0">
                     <HashLink
                       smooth
@@ -251,7 +258,7 @@ const About2 = ({ images }) => {
                       <div className="p-lr10 p-tb0 m-tb0">thank you</div>
                     </HashLink>
                   </li>
-                </ul>
+                </ul></li>
               </ul>
             </div>
           </div>
