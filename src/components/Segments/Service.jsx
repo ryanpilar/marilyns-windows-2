@@ -3,7 +3,7 @@ import React from "react";
 import { HashLink } from "react-router-hash-link";
 
 const Service = ({ process }) => {
-  const pokaDots = require("../../assets/media/images/ptn-1.png");
+
   return (
     <>
       <div className="section-full bg-gray p-tb90 square_shape1 tw-our-story-wrap">

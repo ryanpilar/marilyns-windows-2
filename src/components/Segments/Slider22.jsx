@@ -6,13 +6,14 @@ import SliderSingle from "./SliderSingle";
 const Slider22 = () => {
   const [sliderList, setSliderList] = useState(false);
   const [frameSpeed, setFrameSpeed] = useState(1000);
-  const client = createClient({
-    // contentful connect
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
 
   useEffect(() => {
+    const client = createClient({
+      // contentful connect
+      space: process.env.REACT_APP_CONTENTFUL_SPACE,
+      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+    });
+
     const getAllEntries = async () => {
       // contentful get data
       try {

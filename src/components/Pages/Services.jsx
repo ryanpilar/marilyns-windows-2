@@ -20,8 +20,6 @@ const Services = () => {
   const [designProcess, setDesignProcess] = useState(null);
   const [affiliates, setAffiliates] = useState(null);
 
-
-
   useEffect(() => {
     window.addEventListener("load", () => {
       window.scrollTo(0, 0);
@@ -34,20 +32,13 @@ const Services = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   if (!location.hash) {
-  //     window.scrollTo(0, 0);
-  //   }
-  // }, [location])
-
   useEffect(() => {
-    const client = createClient({
-    // contentful connect
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
-
     const getContentfulContents = async () => {
+      const client = createClient({
+        // contentful connect
+        space: process.env.REACT_APP_CONTENTFUL_SPACE,
+        accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+      });
       try {
         await client
           .getEntries({ content_type: "servicesFull" })
@@ -102,7 +93,6 @@ const Services = () => {
       />
       <Header3 />
       <div className="page-content">
-
         {affiliates && banner && designProcess && (
           <>
             <Banner
@@ -156,7 +146,7 @@ const Services = () => {
                   to creating beautiful and high-quality products."
               bgimage={banner.image}
             /> */}
-            
+
             <Contact />
           </>
         )}

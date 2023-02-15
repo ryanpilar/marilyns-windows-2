@@ -5,7 +5,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
 import SEO from "../Segments/SEO";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 import AboutImages2 from "./AboutImages2";

@@ -21,14 +21,13 @@ import { Link } from "react-router-dom";
 const LatestProjects = () => {
   const [content, setContent] = useState(null);
 
-  const client = createClient({
-    // contentful connect
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
-
   useEffect(() => {
     const getAllEntries = async () => {
+      const client = createClient({
+        // contentful connect
+        space: process.env.REACT_APP_CONTENTFUL_SPACE,
+        accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+      });
       // contentful get data
       try {
         await client
@@ -130,8 +129,6 @@ const LatestProjects = () => {
     },
   };
 
-
-
   return (
     <>
       <div
@@ -154,7 +151,8 @@ const LatestProjects = () => {
                     Explore our gallery of window treatment designs and discover
                     the artistry that goes into every project. From elegant
                     drapes to functional shades, we offer a range of options to
-                    fit any design style. <Link
+                    fit any design style.{" "}
+                    <Link
                       className="link-style font-14 text-uppercase"
                       to="/gallery"
                     >
@@ -162,7 +160,6 @@ const LatestProjects = () => {
                     </Link>
                     .
                   </p>
-                  
                 </div>
               </div>
             </div>

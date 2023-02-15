@@ -7,7 +7,6 @@ import BlogCard2 from "./BlogCard2";
 import { useEffect } from "react";
 
 const RelatedBlog = ({ id }) => {
-  var bgimg = require("./../../images/background/ptn-1.png");
 
   const options = {
     loop: true,

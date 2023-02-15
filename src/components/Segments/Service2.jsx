@@ -1,6 +1,6 @@
-import ListGroup from "../Pages/ListGroup";
+
 import ServiceCard from "./ServiceCard";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 const Service2 = ({ testimonial }) => {
