@@ -47,7 +47,6 @@ const About2 = ({ images }) => {
         <div className="row">
           <div className="col-lg-8 col-md-8 col-sm-12">
             <div className="m-about-containt text-black p-l25 p-r10 m-b15">
-              
               {/* <h2 className="font-40 font-weight-500 text-uppercase letter-spacing-2">
                 An Intimate Journey into the Artistry of Marilyn’s Custom Window
                 Treatments
@@ -79,16 +78,16 @@ const About2 = ({ images }) => {
         <div className="row">
           <div className="wt-post-text col-md-8 col-sm-12 col-xs-12 p-l40 p-b15">
             <div className="">
-            <span className="font-24 font-weight-300 text-uppercase m-b20">
+              <span className="font-24 font-weight-300 text-uppercase m-b20">
                 Designer’s Spotlight
               </span>
               <h2 className="font-40 font-weight-500 text-uppercase letter-spacing-2 m-t15  p-t0">
                 An Intimate Journey into the Artistry of Marilyn’s Custom Window
                 Treatments
               </h2>
-              <h4 className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
-                    Introduction
-                  </h4>
+              <h3 className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
+                Introduction
+              </h3>
               <p className="">
                 Hello, I’m Marilyn. Allow me to take you on a trip down memory
                 lane, where my passion for sewing first blossomed. Join me in
@@ -108,9 +107,9 @@ const About2 = ({ images }) => {
           </div>
           <div className="wt-post-text col-md-4 col-sm-12 col-xs-12 p-lr50 float-right ">
             <div className="quick-links-border">
-              <h4 className="font-weight-600 text-uppercase font-16 m-t0 m-t30 m-b5 p-t0">
+              <h3 className="font-weight-600 text-uppercase font-16 m-t0 m-t30 m-b5 p-t0">
                 Table Of Contents
-              </h4>
+              </h3>
               <ul className="list-unstyled p-l10 ">
                 <li className="m-a0">
                   <HashLink
@@ -125,43 +124,44 @@ const About2 = ({ images }) => {
                   </HashLink>
                 </li>
                 <li>
-                <ul className="p-l20 list-arrow">
-                  <li className="">
-                    <HashLink
-                      smooth
-                      className="font-14 text-capitalize"
-                      to="#niagara"
-                      aria-label="scroll down to niagara on the lake"
-                    >
-                      <div className="p-lr10">niagara on the lake</div>
-                    </HashLink>
-                  </li>
+                  <ul className="p-l20 list-arrow">
+                    <li className="">
+                      <HashLink
+                        smooth
+                        className="font-14 text-capitalize"
+                        to="#niagara"
+                        aria-label="scroll down to niagara on the lake"
+                      >
+                        <div className="p-lr10">niagara on the lake</div>
+                      </HashLink>
+                    </li>
 
-                  <li className="">
-                    <HashLink
-                      smooth
-                      className="font-14 text-capitalize"
-                      to="#fabricsToCars"
-                      aria-label="scroll down to fabrics to cars and back"
-                    >
-                      <div className="p-lr10 p-tb0 m-tb0">
-                        from fabrics to cars and back
-                      </div>
-                    </HashLink>
-                  </li>
-                  <li className="">
-                    <HashLink
-                      smooth
-                      className="font-14 text-capitalize"
-                      to="#backToMyRoots"
-                      aria-label="scroll down to back to my roots"
-                    >
-                      <div className="p-lr10 p-tb0 m-tb0">back to my roots</div>
-                    </HashLink>
-                  </li>
-                </ul>
+                    <li className="">
+                      <HashLink
+                        smooth
+                        className="font-14 text-capitalize"
+                        to="#fabricsToCars"
+                        aria-label="scroll down to fabrics to cars and back"
+                      >
+                        <div className="p-lr10 p-tb0 m-tb0">
+                          from fabrics to cars and back
+                        </div>
+                      </HashLink>
+                    </li>
+                    <li className="">
+                      <HashLink
+                        smooth
+                        className="font-14 text-capitalize"
+                        to="#backToMyRoots"
+                        aria-label="scroll down to back to my roots"
+                      >
+                        <div className="p-lr10 p-tb0 m-tb0">
+                          back to my roots
+                        </div>
+                      </HashLink>
+                    </li>
+                  </ul>
                 </li>
-                
 
                 <li className="">
                   <HashLink
@@ -176,43 +176,42 @@ const About2 = ({ images }) => {
                   </HashLink>
                 </li>
                 <li>
-                <ul className="p-l20 list-arrow">
-                  <li className="m-a0">
-                    <HashLink
-                      smooth
-                      className="font-14 text-capitalize "
-                      to="#allInclusive"
-                      aria-label="scroll down to all inclusive approach"
-                    >
-                      <div className="p-lr10">all inclusive approach</div>
-                    </HashLink>
-                  </li>
-                  <li className="">
-                    <HashLink
-                      smooth
-                      className="font-14 text-capitalize"
-                      to="#reading"
-                      aria-label="scroll down to reading the room"
-                    >
-                      <div className="p-lr10">reading the room</div>
-                    </HashLink>
-                  </li>
+                  <ul className="p-l20 list-arrow">
+                    <li className="m-a0">
+                      <HashLink
+                        smooth
+                        className="font-14 text-capitalize "
+                        to="#allInclusive"
+                        aria-label="scroll down to all inclusive approach"
+                      >
+                        <div className="p-lr10">all inclusive approach</div>
+                      </HashLink>
+                    </li>
+                    <li className="">
+                      <HashLink
+                        smooth
+                        className="font-14 text-capitalize"
+                        to="#reading"
+                        aria-label="scroll down to reading the room"
+                      >
+                        <div className="p-lr10">reading the room</div>
+                      </HashLink>
+                    </li>
 
-                  <li className="">
-                    <HashLink
-                      smooth
-                      className="font-14 text-capitalize"
-                      to="#fostering"
-                      aria-label="scroll down to fostering a supportive community"
-                    >
-                      <div className="p-lr10 p-tb0 m-tb0">
-                        fostering a supportive community
-                      </div>
-                    </HashLink>
-                  </li>
-                </ul>
+                    <li className="">
+                      <HashLink
+                        smooth
+                        className="font-14 text-capitalize"
+                        to="#fostering"
+                        aria-label="scroll down to fostering a supportive community"
+                      >
+                        <div className="p-lr10 p-tb0 m-tb0">
+                          fostering a supportive community
+                        </div>
+                      </HashLink>
+                    </li>
+                  </ul>
                 </li>
-                
 
                 <li className="">
                   <HashLink
@@ -226,39 +225,42 @@ const About2 = ({ images }) => {
                     </div>
                   </HashLink>
                 </li>
-<li>                <ul className="p-l20 list-arrow">
-                  <li className="m-a0">
-                    <HashLink
-                      smooth
-                      className="font-14 text-capitalize "
-                      to="#aftercare"
-                      aria-label="scroll down to exceptional aftercare"
-                    >
-                      <div className="p-lr10">exceptional aftercare</div>
-                    </HashLink>
-                  </li>
-                  <li className="">
-                    <HashLink
-                      smooth
-                      className="font-14 text-capitalize"
-                      to="#myWork"
-                      aria-label="scroll down to my work"
-                    >
-                      <div className="p-lr10">my work</div>
-                    </HashLink>
-                  </li>
+                <li>
+                  {" "}
+                  <ul className="p-l20 list-arrow">
+                    <li className="m-a0">
+                      <HashLink
+                        smooth
+                        className="font-14 text-capitalize "
+                        to="#aftercare"
+                        aria-label="scroll down to exceptional aftercare"
+                      >
+                        <div className="p-lr10">exceptional aftercare</div>
+                      </HashLink>
+                    </li>
+                    <li className="">
+                      <HashLink
+                        smooth
+                        className="font-14 text-capitalize"
+                        to="#myWork"
+                        aria-label="scroll down to my work"
+                      >
+                        <div className="p-lr10">my work</div>
+                      </HashLink>
+                    </li>
 
-                  <li className="">
-                    <HashLink
-                      smooth
-                      className="font-14 text-capitalize"
-                      to="#thankYou"
-                      aria-label="scroll down to thank you"
-                    >
-                      <div className="p-lr10 p-tb0 m-tb0">thank you</div>
-                    </HashLink>
-                  </li>
-                </ul></li>
+                    <li className="">
+                      <HashLink
+                        smooth
+                        className="font-14 text-capitalize"
+                        to="#thankYou"
+                        aria-label="scroll down to thank you"
+                      >
+                        <div className="p-lr10 p-tb0 m-tb0">thank you</div>
+                      </HashLink>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </div>
           </div>

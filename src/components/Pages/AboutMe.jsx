@@ -96,14 +96,14 @@ const AboutMe = () => {
             <div className="row m-t20 text-black">
               <div className="section-content">
                 <div className="col-sm-12">
-                  <h3 id='peaches' className="text-uppercase font-30 font-weight-300">
+                  <h2 id='peaches' className="text-uppercase font-30 font-weight-300">
                     Peaches, Fabric & Factories
-                  </h3>
+                  </h2>
                 </div>
                 <div id='niagara' className="col-lg-6 col-md-6 col-sm-12 p-r30">
-                  <h4 className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
+                  <h3 className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
                     Niagara On The Lake - my early years
-                  </h4>
+                  </h3>
                   <p>
                     Nestled amongst the lush peach orchards of Niagara on the
                     Lake, Ontario, my childhood was a tapestry of hard work and
@@ -128,9 +128,9 @@ const AboutMe = () => {
                     formative. These were the years that set the stage for my
                     professional journey and laid the groundwork for my success.
                   </p>
-                  <h4 id='fabricsToCars' className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
+                  <h3 id='fabricsToCars' className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
                     From Fabrics to Cars and Back
-                  </h4>
+                  </h3>
                   <p>
                     I pursued a double major and graduated with a Bachelor of
                     Science and Textiles from the University of Guelph. Despite
@@ -157,9 +157,9 @@ const AboutMe = () => {
                     was just the beginning of my life-long journey into the
                     wonderful eclectic world of custom drapery.
                   </p>
-                  <h4 id='backToMyRoots' className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
+                  <h3 id='backToMyRoots' className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
                     Back To My Roots
-                  </h4>
+                  </h3>
                   <p>
                     I’m incredibly blessed to be doing what I have been doing
                     for all these years. Although my life has mostly been
@@ -198,15 +198,15 @@ const AboutMe = () => {
             <div className="row m-t20 text-black">
               <div className="section-content">
                 <div className="col-md-7 col-sm-12">
-                  <h3 id='timeless' className="text-uppercase font-30 font-weight-300">
+                  <h2 id='timeless' className="text-uppercase font-30 font-weight-300">
                     Crafting Timeless Window Treatments: A Holistic Approach to
                     Form and Function
-                  </h3>
+                  </h2>
                 </div>
                 <div className="col-lg-6 col-md-6 col-sm-12 p-r40">
-                  <h4 id='allInclusive' className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
+                  <h3 id='allInclusive' className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
                     My all inclusive approach
-                  </h4>
+                  </h3>
                   <p>
                     I am proud to showcase my all-inclusive approach to this
                     timeless craft. My unique approach allows me to bring my
@@ -226,9 +226,9 @@ const AboutMe = () => {
                     my background in Interior Design supports my ability to
                     bring conceptual ideas to life.
                   </p>
-                  <h4 id='reading' className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
+                  <h3 id='reading' className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
                     Reading the room
-                  </h4>
+                  </h3>
                   <p>
                     There is an art to creating timeless long-lasting window
                     treatments. The key to success lies in taking a holistic
@@ -252,9 +252,9 @@ const AboutMe = () => {
                     and soul into each project, always striving for absolute
                     perfection.
                   </p>
-                  <h4 id='fostering' className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
+                  <h3 id='fostering' className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
                     Fostering a supportive community
-                  </h4>
+                  </h3>
                   <p>
                     Recognizing the power of collaboration and community, I am
                     proud to have been a part of the Business Networking
@@ -291,15 +291,15 @@ const AboutMe = () => {
             <div className="row m-t20 text-black">
               <div className="section-content">
                 <div className="col-md-7 col-sm-12">
-                  <h3 id='personalizedService' className="text-uppercase font-30 font-weight-300">
+                  <h2 id='personalizedService' className="text-uppercase font-30 font-weight-300">
                     Personalized Service from Start to Finish and Beyond - My
                     commitment to you
-                  </h3>
+                  </h2>
                 </div>
                 <div className="col-lg-6 col-md-6 col-sm-12 p-r40">
-                  <h4 id='aftercare' className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
+                  <h3 id='aftercare' className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
                     Exceptional Aftercare
-                  </h4>
+                  </h3>
                   <p>
                     My commitment to you is focused on matching your vision with
                     my quality work. It starts with our very first call and from
@@ -325,9 +325,9 @@ const AboutMe = () => {
                   </p>
                 </div>
                 <div id='myWork' className="col-lg-6 col-md-6 col-sm-12 p-r40">
-                  <h4 className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
+                  <h3 className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
                     My Work
-                  </h4>
+                  </h3>
                   <p>
                     My handcrafted designs can be found throughout Ontario,
                     gracing both residential and commercial spaces in cities
@@ -352,9 +352,9 @@ const AboutMe = () => {
                     </NavLink>{" "}
                     for valuable insights and information on window treatments.
                   </p>
-                  <h4 id='thankYou' className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
+                  <h3 id='thankYou' className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
                     Thank You
-                  </h4>
+                  </h3>
 
                   <p>
                     Thank you for indulging me in my trip down memory lane! It's
