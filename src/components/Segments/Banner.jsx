@@ -7,6 +7,7 @@ const Banner = ({ bgimage, title, posLeft, posRight }) => {
     <>
       <div
         className="wt-bnr-inr overlay-wraper bg-parallax bg-top-center "
+        // className="wt-bnr-inr overlay-wraper bg-parallax bg-top-center "
         data-stellar-background-ratio="0.5"
         style={{ backgroundImage: "url(" + bgimage + ")" }}
       >
