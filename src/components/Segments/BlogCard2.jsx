@@ -24,7 +24,7 @@ const BlogCard2 = ({ item, index }) => {
               onMouseLeave={handleHover}
             >
               <div className={blackOpacity.isHover ? "" : "img-opacity"}>
-                <Link to={`/blog/post/${item.sys.id}`}>
+                <Link to={`/blog/post/${item.fields.slug}`}>
                   <img src={item.fields.blogImages[0].secure_url} />
                 </Link>
               </div>
@@ -34,7 +34,7 @@ const BlogCard2 = ({ item, index }) => {
             <div className="wt-post-title ">
               <h2 className="post-title">
                 <Link
-                  to={`/blog/post/${item.sys.id}`}
+                  to={`/blog/post/${item.fields.slug}`}
                   className="text-black letter-spacing-1 font-weight-600 "
                 >
                 <span className=' font-16 no-line-height'>{item.fields.title}</span>
@@ -58,7 +58,7 @@ const BlogCard2 = ({ item, index }) => {
               <p>{item.fields.blogSummary}</p>
             </div>
             <Link
-              to={`/blog/post/${item.sys.id}`}
+              to={`/blog/post/${item.fields.slug}`}
               className="site-button black radius-no text-uppercase"
             >
               <span className="font-12 letter-spacing-5"> Read More </span>{" "}

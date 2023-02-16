@@ -32,11 +32,12 @@ const BlogPost = () => {
   const [blogPostBanner, setBlogPostBanner] = useState(null);
 
   var bgimg = require("./../../images/background/ptn-1.png");
+  // var bgimg = require("/assets/media/images/ptn-1.png");
 
-  const { id } = useParams(); // grabs the contentful :id form the address bar
+  const { slug } = useParams(); // grabs the contentful :slug form the address bar
 
   const [singleBlogPost, setSingleBlogPost] = useState([]);
-  const blogRoute = webSitePaths.blogRoute + id;
+  const blogRoute = webSitePaths.blogRoute + slug;
 
   const clipboardToast = () =>
     toast.success("Copied! Check your clipboard for link.", {
@@ -71,7 +72,7 @@ const BlogPost = () => {
         await client
           .getEntries({ content_type: "blogPostBanner" })
           .then((blogBanner) => {
-            console.log("info", blogBanner.items[0].fields.image[0].secure_url);
+            // console.log("info", blogBanner.items[0].fields.image[0].secure_url);
             setBlogPostBanner(blogBanner.items[0].fields.image[0].secure_url);
           });
       } catch (error) {
@@ -79,19 +80,22 @@ const BlogPost = () => {
       }
     };
 
-    const getEntryById = async () => {
+    const getEntry = async () => {
       try {
-        await client.getEntry(id).then((blogEntry) => {
-          // console.log("BLOG ENTRY", blogEntry);
-          setSingleBlogPost(blogEntry);
-        });
+        await client
+          // .getEntry(id)
+          .getEntries({ content_type: "blogPosts", "fields.slug": slug })
+          .then((blogEntry) => {
+
+            setSingleBlogPost(blogEntry.items[0]);
+          });
       } catch (error) {
         console.log("error");
       }
     };
 
     getBanner();
-    getEntryById();
+    getEntry();
   }, []);
 
   const richTextConversion = () => {
@@ -200,12 +204,16 @@ const BlogPost = () => {
 
   return (
     <>
-      {singleBlogPost && blogPostBanner && (
+      {/* {singleBlogPost && blogPostBanner && ( */}
         <>
+
+        { singleBlogPost && (
           <SEO
             title={`Marilyn's Windows | Blog | ${singleBlogPost?.fields?.title}`}
             description={singleBlogPost?.fields?.metaDescription}
           />
+        )}
+          
 
           <Header3 />
           <div className="page-content">
@@ -241,37 +249,36 @@ const BlogPost = () => {
                     </div>
                   </div>
                   {/* <div className="container"> */}
+                  {singleBlogPost?.fields?.blogImages && blogRoute && (
                     <div className="blog-post blog-lg date-style-1 text-black">
                       <div className="wt-post-media">
                         {/*Fade slider*/}
 
-                        {singleBlogPost?.fields?.blogImages && (
-                          <OwlCarousel
-                            className="owl-carousel owl-fade-slider-one owl-btn-vertical-center owl-dots-bottom-right"
-                            {...options}
-                          >
-                            {singleBlogPost?.fields?.blogImages?.map(
-                              (item, index) => (
-                                <div className="item" key={index}>
-                                  <div className="aon-thum-bx">
-                                    {/* {console.log("BLOG POST", item)} */}
+                        <OwlCarousel
+                          className="owl-carousel owl-fade-slider-one owl-btn-vertical-center owl-dots-bottom-right"
+                          {...options}
+                        >
+                          {singleBlogPost?.fields?.blogImages?.map(
+                            (item, index) => (
+                              <div className="item" key={index}>
+                                <div className="aon-thum-bx">
+                                  {/* {console.log("BLOG POST", item)} */}
 
-                                    <img
-                                      src={item.secure_url}
-                                      alt={item.context.custom.alt}
-                                      data-pin-description={
-                                        item.context.custom.dataPin
-                                      }
-                                      caption={item.context.custom.caption}
-                                      width="800"
-                                      height="500"
-                                    />
-                                  </div>
+                                  <img
+                                    src={item.secure_url}
+                                    alt={item.context.custom.alt}
+                                    data-pin-description={
+                                      item.context.custom.dataPin
+                                    }
+                                    caption={item.context.custom.caption}
+                                    width="800"
+                                    height="500"
+                                  />
                                 </div>
-                              )
-                            )}
-                          </OwlCarousel>
-                        )}
+                              </div>
+                            )
+                          )}
+                        </OwlCarousel>
 
                         {/*fade slider END*/}
                       </div>
@@ -310,9 +317,9 @@ const BlogPost = () => {
                             <div className="col-md-4 col-sm-6">
                               <div className="wt-box">
                                 <div className="row  p-lr15">
-                                  <h4 className="tagcloud text-uppercase font-weight-500">
+                                  <h3 className="tagcloud text-uppercase font-weight-500">
                                     Share this Post:
-                                  </h4>
+                                  </h3>
 
                                   <div className="widget_social_inks">
                                     <ul className="social-icons social-md social-square social-dark m-b0">
@@ -402,6 +409,7 @@ const BlogPost = () => {
                         </div>
                       </div>
                     </div>
+                  )}
                   {/* </div> */}
 
                   {/* <div className="wt-divider divider-3px bg-gray-dark"><i className="icon-dot c-square" /></div> */}
@@ -416,16 +424,17 @@ const BlogPost = () => {
             <div
               className="section-full p-tb90 tm-blog-single-wrap"
               style={{ backgroundImage: "url(" + bgimg.default + ")" }}
+              // style={{ backgroundImage: "/images/ptn-1.png" }}
             >
               <div className="container">
                 <div className="max-mid-container">
-                  <RelatedBlog id={id} />
+                  <RelatedBlog slug={slug} />
                 </div>
               </div>
             </div>
           </div>
         </>
-      )}
+      {/* )} */}
 
       <Footer />
       <Toaster position="bottom-center" reverseOrder={false} />

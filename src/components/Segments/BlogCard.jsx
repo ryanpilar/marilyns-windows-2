@@ -29,7 +29,7 @@ const BlogCard = ({ passItem, passIndex }) => {
             >
               <div className={blackOpacity.isHover ? "" : "img-opacity"}>
                 {/* post could have multiple images, so by default pick the first */}
-                <Link to={`/blog/post/${post.sys.id}`}>
+                <Link to={`/blog/post/${post.fields.slug}`}>
                   <img
                     src={post.fields.blogImages[0].secure_url}
                     alt={post.fields.blogImages[0].context.custom.alt}
@@ -48,7 +48,7 @@ const BlogCard = ({ passItem, passIndex }) => {
             <div className="wt-post-title ">
               <h2 className="post-title">
                 <Link
-                  to={`/blog/post/${post.sys.id}`}
+                  to={`/blog/post/${post.fields.slug}`}
                   className="text-black font-16 letter-spacing-2 font-weight-600"
                 >
                   {post.fields.descriptiveTitle}
@@ -69,7 +69,7 @@ const BlogCard = ({ passItem, passIndex }) => {
               <p>{post.fields.blogSummary}</p>
             </div>
             <Link
-              to={`/blog/post/${post.sys.id}`}
+              to={`/blog/post/${post.fields.slug}`}
               className="site-button black radius-no text-uppercase "
             >
               <span className="font-12 letter-spacing-5"> Read More </span>

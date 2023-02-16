@@ -24,13 +24,13 @@ import LatestProjects2 from "../Segments/LatestProjects2";
 import webSitePaths from "../../assets/js/webSitePaths";
 
 const GallerySingle = () => {
-  const { id } = useParams(); // grabs the contentful :id from the address bar (:id)
+  const { slug } = useParams(); // grabs the contentful :slug from the address bar (:slug)
   const [imageData, setImageData] = useState(null);
   // const [imageList, setImageList] = useState([]);
   const [spinner, setSpinner] = useState(true);
   const [galleryBanner, setGalleryBanner] = useState(null);
 
-  const galleryRoute = webSitePaths.galleryRoomRoute + id;
+  const galleryRoute = webSitePaths.galleryRoomRoute + slug;
 
   const toggleSpinner = () => {
     setSpinner((prevState) => !prevState);
@@ -60,23 +60,24 @@ const GallerySingle = () => {
   }, []);
 
   useEffect(() => {
+    const client = createClient({
+      // contentful connect
+      space: process.env.REACT_APP_CONTENTFUL_SPACE,
+      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+    });
     const getContentfulEntries = async () => {
-
-      const client = createClient({
-        // contentful connect
-        space: process.env.REACT_APP_CONTENTFUL_SPACE,
-        accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-      });
-
       try {
-        await client.getEntry(id).then((galleryEntry) => {
-          // console.log("GALLERY ENTRY", galleryEntry);
-          setImageData(galleryEntry);
-          toggleSpinner();
-        });
+        await client
+          // .getEntry(id)
+          .getEntries({ content_type: "gallery", "fields.slug": slug })
+          .then((galleryEntry) => {
+            console.log('GALLERY', galleryEntry)
+            setImageData(galleryEntry.items[0]);
+            toggleSpinner();
+          });
 
         // await client
-        //   .getEntries({ content_type: "gallery" })
+        //   .getEntries({ content_type: "gallery", 'fields.title': slug, })
         //   .then((allEntries) => {
         //     // allEntries.items.sort((a, b) => {
         //     //   return a.fields.priority - b.fields.priority;
@@ -88,8 +89,6 @@ const GallerySingle = () => {
         await client
           .getEntries({ content_type: "banner" })
           .then((galleryBanner) => {
-            
-            
             setGalleryBanner(
               galleryBanner.items[0].fields.backgroundImage[0].secure_url
             );
@@ -101,17 +100,6 @@ const GallerySingle = () => {
 
     getContentfulEntries();
   }, []);
-
-  // useEffect(() => {
-  //   const getBanner = async () => {
-  //     try {
-
-  //     } catch (error) {
-  //       console.log("error");
-  //     }
-  //   };
-
-  // }, []);
 
   useLayoutEffect(() => {
     function loadScript(src) {
@@ -281,7 +269,9 @@ const GallerySingle = () => {
                               url={galleryRoute}
                               aria-label="Share to Facebook"
                             >
-                              <a className=""><i className="fa fa-facebook" /></a>
+                              <a className="">
+                                <i className="fa fa-facebook" />
+                              </a>
                             </FacebookShareButton>
                           </li>
                           <li>
@@ -291,7 +281,9 @@ const GallerySingle = () => {
                               url={galleryRoute}
                               aria-label="Share to Twitter"
                             >
-                              <a className=""><i className="fa fa-twitter" /></a>
+                              <a className="">
+                                <i className="fa fa-twitter" />
+                              </a>
                             </TwitterShareButton>
                           </li>
                           <li>
@@ -305,9 +297,10 @@ const GallerySingle = () => {
                                 target="_blank"
                                 rel="noreferrer noopener"
                                 href="https://in.linkedin.com"
-                                
                                 aria-label="Share to Linkedin"
-                              ><i className="fa fa-linkedin" /></a>
+                              >
+                                <i className="fa fa-linkedin" />
+                              </a>
                             </LinkedinShareButton>
                           </li>
                           <li>
@@ -316,22 +309,22 @@ const GallerySingle = () => {
                               body="Link to a high-def image: "
                               url={galleryRoute}
                             >
-                              <a
-                                
-                                aria-label="Share to Email"
-                              ><i className="fa fa-envelope" /></a>
+                              <a aria-label="Share to Email">
+                                <i className="fa fa-envelope" />
+                              </a>
                             </EmailShareButton>
                           </li>
                           <li>
                             <a
-                              
                               style={{ cursor: "pointer" }}
                               onClick={() => {
                                 navigator.clipboard.writeText(galleryRoute);
                                 clipboardToast();
                               }}
                               aria-label="Copy Link Address"
-                            ><i className="fa fa-link" /></a>
+                            >
+                              <i className="fa fa-link" />
+                            </a>
                           </li>
                         </ul>
                       </div>

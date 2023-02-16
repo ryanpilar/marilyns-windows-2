@@ -24,18 +24,18 @@ const Blog = () => {
   };
 
   useEffect(() => {
+    const client = createClient({
+      // contentful connect
+      space: process.env.REACT_APP_CONTENTFUL_SPACE,
+      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+    });
     const getAllEntries = async () => {
       // contentful get data
       try {
-        const client = createClient({
-          // contentful connect
-          space: process.env.REACT_APP_CONTENTFUL_SPACE,
-          accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-        });
-
         await client
           .getEntries({ content_type: "blogPosts" })
           .then((blogEntries) => {
+
             setBlogPost(blogEntries);
           });
 
@@ -46,7 +46,7 @@ const Blog = () => {
         });
       } catch (error) {
         console.log(
-          "this error arose from the client.getEntries() call to contentful"
+          "this error arose from the Blog client.getEntries() call to contentful"
         );
       }
     };
@@ -156,7 +156,9 @@ const Blog = () => {
             <div className="news-listing ">
               {/* TITLE START */}
               <div className="text-left">
-                <h2 className="text-uppercase font-34 font-weight-400">Most Recent Post</h2>
+                <h2 className="text-uppercase font-34 font-weight-400">
+                  Most Recent Post
+                </h2>
                 <div className="wt-separator-outer">
                   <div className="wt-separator bg-black" />
                 </div>
@@ -181,7 +183,7 @@ const Blog = () => {
                               blackOpacity.isHover ? "" : "img-opacity"
                             }
                           >
-                            <Link to={`/blog/post/${blogPost.items[0].sys.id}`}>
+                            <Link to={`/blog/post/${blogPost.items[0].fields.slug}`}>
                               <img
                                 src={
                                   blogPost.items[0].fields.blogImages[0]
@@ -200,7 +202,7 @@ const Blog = () => {
                         <div className="wt-post-title ">
                           <h2 className="post-title">
                             <Link
-                              to={`/blog/post/${blogPost.items[0].sys.id}`}
+                              to={`/blog/post/${blogPost.items[0].fields.slug}`}
                               className="text-black font-18 letter-spacing-1 font-weight-600"
                             >
                               {blogPost.items[0].fields.descriptiveTitle}
@@ -216,7 +218,7 @@ const Blog = () => {
                             </li>
                             <li className="post-author">
                               <Link
-                                to={`/blog/post/${blogPost.items[0].sys.id}`}
+                                to={`/blog/post/${blogPost.items[0].fields.slug}`}
                               >
                                 By{" "}
                                 <span>
@@ -230,7 +232,7 @@ const Blog = () => {
                           <p>{blogPost.items[0].fields.blogSummary}</p>
                         </div>
                         <Link
-                          to={`/blog/post/${blogPost.items[0].sys.id}`}
+                          to={`/blog/post/${blogPost.items[0].fields.slug}`}
                           // className="v-button letter-spacing-4 font-12 text-uppercase"
                           className="link-style font-14 letter-spacing-4 text-uppercase"
                         >
@@ -247,7 +249,7 @@ const Blog = () => {
 
           {blogPost && (
             <>
-              <RelatedBlog id={blogPost.items[0].sys.id} />
+              <RelatedBlog slug={blogPost.items[0].fields.slug} />
               <div className="section-full p-tb20 tm-work-wrap">
                 <div className="container-fluid">
                   <div className="">
@@ -269,7 +271,7 @@ const Blog = () => {
                           {blogPost?.items?.map((post, index) => (
                             <li key={index} className="p-a5 m-a5">
                               <Link
-                                to={`/blog/post/${post.sys.id}`}
+                                to={`/blog/post/${post.fields.slug}`}
                                 className="text-uppercase link-style font-14"
                               >
                                 {post.fields.descriptiveTitle}

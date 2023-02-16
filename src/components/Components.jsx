@@ -42,7 +42,7 @@ const Components = () => {
                                 changefreq='weekly'
                                 priority='0.9'
                             />
-                            <Route path='/gallery/room/:id' exact component={ () => <GallerySingle  key={generateRandomKey()}
+                            <Route path='/gallery/room/:slug' exact component={ () => <GallerySingle  key={generateRandomKey()}
 
                             /> }  />
                             <Route path='/blog' exact component={Blog} 
@@ -50,7 +50,7 @@ const Components = () => {
                                 changefreq='weekly'
                                 priority='0.8'
                             />
-                            <Route path='/blog/post/:id' exact component={ () => <BlogPost key={generateRandomKey()}
+                            <Route path='/blog/post/:slug' exact component={ () => <BlogPost key={generateRandomKey()}
 
                             /> } />
                             <Route path='/services' exact component={Services} 

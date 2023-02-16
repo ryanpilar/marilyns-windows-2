@@ -32,7 +32,7 @@ class Header3 extends React.Component {
 
     
 
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll());
 
     window.updateTopMostParent = (logopath) => {
       this.setState({ logo: logopath });

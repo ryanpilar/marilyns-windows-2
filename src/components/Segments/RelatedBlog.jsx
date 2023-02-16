@@ -6,8 +6,7 @@ import { createClient } from "contentful";
 import BlogCard2 from "./BlogCard2";
 import { useEffect } from "react";
 
-const RelatedBlog = ({ id }) => {
-
+const RelatedBlog = ({ slug }) => {
   const options = {
     loop: true,
     margin: 30,
@@ -35,37 +34,36 @@ const RelatedBlog = ({ id }) => {
 
   const [blogPost, setBlogPost] = React.useState(null);
 
-  const removeDouble = (entries, blogId) => {
-    const filtered = entries.filter((post) => post.sys.id !== blogId);
-    // console.log("filtered", filtered);
+  const removeDouble = (entries, theSlug) => {
+    const filtered = entries.filter((post) => post.fields.slug !== theSlug);
     return filtered;
   };
 
   React.useEffect(() => {
+    const client = createClient({
+      // contentful connect
+      space: process.env.REACT_APP_CONTENTFUL_SPACE,
+      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+    });
     const getAllEntries = async () => {
       // contentful get data
       try {
-        const client = createClient({
-          // contentful connect
-          space: process.env.REACT_APP_CONTENTFUL_SPACE,
-          accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-        });
-
         await client
           .getEntries({ content_type: "blogPosts" })
           .then((blogEntries) => {
-            // console.log("blog entries", blogEntries.items);
 
-            const filteredEntries = id
-              ? removeDouble(blogEntries.items, id)
+            const filteredEntries = slug
+              ? removeDouble(blogEntries.items, slug)
               : blogEntries.items;
             // console.log("filtered", filteredEntries);
 
             setBlogPost(filteredEntries);
+            // console.log("filtered22", filteredEntries);
+
           });
       } catch (error) {
         console.log(
-          "this error arose from the client.getEntries() call to contentful"
+          "this error arose from the RelatedBlog client.getEntries() call to contentful"
         );
       }
     };

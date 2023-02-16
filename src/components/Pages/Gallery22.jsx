@@ -218,7 +218,7 @@ const Gallery22 = () => {
                                 <div className="text-white font-weight-300 p-a40">
                                   <h2>{item.fields.cardTitle}</h2>
                                   <p>{item.fields.cardDescription}</p>
-                                  <NavLink to={`/gallery/room/${item.sys.id}`}>
+                                  <NavLink to={`/gallery/room/${item.fields.slug}`}>
                                     <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
                                       <p>
                                         <i

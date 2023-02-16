@@ -44,7 +44,7 @@ const LatestProjects2 = ({ content }) => {
 
       return array;
     };
-    const getEntryById = async () => {
+    const getEntry = async () => {
       try {
         await client
           .getEntries({ content_type: "gallery" })
@@ -60,7 +60,7 @@ const LatestProjects2 = ({ content }) => {
       }
     };
 
-    getEntryById();
+    getEntry();
   }, []);
 
   useLayoutEffect(() => {
@@ -189,7 +189,7 @@ const LatestProjects2 = ({ content }) => {
                                   {item.fields.cardTitle}
                                 </h2>
                                 <p>{item.fields.cardDescription}</p>
-                                <Link to={`${item.sys.id}`}>
+                                <Link to={`${item.fields.slug}`}>
                                   <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
                                     <p>
                                       <i
