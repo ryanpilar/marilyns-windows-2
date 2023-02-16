@@ -2392,6 +2392,7 @@ ol.list-num-count p {
 	3. background image
 -------------------------------------*/
 .bg-parallax {
+  background-attachment: initial;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -2406,14 +2407,14 @@ ol.list-num-count p {
   }
 }
 
-@media (hover: none) {
+/* @media (hover: none) {
   .bg-parallax {
     background-attachment: initial !important;
     background-position: center !important;
     background-repeat: no-repeat;
     background-size: cover;
 
-}}
+}} */
 
 
 
