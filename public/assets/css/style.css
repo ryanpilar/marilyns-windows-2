@@ -2395,9 +2395,6 @@ ol.list-num-count p {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  -webkit-background-size: cover !important; 
-  -moz-background-size: cover !important; 
-  -o-background-size: cover;
   background-size: cover;
 }
 @media only screen and (max-width: 768px) {
@@ -2405,9 +2402,6 @@ ol.list-num-count p {
     background-attachment: fixed !important;
     background-position: center !important;
     background-repeat: no-repeat;
-    -webkit-background-size: cover !important; 
-    -moz-background-size: cover !important; 
-    -o-background-size: cover;
     background-size: cover;
   }
 }

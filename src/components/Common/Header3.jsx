@@ -32,7 +32,7 @@ class Header3 extends React.Component {
 
     
 
-    window.addEventListener("scroll", this.handleScroll());
+    window.addEventListener("scroll", this.handleScroll);
 
     window.updateTopMostParent = (logopath) => {
       this.setState({ logo: logopath });
@@ -110,7 +110,7 @@ class Header3 extends React.Component {
                                 <i className="fa fa-facebook" />
                               </a>
                             </li>
-                            <li>
+                            {/* <li>
                               <a
                                 target="_blank"
                                 rel="noreferrer noopener"
@@ -119,7 +119,7 @@ class Header3 extends React.Component {
                               >
                                 <i className="fa fa-twitter" />
                               </a>
-                            </li>
+                            </li> */}
                             <li>
                               <a
                                 target="_blank"
