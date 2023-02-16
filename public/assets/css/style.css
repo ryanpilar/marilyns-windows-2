@@ -2391,9 +2391,17 @@ ol.list-num-count p {
 /*-------------------------------------
 	3. background image
 -------------------------------------*/
+.bg-parallax-fallback {
+  /* background-attachment: initial; */
+  background-attachment: initial;
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+
 .bg-parallax {
   /* background-attachment: initial; */
-  background-attachment: fixed, initial;
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
