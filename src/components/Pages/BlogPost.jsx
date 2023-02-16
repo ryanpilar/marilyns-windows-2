@@ -230,7 +230,7 @@ const BlogPost = () => {
             <div className="section-full p-tb90 square_shape1 square_shape3 tm-blog-single-wrap">
               <div className="container">
                 <div className="max-mid-container">
-                  <div className="container p-b30">
+                  <div className=" p-b30">
                     {/* BREADCRUMB ROW */}
                     <div className="">
                       <div className="p-t20 m-r20">

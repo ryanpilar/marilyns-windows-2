@@ -8,27 +8,38 @@ import Banner from "../Segments/Banner";
 import SEO from "../Segments/SEO";
 import Footer from "../Common/Footer";
 
+// import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+
 // const bnrimg = require('./../../images/banner/sewing-machine-lamp-freepic.png');
 
 const Gallery22 = () => {
   const [imageList, setImageList] = useState(null);
   const [bannerContent, setBannerContent] = useState(null);
-
-  const filters = [
+  const [filters, setFilters] = useState([
     { label: "Bedroom", filter: ".Bedroom" },
     { label: "Bath", filter: ".Bathroom" },
     { label: "Dining", filter: ".Dining" },
     { label: "Kitchen", filter: ".Kitchen" },
     { label: "Living", filter: ".Living" },
     { label: "Office", filter: ".Office" },
-  ];
+  ]);
+
+  const client = createClient({
+    // contentful connect
+
+    space: process.env.REACT_APP_CONTENTFUL_SPACE,
+    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+  });
+  // const filters = [
+  //   { label: "Bedroom", filter: ".Bedroom" },
+  //   { label: "Bath", filter: ".Bathroom" },
+  //   { label: "Dining", filter: ".Dining" },
+  //   { label: "Kitchen", filter: ".Kitchen" },
+  //   { label: "Living", filter: ".Living" },
+  //   { label: "Office", filter: ".Office" },
+  // ];
 
   useEffect(() => {
-    const client = createClient({
-      // contentful connect
-      space: process.env.REACT_APP_CONTENTFUL_SPACE,
-      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-    });
     const getAllEntries = async () => {
       // contentful get data
       try {
@@ -172,7 +183,11 @@ const Gallery22 = () => {
                       </li>
                       {filters.map((item, index) => (
                         <li key={index}>
-                          <a data-filter={item.filter} href="#" aria-label="Show select items">
+                          <a
+                            data-filter={item.filter}
+                            href="#"
+                            aria-label="Show select items"
+                          >
                             {item.label}
                           </a>
                         </li>
@@ -218,7 +233,9 @@ const Gallery22 = () => {
                                 <div className="text-white font-weight-300 p-a40">
                                   <h2>{item.fields.cardTitle}</h2>
                                   <p>{item.fields.cardDescription}</p>
-                                  <NavLink to={`/gallery/room/${item.fields.slug}`}>
+                                  <NavLink
+                                    to={`/gallery/room/${item.fields.slug}`}
+                                  >
                                     <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
                                       <p>
                                         <i

@@ -77,7 +77,7 @@ const AboutMe = () => {
         <div className="section-full p-b90 bg-gray tm-about2-wrap">
           {/* BREADCRUMB ROW */}
           <div className="container ">
-            <div className="p-t20 p-l20">
+            <div className="p-t20 p-l0">
               <div className="row">
                 <div className="col-sm-12">
                   <ul className="wt-breadcrumb breadcrumb-style-2">
@@ -459,7 +459,7 @@ const AboutMe = () => {
                     <div className="text-center">
                       <HashLink
                         smooth
-                        className="btn-half site-button button-lg font-weight-600 font-30 m-tb30 text-right"
+                        className="btn-half site-button adjust-color button-lg font-weight-600 font-30 m-tb30 text-right"
                         to="/services/#contact"
                       >
                         <span>Book Appointment Here</span>

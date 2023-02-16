@@ -1,4 +1,3 @@
-
 import ServiceCard from "./ServiceCard";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
@@ -147,7 +146,6 @@ const Service2 = ({ testimonial }) => {
                       and thread is quality, and crafted to last.
                     </p>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -249,7 +247,9 @@ const Service2 = ({ testimonial }) => {
                           {" "}
                           <li className="m-l10">
                             <Link
-                              to={"/blog/post/119dUC52nGbqcnakNBQScT"}
+                              to={
+                                "/blog/post/8-indisputable-reasons-to-love-custom-window-treatments"
+                              }
                               className="link-style font-14"
                             >
                               <div className="m-l10">
@@ -320,7 +320,9 @@ const Service2 = ({ testimonial }) => {
                           {" "}
                           <li className="m-l10">
                             <Link
-                              to={"/blog/post/75S5fnhHMxAVZXZpA8rG4o"}
+                              to={
+                                "/blog/post/everything-that-you-need-to-know-about-roller-shades"
+                              }
                               className="text-uppercase link-style font-14"
                             >
                               <div className="m-l10">Roller Shades</div>
@@ -328,7 +330,9 @@ const Service2 = ({ testimonial }) => {
                           </li>
                           <li className="m-l10">
                             <Link
-                              to={"/blog/post/2ViE170NBybYQaLPyIhRcC"}
+                              to={
+                                "/blog/post/everything-you-need-to-know-about-dual-banded-shades"
+                              }
                               className="text-uppercase link-style font-14"
                             >
                               <div className="m-l10">Dual Banded Shades</div>
@@ -336,7 +340,9 @@ const Service2 = ({ testimonial }) => {
                           </li>
                           <li className="m-l10">
                             <Link
-                              to={"/blog/post/Zx8h0ifTUID1BPPklbsiJ"}
+                              to={
+                                "/blog/post/how-can-you-give-your-home-theatre-that-cinema-experience"
+                              }
                               className="text-uppercase link-style font-14"
                             >
                               <div className="m-l10">Cinema Blackout Tips</div>
@@ -390,12 +396,12 @@ const Service2 = ({ testimonial }) => {
                         title={selectServices[4].title}
                         description={selectServices[4].description}
                       >
-                        <p>
-                          They are available in a wide range of styles, colors,
+                        {/* <p>
+                          A wide range of styles, colors,
                           and finishes, allowing you to choose the perfect
                           option to complement the design of your home or
                           commercial space.
-                        </p>
+                        </p> */}
 
                         <p>
                           Shutters are the ultimate tool for managing natural
@@ -411,12 +417,13 @@ const Service2 = ({ testimonial }) => {
                           {" "}
                           <li className="m-l10">
                             <Link
-                              to={"/blog/post/314gqvz8CGTSTqpyWdwEek"}
+                              to={
+                                "/blog/post/a-guide-to-choosing-custom-shutters"
+                              }
                               className="text-uppercase link-style font-14"
                             >
                               <div className="m-l10">
-                                A Comprehensive Guide to Choosing Custom-Fit
-                                Shutters
+                                Guide to Choosing Custom-Fit Shutters
                               </div>
                             </Link>
                           </li>
@@ -433,7 +440,7 @@ const Service2 = ({ testimonial }) => {
                         </span>
                         <ul className="list-simple list-check m-t10">
                           {" "}
-                          <li className="m-l10">
+                          {/* <li className="m-l10">
                             <Link
                               to={""}
                               className="text-uppercase link-style font-14"
@@ -443,15 +450,18 @@ const Service2 = ({ testimonial }) => {
                                 Chef - no click yet
                               </div>
                             </Link>
-                          </li>
+                          </li> */}
+                          
                           <li className="m-l10">
                             <Link
-                              to={""}
+                              to={
+                                "/blog/post/how-an-industry-expert-designs-the-perfect-window-seat-space"
+                              }
                               className="text-uppercase link-style font-14"
                             >
                               <div className="m-l10">
-                                Lakefront Abodes, Pillows and Food, Such a Cozy
-                                Mood - no click yet
+                                how an industry expert designs the perfect
+                                window seat space
                               </div>
                             </Link>
                           </li>
@@ -461,8 +471,8 @@ const Service2 = ({ testimonial }) => {
                               className="text-uppercase link-style font-14"
                             >
                               <div className="m-l10">
-                                how an industry expert designs the perfect
-                                window seat space - - no click yet
+                                A Poem - Lakefront Abodes, Pillows and Food, Such a Cozy
+                                Mood - no click yet
                               </div>
                             </Link>
                           </li>

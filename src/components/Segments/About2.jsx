@@ -36,7 +36,7 @@ const About2 = ({ images }) => {
       {/* <div className="container"> */}
       <div className="section-content ">
         {/* TITLE START */}
-        <div className="p-b40 p-l20 text-left ">
+        <div className="p-b40 p-l0 text-left ">
           {/* <h1 className="text-uppercase font-50">Marilyn's Story</h1> */}
           {/* <div className="wt-separator-outer"> */}
           <div className="wt-separator bg-black" />
@@ -44,39 +44,10 @@ const About2 = ({ images }) => {
         </div>
         {/* TITLE END */}
 
-        <div className="row">
-          <div className="col-lg-8 col-md-8 col-sm-12">
-            <div className="m-about-containt text-black p-l25 p-r10 m-b15">
-              {/* <h2 className="font-40 font-weight-500 text-uppercase letter-spacing-2">
-                An Intimate Journey into the Artistry of Marilyn’s Custom Window
-                Treatments
-              </h2> */}
 
-              {/* <p className="">
-                <b>INTERIOR DESIGNER IN MILTON, ONTARIO.</b>
-              </p> */}
 
-              {/* <p className="">
-                Hello, I’m Marilyn. Allow me to take you on a trip down memory
-                lane, where my passion for sewing first blossomed. Join me in
-                revisiting my early beginnings, where my love for sewing first
-                took root and has continued to grow ever since.
-              </p>
-
-              <p className="">
-                Amidst 600 design books and fabric swatches, my trusty 1962
-                Bernina and its accompanying Serger and Blind Hemmer await (my
-                loyal sewing machines). This journey began with a humble needle
-                and thread, which over 30 years has developed into a thriving
-                career. My love for sewing was rooted in my upbringing on a farm
-                and that is where my story begins.
-              </p> */}
-            </div>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="wt-post-text col-md-8 col-sm-12 col-xs-12 p-l40 p-b15">
+        <div className="row p-l5">
+          <div className="wt-post-text col-md-8 col-sm-12 col-xs-12 p-l15 p-b15">
             <div className="">
               <span className="font-24 font-weight-300 text-uppercase m-b20">
                 Designer’s Spotlight
@@ -105,9 +76,9 @@ const About2 = ({ images }) => {
               </p>
             </div>
           </div>
-          <div className="wt-post-text col-md-4 col-sm-12 col-xs-12 p-lr50 float-right ">
+          <div className="wt-post-text col-md-4 col-sm-12 col-xs-12 p-lr20 float-right ">
             <div className="quick-links-border">
-              <h3 className="font-weight-600 text-uppercase font-16 m-t0 m-t30 m-b5 p-t0">
+              <h3 className="font-weight-600 text-uppercase font-16 m-t0 m-t30 m-b5 p-t0 p-l5">
                 Table Of Contents
               </h3>
               <ul className="list-unstyled p-l10 ">

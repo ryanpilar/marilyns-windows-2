@@ -3895,7 +3895,7 @@ ol.list-num-count p {
 .btn-half:before,
 .btn-half:after {
   content: "";
-  background-color: rgb(255, 255, 255, 1);
+  background-color: rgb(231, 4, 4);
   /* background-color: rgba(255, 255, 255, 1); */
 
   height: 50%;
@@ -3903,6 +3903,30 @@ ol.list-num-count p {
   position: absolute;
   /* transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86); */
   transition: 0.5s;
+}
+.btn-half.site-button:before,
+.btn-half.site-button:after {
+  content: "";
+  background-color:rgb(255, 255, 255);
+  /* background-color: rgba(255, 255, 255, 1); */
+
+  height: 50%;
+  width: 0;
+  position: absolute;
+  /* transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86); */
+  transition: 0.5s;
+}
+.btn-half.site-button.adjust-color:before,
+.btn-half.site-button.adjust-color:after {
+  /* content: ""; */
+  background-color:rgb(246, 247, 248);
+  /* background-color: rgba(255, 255, 255, 1); */
+
+  /* height: 50%; */
+  /* width: 0; */
+  /* position: absolute; */
+  /* transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86); */
+  /* transition: 0.5s; */
 }
 
 .btn-half:before {

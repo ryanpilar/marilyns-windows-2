@@ -117,7 +117,7 @@ const About = () => {
 
                   <NavLink
                     to={"/gallery"}
-                    className="btn-half text-white site-button button-md m-b15"
+                    className="btn-half text-white site-button adjust-color button-md m-b15"
                   >
                     <span className="p-lr5"> Gallery</span>
                     <em />
