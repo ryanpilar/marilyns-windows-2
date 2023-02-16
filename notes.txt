@@ -75,3 +75,7 @@ Weird things I had to do:
             state has something to render after API call returns.
 
             https://stackoverflow.com/questions/56771532/react-owl-carousel-is-blank
+
+    5.  bg-paralax unsupportive in iOS devices
+        -   put a fallback of background-attachment: initial, so if the background-attachment: fixed doesn't work, then it 
+            will revert to initial
