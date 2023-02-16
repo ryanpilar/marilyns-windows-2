@@ -2406,6 +2406,15 @@ ol.list-num-count p {
   }
 }
 
+@media (hover: none) {
+  .bg-parallax {
+    background-attachment: initial !important;
+    background-position: center !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}}
+
 
 
 /*======================================
