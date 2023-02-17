@@ -25,7 +25,7 @@ class Footer extends React.Component {
                   <a href={"/"} aria-label="Back to Home">
                     <img
                       src={require("./../../images/logo-dark.png").default}
-                      alt=""
+                      alt="marilyn's windows company logo"
                       width={140}
                       height={58}
                     />

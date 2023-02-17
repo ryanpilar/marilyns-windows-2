@@ -71,7 +71,7 @@ const GallerySingle = () => {
           // .getEntry(id)
           .getEntries({ content_type: "gallery", "fields.slug": slug })
           .then((galleryEntry) => {
-            console.log('GALLERY', galleryEntry)
+            // console.log('GALLERY', galleryEntry)
             setImageData(galleryEntry.items[0]);
             toggleSpinner();
           });
@@ -257,9 +257,9 @@ const GallerySingle = () => {
                   {/* react-shares here */}
                   <div className="wt-box">
                     <div className="row  p-lr15">
-                      <h4 className="tagcloud text-uppercase">
+                      <h2 className="tagcloud text-uppercase">
                         Share this Post:
-                      </h4>
+                      </h2>
                       <div className="widget_social_inks">
                         <ul className="social-icons social-md social-square social-dark m-b40">
                           <li>
@@ -268,9 +268,10 @@ const GallerySingle = () => {
                               quote={`Checkout this fantastic room by Marilyn: '${imageData?.fields?.descriptiveTitle}'`}
                               url={galleryRoute}
                               aria-label="Share to Facebook"
+                              role="button"
                             >
                               <a className="">
-                                <i className="fa fa-facebook" />
+                                <i className="fa fa-facebook" aria-hidden="true" />
                               </a>
                             </FacebookShareButton>
                           </li>
@@ -280,9 +281,10 @@ const GallerySingle = () => {
                               hashtags={["marilynswindowsandinteriors"]}
                               url={galleryRoute}
                               aria-label="Share to Twitter"
+                              role="button"
                             >
                               <a className="">
-                                <i className="fa fa-twitter" />
+                                <i className="fa fa-twitter" aria-hidden="true" />
                               </a>
                             </TwitterShareButton>
                           </li>
@@ -298,8 +300,9 @@ const GallerySingle = () => {
                                 rel="noreferrer noopener"
                                 href="https://in.linkedin.com"
                                 aria-label="Share to Linkedin"
+                                role="button"
                               >
-                                <i className="fa fa-linkedin" />
+                                <i className="fa fa-linkedin" aria-hidden="true" />
                               </a>
                             </LinkedinShareButton>
                           </li>
@@ -308,9 +311,11 @@ const GallerySingle = () => {
                               subject={`Share or save this room example from Marilyn's Gallery: '${imageData?.fields?.descriptiveTitle}'`}
                               body="Link to a high-def image: "
                               url={galleryRoute}
+                              role="button"
+                              aria-label="Share to Email"
                             >
-                              <a aria-label="Share to Email">
-                                <i className="fa fa-envelope" />
+                              <a >
+                                <i className="fa fa-envelope" aria-hidden="true" />
                               </a>
                             </EmailShareButton>
                           </li>
@@ -322,8 +327,9 @@ const GallerySingle = () => {
                                 clipboardToast();
                               }}
                               aria-label="Copy Link Address"
+                              role="button"
                             >
-                              <i className="fa fa-link" />
+                              <i className="fa fa-link" aria-hidden="true" />
                             </a>
                           </li>
                         </ul>

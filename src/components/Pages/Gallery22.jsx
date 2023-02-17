@@ -224,8 +224,8 @@ const Gallery22 = () => {
                                   item.fields.smallImage[0]?.context?.custom
                                     ?.dataPin
                                 }
-                                width="360"
-                                height="560"
+                                width={360}
+                                height={560}
                               />
                             </div>
                             <div className="overlay-bx-2 ">

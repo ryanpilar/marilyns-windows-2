@@ -25,8 +25,8 @@ const BlogCard2 = ({ item, index }) => {
             >
               <div className={blackOpacity.isHover ? "" : "img-opacity"}>
                 <Link to={`/blog/post/${item.fields.slug}`}>
-                {console.log('teeeest', item.fields.blogImages[0])}
-                  <img src={item.fields.blogImages[0].secure_url} alt={item.fields.blogImages[0].context.alt}/>
+                {/* {console.log('teeeest', item.fields.blogImages[0])} */}
+                  <img src={item.fields.blogImages[0].secure_url} alt={item.fields.blogImages[0].context.custom.alt} width={800} height={500} />
                 </Link>
               </div>
             </div>

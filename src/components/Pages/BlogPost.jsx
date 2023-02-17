@@ -121,7 +121,7 @@ const BlogPost = () => {
               className="m-t20 m-b30"
               width={`100%`}
               src={node.data.target.fields.file.url}
-              aria-hidden={true}
+              aria-hidden="true"
             />
           ),
           [BLOCKS.QUOTE]: (node, children) => (
@@ -331,9 +331,10 @@ const BlogPost = () => {
                                           quote={`Read Marilyn's article: '${singleBlogPost?.fields?.descriptiveTitle}'`}
                                           url={blogRoute}
                                           aria-label="Share to Facebook"
+                                          role="button"
                                         >
-                                          <a className="">
-                                            <i className="fa fa-facebook" />
+                                          <a>
+                                            <i className="fa fa-facebook" aria-hidden="true" />
                                           </a>
                                         </FacebookShareButton>
                                       </li>
@@ -345,9 +346,10 @@ const BlogPost = () => {
                                           ]}
                                           url={blogRoute}
                                           aria-label="Share to Twitter"
+                                          role="button"
                                         >
-                                          <a className="">
-                                            <i className="fa fa-twitter" />
+                                          <a>
+                                            <i className="fa fa-twitter" aria-hidden="true" />
                                           </a>
                                         </TwitterShareButton>
                                       </li>
@@ -362,14 +364,16 @@ const BlogPost = () => {
                                           }
                                           source={blogRoute}
                                           url={blogRoute}
+                                          aria-label="Share to Linkedin"
+                                          role="button"
                                         >
                                           <a
-                                            target="_blank"
-                                            rel="noreferrer noopener"
-                                            href="https://in.linkedin.com"
-                                            aria-label="Share to Linkedin"
+                                            // target="_blank"
+                                            // rel="noreferrer noopener"
+                                            // href="https://in.linkedin.com"
+                                            
                                           >
-                                            <i className="fa fa-linkedin" />
+                                            <i className="fa fa-linkedin" aria-hidden="true" />
                                           </a>
                                         </LinkedinShareButton>
                                       </li>
@@ -379,9 +383,11 @@ const BlogPost = () => {
                                           subject={`Read Marilyn's article: ${singleBlogPost?.fields?.descriptiveTitle}`}
                                           body="Link to article: "
                                           url={blogRoute}
+                                          aria-label="Share to Email"
+                                          role="button"
                                         >
-                                          <a aria-label="Share to Email">
-                                            <i className="fa fa-envelope" />
+                                          <a>
+                                            <i className="fa fa-envelope" aria-hidden="true" />
                                           </a>
                                         </EmailShareButton>
                                       </li>
@@ -396,8 +402,9 @@ const BlogPost = () => {
                                             clipboardToast();
                                           }}
                                           aria-label="Copy Link Address"
+                                          role="button"
                                         >
-                                          <i className="fa fa-link" />
+                                          <i className="fa fa-link" aria-hidden="true" />
                                         </a>
                                       </li>
                                     </ul>

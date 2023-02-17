@@ -183,15 +183,14 @@ const Blog = () => {
                               blackOpacity.isHover ? "" : "img-opacity"
                             }
                           >
-                            <Link to={`/blog/post/${blogPost.items[0].fields.slug}`}>
+                            <Link to={`/blog/post/${blogPost.items[0].fields.slug}`} aria-label={`Navigate to Blog Post: ${blogPost.items[0].fields.descriptiveTitle}`}>
                               <img
                                 src={
                                   blogPost.items[0].fields.blogImages[0]
                                     .secure_url
                                 }
                                 alt={
-                                  blogPost.items[0].fields.blogImages[0].context
-                                    .alt
+                                  blogPost.items[0].fields.blogImages[0].context.custom.alt
                                 }
                               />
                             </Link>
@@ -204,6 +203,7 @@ const Blog = () => {
                             <Link
                               to={`/blog/post/${blogPost.items[0].fields.slug}`}
                               className="text-black font-18 letter-spacing-1 font-weight-600"
+                              aria-label={`Navigate to Blog Post: ${blogPost.items[0].fields.descriptiveTitle}`}
                             >
                               {blogPost.items[0].fields.descriptiveTitle}
                             </Link>
@@ -219,6 +219,7 @@ const Blog = () => {
                             <li className="post-author">
                               <Link
                                 to={`/blog/post/${blogPost.items[0].fields.slug}`}
+                                aria-label={`Navigate to Blog Post: ${blogPost.items[0].fields.descriptiveTitle}`}
                               >
                                 By{" "}
                                 <span>
@@ -233,6 +234,7 @@ const Blog = () => {
                         </div>
                         <Link
                           to={`/blog/post/${blogPost.items[0].fields.slug}`}
+                          aria-label={`Navigate to Blog Post: ${blogPost.items[0].fields.descriptiveTitle}`}
                           // className="v-button letter-spacing-4 font-12 text-uppercase"
                           className="link-style font-14 letter-spacing-4 text-uppercase"
                         >
@@ -273,6 +275,7 @@ const Blog = () => {
                               <Link
                                 to={`/blog/post/${post.fields.slug}`}
                                 className="text-uppercase link-style font-14"
+                                aria-label={`Navigate to Blog Post: ${post.fields.descriptiveTitle}`}
                               >
                                 {post.fields.descriptiveTitle}
                               </Link>

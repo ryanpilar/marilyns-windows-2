@@ -30,10 +30,10 @@ jQuery(document).ready(function() {
 
 //  CounterUp function by = counterup-min.js ========================== //
 
-	jQuery('.counter').counterUp({
-		delay: 10,
-		time: 1000
-	});
+	// jQuery('.counter').counterUp({
+	// 	delay: 10,
+	// 	time: 1000
+	// });
 
 });
 
