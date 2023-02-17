@@ -227,7 +227,7 @@ const BlogPost = () => {
               />
             )}
 
-            <div className="section-full p-tb90 square_shape1 square_shape3 tm-blog-single-wrap">
+            <div className="section-full p-b40 square_shape1 square_shape3 tm-blog-single-wrap">
               <div className="container">
                 <div className="max-mid-container">
                   <div className=" p-b30">

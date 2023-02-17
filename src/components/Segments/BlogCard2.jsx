@@ -25,7 +25,8 @@ const BlogCard2 = ({ item, index }) => {
             >
               <div className={blackOpacity.isHover ? "" : "img-opacity"}>
                 <Link to={`/blog/post/${item.fields.slug}`}>
-                  <img src={item.fields.blogImages[0].secure_url} />
+                {console.log('teeeest', item.fields.blogImages[0])}
+                  <img src={item.fields.blogImages[0].secure_url} alt={item.fields.blogImages[0].context.alt}/>
                 </Link>
               </div>
             </div>
@@ -61,7 +62,7 @@ const BlogCard2 = ({ item, index }) => {
               to={`/blog/post/${item.fields.slug}`}
               className="site-button black radius-no text-uppercase"
             >
-              <span className="font-12 letter-spacing-5"> Read More </span>{" "}
+              <span className="font-12 letter-spacing-5"> Read Blog </span>{" "}
             </Link>
             {/* <NavLink
               to={"/project-detail"}

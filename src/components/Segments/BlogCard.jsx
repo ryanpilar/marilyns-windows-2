@@ -72,7 +72,7 @@ const BlogCard = ({ passItem, passIndex }) => {
               to={`/blog/post/${post.fields.slug}`}
               className="site-button black radius-no text-uppercase "
             >
-              <span className="font-12 letter-spacing-5"> Read More </span>
+              <span className="font-12 letter-spacing-5"> Read Blog </span>
             </Link>
           </div>
         </div>

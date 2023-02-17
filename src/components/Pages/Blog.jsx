@@ -236,7 +236,7 @@ const Blog = () => {
                           // className="v-button letter-spacing-4 font-12 text-uppercase"
                           className="link-style font-14 letter-spacing-4 text-uppercase"
                         >
-                          Read More
+                          Read Blog
                         </Link>
                       </div>
                     </div>

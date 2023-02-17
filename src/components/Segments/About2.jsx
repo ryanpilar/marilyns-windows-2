@@ -85,11 +85,11 @@ const About2 = ({ images }) => {
                 <li className="m-a0">
                   <HashLink
                     smooth
-                    className="link-style font-14 text-uppercase "
+                    className="link-style font-14 text-capitalize "
                     to="#peaches"
                     aria-label="scroll down to PEACHES, FABRIC & FACTORIES"
                   >
-                    <div className="text-capitalize p-lr10">
+                    <div className="p-lr10">
                       peaches, fabric & factories
                     </div>
                   </HashLink>

@@ -663,7 +663,9 @@ a.link-style:hover {
   color: #000000;
 }
 a.link-style:focus {
-  color: rgb(216, 255, 250);
+  /* color: rgb(216, 255, 250); */
+  /* color: rgb(157, 176, 160); */
+  background-color: rgb(209, 221, 211);
 }
 a.link-style:focus p a {
   color: #333333;
@@ -3375,7 +3377,8 @@ ol.list-num-count p {
 .site-button.blue:hover,
 .site-button.blue:active,
 .site-button.blue:focus {
-  background-color: #2ca2be;
+  /* background-color: #2ca2be; */
+  background-color: rgb(157, 176, 160);
   color: #fff;
 }
 

@@ -36,7 +36,7 @@ const Service2 = ({ testimonial }) => {
     {
       counter: 5,
       title: "Window Seats,\nThrow Pillows &\nCustom Cushions",
-      description: `Throw pillows and cushions add visual interest, comfort, and functionality 
+      description: `Custom window seats, bay windows, throw pillows and cushions add visual interest, comfort, and functionality 
         to a room, and can be used to introduce texture, color, 
         and patterns to the space. `,
     },
@@ -373,16 +373,15 @@ const Service2 = ({ testimonial }) => {
                           Learn with Marilyn:
                         </span>
 
-                        <ul className="list-simple list-check m-t20">
+                        <ul className="list-simple list-check m-t10">
                           {" "}
                           <li className="m-l10">
                             <Link
-                              to={""}
+                              to={"/blog/post/everything-you-need-to-know-about-sunset-and-silhouette-shades"}
                               className="text-uppercase link-style font-14"
                             >
                               <div className="m-l10">
-                                Everything you need to know about Sunset &
-                                Silhouette Like Shades - no click yet
+                                Sunset & Silhouette Like Shades
                               </div>
                             </Link>
                           </li>
@@ -404,7 +403,8 @@ const Service2 = ({ testimonial }) => {
                         </p> */}
 
                         <p>
-                          Shutters are the ultimate tool for managing natural
+                          {/* Shutters are  */}
+                          The ultimate tool for managing natural
                           light. Not only do they add a touch of architectural
                           flair to your home, but they also increase its value.
                           And with cord-free design, they're a safe choice for
@@ -460,19 +460,19 @@ const Service2 = ({ testimonial }) => {
                               className="text-uppercase link-style font-14"
                             >
                               <div className="m-l10">
-                                how an industry expert designs the perfect
+                                how to design the perfect
                                 window seat space
                               </div>
                             </Link>
                           </li>
                           <li className="m-l10">
                             <Link
-                              to={""}
+                              to={"/blog/post/lakefront-abode-pillows-and-food-such-a-cozy-mood"}
                               className="text-uppercase link-style font-14"
                             >
                               <div className="m-l10">
-                                A Poem - Lakefront Abodes, Pillows and Food, Such a Cozy
-                                Mood - no click yet
+                                A Poem: Lakefront Abodes, Pillows and Food, Such a Cozy
+                                Mood
                               </div>
                             </Link>
                           </li>
