@@ -1,6 +1,4 @@
-import React from "react";
 import { useLayoutEffect } from "react";
-// import { NavLink } from 'react-router-dom';
 
 const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
   useLayoutEffect(() => {

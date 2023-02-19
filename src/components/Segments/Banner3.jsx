@@ -11,10 +11,6 @@ const Banner3 = ({ bgimage, title, posLeft, posRight }) => {
         // style={{ backgroundImage: "url(" + bgimage + ")" }}
       >
         <div className="overlay-main bg-black opacity-01 " />
-        {/* <div className='overlay-secondary' /> */}
-        {/* <div> */}
-        {/* <div className="m-a10 p-a15 bdr-1 bdr-primary"> */}
-
         <div className={`container ${posLeft ? `flex-bottom-left` : ''} ${posRight ? `flex-bottom-right` : ''}` }>
           {title && (
             <>
@@ -22,17 +18,10 @@ const Banner3 = ({ bgimage, title, posLeft, posRight }) => {
                 <h1 className="text-white hatton text-uppercase one-word-per-line m-b5 p-b5">
                   {title}
                 </h1>
-                {/* <div className="wt-separator-outer text-right">
-                    <div className="wt-separator2 bg-white" />
-                  </div> */}
               </div>
             </>
           )}
-          {/* </div> */}
         </div>
-
-        {/* </div> */}
-        {/* </div> */}
       </div>
     </>
   )

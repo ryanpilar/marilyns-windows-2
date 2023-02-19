@@ -1,4 +1,3 @@
-import React from "react";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
@@ -9,20 +8,22 @@ import { useEffect, useState } from "react";
 const ClientsLogo = ({ supplierList }) => {
   const [content, setContent] = useState(null);
 
+  // Connect And Data Fetch From Contentful & Shuffle
   useEffect(() => {
+    // Connectto Connectful
     const client = createClient({
-      // contentful connect
       space: process.env.REACT_APP_CONTENTFUL_SPACE,
       accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
     });
 
+    // Shuffle entries
     const shuffle = (array) => {
     let currentIndex = array.length,
       randomIndex;
 
-    // While there remain elements to shuffle.
+    // While there remains elements to shuffle,
     while (currentIndex !== 0) {
-      // Pick a remaining element.
+      // Pick a remaining element
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
 
@@ -32,16 +33,14 @@ const ClientsLogo = ({ supplierList }) => {
         array[currentIndex],
       ];
     }
-
     return array;
   };
+
 
   const selectRandom = (projects) => {
     return shuffle(projects);
   };
-
     const getAllEntries = async () => {
-      // contentful get data
       try {
         await client
           .getEntries({ content_type: "affiliates" })
@@ -57,6 +56,7 @@ const ClientsLogo = ({ supplierList }) => {
     getAllEntries();
   }, []);
 
+  // Owl Carousel Options
   const options = {
     autoplay: true,
     loop: true,
@@ -96,7 +96,6 @@ const ClientsLogo = ({ supplierList }) => {
                 <div className="row">
                   <div className="p-b50">
                     <div className="col-md-9 col-sm-12 p-b10">
-                      {/* TITLE START */}
                       <div className="text-left">
                         <h2 className="text-uppercase font-34 text-white">
                           Our Premium Suppliers
@@ -111,14 +110,6 @@ const ClientsLogo = ({ supplierList }) => {
                               Blinds, Smart Blinds, Shutters & Sheers:
                             </h3>
                             <p className="for-affiliates m-b40 p-l30">
-                              {/* <a
-                                className="p-r10"
-                                href="https://www.hunterdouglas.ca/"
-                                target="_blank"
-                              >
-                                Hunter Douglas
-                              </a>{" "}
-                              | */}
                               <a
                                 className="p-r10"
                                 href="https://www.altawindowfashions.ca/"
@@ -282,7 +273,6 @@ const ClientsLogo = ({ supplierList }) => {
                           </div>
                         )}
                       </div>
-                      {/* TITLE END */}
                     </div>
                   </div>
 

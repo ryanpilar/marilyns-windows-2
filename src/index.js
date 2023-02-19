@@ -1,12 +1,10 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
+import reportWebVitals from './reportWebVitals';
+import { HelmetProvider } from 'react-helmet-async';
+
+
 import './index.css';
 import App from './App';
-import { HelmetProvider } from 'react-helmet-async';
-import reportWebVitals from './reportWebVitals';
-// import smoothscroll from 'smoothscroll-polyfill'
-
-// smoothscroll.polyfill();
 
 
 ReactDOM.render(

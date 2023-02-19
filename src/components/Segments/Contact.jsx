@@ -31,9 +31,6 @@ class Contact extends React.Component {
         errors.name =
           value.length === 0 ? "don't forget to include your full name" : "";
         break;
-      // case "subject":
-      // errors.subject = value.length < 5 ? "Subject must be 5 characters" : "";
-      // break;
       case "phone":
         errors.phone =
           value.length < 5 ? "phone number doesn't seem to be valid" : "";
@@ -47,8 +44,11 @@ class Contact extends React.Component {
         if (appos < 1 || dots - appos < 2) {
           errors.email = "please enter a valid email";
         }
-
         break;
+
+      // case "subject":
+      // errors.subject = value.length < 5 ? "Subject must be 5 characters" : "";
+      // break;
 
       default:
         break;
@@ -109,8 +109,6 @@ class Contact extends React.Component {
     const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
     const userId = process.env.REACT_APP_EMAILJS_USER_ID;
 
-    // console.log(serviceId, templateId, userId)
-
     emailjs
       .sendForm(
         serviceId, // emailJS service ID
@@ -120,18 +118,14 @@ class Contact extends React.Component {
       )
       .then(
         (result) => {
-          //   console.log(result.text);
           this.toggleSpinner();
           this.emailSuccessfull();
-
           //   alert("Thanks for reaching out! This pop-up is to let you know thahandleChanget your message was been delivered and that I will get back to you shortly.");
         },
         (error) => {
           this.toggleSpinner();
           this.emailUnsuccessfull();
           console.log(error.text);
-          //   console.log('e.target', e.target)
-
           //   alert("Something has gone wrong with your form submission. If this message persists, try emailing me directly at ryan_pilar@outlook.com.");
         }
       );
@@ -141,13 +135,12 @@ class Contact extends React.Component {
     const { errors } = this.state;
     return (
       <>
-        {/* {this.state.spinner && <Loader />} */}
         <div id="contact" className="page-content">
-          {/* SECTION CONTENTG START */}
+          {/* SECTION CONTENT START */}
           <div className="section-full p-tb80 tm-shortcode-wrap">
             {/* LOCATION BLOCK*/}
             <div className="container">
-              {/* TITLE START */}
+              {/* SOCIAL LINKS START */}
               <div className="section-head text-left text-black">
                 <h2 className="text-uppercase font-34">Contact us </h2>
 
@@ -203,18 +196,16 @@ class Contact extends React.Component {
                   <div className="wt-separator bg-black" />
                 </div>
               </div>
-              {/* TITLE END */}
+              {/* SOCIAL LINKS END */}
               <div className="section-content">
                 {/* CONTACT FORM*/}
                 <div className="wt-box">
-                  {/* <form className="contact-form cons-contact-form" method="post" action="form-handler.php"> */}
                   <form
                     onSubmit={this.submitHandler.bind(this)}
                     className="contact-form cons-contact-form"
                   >
                     <div className="contact-one p-a40 p-r150">
                       <div className="form-group">
-                        {/* <input name="username" type="text" required className="form-control" placeholder="Name" /> */}
                         <input
                           type="text"
                           id="name"
@@ -231,7 +222,6 @@ class Contact extends React.Component {
                       </div>
 
                       <div className="form-group">
-                        {/* <input name="email" type="text" className="form-control" required placeholder="Email" /> */}
                         <input
                           type="email"
                           className="form-control"
@@ -275,7 +265,6 @@ class Contact extends React.Component {
                           value={this.state.message}
                           required
                         ></textarea>
-                        {/* <textarea name="message" rows={3} className="form-control " required placeholder="Message" defaultValue={""} /> */}
                       </div>
 
                       <button
@@ -287,7 +276,6 @@ class Contact extends React.Component {
                       >
                         <span
                           className="font-12 letter-spacing-5"
-                          
                         >
                           Submit
                         </span>

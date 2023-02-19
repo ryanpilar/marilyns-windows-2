@@ -1,5 +1,3 @@
-import React from "react";
-// import { RedditIcon } from "react-share";
 import { HashLink } from "react-router-hash-link";
 
 const Service = ({ process }) => {
@@ -48,7 +46,6 @@ const Service = ({ process }) => {
 
                 <div className="col-md-6 col-sm-12">
                   <div className="wt-box our-story-detail" id="consultation">
-                    {/* <h3 className="text-uppercase">1</h3> */}
                     <h3 className="font-24 font-weight-500 text-uppercase ">
                       1. Book a consultation
                     </h3>
@@ -68,14 +65,6 @@ const Service = ({ process }) => {
                         <span>Book Appointment</span>
                       <em />
                       </HashLink>
-
-                    {/* <a
-                      href="#contact"
-                      className="btn-half site-button button-lg m-tb15 text-right"
-                    >
-                      <span>Make Appointment</span>
-                      <em />
-                    </a> */}
                   </div>
                 </div>
               </div>
@@ -84,7 +73,6 @@ const Service = ({ process }) => {
               <div className="row p-b50">
                 <div className="col-md-6 col-sm-12">
                   <div className="wt-box our-story-detail" id="ideas">
-                    {/* <h3 className="text-uppercase">2</h3> */}
                     <h3 className="font-24 font-weight-500 text-uppercase ">
                       2. Drapery Ideas, Fabric Samples and Measurements
                     </h3>
@@ -150,7 +138,6 @@ const Service = ({ process }) => {
               <div className="row p-b50">
                 <div className="col-md-6 col-sm-12 ">
                   <div className="wt-box our-story-detail" id="warranty">
-                    {/* <h3 className="text-uppercase">2017-18</h3> */}
                     <h3 className="font-24 font-weight-500 text-uppercase ">
                       4. Maintenance and Warranty
                     </h3>

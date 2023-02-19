@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 
 const BlogCard2 = ({ item, index }) => {
-  // const item = passItem
 
   const [blackOpacity, setBlackOpacity] = React.useState({
     isHover: false,
@@ -25,7 +24,6 @@ const BlogCard2 = ({ item, index }) => {
             >
               <div className={blackOpacity.isHover ? "" : "img-opacity"}>
                 <Link to={`/blog/post/${item.fields.slug}`}>
-                {/* {console.log('teeeest', item.fields.blogImages[0])} */}
                   <img src={item.fields.blogImages[0].secure_url} alt={item.fields.blogImages[0].context.custom.alt} width={800} height={500} />
                 </Link>
               </div>
@@ -64,12 +62,6 @@ const BlogCard2 = ({ item, index }) => {
             >
               <span className="font-12 letter-spacing-5"> Read Blog </span>{" "}
             </Link>
-            {/* <NavLink
-              to={"/project-detail"}
-              className="site-button black radius-no text-uppercase"
-            >
-              <span className="font-12 letter-spacing-5"> Read More </span>
-            </NavLink> */}
           </div>
         </div>
       </div>

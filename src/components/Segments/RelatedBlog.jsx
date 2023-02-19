@@ -1,12 +1,14 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import { createClient } from "contentful";
+import BlogCard2 from "./BlogCard2";
+
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import { createClient } from "contentful";
-import BlogCard2 from "./BlogCard2";
-import { useEffect } from "react";
 
 const RelatedBlog = ({ slug }) => {
+
+  const [blogPost, setBlogPost] = useState(null);
   var bgimg = require("./../../images/background/ptn-1.png");
   
   const options = {
@@ -34,21 +36,21 @@ const RelatedBlog = ({ slug }) => {
     },
   };
 
-  const [blogPost, setBlogPost] = React.useState(null);
 
   const removeDouble = (entries, theSlug) => {
     const filtered = entries.filter((post) => post.fields.slug !== theSlug);
     return filtered;
   };
 
-  React.useEffect(() => {
+  // Connect to Contentful & Fetch Data
+  useEffect(() => {
+
     const client = createClient({
-      // contentful connect
       space: process.env.REACT_APP_CONTENTFUL_SPACE,
       accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
     });
+
     const getAllEntries = async () => {
-      // contentful get data
       try {
         await client
           .getEntries({ content_type: "blogPosts" })
@@ -57,10 +59,8 @@ const RelatedBlog = ({ slug }) => {
             const filteredEntries = slug
               ? removeDouble(blogEntries.items, slug)
               : blogEntries.items;
-            // console.log("filtered", filteredEntries);
 
             setBlogPost(filteredEntries);
-            // console.log("filtered22", filteredEntries);
 
           });
       } catch (error) {
@@ -69,7 +69,6 @@ const RelatedBlog = ({ slug }) => {
         );
       }
     };
-
     getAllEntries();
   }, []);
 
@@ -99,7 +98,7 @@ const RelatedBlog = ({ slug }) => {
             </div>
           </div>
           {/* TITLE END */}
-          {/* CAROUSEL */}
+
           <div className="section-content ">
             {blogPost && (
               <div className="">

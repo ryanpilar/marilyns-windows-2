@@ -1,14 +1,13 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const BlogCard = ({ passItem, passIndex }) => {
-  // const item = passItem
-
-  const [blackOpacity, setBlackOpacity] = React.useState({
-    isHover: false,
-  });
 
   const post = passItem;
+
+  const [blackOpacity, setBlackOpacity] = useState({
+    isHover: false,
+  });
 
   const handleHover = () => {
     setBlackOpacity({ isHover: !blackOpacity.isHover });
@@ -28,7 +27,7 @@ const BlogCard = ({ passItem, passIndex }) => {
               onMouseLeave={handleHover}
             >
               <div className={blackOpacity.isHover ? "" : "img-opacity"}>
-                {/* post could have multiple images, so by default pick the first */}
+
                 <Link to={`/blog/post/${post.fields.slug}`}>
                   <img
                     src={post.fields.blogImages[0].secure_url}
@@ -41,6 +40,7 @@ const BlogCard = ({ passItem, passIndex }) => {
                     height={500}
                   />
                 </Link>
+
               </div>
             </div>
           </div>
@@ -79,7 +79,6 @@ const BlogCard = ({ passItem, passIndex }) => {
       </div>
     </div>
 
-    // </div>
   );
 };
 

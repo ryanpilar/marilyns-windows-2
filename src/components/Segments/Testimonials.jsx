@@ -1,36 +1,35 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import { createClient } from "contentful";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
-import { createClient } from "contentful";
-import { useEffect, useState } from "react";
 
 const Testimonials = () => {
   const [content, setContent] = useState(null);
   const [bgimg, setBgimg] = useState(null);
 
+  // contentful connect
   const client = createClient({
-    // contentful connect
+    
     space: process.env.REACT_APP_CONTENTFUL_SPACE,
     accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
   });
 
   useEffect(() => {
+
+    // contentful get data
     const getAllEntries = async () => {
-      // contentful get data
       try {
         await client
           .getEntries({ content_type: "background" })
           .then((allEntries) => {
-            // console.log("background entries", allEntries.items);
             setBgimg(allEntries.items);
           });
 
         await client
           .getEntries({ content_type: "testimonials" })
           .then((allEntries) => {
-            // console.log("testimonial entries", allEntries.items);
             setContent(selectRandom(allEntries.items));
           });
       } catch (error) {
@@ -120,14 +119,7 @@ const Testimonials = () => {
                     {content.map((item, index) => (
                       <div className="item" key={index}>
                         <div className="testimonial-6">
-                          {/* commented out the image in testamonial: */}
-                          {/* <div className="testimonial-pic-block">
-                                                
-                                                <div className="testimonial-pic">
-                                                    <img src={item.image.default} alt="" width={132} height={132} />
-                                                </div>
-                                            </div> */}
-
+                          
                           <div className="testimonial-text clearfix bg-white">
                             <div className="testimonial-detail clearfix">
                               <strong className="testimonial-name">

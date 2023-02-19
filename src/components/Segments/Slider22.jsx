@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState, useLayoutEffect } from "react";
 import { createClient } from "contentful";
 import SliderSingle from "./SliderSingle";
@@ -8,14 +7,15 @@ const Slider22 = () => {
   const [frameSpeed, setFrameSpeed] = useState(1000);
 
   useEffect(() => {
+
+    // contentful connect
     const client = createClient({
-      // contentful connect
       space: process.env.REACT_APP_CONTENTFUL_SPACE,
       accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
     });
 
+    // contentful get data
     const getAllEntries = async () => {
-      // contentful get data
       try {
         await client
           .getEntries({ content_type: "slider" })
@@ -28,7 +28,6 @@ const Slider22 = () => {
         );
       }
     };
-
     getAllEntries();
   }, []);
 
@@ -69,7 +68,6 @@ const Slider22 = () => {
           >
             <ul>
               {/* SLIDE 1 */}
-
               <li
                 data-index="rs-902"
                 data-transition="fadethroughdark"

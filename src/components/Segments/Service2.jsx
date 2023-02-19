@@ -44,7 +44,6 @@ const Service2 = ({ testimonial }) => {
 
   return (
     <div className="">
-      {/* <div className="section-full  p-t20 p-b90 square_shape1 square_shape3 tm-blog-single-wrap "> */}
       <div className="section-full  p-t20 p-b90 tm-blog-single-wrap ">
         <div className="container ">
           <div className="max-mid-container ">

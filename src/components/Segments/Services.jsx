@@ -1,8 +1,6 @@
-import React from "react";
-import { useLayoutEffect } from "react";
-import { Link } from "react-router-dom";
+import { useLayoutEffect, useEffect, useState } from "react";
 import { createClient } from "contentful";
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const servicesleft = [
   {
@@ -53,20 +51,20 @@ const servicesright = [
 const Services = ({ showButton }) => {
   const [content, setContent] = useState(null);
 
+  // contentful connect
   const client = createClient({
-    // contentful connect
     space: process.env.REACT_APP_CONTENTFUL_SPACE,
     accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
   });
 
   useEffect(() => {
+
+    // contentful get data
     const getAllEntries = async () => {
-      // contentful get data
       try {
         await client
           .getEntries({ content_type: "services" })
           .then((allEntries) => {
-            // console.log("content entries", allEntries.items[0].fields);
             setContent(allEntries.items[0].fields);
           });
       } catch (error) {
@@ -100,7 +98,6 @@ const Services = ({ showButton }) => {
 
   return (
     <>
-      {/* <div className="section-full bg-black p-t90 p-b30 square_shape1 tm-service2-wrap"> */}
       {content && (
         <div
           id="services"

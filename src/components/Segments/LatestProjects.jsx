@@ -1,39 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { createClient } from "contentful";
 import { useEffect, useState, useLayoutEffect } from "react";
 
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import { Link } from "react-router-dom";
-
-// const filters = [
-//     { label: "Living Space", filter: ".living-col" },
-//     { label: "Bedroom", filter: ".bedroom-col" },
-//     { label: "Kitchen", filter: ".kitchen-col" },
-//     { label: "Outdoor", filter: ".interior-col" },
-
-// { label: "Building", filter: ".building-col" },
-// { label: "Interior", filter: ".interior-col" },
-// { label: "Restaurant", filter: ".restaurant-col" }
-// ];
 
 const LatestProjects = () => {
   const [content, setContent] = useState(null);
 
+  // Connect to Contentful and Fetch Data
   useEffect(() => {
     const getAllEntries = async () => {
       const client = createClient({
-        // contentful connect
         space: process.env.REACT_APP_CONTENTFUL_SPACE,
         accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
       });
-      // contentful get data
       try {
         await client
           .getEntries({ content_type: "gallery" })
           .then((allEntries) => {
-            // console.log("gallery entries", allEntries.items);
             setContent(selectRandom(allEntries.items));
           });
       } catch (error) {
@@ -70,9 +57,9 @@ const LatestProjects = () => {
     let currentIndex = array.length,
       randomIndex;
 
-    // While there remain elements to shuffle.
+    // While there remain elements to shuffle,
     while (currentIndex !== 0) {
-      // Pick a remaining element.
+      // Pick a remaining element,
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
 
@@ -137,7 +124,6 @@ const LatestProjects = () => {
       >
         <div className="container">
           <div className="section-content">
-            {/* TITLE START */}
             <div className="section-head text-left">
               <div className="row">
                 <div className="col-lg-4 col-md-12 ">
@@ -163,7 +149,6 @@ const LatestProjects = () => {
                 </div>
               </div>
             </div>
-            {/* TITLE END */}
           </div>
         </div>
 
@@ -198,7 +183,6 @@ const LatestProjects = () => {
                         </div>
                       </div>
 
-                      {/* <NavLink to={`/gallery/room/${item.sys.id}`}> */}
                       <div className="overlay-bx-2 ">
                         <div className="line-amiation">
                           <div className="text-white  font-weight-300 p-a40">
@@ -233,18 +217,12 @@ const LatestProjects = () => {
         <div className="section-content m-t20 m-b40">
           <Link
             to="/gallery"
-            // className="site-button black button-app m-r15 m-b15 "
             className="btn-half site-button button-lg  font-30 m-tb15 text-right"
           >
             <span className="">Visit My Gallery</span>
             <em />
           </Link>
         </div>
-
-        {/* <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
-          <strong>Awesome</strong>
-          <span className="text-black">Designs</span>
-        </div> */}
       </div>
     </>
   );

@@ -1,21 +1,18 @@
-import React from "react";
-import { useLayoutEffect } from "react";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useEffect, useState } from "react";
 import { createClient } from "contentful";
+import { Link } from "react-router-dom";
+
 
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import { Link } from "react-router-dom";
 
 const LatestProjects2 = ({ content }) => {
   const [imageList, setImageList] = useState(null);
 
-  // const galleryRoute = webSitePaths.galleryRoomRoute;
-
+  // Connect to Contentful, Fetch Data & Shuffle
   useEffect(() => {
     const client = createClient({
-      // contentful connect
       space: process.env.REACT_APP_CONTENTFUL_SPACE,
       accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
     });
@@ -49,10 +46,6 @@ const LatestProjects2 = ({ content }) => {
         await client
           .getEntries({ content_type: "gallery" })
           .then((allEntries) => {
-            // allEntries.items.sort((a, b) => {
-            //   return a.fields.priority - b.fields.priority;
-            // });
-
             setImageList(selectRandom(allEntries.items));
           });
       } catch (error) {
@@ -149,7 +142,6 @@ const LatestProjects2 = ({ content }) => {
           {/* IMAGE CAROUSEL START */}
           <div className="container">
             <div className="section-content">
-              {/* <OwlCarousel className="owl-carousel  owl-btn-bottom-left" {...options}> */}
               {imageList && (
                 <OwlCarousel
                   className="owl-carousel owl-carousel-filter  owl-btn-bottom-left"
