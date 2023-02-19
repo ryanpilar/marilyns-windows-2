@@ -1,17 +1,16 @@
-import React from "react";
 import { useEffect, useState } from "react";
-
-import Header3 from "../Common/Header3";
-import Banner from "../Segments/Banner";
-
-import Footer from "../Common/Footer";
-import SEO from "../Segments/SEO";
 import { createClient } from "contentful";
+import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 
-import { HashLink } from "react-router-hash-link";
+import SEO from "../Segments/SEO";
+import Header3 from "../Common/Header3";
+import Banner from "../Segments/Banner";
+import Footer from "../Common/Footer";
+
 
 const PrivacyPolicy = () => {
+
   const [banner, setBanner] = useState(null);
 
   useEffect(() => {
@@ -26,9 +25,9 @@ const PrivacyPolicy = () => {
     };
   }, []);
 
+  // Contentful Connect and Data Fetch
   useEffect(() => {
     const client = createClient({
-      // contentful connect
       space: process.env.REACT_APP_CONTENTFUL_SPACE,
       accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
     });
@@ -37,8 +36,6 @@ const PrivacyPolicy = () => {
       try {
         await client
           .getEntries({ content_type: "servicesFull" })
-
-          // await client.getEntries()
           .then((allEntries) => {
             const servicesContent = allEntries.items;
 
@@ -57,7 +54,7 @@ const PrivacyPolicy = () => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | Custom Drapery | Privacy Policy`}
+        title={`Marilyn's Windows | Privacy Policy`}
         description={`Our privacy policy outlines how we collect, use and protect your personal information. Learn more about how we keep your data safe and secure on our website.`}
       />
 
@@ -97,15 +94,11 @@ const PrivacyPolicy = () => {
         {banner && (
           <>
             <div className="square_shape1 ">
-              {/* <div className="section-full  p-t20 p-b90 square_shape1 square_shape3 tm-blog-single-wrap "> */}
               <div className="section-full  p-t0 p-b90 tm-blog-single-wrap ">
                 <div className="container ">
                   <div className="max-mid-container ">
                     {/* TITLE START */}
                     <div className="section-head text-left text-black">
-                      {/* <h1 className="text-uppercase font-45 font-weight-500">
-                        Our Privacy Policy
-                      </h1> */}
                       <div className="wt-separator-outer">
                         <div className="wt-separator bg-black" />
                       </div>
@@ -321,6 +314,7 @@ const PrivacyPolicy = () => {
                             <a
                               className="link-style font-14 text-uppercase"
                               href="tel:905-878-0939"
+                              aria-label="Call us at (905) 878 0626"
                             >
                               <p>(905) 878 0626</p>
                             </a>
@@ -328,6 +322,7 @@ const PrivacyPolicy = () => {
                             <a
                               className="link-style font-14 text-uppercase"
                               href="mailto:marilyn@marilynswindows.com"
+                              aria-label="Email us at marilyn@marilynswindows.com"
                             >
                               <p>marilyn@marilynswindows.com</p>
                             </a>
@@ -338,7 +333,6 @@ const PrivacyPolicy = () => {
                           </p>
                         </p>
                       </div>
-                      <div className="row"></div>
                     </div>
                   </div>
                 </div>

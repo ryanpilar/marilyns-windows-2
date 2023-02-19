@@ -1,16 +1,11 @@
 import { useEffect, useState, useLayoutEffect } from "react";
 import { createClient } from "contentful";
-
 import { NavLink } from "react-router-dom";
-import Header3 from "../Common/Header3";
-// import Footer from '../Common/Footer';
-import Banner from "../Segments/Banner";
+
 import SEO from "../Segments/SEO";
+import Header3 from "../Common/Header3";
+import Banner from "../Segments/Banner";
 import Footer from "../Common/Footer";
-
-// import { QueryClient, QueryClientProvider, useQuery } from "react-query";
-
-// const bnrimg = require('./../../images/banner/sewing-machine-lamp-freepic.png');
 
 const Gallery22 = () => {
   const [imageList, setImageList] = useState(null);
@@ -25,23 +20,13 @@ const Gallery22 = () => {
   ]);
 
   const client = createClient({
-    // contentful connect
-
     space: process.env.REACT_APP_CONTENTFUL_SPACE,
     accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
   });
-  // const filters = [
-  //   { label: "Bedroom", filter: ".Bedroom" },
-  //   { label: "Bath", filter: ".Bathroom" },
-  //   { label: "Dining", filter: ".Dining" },
-  //   { label: "Kitchen", filter: ".Kitchen" },
-  //   { label: "Living", filter: ".Living" },
-  //   { label: "Office", filter: ".Office" },
-  // ];
 
+  // Get Blog Post data from Contentful:
   useEffect(() => {
     const getAllEntries = async () => {
-      // contentful get data
       try {
         await client
           .getEntries({ content_type: "gallery", order: "fields.priority" })
@@ -56,14 +41,11 @@ const Gallery22 = () => {
     };
 
     const getBannerContent = async () => {
-      // contentful get data
       try {
         await client
           .getEntries({ content_type: "banner" })
           .then((allEntries) => {
-            // console.log('BANNER CONTENT', allEntries.items[0].fields)
             setBannerContent(allEntries.items[0].fields);
-            // console.log('NEW STATE', imageList)
           });
       } catch (error) {
         console.log(
@@ -94,6 +76,7 @@ const Gallery22 = () => {
     loadScript("./assets/js/custom.js");
   }, []);
 
+  // Scroll to top upon page load
   useEffect(() => {
     window.addEventListener("load", () => {
       window.scrollTo(0, 0);
@@ -109,7 +92,7 @@ const Gallery22 = () => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | Gallery | Beautiful Drapery Ideas`}
+        title={`Marilyn's Windows | Gallery | A Collection of Beautiful Custom Window Treatments`}
         description={`Bedroom curtain ideas. Window coverings for patio doors. Living room drapery ideas. Light filtering curtains and blackout blinds. Outdoor curtain ideas.`}
       />
 
@@ -119,7 +102,6 @@ const Gallery22 = () => {
 
           <div className="page-content ">
             <Banner
-              // title={bannerContent.heading}
               title={`Marilyn's Gallery`}
               pagename={bannerContent.pageName}
               bgimage={bannerContent.backgroundImage[0].secure_url}
@@ -127,13 +109,12 @@ const Gallery22 = () => {
               // posRight={true}
             />
 
-            {/* SECTION CONTENT START */}
-
             <div className="section-full p-t5 p-b90 tm-work-wrap  ">
               <div className="container">
                 <div className="container">
-                  {/* BREADCRUMB ROW */}
                   <div className="">
+
+                    {/* BREADCRUMB ROW START*/}
                     <div className="p-t20 m-r20">
                       <div>
                         <ul className="wt-breadcrumb breadcrumb-style-2">
@@ -146,16 +127,13 @@ const Gallery22 = () => {
                     </div>
                     {/* BREADCRUMB ROW END */}
 
-                    {/* TITLE START */}
+                    {/* SHORT BLACK DIVIDER */}
                     <div className="text-left m-b40">
-                      {/* <h2 className="text-uppercase font-50 font-weight-500">
-                        Marilyn's Gallery
-                      </h2> */}
                       <div className="wt-separator-outer">
                         <div className="wt-separator bg-black" />
                       </div>
                     </div>
-                    {/* TITLE END */}
+
                   </div>
 
                   <div className="row">
@@ -197,8 +175,8 @@ const Gallery22 = () => {
                   {/* PAGINATION END */}
                 </div>
               </div>
-              {/* GALLERY CONTENT START */}
 
+              {/* GALLERY CONTENT START */}
               <div className="portfolio-wrap mfp-gallery work-grid clearfix ">
                 <div className="container-fluid ">
                   <div className="row m-lr10 ">
@@ -258,9 +236,8 @@ const Gallery22 = () => {
               </div>
               {/* GALLERY CONTENT END */}
             </div>
-
-            {/* SECTION CONTENT END  */}
           </div>
+
           <Footer />
         </>
       )}

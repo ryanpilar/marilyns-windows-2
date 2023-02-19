@@ -465,7 +465,7 @@ const Service2 = ({ testimonial }) => {
                               </div>
                             </Link>
                           </li>
-                          <li className="m-l10">
+                          {/* <li className="m-l10">
                             <Link
                               to={"/blog/post/lakefront-abode-pillows-and-food-such-a-cozy-mood"}
                               className="text-uppercase link-style font-14"
@@ -475,7 +475,7 @@ const Service2 = ({ testimonial }) => {
                                 Mood
                               </div>
                             </Link>
-                          </li>
+                          </li> */}
                         </ul>
                       </ServiceCard>
                     </div>

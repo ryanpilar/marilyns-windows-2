@@ -14,18 +14,7 @@ Things I would do differently
             -   but what if the image doesn't line up correctly? What are your position options then?
 
 
-Weird things I havn't figured out yet:
-    1.  when i switched from hardcoded images to contentful/cloudinary my blog and gallery
-        card stacking sometimes skips spots.
-
-        And some content seems to collapse and the footer is not where it should be, it wanders to the
-        top, but only in the single card view. if the viewport is large enough to hold two card horizontally
-        it doesn't do it!
-
-    2.  when i switch from hardocded images to contentful/cloudinary,the gallery massonry-filter
-        no longer works
-
-        
+       
 Weird things I had to do: 
 
     1.  Had to trim a lot of the template down. And since it was React, all linked components, 
@@ -79,3 +68,7 @@ Weird things I had to do:
     5.  bg-paralax unsupportive in iOS devices 
         -   background-attachment: fixed not supported in ios
         -   i put a media query in that targets hover and the background-attachment: initial. 
+
+    6.  square_shape2 and other square_shape's cause a interesting clearfixing issue that i couldn't solve. It was
+        particularly problesome when make a quicklinks or a table of contents. When you press the link to smooth scroll
+        downwards, when you scrolled back up, text near the top would completely disapear.

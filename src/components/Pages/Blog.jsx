@@ -1,44 +1,40 @@
-import React from "react";
 import { useEffect, useState, useLayoutEffect } from "react";
-
+import { NavLink, Link } from "react-router-dom";
 import { createClient } from "contentful";
 
+import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
 import Banner from "../Segments/Banner";
-// import BlogCard from "../Segments/BlogCard";
-import Footer from "../Common/Footer";
-import SEO from "../Segments/SEO";
-import { NavLink, Link } from "react-router-dom";
 import RelatedBlog from "../Segments/RelatedBlog";
+import Footer from "../Common/Footer";
 
 const Blog = () => {
   const [blogPost, setBlogPost] = useState(null);
   const [blogBanner, setBlogBanner] = useState(null);
-
-  const [blackOpacity, setBlackOpacity] = React.useState({
+  const [blackOpacity, setBlackOpacity] = useState({
     isHover: false,
   });
 
+  // Black opacity image rollover
   const handleHover = () => {
     setBlackOpacity({ isHover: !blackOpacity.isHover });
   };
 
+  // Get Blog Post data from Contentful
   useEffect(() => {
     const client = createClient({
-      // contentful connect
       space: process.env.REACT_APP_CONTENTFUL_SPACE,
       accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
     });
     const getAllEntries = async () => {
-      // contentful get data
       try {
+        // blog post data
         await client
           .getEntries({ content_type: "blogPosts" })
           .then((blogEntries) => {
-
             setBlogPost(blogEntries);
           });
-
+        // blog banner
         await client.getEntries({ content_type: "blog" }).then((blogBanner) => {
           setBlogBanner(
             blogBanner.items[0].fields.backgroundImage[0].secure_url
@@ -73,11 +69,11 @@ const Blog = () => {
     loadScript("./assets/js/custom.js");
   }, []);
 
+  // Scroll to the top upon page load
   useEffect(() => {
     window.addEventListener("load", () => {
       window.scrollTo(0, 0);
     });
-
     return () => {
       window.removeEventListener("load", () => {
         window.scrollTo(0, 0);
@@ -88,7 +84,7 @@ const Blog = () => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | Blog |  I Write Interesting Things About Drapes`}
+        title={`Marilyn's Windows | Blog |  Interesting Things About Drapes`}
         description={`Interesting articles about interior design and the wonderful world of drapery. Learn about industry trends or read frequently asked questions.`}
       />
 
@@ -122,16 +118,12 @@ const Blog = () => {
             </div>
             {/* BREADCRUMB ROW END */}
 
-            {/* TITLE START */}
+            {/* SHORT BLACK DIVIDER */}
             <div className="text-left">
-              {/* <h2 className="text-uppercase font-50 font-weight-500">
-                Marilyn's Blog
-              </h2> */}
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />
               </div>
             </div>
-            {/* TITLE END */}
           </div>
 
           <div className="">
@@ -157,15 +149,16 @@ const Blog = () => {
               {/* TITLE START */}
               <div className="text-left">
                 <h2 className="text-uppercase font-34 font-weight-400">
-                  Most Recent Post
+                  Featured Post
                 </h2>
+                {/* SHORT BLACK DIVIDER */}
                 <div className="wt-separator-outer">
                   <div className="wt-separator bg-black" />
                 </div>
               </div>
               {/* TITLE END */}
 
-              {/* MOST RECENT POST START */}
+              {/* FEATURED POST START */}
               {blogPost && (
                 <div className=" m-t30">
                   <div className="">
@@ -183,14 +176,18 @@ const Blog = () => {
                               blackOpacity.isHover ? "" : "img-opacity"
                             }
                           >
-                            <Link to={`/blog/post/${blogPost.items[0].fields.slug}`} aria-label={`Navigate to Blog Post: ${blogPost.items[0].fields.descriptiveTitle}`}>
+                            <Link
+                              to={`/blog/post/${blogPost.items[0].fields.slug}`}
+                              aria-label={`Navigate to Blog Post: ${blogPost.items[0].fields.descriptiveTitle}`}
+                            >
                               <img
                                 src={
                                   blogPost.items[0].fields.blogImages[0]
                                     .secure_url
                                 }
                                 alt={
-                                  blogPost.items[0].fields.blogImages[0].context.custom.alt
+                                  blogPost.items[0].fields.blogImages[0].context
+                                    .custom.alt
                                 }
                               />
                             </Link>
@@ -235,7 +232,6 @@ const Blog = () => {
                         <Link
                           to={`/blog/post/${blogPost.items[0].fields.slug}`}
                           aria-label={`Navigate to Blog Post: ${blogPost.items[0].fields.descriptiveTitle}`}
-                          // className="v-button letter-spacing-4 font-12 text-uppercase"
                           className="link-style font-14 letter-spacing-4 text-uppercase"
                         >
                           Read Blog
@@ -261,6 +257,7 @@ const Blog = () => {
                         <h2 className="text-uppercase font-34">
                           All Posts From Marilyn
                         </h2>
+                        {/* SHORT BLACK DIVIDER */}
                         <div className="wt-separator-outer">
                           <div className="wt-separator bg-black" />
                         </div>
@@ -286,25 +283,13 @@ const Blog = () => {
                       {/* MAKE A LIST OF BLOG LINKs END */}
                     </div>
                   </div>
-
-                  <div className="portfolio-wrap mfp-gallery work-grid clearfix ">
-                    <div className="row">
-                      <>
-                        {/* {blogPost?.items?.map((postData, index) => (
-                        <BlogCard
-                          key={postData.sys.id}
-                          passItem={postData}
-                          passIndex={index}
-                        />
-                      ))} */}
-                      </>
-                    </div>
-                  </div>
                 </div>
               </div>
             </>
           )}
         </div>
+
+        {/* DON'T MISS OUT BOX! START */}
         <div className="container ">
           <div className="row flex-center ">
             <div className="col-lg-7 col-md-9 m-b60">
@@ -352,6 +337,7 @@ const Blog = () => {
             </div>
           </div>
         </div>
+        {/* DON'T MISS OUT BOX! END */}
       </div>
 
       <Footer />

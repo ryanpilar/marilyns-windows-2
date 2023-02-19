@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import { Link } from "react-scroll";
 import { HashLink } from "react-router-hash-link";
 
 class Navigation extends React.Component {
+
   componentDidMount() {
     function loadScript(src) {
       return new Promise(function (resolve, reject) {
@@ -46,8 +46,6 @@ class Navigation extends React.Component {
           <li>
             <NavLink to="/blog">Blog</NavLink>
           </li>
-
-          {/* <li><NavLink to="/#contact">Contact</NavLink></li> */}
 
           <li>
             {" "}

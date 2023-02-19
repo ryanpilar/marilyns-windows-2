@@ -45,7 +45,7 @@ class Contact extends React.Component {
         let dots = value.lastIndexOf(".");
 
         if (appos < 1 || dots - appos < 2) {
-          errors.email = "please enter valid email";
+          errors.email = "please enter a valid email";
         }
 
         break;
@@ -60,6 +60,7 @@ class Contact extends React.Component {
     this.setState({
       name: "Your Name",
       email: "Email",
+      phone: "Phone", 
       message:
         "- AUTO MESSAGE - Thanks for reaching out! This is to let you know that your message has been delivered and that we will get back to you shortly.",
     });
@@ -281,10 +282,12 @@ class Contact extends React.Component {
                         type="submit"
                         name="submit"
                         className="site-button black radius-no text-uppercase m-r10"
+                        role="button"
+                        aria-label="send email"
                       >
                         <span
                           className="font-12 letter-spacing-5"
-                          aria-label="send email"
+                          
                         >
                           Submit
                         </span>
@@ -293,6 +296,7 @@ class Contact extends React.Component {
                       <button
                         onClick={this.resetEmailForm.bind(this)}
                         className="site-button black radius-no text-uppercase"
+                        role="button"
                         aria-label="clear form"
                       >
                         <span className="font-12 letter-spacing-5">

@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home2 from './Pages/Home2';
 import AboutMe from './Pages/AboutMe';
 import Services from './Pages/Services';
-import BlogPost from './Pages/BlogPost';
 import Blog from './Pages/Blog'
+import BlogPost from './Pages/BlogPost';
 import Gallery22 from './Pages/Gallery22';
 import GallerySingle from './Pages/GallerySingle'
 
@@ -76,6 +76,7 @@ const Components = () => {
                                     priority='0.5'
                                 />
                             </Route>
+
                             {/* <Route component={Error} />
                             <Route component={Error} /> */}
                             

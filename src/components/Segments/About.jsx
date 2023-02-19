@@ -1,22 +1,21 @@
-// import { Link } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { MARKS } from "@contentful/rich-text-types";
-// import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
-
 import { createClient } from "contentful";
-import { useEffect, useState } from "react";
+import { MARKS } from "@contentful/rich-text-types";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+
+
 
 const About = () => {
   const [content, setContent] = useState(null);
 
+  // Process Rich Text Coming From Contentful
   const richTextConversion = (richText) => {
-    // process rich text coming from contentful
-
     if (richText) {
       const contentfulOptions = {
         renderMark: {
@@ -26,26 +25,28 @@ const About = () => {
         },
       };
       return documentToReactComponents(richText, contentfulOptions);
+
     } else {
       console.log("NO CONTENT PRESENT");
     }
   };
 
+  // Connect And Data Fetch From Contentful
   useEffect(() => {
+
     const client = createClient({
-      // contentful connect
       space: process.env.REACT_APP_CONTENTFUL_SPACE,
       accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
     });
+
     const getAllEntries = async () => {
-      // contentful get data
       try {
         await client
           .getEntries({ content_type: "about" })
           .then((allEntries) => {
-            // console.log("content entries", allEntries.items);
             setContent(allEntries.items[0].fields);
           });
+
       } catch (error) {
         console.log(
           "this error arose from the client.getEntries() call to contentful"
@@ -56,7 +57,7 @@ const About = () => {
     getAllEntries();
   }, []);
 
-  // Carousel UX Options
+  // Owl Carousel UX Options
   const options = {
     smartSpeed: 700,
     loop: true,
@@ -99,7 +100,7 @@ const About = () => {
                   </span>
                   <h1 className="text-uppercase font-30">{content.heading}</h1>
 
-                  {/* richTextConverstion renders in a <p> */}
+                  {/* Attn: richTextConverstion renders in a <p> */}
                   <div className="">
                     {richTextConversion(content.topParagraph)}
                   </div>
@@ -107,6 +108,7 @@ const About = () => {
                   <div className="">
                     {richTextConversion(content.bottomParagraph)}
                   </div>
+                  
                   <NavLink
                     to={"/aboutme"}
                     className="btn-half text-white site-button button-md m-b15 m-r15"

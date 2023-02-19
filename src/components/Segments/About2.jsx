@@ -1,16 +1,12 @@
-import React from "react";
-// import { NavLink, Link } from 'react-router-dom';
-// import OwlCarousel from "react-owl-carousel";
+import { HashLink } from "react-router-hash-link";
+
+import SEO from "../Segments/SEO";
+import AboutImages2 from "./AboutImages2";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
-import SEO from "../Segments/SEO";
-// import { NavLink } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
-
-import AboutImages2 from "./AboutImages2";
-
 const About2 = ({ images }) => {
+  
   // const options = {
   //   loop: true,
   //   autoplay: true,
@@ -32,21 +28,17 @@ const About2 = ({ images }) => {
         description={`Professionally sewing for over 30 years and specializing in the tailored creation of hand-sewn curtains, drapes, blinds, and custom bedding.`}
       />
 
-      {/* <div className="section-full p-b90 bg-gray square_shape2 tm-about2-wrap"> */}
-      {/* <div className="container"> */}
+
       <div className="section-content ">
         {/* TITLE START */}
-        <div className="p-b40 p-l0 text-left ">
-          {/* <h1 className="text-uppercase font-50">Marilyn's Story</h1> */}
-          {/* <div className="wt-separator-outer"> */}
+        <div className="p-b40 p-l30 text-left ">
           <div className="wt-separator bg-black" />
-          {/* </div> */}
         </div>
         {/* TITLE END */}
 
 
 
-        <div className="row p-l5">
+        <div className="row p-l30">
           <div className="wt-post-text col-md-8 col-sm-12 col-xs-12 p-l15 p-b15">
             <div className="">
               <span className="font-24 font-weight-300 text-uppercase m-b20">
@@ -76,7 +68,8 @@ const About2 = ({ images }) => {
               </p>
             </div>
           </div>
-          <div className="wt-post-text col-md-4 col-sm-12 col-xs-12 p-lr20 float-right ">
+          {/* TABLE OF CONTENTS */}
+          {/* <div className="wt-post-text col-md-4 col-sm-12 col-xs-12 p-lr20 float-right ">
             <div className="quick-links-border">
               <h3 className="font-weight-600 text-uppercase font-16 m-t0 m-t30 m-b5 p-t0 p-l5">
                 Table Of Contents
@@ -234,7 +227,7 @@ const About2 = ({ images }) => {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="row">
@@ -274,8 +267,6 @@ const About2 = ({ images }) => {
           </div>
         </div>
       </div>
-      {/* </div> */}
-      {/* </div> */}
     </>
   );
 };

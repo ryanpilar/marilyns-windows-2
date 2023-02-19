@@ -1,6 +1,5 @@
 import React from "react";
 import Navigation2 from "./Navigation2";
-// import { NavLink } from 'react-router-dom';
 
 class Header2 extends React.Component {
   isMenuActive;
@@ -11,6 +10,7 @@ class Header2 extends React.Component {
 
   state = { isMenuActive: false };
 
+  // Social Media Men Toggle
   handleMenuToggle = () => {
     this.setState({ isMenuActive: !this.state.isMenuActive });
   };

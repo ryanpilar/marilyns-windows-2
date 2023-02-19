@@ -1,10 +1,11 @@
 import React from "react";
-import Header3 from "../Common/Header3";
-import Footer from "../Common/Footer";
-import SEO from "../Segments/SEO";
 import { HashLink } from "react-router-hash-link";
 
-// var bnrimg = require('./../../images/background/bg-11.jpg');
+import SEO from "../Segments/SEO";
+import Header3 from "../Common/Header3";
+import Footer from "../Common/Footer";
+
+import { NavLink } from "react-router-dom";
 
 class NotFound extends React.Component {
   render() {
@@ -14,7 +15,7 @@ class NotFound extends React.Component {
           title={`Marilyn's Windows | 404 Error. Oops! You seem to be lost`}
           description={`Custom handcrafted window coverings, curtains, shades, blinds and soft furnishings. Serving Milton, Burlington, Oakville, Mississauga and surrounding areas.`}
         />
-        
+
         <Header3 />
         <div className="page-content">
           <div className="section-full p-tb90 bg-gray square_shape2 tm-about2-wrap">
@@ -26,7 +27,6 @@ class NotFound extends React.Component {
                 <div className="m-b0">
                   {/* TITLE START */}
                   <div className="section-head">
-                    {/* <span className="font-24 font-weight-300"></span> */}
                     <h2 className="font-40">
                       404 Error. Oops! You seem to be lost.
                     </h2>
@@ -46,25 +46,28 @@ class NotFound extends React.Component {
                         </p>
                         <ul className="list-arrow">
                           <li>
-                            <a href="/">Home</a>
+                            <NavLink to="/">Home</NavLink>
                           </li>
                           <li>
-                            <a href="/aboutme">My Story</a>
+                            <NavLink to="/aboutme">My Story</NavLink>
                           </li>
                           <li>
-                            <a href="/services">Services</a>
+                            <NavLink to="/services">Services</NavLink>
                           </li>
                           <li>
-                            <a href="/gallery">Gallery</a>
+                            <NavLink to="/gallery">Gallery</NavLink>
                           </li>
                           <li>
-                            <a href="/blog">Blog</a>
+                            <NavLink to="/blog">Blog</NavLink>
                           </li>
                           <li>
-                          <HashLink smooth className="" to="/services/#contact">
-              Contact
-            </HashLink>
-                            {/* <a href="/#contact">Contact</a> */}
+                            <HashLink
+                              smooth
+                              className=""
+                              to="/services/#contact"
+                            >
+                              Contact
+                            </HashLink>
                           </li>
                         </ul>
                       </div>

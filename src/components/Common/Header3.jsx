@@ -3,7 +3,7 @@ import Navigation from "./Navigation";
 
 class Header3 extends React.Component {
   isMenuActive;
-  
+
   constructor(props) {
     super(props);
     this.state = { logo: require("./../../images/logo-dark.png") };
@@ -11,27 +11,24 @@ class Header3 extends React.Component {
 
   state = { isMenuActive: false };
 
+  // Social Media Men Toggle
   handleMenuToggle = () => {
     this.setState({ isMenuActive: !this.state.isMenuActive });
   };
   handleScroll = () => {
-        const offset = window.scrollY;
+    const offset = window.scrollY;
 
-        const stickyheader = document.querySelector('.sticky-header');
+    const stickyheader = document.querySelector(".sticky-header");
 
-        if (offset >= 100) {
-            stickyheader.classList.add('is-fixed');
-            stickyheader.classList.add('color-fill');
-
-        } else {
-            stickyheader.classList.remove('is-fixed');
-            stickyheader.classList.remove('color-fill');
-        }
+    if (offset >= 100) {
+      stickyheader.classList.add("is-fixed");
+      stickyheader.classList.add("color-fill");
+    } else {
+      stickyheader.classList.remove("is-fixed");
+      stickyheader.classList.remove("color-fill");
     }
+  };
   componentDidMount() {
-
-    
-
     window.addEventListener("scroll", this.handleScroll);
 
     window.updateTopMostParent = (logopath) => {
@@ -40,7 +37,7 @@ class Header3 extends React.Component {
   }
 
   render() {
-    // const isSearchActive = this.state.isSearchActive;
+
     const isMenuActive = this.state.isMenuActive;
 
     return (

@@ -1,3 +1,7 @@
+
+import { useEffect, useLayoutEffect } from 'react';
+
+import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
 import Slider22 from "./../Segments/Slider22";
 import About from "./../Segments/About";
@@ -8,9 +12,7 @@ import LatestProjects from "./../Segments/LatestProjects";
 
 import Contact from "../Segments/Contact";
 import Footer from "../Common/Footer";
-import SEO from "../Segments/SEO";
 
-import { useEffect, useLayoutEffect } from 'react';
 
 const Home2 = () => {
 
@@ -50,8 +52,7 @@ const Home2 = () => {
   return (
     <>
       <SEO
-        // title={`Marilyn's Windows | High-end Custom Drapery`}
-        title={`Marilyn's Windows | High End Custom Drapes in Milton, Ontario`}
+        title={`Marilyn's Windows | Sewing High End Custom Drapes in Milton, Ontario`}
         description={`Custom handcrafted window coverings, curtains, shades, blinds and soft furnishings. Serving Milton, Burlington, Oakville, Mississauga and surrounding areas.`}
       />
 

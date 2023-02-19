@@ -1,30 +1,28 @@
-import React from "react";
 import { useEffect, useState } from "react";
+import { NavLink, Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+import { createClient } from "contentful";
 
+import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
 import Banner from "../Segments/Banner";
 import About2 from "../Segments/About2";
 import AboutImages from "../Segments/AboutImages";
 import AboutColumns from "../Segments/AboutColumns";
 import LatestProjects from "../Segments/LatestProjects";
-
-// import Story from './../Segments/Story';
 import Footer from "../Common/Footer";
-import SEO from "../Segments/SEO";
-import { createClient } from "contentful";
-import { NavLink, Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
 
 const AboutMe = () => {
   const [banner, setBanner] = useState(null);
   const [imageCarousel, setImageCarousel] = useState(null);
   const [imagesTwo, setImagesTwo] = useState(null);
+  const [imagesThree, setImagesThree] = useState(null);
 
+  // Get content from Contentful:
   useEffect(() => {
     const getContentfulContents = async () => {
       try {
         const client = createClient({
-          // contentful connect
           space: process.env.REACT_APP_CONTENTFUL_SPACE,
           accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
         });
@@ -44,6 +42,7 @@ const AboutMe = () => {
             images: aboutContent[0].fields.images,
           });
           setImagesTwo(aboutContent[0].fields.images2);
+          setImagesThree(aboutContent[0].fields.images3);
         });
       } catch (error) {
         console.log(
@@ -57,14 +56,14 @@ const AboutMe = () => {
   return (
     <>
       <SEO
-        // title={`Marilyn's Windows | High-end Custom Drapery`}
         title={`Marilyn's Windows | My Story `}
         description={`Professionally sewing for over 30 years and specializing in the tailored creation of hand-sewn curtains, drapes, blinds, and custom bedding`}
       />
-
+      {/* Navigation  */}
       <Header3 />
 
       <div className="page-content">
+        {/* BANNER  */}
         {banner && (
           <Banner
             title="Marilyn's Story"
@@ -75,9 +74,9 @@ const AboutMe = () => {
         )}
 
         <div className="section-full p-b90 bg-gray tm-about2-wrap">
-          {/* BREADCRUMB ROW */}
           <div className="container ">
-            <div className="p-t20 p-l0">
+            {/* BREADCRUMB Start  */}
+            <div className="p-t20 p-l30">
               <div className="row">
                 <div className="col-sm-12">
                   <ul className="wt-breadcrumb breadcrumb-style-2">
@@ -89,9 +88,12 @@ const AboutMe = () => {
                 </div>
               </div>
             </div>
+            {/* BREADCRUMB END  */}
 
+            {/* INTRO & 1ST SET OF IMAGES START */}
             {imageCarousel && <About2 images={imageCarousel} />}
 
+            {/* 1ST COLUMNER TEXT */}
             <AboutColumns>
               <div className="row m-t20 text-black">
                 <div className="section-content">
@@ -190,26 +192,14 @@ const AboutMe = () => {
                       happen. I digress…
                     </p>
                   </div>
-                  {/* <div className="col-lg-4 col-md-6 col-sm-12">
-                      <p>
-                        is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard dummy
-                        text ever since the 1500s, when an unknown printer took a
-                        galley of type and scrambled it to make a type specimen
-                        book. It has survived not only five centuries, but also the
-                        leap into electronic typesetting, remaining essentially
-                        unchanged. It was popularised in the 1960s with the release
-                        of Letraset sheets containing Lorem Ipsum passages, and more
-                        recently with desktop publishing software like Aldus
-                        PageMaker including versions of Lorem Ipsum.
-                      </p>
-                    </div> */}
                 </div>
               </div>
             </AboutColumns>
 
-            {imagesTwo && <AboutImages id="aboutImages" images={imagesTwo} />}
+            {/* 2ND SET OF IMAGES */}
+            {imagesTwo && <AboutImages id="aboutImages2" images={imagesTwo} />}
 
+            {/* 2ND COLUMNER TEXT */}
             <AboutColumns>
               <div className="row m-t20 text-black">
                 <div className="section-content">
@@ -298,24 +288,16 @@ const AboutMe = () => {
                       fellow designers.
                     </p>
                   </div>
-                  {/* <div className="col-lg-4 col-md-6 col-sm-12">
-                      <p>
-                        is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard dummy
-                        text ever since the 1500s, when an unknown printer took a
-                        galley of type and scrambled it to make a type specimen
-                        book. It has survived not only five centuries, but also the
-                        leap into electronic typesetting, remaining essentially
-                        unchanged. It was popularised in the 1960s with the release
-                        of Letraset sheets containing Lorem Ipsum passages, and more
-                        recently with desktop publishing software like Aldus
-                        PageMaker including versions of Lorem Ipsum.
-                      </p>
-                    </div> */}
                 </div>
               </div>
             </AboutColumns>
 
+            {/* 3RD SET OF IMAGES */}
+            {imagesThree && (
+              <AboutImages id="aboutImages3" images={imagesThree} />
+            )}
+
+            {/* 3RD COLUMNER TEXT */}
             <AboutColumns>
               <div className="row m-t20 text-black">
                 <div className="section-content">
@@ -402,60 +384,12 @@ const AboutMe = () => {
                     <p>
                       Thank you for indulging me in my trip down memory lane!
                       It's been a pleasure to take you on a tour of my life of
-                      sewing. If you're eager to learn more about my handcrafted
-                      drapery designs and how they can transform your space from
-                      drab to fab, don't be shy! Let's connect and schedule a
-                      time to chat. I can't wait to hear about your project and
-                      work together to create something truly unique and
-                      beautiful. Remember, the perfect drapery is just a stitch
-                      away!
+                      sewing. If you're eager to learn more about my work, don't
+                      be shy! Let's connect and schedule a time to chat. I can't
+                      wait to hear about your project and work together to
+                      create something truly unique and beautiful.
                     </p>
 
-                    {/* <div className="row flex-center ">
-                      <div className=" m-b60">
-                        <div className="m-l20 m-r40 m-t30 ">
-                          <div className="bdr-dot-2 bdr-gray-light p-t20 p-b20 p-l20 p-r12 ">
-                            <h3 className="font-16 font-weight-500 text-uppercase ">
-                              Don't Miss Out!
-                            </h3>
-                            <p>
-                              Check out{" "}
-                              <Link
-                                to={"/gallery"}
-                                className="text-uppercase link-style font-14"
-                              >
-                                <span className="">The Gallery</span>
-                              </Link>{" "}
-                              to see some of Marilyn's beautiful work. Or read{" "}
-                              <Link
-                                to={"/blog"}
-                                className="text-uppercase link-style font-14"
-                              >
-                                <span className="">Marilyn's Blog</span>
-                              </Link>{" "}
-                              for valuable insights and information on window
-                              treatments.
-                            </p>
-                            <div className="m-t40  p-r10">
-                              <NavLink
-                                to={"/gallery"}
-                                className="btn-half pad text-white site-button button-md m-b15 "
-                              >
-                                <span className="p-lr5">Gallery</span>
-                                <em />
-                              </NavLink>
-                              <NavLink
-                                to={"/blog"}
-                                className="btn-half pad text-white site-button button-md m-b15 "
-                              >
-                                <span className="p-lr5"> Blog</span>
-                                <em />
-                              </NavLink>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div> */}
                     <div className="text-center">
                       <HashLink
                         smooth
@@ -473,6 +407,8 @@ const AboutMe = () => {
             </AboutColumns>
           </div>
         </div>
+
+        {/* GALLERY SUGGESTIONS (CAROUSEL) */}
         <LatestProjects />
       </div>
       <Footer />

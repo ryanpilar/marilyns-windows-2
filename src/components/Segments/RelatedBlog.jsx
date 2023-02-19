@@ -7,6 +7,8 @@ import BlogCard2 from "./BlogCard2";
 import { useEffect } from "react";
 
 const RelatedBlog = ({ slug }) => {
+  var bgimg = require("./../../images/background/ptn-1.png");
+  
   const options = {
     loop: true,
     margin: 30,
@@ -26,8 +28,8 @@ const RelatedBlog = ({ slug }) => {
       767: {
         items: 2,
       },
-      1000: {
-        items: 2,
+      1100: {
+        items: 3,
       },
     },
   };

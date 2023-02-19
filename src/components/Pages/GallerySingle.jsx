@@ -1,45 +1,36 @@
-import React from "react";
 import { useEffect, useState, useLayoutEffect } from "react";
 import { createClient } from "contentful";
+import { Link, useParams } from "react-router-dom";
+import { EmailShareButton, FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
 
-import { Link } from "react-router-dom";
-import Header3 from "../Common/Header3";
 import SEO from "../Segments/SEO";
-
-import { useParams } from "react-router-dom";
-import Footer from "../Common/Footer";
+import Header3 from "../Common/Header3";
 import Banner3 from "../Segments/Banner3";
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  LinkedinShareButton,
-  TwitterShareButton,
-} from "react-share";
-
-import toast, { Toaster } from "react-hot-toast";
+import LatestProjects2 from "../Segments/LatestProjects2";
+import Footer from "../Common/Footer";
 
 import Loader from "../Segments/Loader";
-import LatestProjects2 from "../Segments/LatestProjects2";
 
+import toast, { Toaster } from "react-hot-toast";
 import webSitePaths from "../../assets/js/webSitePaths";
 
 const GallerySingle = () => {
-  const { slug } = useParams(); // grabs the contentful :slug from the address bar (:slug)
-  const [imageData, setImageData] = useState(null);
-  // const [imageList, setImageList] = useState([]);
+  const { slug } = useParams();
   const [spinner, setSpinner] = useState(true);
+  const [imageData, setImageData] = useState(null);
   const [galleryBanner, setGalleryBanner] = useState(null);
 
   const galleryRoute = webSitePaths.galleryRoomRoute + slug;
 
+  // Spinner for when gallery content is loading
   const toggleSpinner = () => {
     setSpinner((prevState) => !prevState);
   };
 
+  // Toast confirmation for copied link
   const clipboardToast = () =>
     toast.success("Copied! Check your clipboard for link.", {
       duration: 6000,
-      // icon: '👏',
       style: {
         borderRadius: "10px",
         background: "#333",
@@ -47,44 +38,20 @@ const GallerySingle = () => {
       },
     });
 
-  useEffect(() => {
-    window.addEventListener("load", () => {
-      window.scrollTo(0, 0);
-    });
-
-    return () => {
-      window.removeEventListener("load", () => {
-        window.scrollTo(0, 0);
-      });
-    };
-  }, []);
-
+  // Contentful connect and data fetch
   useEffect(() => {
     const client = createClient({
-      // contentful connect
       space: process.env.REACT_APP_CONTENTFUL_SPACE,
       accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
     });
     const getContentfulEntries = async () => {
       try {
         await client
-          // .getEntry(id)
           .getEntries({ content_type: "gallery", "fields.slug": slug })
           .then((galleryEntry) => {
-            // console.log('GALLERY', galleryEntry)
             setImageData(galleryEntry.items[0]);
             toggleSpinner();
           });
-
-        // await client
-        //   .getEntries({ content_type: "gallery", 'fields.title': slug, })
-        //   .then((allEntries) => {
-        //     // allEntries.items.sort((a, b) => {
-        //     //   return a.fields.priority - b.fields.priority;
-        //     // });
-        //     // console.log("allEntries.items", allEntries.items);
-        //     setImageList(allEntries.items);
-        //   });
 
         await client
           .getEntries({ content_type: "banner" })
@@ -99,6 +66,18 @@ const GallerySingle = () => {
     };
 
     getContentfulEntries();
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("load", () => {
+      window.scrollTo(0, 0);
+    });
+
+    return () => {
+      window.removeEventListener("load", () => {
+        window.scrollTo(0, 0);
+      });
+    };
   }, []);
 
   useLayoutEffect(() => {
@@ -122,12 +101,11 @@ const GallerySingle = () => {
 
   return (
     <>
-      {/* UPDATE SEO WITH PROPER TITLE FROM CONTENFUL */}
-      {/* <div className=""> */}
       <SEO
-        title={`Marilyn's Windows | Gallery Room | ${imageData?.fields?.cardTitle}`}
+        title={`Marilyn's Windows | Gallery | ${imageData?.fields?.cardTitle}`}
         description={`${imageData?.fields?.metaDescription}`}
       />
+
       <Header3 />
 
       <div className="page-content">
@@ -144,7 +122,7 @@ const GallerySingle = () => {
         <div className="">
           <div className="container">
             <div className="">
-              {/* BREADCRUMB ROW */}
+              {/* BREADCRUMB ROW START */}
               <div className="">
                 <div className="p-tb20 m-r40 m-b00">
                   <div>
@@ -158,10 +136,6 @@ const GallerySingle = () => {
                       <li>High-Def Photo</li>
                     </ul>
                   </div>
-
-                  {/* <div className="wt-separator-outer">
-                    <div className="wt-separator bg-black" />
-                  </div> */}
                 </div>
               </div>
               {/* BREADCRUMB ROW END */}
@@ -170,6 +144,7 @@ const GallerySingle = () => {
 
           <div className="container">
             <div className="">
+
               {/* IMG CONTENT START */}
               {spinner && <Loader />}
               <div className="section-content ">
@@ -181,7 +156,6 @@ const GallerySingle = () => {
                         width={2000}
                         height={1200}
                       >
-                        {/* <div className="container"> */}
                         <img
                           src={imageData.fields.largeImage[0].secure_url}
                           alt={
@@ -198,7 +172,6 @@ const GallerySingle = () => {
                           width={2000}
                           height={1200}
                         />
-                        {/* </div> */}
                       </div>
                     </>
                   )}
@@ -211,20 +184,12 @@ const GallerySingle = () => {
       </div>
 
       <div className="container">
-        {/* {bannerContent && (
-            <Banner
-              title={bannerContent.heading}
-              pagename={bannerContent.pageName}
-              bgimage={bannerContent.backgroundImage[0].secure_url}
-            />
-          )} */}
         <>
           <div className="container">
             <div id="work" className="section-full p-t10 latest_project-outer">
               <div className=""></div>
 
-              {/* HEADING AND PARAGRAPH START */}
-              {/* TITLE START */}
+              {/* TITLE HEADING AND PARAGRAPH START */}
               <div className="section-head text-left">
                 {imageData && (
                   <>
@@ -249,12 +214,12 @@ const GallerySingle = () => {
                   </>
                 )}
               </div>
-
-              {/* TITLE END */}
               {/* HEADING AND PARAGRAPH END */}
+
               <div className="section-content m-t20 ">
                 <div className="m-b15">
-                  {/* react-shares here */}
+
+                  {/* SOCIAL MEDIA SHARE BUTTONS */}
                   <div className="wt-box">
                     <div className="row  p-lr15">
                       <h2 className="tagcloud text-uppercase">
@@ -337,20 +302,9 @@ const GallerySingle = () => {
                     </div>
                   </div>
                 </div>
-                {/* <a
-                  href="/gallery"
-                  className="site-button black button-app m-r15 m-b15 "
-                >
-                  <span className="text-center">Visit My Gallery</span>
-                </a> */}
               </div>
             </div>
           </div>
-
-          {/* <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
-            <strong>30+ Years</strong>
-            <span className="text-black">Working Experience</span>
-          </div> */}
         </>
       </div>
       <div className="container">
@@ -365,6 +319,7 @@ const GallerySingle = () => {
         </div>
       </div>
 
+      {/* OTHER GALLERY SUGGESTION (CAROUSEL) */}
       {imageData && (
         <div className="page-content">
           <LatestProjects2 />
@@ -372,8 +327,9 @@ const GallerySingle = () => {
       )}
 
       <Footer />
+      
       <Toaster position="bottom-center" reverseOrder={false} />
-      {/* </div> */}
+
     </>
   );
 };

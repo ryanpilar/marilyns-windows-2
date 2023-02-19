@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const AboutImage = ( {image} ) => {
-
+  console.log('IMAGE', image)
   const [blackOpacity, setBlackOpacity] = useState({
     isHover: false,
   });

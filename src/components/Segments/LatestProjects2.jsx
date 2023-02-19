@@ -125,10 +125,10 @@ const LatestProjects2 = ({ content }) => {
     <>
       <div
         id="work"
-        className="section-full p-t90 latest_project-outer square_shape3"
+        className="section-full p-t90 square_shape3"
       >
         <div className="container">
-          <div className="container">
+          <div className="">
             <div className="section-content">
               {/* TITLE START */}
               <div className="section-head text-left">

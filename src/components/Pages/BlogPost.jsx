@@ -1,7 +1,5 @@
-import React from "react";
 import { useEffect, useState } from "react";
-
-import { useParams } from "react-router-dom"; // useParams allows the '/blog/post/:id' to work
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import OwlCarousel from "react-owl-carousel";
@@ -14,6 +12,7 @@ import Banner3 from "../Segments/Banner3";
 import SEO from "../Segments/SEO";
 import RelatedBlog from "../Segments/RelatedBlog";
 
+// Social Media Share Buttons:
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -29,20 +28,18 @@ import toast, { Toaster } from "react-hot-toast";
 import webSitePaths from "../../assets/js/webSitePaths";
 
 const BlogPost = () => {
+  const bgimg = require("./../../images/background/ptn-1.png");
+
   const [blogPostBanner, setBlogPostBanner] = useState(null);
-
-  var bgimg = require("./../../images/background/ptn-1.png");
-  // var bgimg = require("/assets/media/images/ptn-1.png");
-
-  const { slug } = useParams(); // grabs the contentful :slug form the address bar
-
   const [singleBlogPost, setSingleBlogPost] = useState([]);
+
+  const { slug } = useParams();
   const blogRoute = webSitePaths.blogRoute + slug;
 
+  // Interactive Toast for copying the blogpost link
   const clipboardToast = () =>
     toast.success("Copied! Check your clipboard for link.", {
       duration: 6000,
-      // icon: '👏',
       style: {
         borderRadius: "10px",
         background: "#333",
@@ -50,6 +47,41 @@ const BlogPost = () => {
       },
     });
 
+  // Get Blog Post data from Contentful
+  useEffect(() => {
+    const client = createClient({
+      space: process.env.REACT_APP_CONTENTFUL_SPACE,
+      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+    });
+    const getBanner = async () => {
+      try {
+        await client
+          .getEntries({ content_type: "blogPostBanner" })
+          .then((blogBanner) => {
+            setBlogPostBanner(blogBanner.items[0].fields.image[0].secure_url);
+          });
+      } catch (error) {
+        console.log("error");
+      }
+    };
+
+    const getEntry = async () => {
+      try {
+        await client
+          .getEntries({ content_type: "blogPosts", "fields.slug": slug })
+          .then((blogEntry) => {
+            setSingleBlogPost(blogEntry.items[0]);
+          });
+      } catch (error) {
+        console.log("error");
+      }
+    };
+
+    getBanner();
+    getEntry();
+  }, []);
+
+  // Scroll to top upon page load
   useEffect(() => {
     window.addEventListener("load", () => {
       window.scrollTo(0, 0);
@@ -62,42 +94,7 @@ const BlogPost = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const client = createClient({
-      space: process.env.REACT_APP_CONTENTFUL_SPACE,
-      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-    });
-    const getBanner = async () => {
-      try {
-        await client
-          .getEntries({ content_type: "blogPostBanner" })
-          .then((blogBanner) => {
-            // console.log("info", blogBanner.items[0].fields.image[0].secure_url);
-            setBlogPostBanner(blogBanner.items[0].fields.image[0].secure_url);
-          });
-      } catch (error) {
-        console.log("error");
-      }
-    };
-
-    const getEntry = async () => {
-      try {
-        await client
-          // .getEntry(id)
-          .getEntries({ content_type: "blogPosts", "fields.slug": slug })
-          .then((blogEntry) => {
-
-            setSingleBlogPost(blogEntry.items[0]);
-          });
-      } catch (error) {
-        console.log("error");
-      }
-    };
-
-    getBanner();
-    getEntry();
-  }, []);
-
+  // Rich text config for data coming from Contenful
   const richTextConversion = () => {
     if (singleBlogPost?.fields?.postContent) {
       const contentfulOptions = {
@@ -110,10 +107,6 @@ const BlogPost = () => {
               </span>
             </span>
           ),
-
-          // [BLOCKS.UL_LIST]: (node, children) => (<ul className='list-num-count m-l40'>{children}</ul>),
-          // [BLOCKS.OL_LIST]: (node, children) => (<ol className='list-num-count m-l40'>{children}</ol>),
-          // [BLOCKS.LIST_ITEM]: (node, children) => (<li className='list-num-count m-l40'>{children}</li>),
         },
         renderNode: {
           "embedded-asset-block": (node) => (
@@ -127,15 +120,12 @@ const BlogPost = () => {
           [BLOCKS.QUOTE]: (node, children) => (
             <div className="p-4 m-lr30">
               <blockquote className="blockquote">
-                <span className="p pt-2">
-                  {/* <i className="fa fa-quote-right text-primary "></i> */}
-                  {children}
-                </span>
+                <span className="p pt-2">{children}</span>
               </blockquote>
             </div>
           ),
           [BLOCKS.UL_LIST]: (node, children) => (
-            <ul className="list-simple m-tb40 m-lr20">{children}</ul>
+            <ul className="list-angle-right m-tb60 m-lr20">{children}</ul>
           ),
           [BLOCKS.OL_LIST]: (node, children) => (
             <ol className="list-num-count m-tb40 m-lr20">{children}</ol>
@@ -143,22 +133,6 @@ const BlogPost = () => {
           [BLOCKS.LIST_ITEM]: (node, children) => (
             <li className="p-tb10">{children}</li>
           ),
-          // [BLOCKS.TABLE]: (node, children) => (
-          //   <table className="table table-bordered ">
-          //     <tbody className="">{children}</tbody>
-          //   </table>
-          // ),
-          // [BLOCKS.TABLE_ROW]: (node, children) => (
-          //   <tr className="thead-dark ">{children}</tr>
-          // ),
-          // [BLOCKS.TABLE_CELL]: (node, children) => (
-          //   <td className="p-tb30">{children}</td>
-          // ),
-          // [BLOCKS.TABLE_HEADER_CELL]: (node, children) => (
-          //   <th className="">
-          //     <h3 className="display-2 text-primary h3">{children}</h3>
-          //   </th>
-          // ),
         },
         renderText: (text) => {
           return text.split("\n").reduce((children, textSegment, index) => {
@@ -166,7 +140,6 @@ const BlogPost = () => {
           }, []);
         },
       };
-
       return documentToReactComponents(
         singleBlogPost?.fields?.postContent,
         contentfulOptions
@@ -175,12 +148,12 @@ const BlogPost = () => {
       console.log("NO CONTENT PRESENT");
     }
   };
+  // Owl Carousel Config Options
   const options = {
     loop: true,
     margin: 30,
     nav: true,
     dots: false,
-    // thumbnail: false,
     autoplay: true,
     navText: [
       '<i class="fa fa-angle-left"></i>',
@@ -204,244 +177,243 @@ const BlogPost = () => {
 
   return (
     <>
-      {/* {singleBlogPost && blogPostBanner && ( */}
-        <>
-
-        { singleBlogPost && (
+      <>
+        {singleBlogPost && (
           <SEO
             title={`Marilyn's Windows | Blog | ${singleBlogPost?.fields?.title}`}
             description={singleBlogPost?.fields?.metaDescription}
           />
         )}
-          
 
-          <Header3 />
-          <div className="page-content">
-            {blogPostBanner && (
-              <Banner3
-                title="Blog Posting"
-                pagename="Blog Post"
-                bgimage={blogPostBanner}
-                // posLeft={true}
-                posRight={true}
-              />
-            )}
+        <Header3 />
 
-            <div className="section-full p-b40 square_shape1 square_shape3 tm-blog-single-wrap">
-              <div className="container">
-                <div className="max-mid-container">
-                  <div className=" p-b30">
-                    {/* BREADCRUMB ROW */}
+        <div className="page-content">
+          {blogPostBanner && (
+            <Banner3
+              title="Blog Posting"
+              pagename="Blog Post"
+              bgimage={blogPostBanner}
+              // posLeft={true}
+              posRight={true}
+            />
+          )}
+
+          <div className="section-full p-b40 square_shape1 square_shape3 tm-blog-single-wrap">
+            <div className="container">
+              <div className="max-mid-container">
+                <div className=" p-b30">
+                  {/* BREADCRUMB START */}
+                  <div className="">
+                    <div className="p-t20 m-r20">
+                      <div>
+                        <ul className="wt-breadcrumb breadcrumb-style-2">
+                          <li>
+                            <Link to={"/"}>Home</Link>
+                          </li>
+                          <li>
+                            <Link to={"/blog"}>Blog</Link>
+                          </li>
+                          <li>Post</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  {/* BREADCRUMB END */}
+                </div>
+
+                {singleBlogPost?.fields?.blogImages && blogRoute && (
+                  <div className="blog-post blog-lg date-style-1 text-black">
+                    <div className="wt-post-media">
+
+                      {/* IMAGE CAROUSEL START*/}
+                      <OwlCarousel
+                        className="owl-carousel owl-fade-slider-one owl-btn-vertical-center owl-dots-bottom-right"
+                        {...options}
+                      >
+                        {singleBlogPost?.fields?.blogImages?.map(
+                          (item, index) => (
+                            <div className="item" key={index}>
+                              <div className="aon-thum-bx">
+
+                                <img
+                                  src={item.secure_url}
+                                  alt={item.context.custom.alt}
+                                  data-pin-description={
+                                    item.context.custom.dataPin
+                                  }
+                                  caption={item.context.custom.caption}
+                                  width="800"
+                                  height="500"
+                                />
+
+                              </div>
+                            </div>
+                          )
+                        )}
+                      </OwlCarousel>
+                      {/* IMAGE CAROUSEL END*/}
+
+                    </div>
                     <div className="">
-                      <div className="p-t20 m-r20">
-                        <div>
-                          <ul className="wt-breadcrumb breadcrumb-style-2">
-                            <li>
-                              <Link to={"/"}>Home</Link>
-                            </li>
-                            <li>
-                              <Link to={"/blog"}>Blog</Link>
-                            </li>
-                            <li>Post</li>
-                          </ul>
+                      <div className="wt-post-info p-t30">
+                        <div className="">
+                          {/* BLOG DETAILS */}
+                          <div className="wt-post-title ">
+                            <h2 className="post-title">
+                              <span className="text-black font-45 letter-spacing-1">
+                                {singleBlogPost?.fields?.descriptiveTitle}
+                              </span>
+                            </h2>
+                          </div>
+                          <div className="wt-post-meta">
+                            <ul>
+                              <li className="post-date">
+                                <strong>
+                                  {singleBlogPost?.fields?.dateCreated}
+                                </strong>
+                              </li>
+                              <li className="post-comment">
+                                {singleBlogPost?.fields?.blogAuthor}
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        {/* BLOG CONTENT */}
+                        <div className="row">
+                          <div className="wt-post-text col-lg-12 col-md-12 col-sm-12">
+                            {richTextConversion()}
+                          </div>
+                        </div>
+
+                        <div className="row">
+                          <div className="col-md-4 col-sm-6">
+                            <div className="wt-box">
+                              <div className="row  p-lr15">
+                                <h3 className="tagcloud text-uppercase font-weight-500">
+                                  Share this Post:
+                                </h3>
+                                <div className="widget_social_inks">
+                                  <ul className="social-icons social-md social-square social-dark m-b0">
+                                    <li>
+                                      <FacebookShareButton
+                                        hashtag={"#marilynswindowsandinteriors"}
+                                        quote={`Read Marilyn's article: '${singleBlogPost?.fields?.descriptiveTitle}'`}
+                                        url={blogRoute}
+                                        aria-label="Share to Facebook"
+                                        role="button"
+                                      >
+                                        <a>
+                                          <i
+                                            className="fa fa-facebook"
+                                            aria-hidden="true"
+                                          />
+                                        </a>
+                                      </FacebookShareButton>
+                                    </li>
+                                    <li>
+                                      <TwitterShareButton
+                                        title={`Checkout this fantastic article by Marilyn: \n'${singleBlogPost?.fields?.descriptiveTitle}':`}
+                                        hashtags={[
+                                          "marilynswindowsandinteriors",
+                                        ]}
+                                        url={blogRoute}
+                                        aria-label="Share to Twitter"
+                                        role="button"
+                                      >
+                                        <a>
+                                          <i
+                                            className="fa fa-twitter"
+                                            aria-hidden="true"
+                                          />
+                                        </a>
+                                      </TwitterShareButton>
+                                    </li>
+                                    <li>
+                                      <LinkedinShareButton
+                                        title={
+                                          singleBlogPost?.fields
+                                            ?.descriptiveTitle
+                                        }
+                                        summary={
+                                          singleBlogPost?.fields?.blogSummary
+                                        }
+                                        source={blogRoute}
+                                        url={blogRoute}
+                                        aria-label="Share to Linkedin"
+                                        role="button"
+                                      >
+                                        <a>
+                                          <i
+                                            className="fa fa-linkedin"
+                                            aria-hidden="true"
+                                          />
+                                        </a>
+                                      </LinkedinShareButton>
+                                    </li>
+
+                                    <li>
+                                      <EmailShareButton
+                                        subject={`Read Marilyn's article: ${singleBlogPost?.fields?.descriptiveTitle}`}
+                                        body="Link to article: "
+                                        url={blogRoute}
+                                        aria-label="Share to Email"
+                                        role="button"
+                                      >
+                                        <a>
+                                          <i
+                                            className="fa fa-envelope"
+                                            aria-hidden="true"
+                                          />
+                                        </a>
+                                      </EmailShareButton>
+                                    </li>
+                                    {/* Copy link to clipboard */}
+                                    <li>
+                                      <a
+                                        style={{ cursor: "pointer" }}
+                                        onClick={() => {
+                                          navigator.clipboard.writeText(
+                                            blogRoute
+                                          );
+                                          clipboardToast();
+                                        }}
+                                        aria-label="Copy Link Address"
+                                        role="button"
+                                      >
+                                        <i
+                                          className="fa fa-link"
+                                          aria-hidden="true"
+                                        />
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  {/* <div className="container"> */}
-                  {singleBlogPost?.fields?.blogImages && blogRoute && (
-                    <div className="blog-post blog-lg date-style-1 text-black">
-                      <div className="wt-post-media">
-                        {/*Fade slider*/}
-
-                        <OwlCarousel
-                          className="owl-carousel owl-fade-slider-one owl-btn-vertical-center owl-dots-bottom-right"
-                          {...options}
-                        >
-                          {singleBlogPost?.fields?.blogImages?.map(
-                            (item, index) => (
-                              <div className="item" key={index}>
-                                <div className="aon-thum-bx">
-                                  {/* {console.log("BLOG POST", item)} */}
-
-                                  <img
-                                    src={item.secure_url}
-                                    alt={item.context.custom.alt}
-                                    data-pin-description={
-                                      item.context.custom.dataPin
-                                    }
-                                    caption={item.context.custom.caption}
-                                    width="800"
-                                    height="500"
-                                  />
-                                </div>
-                              </div>
-                            )
-                          )}
-                        </OwlCarousel>
-
-                        {/*fade slider END*/}
-                      </div>
-                      <div className="">
-                        <div className="wt-post-info p-t30">
-                          <div className="">
-                            <div className="wt-post-title ">
-                              <h2 className="post-title">
-                                <span className="text-black font-45 letter-spacing-1">
-                                  {singleBlogPost?.fields?.descriptiveTitle}
-                                </span>
-                              </h2>
-                            </div>
-                            <div className="wt-post-meta">
-                              <ul>
-                                <li className="post-date">
-                                  <strong>
-                                    {singleBlogPost?.fields?.dateCreated}
-                                  </strong>
-                                </li>
-                                <li className="post-comment">
-                                  {singleBlogPost?.fields?.blogAuthor}
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-
-                          {/* <div className="wt-divider divider-2px"></div> */}
-                          <div className="row">
-                            <div className="wt-post-text col-lg-12 col-md-12 col-sm-12">
-                              {richTextConversion()}
-                            </div>
-                          </div>
-
-                          <div className="row">
-                            <div className="col-md-4 col-sm-6">
-                              <div className="wt-box">
-                                <div className="row  p-lr15">
-                                  <h3 className="tagcloud text-uppercase font-weight-500">
-                                    Share this Post:
-                                  </h3>
-
-                                  <div className="widget_social_inks">
-                                    <ul className="social-icons social-md social-square social-dark m-b0">
-                                      <li>
-                                        <FacebookShareButton
-                                          hashtag={
-                                            "#marilynswindowsandinteriors"
-                                          }
-                                          quote={`Read Marilyn's article: '${singleBlogPost?.fields?.descriptiveTitle}'`}
-                                          url={blogRoute}
-                                          aria-label="Share to Facebook"
-                                          role="button"
-                                        >
-                                          <a>
-                                            <i className="fa fa-facebook" aria-hidden="true" />
-                                          </a>
-                                        </FacebookShareButton>
-                                      </li>
-                                      <li>
-                                        <TwitterShareButton
-                                          title={`Checkout this fantastic article by Marilyn: \n'${singleBlogPost?.fields?.descriptiveTitle}':`}
-                                          hashtags={[
-                                            "marilynswindowsandinteriors",
-                                          ]}
-                                          url={blogRoute}
-                                          aria-label="Share to Twitter"
-                                          role="button"
-                                        >
-                                          <a>
-                                            <i className="fa fa-twitter" aria-hidden="true" />
-                                          </a>
-                                        </TwitterShareButton>
-                                      </li>
-                                      <li>
-                                        <LinkedinShareButton
-                                          title={
-                                            singleBlogPost?.fields
-                                              ?.descriptiveTitle
-                                          }
-                                          summary={
-                                            singleBlogPost?.fields?.blogSummary
-                                          }
-                                          source={blogRoute}
-                                          url={blogRoute}
-                                          aria-label="Share to Linkedin"
-                                          role="button"
-                                        >
-                                          <a
-                                            // target="_blank"
-                                            // rel="noreferrer noopener"
-                                            // href="https://in.linkedin.com"
-                                            
-                                          >
-                                            <i className="fa fa-linkedin" aria-hidden="true" />
-                                          </a>
-                                        </LinkedinShareButton>
-                                      </li>
-
-                                      <li>
-                                        <EmailShareButton
-                                          subject={`Read Marilyn's article: ${singleBlogPost?.fields?.descriptiveTitle}`}
-                                          body="Link to article: "
-                                          url={blogRoute}
-                                          aria-label="Share to Email"
-                                          role="button"
-                                        >
-                                          <a>
-                                            <i className="fa fa-envelope" aria-hidden="true" />
-                                          </a>
-                                        </EmailShareButton>
-                                      </li>
-
-                                      <li>
-                                        <a
-                                          style={{ cursor: "pointer" }}
-                                          onClick={() => {
-                                            navigator.clipboard.writeText(
-                                              blogRoute
-                                            );
-                                            clipboardToast();
-                                          }}
-                                          aria-label="Copy Link Address"
-                                          role="button"
-                                        >
-                                          <i className="fa fa-link" aria-hidden="true" />
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                  {/* </div> */}
-
-                  {/* <div className="wt-divider divider-3px bg-gray-dark"><i className="icon-dot c-square" /></div> */}
-                </div>
-              </div>
-            </div>
-            {/* <div style={{borderTop: '1px solid lightgrey'}}> */}
-
-            {/* </div> */}
-          </div>
-          <div className="page-content ">
-            <div
-              className="section-full p-tb90 tm-blog-single-wrap"
-              style={{ backgroundImage: "url(" + bgimg.default + ")" }}
-              // style={{ backgroundImage: "/images/ptn-1.png" }}
-            >
-              <div className="container">
-                <div className="max-mid-container">
-                  <RelatedBlog slug={slug} />
-                </div>
+                )}
               </div>
             </div>
           </div>
-        </>
-      {/* )} */}
+
+        </div>
+        <div className="page-content ">
+          <div
+            className="section-full p-tb90 tm-blog-single-wrap"
+            style={{ backgroundImage: "url(" + bgimg.default + ")" }}
+          >
+            <div className="container">
+              <div className="max-mid-container">
+                <RelatedBlog slug={slug} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
 
       <Footer />
       <Toaster position="bottom-center" reverseOrder={false} />
