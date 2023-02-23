@@ -180,7 +180,7 @@ const BlogPost = () => {
       <>
         {singleBlogPost && (
           <SEO
-            title={`Marilyn's Windows | Blog | ${singleBlogPost?.fields?.title}`}
+            title={`Marilyn's Windows | Blog Post | ${singleBlogPost?.fields?.title}`}
             description={singleBlogPost?.fields?.metaDescription}
           />
         )}
