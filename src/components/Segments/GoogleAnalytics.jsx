@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { useLocation } from "react-router-dom";
 import { GA4React } from "react-ga4";
 
