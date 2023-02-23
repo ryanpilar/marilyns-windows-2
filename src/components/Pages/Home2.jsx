@@ -13,8 +13,12 @@ import LatestProjects from "./../Segments/LatestProjects";
 import Contact from "../Segments/Contact";
 import Footer from "../Common/Footer";
 
+import GoogleAnalytics from '../Segments/GoogleAnalytics';
+
 
 const Home2 = () => {
+
+  GoogleAnalytics()
 
   useEffect(() => {
     window.addEventListener('load', () => {
