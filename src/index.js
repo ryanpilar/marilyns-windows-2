@@ -16,7 +16,7 @@ ReactDOM.render(
 );
 
 const SendAnalytics = ()=> {
-  ReactGA.send({
+  GA4React.send({
     hitType: "pageview",
     page: window.location.pathname,
   });
