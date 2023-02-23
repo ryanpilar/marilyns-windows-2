@@ -5,11 +5,12 @@ import { GA4React } from "react-ga4";
 
 const GoogleAnalytics = () => {
 
+    const location = useLocation();
+
   useEffect(() => {
 
     GA4React.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_MEASUREMENT_ID);
 
-    const location = useLocation();
 
     GA4React.send({ hitType: "pageview", page: location.pathname });
 
