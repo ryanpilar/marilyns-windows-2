@@ -9,7 +9,7 @@ const GoogleAnalytics = () => {
 
   useEffect(() => {
 
-    GA4React.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_MEASUREMENT_ID);
+    // GA4React.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_MEASUREMENT_ID);
 
 
     GA4React.send({ hitType: "pageview", page: location.pathname });
