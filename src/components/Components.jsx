@@ -12,8 +12,6 @@ import NotFound from './Pages/NotFound';
 import TermsOfService from './Pages/TermsOfService';
 import PrivacyPolicy from './Pages/PrivacyPolicy';
 
-
-
 const Components = () => {
 
     const generateRandomKey = () => {
