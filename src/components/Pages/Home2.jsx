@@ -19,16 +19,16 @@ import GA4React from "react-ga4";
 
 const Home2 = () => {
 
-  const location = useLocation();
+  // const location = useLocation();
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    // GA4React.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_MEASUREMENT_ID);
+  //   // GA4React.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_MEASUREMENT_ID);
 
 
-    GA4React.send({ hitType: "pageview", page: location.pathname });
+  //   GA4React.send({ hitType: "pageview", page: location.pathname });
 
-  }, []);
+  // }, []);
   
 
   useEffect(() => {
