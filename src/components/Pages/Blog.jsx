@@ -84,8 +84,8 @@ const Blog = () => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | Blog |  Interesting Things About Drapes`}
-        description={`Interesting articles about interior design and the wonderful world of drapery. Learn about industry trends or read frequently asked questions.`}
+        title={`Marilyn's Windows | Blog | Writings & Insights About Drapery and More`}
+        description={`Interesting articles about window treatments and the wonderful world of drapery. Learn about industry trends, gain good advice, or read frequently asked questions.`}
       />
 
       <Header3 />
