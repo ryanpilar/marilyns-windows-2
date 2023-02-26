@@ -67,7 +67,7 @@ const Home2 = () => {
   return (
     <>
       <SEO
-        title={`MMarilyn's Windows | Home | Sewing High End Custom Drapes in Milton, Ontario`}
+        title={`Marilyn's Windows | Home | Sewing High End Custom Drapes in Milton, Ontario`}
         description={`Custom handcrafted window coverings, curtains, shades, blinds and soft furnishings. Serving Milton, Burlington, Oakville, Mississauga and surrounding areas.`}
       />
 
