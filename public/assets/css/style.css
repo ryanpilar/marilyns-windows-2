@@ -10053,7 +10053,7 @@ ol.commentlist li::after {
   right: -200px;
   top: 30px;
   width: 310px;
-  box-shadow: 7px 15px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 7px 10px 10px rgba(0, 0, 0, 0.5);
 }
 .contact-info .icon-content p {
   word-break: normal;
