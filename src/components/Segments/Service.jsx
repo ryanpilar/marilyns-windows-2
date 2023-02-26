@@ -28,8 +28,9 @@ const Service = ({ process }) => {
               {/* CONSULTATION */}
               <div className="row p-b50">
                 <div className="col-md-6 col-sm-12">
-                  <div className="wt-media our-story-pic">
+                  <div className="add-box-shadow p-a5 wt-media our-story-pic">
                     <img
+
                       src={process.consultation.image.secure_url}
                       alt={process.consultation.image.context.custom.alt}
                       caption={
@@ -86,7 +87,7 @@ const Service = ({ process }) => {
                   </div>
                 </div>
                 <div className="col-md-6 col-sm-12">
-                  <div className="wt-media our-story-pic">
+                  <div className="add-box-shadow p-a5 wt-media our-story-pic">
                     <img
                       src={process.ideas.image.secure_url}
                       alt={process.ideas.image.context.custom.alt}
@@ -104,7 +105,7 @@ const Service = ({ process }) => {
               {/* INSTALLATION */}
               <div className="row p-b50">
                 <div className="col-md-6 col-sm-12">
-                  <div className="wt-media our-story-pic">
+                  <div className="add-box-shadow p-a5 wt-media our-story-pic">
                     <img
                       src={process.install.image.secure_url}
                       alt={process.install.image.context.custom.alt}
@@ -152,7 +153,7 @@ const Service = ({ process }) => {
                 </div>
 
                 <div className="col-md-6 col-sm-12">
-                  <div className="wt-media our-story-pic">
+                  <div className="add-box-shadow p-a5 wt-media our-story-pic">
                     <img
                       src={process.warranty.image.secure_url}
                       alt={process.warranty.image.context.custom.alt}

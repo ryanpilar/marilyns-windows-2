@@ -107,7 +107,7 @@ const AboutMe = () => {
                   </div>
                   <div
                     id="niagara"
-                    className="col-lg-6 col-md-6 col-sm-12 p-r30"
+                    className="col-lg-6 col-md-6 col-sm-12 p-r20"
                   >
                     <h3 className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
                       Niagara On The Lake - my early years
@@ -151,7 +151,7 @@ const AboutMe = () => {
                       remained.{" "}
                     </p>
                   </div>
-                  <div className="col-lg-6 col-md-6 col-sm-12 p-r40">
+                  <div className="col-lg-6 col-md-6 col-sm-12 p-r20">
                     <p>
                       Fuelled by my ambition to build a better future and to
                       save for a house, I pivoted towards a career in automotive
@@ -212,7 +212,7 @@ const AboutMe = () => {
                       to Form and Function
                     </h2>
                   </div>
-                  <div className="col-lg-6 col-md-6 col-sm-12 p-r40">
+                  <div className="col-lg-6 col-md-6 col-sm-12 p-r20">
                     <h3
                       id="allInclusive"
                       className="text-uppercase font-weight-600 m-a0 p-a0 font-16 "
@@ -254,7 +254,7 @@ const AboutMe = () => {
                       working with.
                     </p>
                   </div>
-                  <div className="col-lg-6 col-md-6 col-sm-12 p-r40">
+                  <div className="col-lg-6 col-md-6 col-sm-12 p-r20">
                     <p>
                       My repertoire of blinds, shades, and custom automation
                       ensures each client has a tailored experience. I embrace
@@ -310,7 +310,7 @@ const AboutMe = () => {
                       commitment to you
                     </h2>
                   </div>
-                  <div className="col-lg-6 col-md-6 col-sm-12 p-r40">
+                  <div className="col-lg-6 col-md-6 col-sm-12 p-r20">
                     <h3
                       id="aftercare"
                       className="text-uppercase font-weight-600 m-a0 p-a0 font-16 "
@@ -344,7 +344,7 @@ const AboutMe = () => {
                   </div>
                   <div
                     id="myWork"
-                    className="col-lg-6 col-md-6 col-sm-12 p-r40"
+                    className="col-lg-6 col-md-6 col-sm-12 p-r20"
                   >
                     <h3 className="text-uppercase font-weight-600 m-a0 p-a0 font-16 ">
                       My Work

@@ -20,11 +20,11 @@ const Service2 = ({ testimonial }) => {
     {
       counter: 2,
       title: "Blinds &\nSmart Blinds",
-      description: `Window blinds provide a practical solution for controlling light and privacy in your home. They also add a stylish and modern touch to any room, and can improve energy efficiency by keeping out unwanted heat or cold. Plus, with the wide range of colors and materials, you can find the perfect match to complement your decor.`,
+      description: `Window blinds provide a practical solution for controlling light and privacy in your home. They also add a stylish and modern touch to any room, and can improve energy efficiency by keeping out unwanted heat or cold. Plus, with the wide range of colours and materials, you can find the perfect match to complement your decor.`,
     },
     {
       counter: 3,
-      title: "Sunset Shades,\nShadow Magic &\nSilouette Like Shades",
+      title: "Sunset Shades,\nShadow Magic &\Silhouette Like Shades",
       description: `This particular blind goes by many different names!`,
     },
     {
@@ -364,7 +364,7 @@ const Service2 = ({ testimonial }) => {
                         </p>
 
                         <p>
-                          With a wide range of colors and styles to choose from,
+                          With a wide range of colours and styles to choose from,
                           you can create a personalized and cohesive look that
                           perfectly complements your home's aesthetic.
                         </p>
