@@ -185,7 +185,7 @@ const Gallery22 = () => {
                         key={index}
                         className={`${item.fields.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30 `}
                       >
-                        <div className="add-box-shadow">
+                        <div className="add-box-shadow p-a5">
                           <div className="wt-img-effect wt-img-black-bg ">
                             <div className="img-opacity ">
                               <img

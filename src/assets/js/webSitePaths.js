@@ -1,9 +1,9 @@
 
 
 const webSitePaths = {
-    blogRoute: `https://marilyns-windows.netlify.app/post/`,
-    galleryRoute: `https://marilyns-windows.netlify.app/gallery`,
-    galleryRoomRoute: `https://marilyns-windows.netlify.app/gallery/room/`,
+    blogRoute: `https://marilynswindows.com/post/`,
+    galleryRoute: `https://marilynswindows.com/gallery`,
+    galleryRoomRoute: `https://marilynswindows.com/gallery/room/`,
   }
   
   

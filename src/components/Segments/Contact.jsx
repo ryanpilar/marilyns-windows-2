@@ -11,6 +11,9 @@ class Contact extends React.Component {
         phone: "",
         email: "",
       },
+      name: "",
+      phone: "",
+      email: "",
       message: "",
       spinner: false,
     };
@@ -18,6 +21,12 @@ class Contact extends React.Component {
 
   toggleSpinner = () => {
     this.setState({ spinner: !this.state.spinner });
+  };
+  sendingMessageAlert = () => {
+    this.setState({
+      message:
+        "Please hold on for a moment while your message is being sent...",
+    });
   };
 
   handleChange = (event) => {
@@ -60,7 +69,7 @@ class Contact extends React.Component {
     this.setState({
       name: "Your Name",
       email: "Email",
-      phone: "Phone", 
+      phone: "Phone",
       message:
         "- AUTO MESSAGE - Thanks for reaching out! This is to let you know that your message has been delivered and that we will get back to you shortly.",
     });
@@ -104,6 +113,7 @@ class Contact extends React.Component {
     // }
 
     this.toggleSpinner();
+    // this.sendingMessageAlert()
 
     const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
     const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
@@ -125,7 +135,7 @@ class Contact extends React.Component {
         (error) => {
           this.toggleSpinner();
           this.emailUnsuccessfull();
-          console.log(error.text);
+          // console.log(error.text);
           //   alert("Something has gone wrong with your form submission. If this message persists, try emailing me directly at ryan_pilar@outlook.com.");
         }
       );
@@ -266,20 +276,22 @@ class Contact extends React.Component {
                           required
                         ></textarea>
                       </div>
-
-                      <button
-                        type="submit"
-                        name="submit"
-                        className="site-button black radius-no text-uppercase m-r10"
-                        role="button"
-                        aria-label="send email"
-                      >
-                        <span
-                          className="font-12 letter-spacing-5"
-                        >
-                          Submit
-                        </span>
-                      </button>
+        
+                        <>
+                          <button
+                            type="submit"
+                            name="submit"
+                            className="site-button black radius-no text-uppercase m-r10"
+                            role="button"
+                            aria-label="send email"
+                            disabled={this.state.spinner}
+                          >
+                            
+                            { this.state.spinner ? <span className="font-12 letter-spacing-5"><i className="fa fa-spinner fa-spin" /></span> : <span className="font-12 letter-spacing-5">Submit</span>}
+                              
+                          </button>
+                        </>
+                        
 
                       <button
                         onClick={this.resetEmailForm.bind(this)}
