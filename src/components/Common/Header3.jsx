@@ -1,5 +1,7 @@
 import React from "react";
 import Navigation from "./Navigation";
+import { NavLink } from 'react-router-dom';
+
 
 class Header3 extends React.Component {
   isMenuActive;
@@ -52,16 +54,18 @@ class Header3 extends React.Component {
               <div className="container">
                 <div className="logo-header">
                   <div className="logo-header-inner logo-header-one">
-                    <a href="/" aria-label="Back to Home">
-                      <img
+                  <NavLink to={"/"} aria-label="Back to Home">
+                  <img
                         src={this.state.logo.default}
                         width={221}
                         height={70}
                         alt="Marilyn's Logo"
                       />
-                    </a>
+                  </NavLink>
+
                   </div>
                 </div>
+                
                 {/* NAV Toggle Button */}
                 <button
                   onClick={this.handleMenuToggle}

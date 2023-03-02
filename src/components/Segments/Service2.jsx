@@ -43,12 +43,12 @@ const Service2 = ({ testimonial }) => {
   ];
 
   return (
-    <div className="">
+    <div id="overview" className="">
       <div className="section-full  p-t20 p-b90 tm-blog-single-wrap ">
         <div className="container ">
-          <div className="max-mid-container ">
+          <div  className="max-mid-container ">
             {/* TITLE START */}
-            <div className="section-head text-left text-black">
+            <div  className="section-head text-left text-black">
               <h2 className="text-uppercase font-34">Overview</h2>
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />

@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 class Navigation extends React.Component {
-
   componentDidMount() {
     function loadScript(src) {
       return new Promise(function (resolve, reject) {
@@ -36,7 +35,24 @@ class Navigation extends React.Component {
           </li>
 
           <li>
-            <NavLink to="/services">Services</NavLink>
+            <NavLink to={"#"}>Services</NavLink>
+            <ul className="sub-menu v-sub-menu">
+              <li>
+                <HashLink smooth to={"/services/#overview"}>Overview</HashLink>
+              </li>
+              <li>
+                <HashLink smooth to={"/services/#locations"}>Location</HashLink>
+              </li>
+              <li>
+                <HashLink smooth to={"/services/#selectServices"}>Select Services</HashLink>
+              </li>
+              <li>
+                <HashLink smooth to={"/services/#designProcess"}>The Design Process</HashLink>
+              </li>
+              <li>
+                <HashLink smooth to={"/services/#faq"}>FAQ</HashLink>
+              </li>
+            </ul>
           </li>
 
           <li>
