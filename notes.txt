@@ -33,6 +33,19 @@ Weird things I had to do:
                 200, inside of that file, and voilà the links are now working on Netlify. Source:
                 https://answers.netlify.com/t/netlify-page-not-found-when-sharing-react-router-dom-based-links/11744/12 
 
+            b.  Google started ranking my netlify.app and it wasn't picking up my redirects (301).
+                The sequence of the redirects in your _redirects file MATTERS!
+
+                    This is incorrect:
+                        https://marilyns-windows.netlify.app/*  https://www.marilynswindows.com/:splat  301!
+                        http://marilyns-windows.netlify.app/*  https://www.marilynswindows.com/:splat  301!
+                        /* /index.html 200
+
+                    This is correct:
+                        https://marilyns-windows.netlify.app/*  https://www.marilynswindows.com/:splat  301!
+                        http://marilyns-windows.netlify.app/*  https://www.marilynswindows.com/:splat  301!
+                        /* /index.html 200
+
     3.  --opensl problem (https://stackoverflow.com/questions/69962209/what-is-openssl-legacy-provider-in-node-js-v17)
 
         -   "But why did it happen this time only and not usually?" Because some module uses commands 

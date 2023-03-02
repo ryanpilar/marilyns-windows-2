@@ -8,7 +8,7 @@ const Service2 = ({ testimonial }) => {
       counter: 0,
       title: "Custom Drapery,\nWindow Coverings &\nWindow Treatments",
       description: `Set your property apart from the crowd with custom
-        window coverings. Stitched with the finest quality
+        window coverings! Stitched in our Canadian workroom with the finest quality
         materials and textiles, and installed by a team of
         experts.`,
     },
@@ -20,11 +20,11 @@ const Service2 = ({ testimonial }) => {
     {
       counter: 2,
       title: "Blinds &\nSmart Blinds",
-      description: `Window blinds provide a practical solution for controlling light and privacy in your home. They also add a stylish and modern touch to any room, and can improve energy efficiency by keeping out unwanted heat or cold. Plus, with the wide range of colours and materials, you can find the perfect match to complement your decor.`,
+      description: `Blinds are a practical solution for controlling light and privacy in your home. They add a stylish and modern touch to any room, and can improve energy efficiency by keeping out unwanted heat or cold. Plus, with the wide range of colours and materials, you can find the perfect match to complement your decor.`,
     },
     {
       counter: 3,
-      title: "Sunset Shades,\nShadow Magic &\Silhouette Like Shades",
+      title: "Sunset Shades,\nShadow Magic &\nSilhouette Like Shades",
       description: `This particular blind goes by many different names!`,
     },
     {
@@ -104,6 +104,18 @@ const Service2 = ({ testimonial }) => {
                         Our Premium Suppliers
                       </HashLink>
                     </li>
+
+                    <li className="">
+                      <HashLink
+                        smooth
+                        className="link-style font-14 text-uppercase p-lr10"
+                        to="#faq"
+                        aria-label="scroll down to contact us"
+                      >
+                        FAQ 
+                      </HashLink>
+                    </li>
+
                     <li className="">
                       <HashLink
                         smooth
@@ -230,38 +242,41 @@ const Service2 = ({ testimonial }) => {
           </div>
           <div className="container" id="customDrapery">
             <div className="">
-              <div className="section-content m-b50">
+              <div className="section-content m-b50 max-height">
                 <div className="row ">
-                  <div className="row">
-                    <div id="customDraperey">
+                  <div className="row ">
+                    <div id="customDraperey ">
                       <ServiceCard
                         title={selectServices[0].title}
                         description={selectServices[0].description}
+                        className=""
+                        
                       >
-                        <span className="text-uppercase font-weight-500 ">
-                          Learn with Marilyn:
-                        </span>
-
-                        <ul className="list-simple list-check m-t20">
-                          {" "}
-                          <li className="m-l10">
-                            <Link
-                              to={
-                                "/blog/post/8-indisputable-reasons-to-love-custom-window-treatments"
-                              }
-                              className="link-style font-14"
-                            >
-                              <div className="m-l10">
-                                8 INDISPUTABLE REASONS TO LOVE CUSTOM WINDOW
-                                TREATMENTS
-                              </div>
-                            </Link>
-                          </li>
-                        </ul>
+                        <div className="">
+                          <span className="text-uppercase font-weight-500 ">
+                            Learn with Marilyn:
+                          </span>
+                          <ul className="list-simple list-check m-t20">
+                            {" "}
+                            <li className="m-l10">
+                              <Link
+                                to={
+                                  "/blog/post/8-indisputable-reasons-to-love-custom-window-treatments"
+                                }
+                                className="link-style font-14"
+                              >
+                                <div className="m-l10">
+                                  8 INDISPUTABLE REASONS TO LOVE CUSTOM WINDOW
+                                  TREATMENTS
+                                </div>
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
                       </ServiceCard>
                     </div>
 
-                    <div id="draperyHardware">
+                    <div id="draperyHardware max-height">
                       <ServiceCard
                         title={selectServices[1].title}
                         description={selectServices[1].description}
@@ -277,7 +292,7 @@ const Service2 = ({ testimonial }) => {
                           >
                             the best manufactures
                           </HashLink>{" "}
-                          to pick from. Also, our hardware...
+                          to pick from. Also, our hardware:
                         </p>
                         <ul className="list-simple list-check m-b0">
                           <li className="m-l10">
@@ -307,10 +322,10 @@ const Service2 = ({ testimonial }) => {
                         description={selectServices[2].description}
                       >
                         <p>
-                          Roller blinds, cellular shades, dual or zebra shades,
-                          panel track or wood. Light filtering and blackout,
-                          mechanical, automated and smart! And the list goes
-                          on...
+                          Many options to choose from: Roller
+                          blinds, cellular shades, dual or zebra shades, panel
+                          track or wood. Light filtering and blackout,
+                          mechanical, automated and smart, etc..!
                         </p>
                         <span className="text-uppercase font-weight-500 ">
                           Learn with Marilyn:
@@ -358,16 +373,16 @@ const Service2 = ({ testimonial }) => {
                         <p>
                           It is known as a 'Silhouette', 'Shadow Magic Sun
                           Shade' or a 'Sunset Sun Shade'. These shades not only
-                          provide an extra layer of privacy, but they also offer
+                          provide an extra layer of privacy, they also offer
                           a visually stunning way to bring the beauty of the
                           sunset into your home.
                         </p>
 
                         <p>
-                          With a wide range of colours and styles to choose from,
-                          you can create a personalized and cohesive look that
-                          perfectly complements your home's aesthetic.
-                        </p>
+                          With a wide range of colours and styles to choose
+                          from, you can create a personalized look
+                          that perfectly complements your home's aesthetic. I like recommending <strong>Maxxmar</strong> and <strong>Shadow Magic</strong> . They are  
+                          Canadian businesses that make exceptional products and stand behind what they do.</p>
                         <span className="text-uppercase font-weight-500 ">
                           Learn with Marilyn:
                         </span>
@@ -376,7 +391,9 @@ const Service2 = ({ testimonial }) => {
                           {" "}
                           <li className="m-l10">
                             <Link
-                              to={"/blog/post/everything-you-need-to-know-about-sunset-and-silhouette-shades"}
+                              to={
+                                "/blog/post/everything-you-need-to-know-about-sunset-and-silhouette-shades"
+                              }
                               className="text-uppercase link-style font-14"
                             >
                               <div className="m-l10">
@@ -403,11 +420,11 @@ const Service2 = ({ testimonial }) => {
 
                         <p>
                           {/* Shutters are  */}
-                          The ultimate tool for managing natural
-                          light. Not only do they add a touch of architectural
-                          flair to your home, but they also increase its value.
-                          And with cord-free design, they're a safe choice for
-                          households with kids and pets.
+                          The ultimate tool for managing natural light. Not only
+                          do they add a touch of architectural flair to your
+                          home, but they also increase its value. And with
+                          cord-free design, they're a safe choice for households
+                          with kids and pets.
                         </p>
                         <span className="text-uppercase font-weight-500 ">
                           Learn with Marilyn:
@@ -450,7 +467,6 @@ const Service2 = ({ testimonial }) => {
                               </div>
                             </Link>
                           </li> */}
-                          
                           <li className="m-l10">
                             <Link
                               to={
@@ -459,8 +475,7 @@ const Service2 = ({ testimonial }) => {
                               className="text-uppercase link-style font-14"
                             >
                               <div className="m-l10">
-                                how to design the perfect
-                                window seat space
+                                how to design the perfect window seat space
                               </div>
                             </Link>
                           </li>

@@ -1199,6 +1199,7 @@ dl dd {
 }
 .list-angle-right li:before {
   content: "\f105";
+  color: #ffbc13;
 }
 .list-arrow li:before {
   content: "\f0da";
@@ -2280,6 +2281,7 @@ ol.list-num-count p {
   display: flex;
   justify-content: center;
 }
+
 .flex-bottom-right {
   display: flex;
   justify-content: flex-end;
@@ -2294,6 +2296,10 @@ ol.list-num-count p {
   position: absolute;
   right: 0;
   bottom: 0;
+}
+.max-height {
+  /* min-height: 100% !important; */
+  /* border: 1px solid red */
 }
 
 /*======================================
@@ -2343,6 +2349,11 @@ ol.list-num-count p {
   /* color: #d5c2ba !important; */
   color: #e7ccb8 !important;
   /* color: rgb(235, 172, 89) !important; */
+}
+.text-orange {
+  /* color: #d5c2ba !important; */
+  /* color: #e7ccb8 !important; */
+  color: rgb(235, 172, 89) !important;
 }
 /*-------------------------------------
 	2. background color
@@ -2977,6 +2988,7 @@ ol.list-num-count p {
   border-style: solid;
   border-color: #ddd;
   box-shadow: 8px 12px 10px rgba(0, 0, 0, 0.1);
+  
 }
 
 .wt-icon-box-wraper.bx-style-2.center [class*="wt-icon-box-"],
@@ -4390,7 +4402,11 @@ ol.list-num-count p {
   height: 1px;
   width: 13px;
   background-color: #000;
+    /* background-color: #d5c2ba !important; */
+    /* background-color: #e7ccb8 !important; */
+    /* background-color: rgb(235, 172, 89) !important; */
 }
+
 
 .acod-head .indicator .fa:after {
   -moz-transform: rotate(90deg);
@@ -4398,6 +4414,7 @@ ol.list-num-count p {
   -o-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
+  
 }
 
 .acc-bg-dark .acod-head .indicator .fa:after,
@@ -4412,6 +4429,7 @@ ol.list-num-count p {
   -o-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);
+  
 }
 .acod-head.acc-actives .indicator .fa,
 .acod-head [aria-expanded="true"] .indicator .fa {
@@ -4421,6 +4439,7 @@ ol.list-num-count p {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   right: 4px;
+  
 }
 
 /* 1. Accordion defult */
