@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { createClient } from "contentful";
 
@@ -17,6 +17,8 @@ const AboutMe = () => {
   const [imageCarousel, setImageCarousel] = useState(null);
   const [imagesTwo, setImagesTwo] = useState(null);
   const [imagesThree, setImagesThree] = useState(null);
+
+  const cononicalLocation = useLocation();
 
   // Get content from Contentful:
   useEffect(() => {
@@ -58,6 +60,8 @@ const AboutMe = () => {
       <SEO
         title={`Marilyn's Windows | My Story `}
         description={`Professionally sewing for over 30 years and specializing in the tailored creation of hand-sewn curtains, drapes, blinds, and custom bedding`}
+        location={ cononicalLocation.pathname }
+
       />
       {/* Navigation  */}
       <Header3 />
@@ -69,7 +73,9 @@ const AboutMe = () => {
             title="Marilyn's Story"
             pagename="About Us"
             bgimage={banner.image.data.secure_url}
-            posRight={true}
+            posLeft={true}
+            // posRight={true}
+
           />
         )}
 
@@ -235,7 +241,7 @@ const AboutMe = () => {
                       expertise and creative vision to bring each project to
                       life. In my workroom, I have 7 specialized sewing machines
                       that serve as a foundation to my meticulous craftsmanship,
-                      while my background in Interior Design supports my ability
+                      while my background in interior design supports my ability
                       to bring conceptual ideas to life.
                     </p>
                     <h3

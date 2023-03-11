@@ -9,6 +9,15 @@ import { createClient } from "contentful";
 import { MARKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
+// import aboutImage from '../../images/landing/pexels-cottonbro-studio-4614220.jpg'
+// import aboutImage from '../../images/landing/pexels-cottonbro-studio-4614193.jpg'
+// import aboutImage from '../../images/landing/pexels-cottonbro-studio-4614237.jpg'
+import aboutImage from '../../images/landing/pexels-cottonbro-studio-4614127.jpg'
+
+
+
+
+
 
 
 const About = () => {
@@ -110,10 +119,10 @@ const About = () => {
                   </div>
                   
                   <NavLink
-                    to={"/aboutme"}
+                    to={"/services"}
                     className="btn-half text-white site-button button-md m-b15 m-r15"
                   >
-                    <span className="p-lr5">My Story</span>
+                    <span className="p-lr5">Services</span>
                     <em />
                   </NavLink>
 
@@ -126,18 +135,29 @@ const About = () => {
                   </NavLink>
                 </div>
               )}
-              <div className="col-md-7 col-sm-12">
+              <div className="col-md-7 col-sm-12 m-b30">
                 {content && (
                   <>
-                    <div className="m-carousel-1 m-l100 add-box-shadow2">
+                    <div className="m-carousel-1 m-l100 add-box-shadow2 ">
                       <OwlCarousel
                         className="owl-carousel home-carousel-1 owl-btn-vertical-center"
+                        style={{background: 'white', padding: '5px'}}
                         {...options}
                       >
                         {content.cloudinaryImage.map((item, index) => (
                           <div className="item " key={index}>
                             <div className="ow-img wt-img-effect zoom-slow">
                               <img
+                                className=""
+                                src={aboutImage}
+                                alt='test'
+                                data-pin-description='test'
+                                caption='test'
+                                width={800}
+                                height={500}
+                              />
+                              {/* <img
+                                className=""
                                 src={item.secure_url}
                                 alt={item.context.custom.alt}
                                 data-pin-description={
@@ -146,7 +166,7 @@ const About = () => {
                                 caption={item.context.custom.caption}
                                 width={800}
                                 height={500}
-                              />
+                              /> */}
                             </div>
                           </div>
                         ))}
@@ -157,10 +177,10 @@ const About = () => {
               </div>
             </div>
 
-            <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
+            {/* <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
               <strong>30+ Years</strong>
               <span className="text-black">Working Experience</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

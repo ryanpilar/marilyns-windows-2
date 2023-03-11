@@ -1,6 +1,6 @@
 import { useEffect, useState, useLayoutEffect } from "react";
 import { createClient } from "contentful";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
@@ -11,13 +11,15 @@ const Gallery22 = () => {
   const [imageList, setImageList] = useState(null);
   const [bannerContent, setBannerContent] = useState(null);
   const [filters, setFilters] = useState([
-    { label: "Bedroom", filter: ".Bedroom" },
+    { label: "Bed", filter: ".Bedroom" },
     { label: "Bath", filter: ".Bathroom" },
-    { label: "Dining", filter: ".Dining" },
+    { label: "Dine", filter: ".Dining" },
     { label: "Kitchen", filter: ".Kitchen" },
     { label: "Living", filter: ".Living" },
     { label: "Office", filter: ".Office" },
   ]);
+
+  const cononicalLocation = useLocation();
 
   const client = createClient({
     space: process.env.REACT_APP_CONTENTFUL_SPACE,
@@ -92,8 +94,10 @@ const Gallery22 = () => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | Gallery | A Collection of Beautiful Custom Window Treatments`}
+        title={`Marilyn's Windows | Gallery | A Collection of Marilyn's Beautiful Custom Window Treatment Designs`}
         description={`Bedroom curtain ideas. Window coverings for patio doors. Living room drapery ideas. Light filtering curtains and blackout blinds. Outdoor curtain ideas.`}
+        location={ cononicalLocation.pathname }
+
       />
 
       {bannerContent && imageList && (
@@ -154,8 +158,8 @@ const Gallery22 = () => {
                   {/* PAGINATION START */}
                   <div className="filter-wrap p-b50 p-t10">
                     <ul className="masonry-filter link-style  text-uppercase ">
-                      <li className="active">
-                        <a data-filter="*" href="#" aria-label="Show all items">
+                      <li className="active ">
+                        <a className="font-30 " data-filter="*" href="#" aria-label="Show all items">
                           All
                         </a>
                       </li>
@@ -215,7 +219,7 @@ const Gallery22 = () => {
                                     to={`/gallery/room/${item.fields.slug}`}
                                   >
                                     <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
-                                      <p>
+                                      <p className="font-22">
                                         <i
                                           className="fa fa-search"
                                           aria-hidden="true"

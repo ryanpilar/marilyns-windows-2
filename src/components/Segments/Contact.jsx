@@ -314,7 +314,7 @@ class Contact extends React.Component {
                               Phone number
                             </h3>
                             <a href="tel:905-878-0939">
-                              <p>(905) 878 0626</p>
+                              <p className='font-14'>(905) 878 0626</p>
                             </a>
                           </div>
                         </div>
@@ -327,7 +327,7 @@ class Contact extends React.Component {
                               Email address
                             </h3>
                             <a href="mailto:marilyn@marilynswindows.com">
-                              <p>marilyn@marilynswindows.com</p>
+                              <p className='font-14'>marilyn@marilynswindows.com</p>
                             </a>
                           </div>
                         </div>
@@ -339,7 +339,7 @@ class Contact extends React.Component {
                             <h3 className="m-a0 p-b5  text-uppercase text-brownish font-16 p-a0">
                               Address info
                             </h3>
-                            <p>468 Valleyview Cr, Milton, ON L9T 3L2, Canada</p>
+                            <p className='font-14'>468 Valleyview Cr, Milton, ON L9T 3L2, Canada</p>
                           </div>
                         </div>
                       </div>

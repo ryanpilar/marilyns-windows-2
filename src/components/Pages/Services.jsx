@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { createClient } from "contentful";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
@@ -12,15 +12,17 @@ import FAQ from "../Segments/FAQ";
 import Contact from "../Segments/Contact";
 import Footer from "../Common/Footer";
 
-
 const Services = () => {
 
   const [banner, setBanner] = useState(null);
   const [designProcess, setDesignProcess] = useState(null);
   const [affiliates, setAffiliates] = useState(null);
 
+  const cononicalLocation = useLocation();
+
   // Contentful Connect and Data Fetch
   useEffect(() => {
+    
 
     const getContentfulContents = async () => {
 
@@ -84,8 +86,10 @@ const Services = () => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | Services | Sewing & Installing Custom Window Treatments for the Halton Region`}
+        title={`Marilyn's Windows | Services | Sewing & Installing The Best Custom Window Treatments for the Halton Region`}
         description={`Specializing in custom drapery, high-end blinds and custom soft furnishings. Marilyn's work defines the art of couture drapery and window treatment design.`}
+        location={ cononicalLocation.pathname }
+
       />
 
       <Header3 />

@@ -24,8 +24,7 @@ class Navigation extends React.Component {
 
   render() {
     return (
-      <>
-        <ul className=" nav navbar-nav">
+      <ul className=" nav navbar-nav">
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
@@ -35,7 +34,7 @@ class Navigation extends React.Component {
           </li>
 
           <li>
-            <NavLink to={"#"}>Services</NavLink>
+            <NavLink to={"/services"}>Services</NavLink>
             <ul className="sub-menu v-sub-menu">
               <li>
                 <HashLink smooth to={"/services/#overview"}>Overview</HashLink>
@@ -70,7 +69,6 @@ class Navigation extends React.Component {
             </HashLink>
           </li>
         </ul>
-      </>
     );
   }
 }

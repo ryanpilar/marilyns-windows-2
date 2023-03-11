@@ -8,7 +8,8 @@ const Banner = ({ bgimage, title, posLeft, posRight }) => {
         data-stellar-background-ratio="0.5"
         style={{ backgroundImage: "url(" + bgimage + ")" }}
       >
-        <div className="overlay-main bg-black opacity-04 " />
+        {/* <div className="overlay-main bg-black opacity-04 " /> */}
+        <div className="overlay-main" />
         <div
           className={`container ${posLeft ? `flex-bottom-left` : ""} ${
             posRight ? `flex-bottom-right` : ""

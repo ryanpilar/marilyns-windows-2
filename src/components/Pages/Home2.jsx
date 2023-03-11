@@ -5,6 +5,7 @@ import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
 import Slider22 from "./../Segments/Slider22";
 import About from "./../Segments/About";
+import About22 from '../Segments/About22';
 import Services from "./../Segments/Services";
 import ClientsLogo from "./../Segments/ClientsLogo";
 import Testimonials from "./../Segments/Testimonials";
@@ -19,17 +20,7 @@ import GA4React from "react-ga4";
 
 const Home2 = () => {
 
-  // const location = useLocation();
-
-  // useEffect(() => {
-
-  //   // GA4React.initialize(process.env.REACT_APP_GOOGLE_ANALYTICS_MEASUREMENT_ID);
-
-
-  //   GA4React.send({ hitType: "pageview", page: location.pathname });
-
-  // }, []);
-  
+  const cononicalLocation = useLocation();
 
   useEffect(() => {
     window.addEventListener('load', () => {
@@ -67,8 +58,10 @@ const Home2 = () => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | Home | Sewing High End Custom Drapes in Milton, Ontario`}
+        title={`Marilyn's Windows | Home | Crafting High-End Custom Drapes & Window Treatments in Milton, Ontario and Beyond.`}
         description={`Custom handcrafted window coverings, curtains, shades, blinds and soft furnishings. Serving Milton, Burlington, Oakville, Mississauga and surrounding areas.`}
+        location={ cononicalLocation.pathname }
+        
       />
 
       <Header3 />
@@ -76,6 +69,7 @@ const Home2 = () => {
       <div className="page-content">
         <Slider22 />
         <About />
+        <About22 />
         <Services showButton={true} />
         <LatestProjects />
         <ClientsLogo supplierList={false} />

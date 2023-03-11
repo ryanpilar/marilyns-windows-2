@@ -1,6 +1,6 @@
 import { useEffect, useState, useLayoutEffect } from "react";
 import { createClient } from "contentful";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
 
 import SEO from "../Segments/SEO";
@@ -21,6 +21,8 @@ const GallerySingle = () => {
   const [galleryBanner, setGalleryBanner] = useState(null);
 
   const galleryRoute = webSitePaths.galleryRoomRoute + slug;
+
+  const cononicalLocation = useLocation();
 
   // Spinner for when gallery content is loading
   const toggleSpinner = () => {
@@ -104,6 +106,7 @@ const GallerySingle = () => {
       <SEO
         title={`Marilyn's Windows | Gallery | ${imageData?.fields?.cardTitle}`}
         description={`${imageData?.fields?.metaDescription}`}
+        location={ cononicalLocation.pathname }
       />
 
       <Header3 />
@@ -183,9 +186,9 @@ const GallerySingle = () => {
         </div>
       </div>
 
-      <div className="container">
+      <div className="container p-lr10">
         <>
-          <div className="container">
+          <div className="">
             <div id="work" className="section-full p-t10 latest_project-outer">
               <div className=""></div>
 
@@ -308,7 +311,7 @@ const GallerySingle = () => {
         </>
       </div>
       <div className="container">
-        <div className="container">
+        <div className="">
           <div
             style={{
               width: "100%",

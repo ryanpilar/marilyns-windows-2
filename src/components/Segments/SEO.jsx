@@ -1,11 +1,15 @@
 import { Helmet } from 'react-helmet-async';
 
-export default function SEO({ title, description }) {
+export default function SEO({ title, description, location }) {
+
 return (
     <Helmet>
         { /* Standard metadata tags */ }
         <title>{title}</title>
         <meta name='description' content={description} />
+
+        <link rel="canonical" href={location} />
+
         { /* End standard metadata tags */ }
 
         { /* Facebook tags */ }

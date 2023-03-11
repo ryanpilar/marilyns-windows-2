@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -28,6 +27,9 @@ import toast, { Toaster } from "react-hot-toast";
 import webSitePaths from "../../assets/js/webSitePaths";
 
 const BlogPost = () => {
+
+  const cononicalLocation = useLocation();
+
   const bgimg = require("./../../images/background/ptn-1.png");
 
   const [blogPostBanner, setBlogPostBanner] = useState(null);
@@ -182,6 +184,7 @@ const BlogPost = () => {
           <SEO
             title={`Marilyn's Windows | Blog Post | ${singleBlogPost?.fields?.title}`}
             description={singleBlogPost?.fields?.metaDescription}
+            location={ cononicalLocation.pathname }
           />
         )}
 

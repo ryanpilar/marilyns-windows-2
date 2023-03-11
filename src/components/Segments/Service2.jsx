@@ -372,8 +372,7 @@ const Service2 = ({ testimonial }) => {
                       >
                         <p>
                           It is known as a 'Silhouette', 'Shadow Magic Sun
-                          Shade' or a 'Sunset Sun Shade'. These shades not only
-                          provide an extra layer of privacy, they also offer
+                          Shade' or a 'Sunset Sun Shade'. These shades add an extra layer of privacy, they also offer
                           a visually stunning way to bring the beauty of the
                           sunset into your home.
                         </p>

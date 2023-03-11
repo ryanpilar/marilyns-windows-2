@@ -2,6 +2,11 @@ import { useLayoutEffect, useEffect, useState } from "react";
 import { createClient } from "contentful";
 import { Link } from "react-router-dom";
 
+// import servicesImage from '../../images/landing/pexels-cottonbro-studio-6660925.jpg'
+// import servicesImage from '../../images/landing/pexels-cottonbro-studio-4614193.jpg'
+import servicesImage from '../../images/landing/pexels-pavel-danilyuk-6461130.jpg'
+
+
 const servicesleft = [
   {
     counter: 0,
@@ -20,9 +25,9 @@ const servicesleft = [
 
   {
     counter: 5,
-    title: "WINDOW SEATS & Designer THROW PILLOWS",
+    title: "WINDOW SEATS & THROW PILLOWS",
     description:
-      "Amazing window seat design ideas & soft furnishings to tie the room together. ",
+      "Amazing window seat design ideas to tie the room together. ",
   },
 ];
 
@@ -140,7 +145,7 @@ const Services = ({ showButton }) => {
                       We have the best window solutions to match your needs,
                       whether you are perfecting an interior design or
                       considering energy efficiency, privacy, automation, light
-                      filtering & blackout, and the list goes on.{" "}
+                      filtering & blackout, etc.{" "}
                       <Link
                         className="link-style font-14 text-uppercase"
                         to="/services"
@@ -161,7 +166,7 @@ const Services = ({ showButton }) => {
               data-toggle="tab-hover"
             >
               <div className="row">
-                <div className="col-md-4 col-sm-12 m-b30 ">
+                <div className="col-md-6 col-sm-12 m-b30 ">
                   {servicesleft.map((item, index) => (
                     <div
                       className="wt-icon-box-wraper right p-a20 m-b50 text-white "
@@ -173,24 +178,25 @@ const Services = ({ showButton }) => {
                         <h3 className="wt-tilte text-uppercase">
                           {item.title}
                         </h3>
-                        <p>{item.description}</p>
+                        <p className='font-15'>{item.description}</p>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                <div className="col-md-4 col-sm-12 m-b30 ">
+                {/* <div className="col-md-4 col-sm-12 m-b30 ">
                   <div className="circle-content-pic tab-content ">
                     {content.cloudinaryImage.map((item, index) => (
                       <div
-                        className={index === 0 ? `tab-pane active` : `tab-pane`}
+                        className={index === 0 ? `tab-pane active ` : `tab-pane`}
                         id={`tab${index}`}
                         key={index}
                       >
                         <div className="wt-box ">
                           <div className="wt-media text-primary m-b20  ">
                             <img
-                              src={item.secure_url}
+                              // src={item.secure_url}
+                              src={servicesImage}
                               alt={item.context.custom.alt}
                               data-pin-description={item.context.custom.dataPin}
                               caption={item.context.custom.caption}
@@ -202,9 +208,9 @@ const Services = ({ showButton }) => {
                       </div>
                     ))}
                   </div>
-                </div>
+                </div> */}
 
-                <div className="col-md-4 col-sm-12 m-b30">
+                <div className="col-md-6 col-sm-12 m-b30">
                   {servicesright.map((item, index) => (
                     <div
                       className="wt-icon-box-wraper left p-a20 m-b50 text-white"
@@ -216,7 +222,7 @@ const Services = ({ showButton }) => {
                         <h3 className="wt-tilte text-uppercase">
                           {item.title}
                         </h3>
-                        <p>{item.description}</p>
+                        <p className='font-14'>{item.description}</p>
                       </div>
                     </div>
                   ))}
@@ -224,8 +230,8 @@ const Services = ({ showButton }) => {
 
                 <div className="col-sm-12">
                   <h2 className="text-brownish">Locations We Serve</h2>
-                  <p className="p-r30 text-left text-white">
-                    <span className="p-lr5">Milton</span> |{" "}
+                  <p className="p-r30 text-left text-white font-18">
+                    <span className="">Milton</span> |{" "}
                     <span className="p-lr5">Georgetown</span> |{" "}
                     <span className="p-lr5">Burlington</span> |{" "}
                     <span className="p-lr5">Oakville</span> |{" "}

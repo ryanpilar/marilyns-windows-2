@@ -153,18 +153,18 @@ const LatestProjects = () => {
         </div>
 
         {/* IMAGE CAROUSEL START */}
-        <div className="section-content">
+        <div className="section-content ">
 
           {content && (
             <OwlCarousel
-              className="owl-carousel owl-carousel-filter  owl-btn-bottom-left"
+              className="owl-carousel owl-carousel-filter  owl-btn-bottom-left "
               {...options}
             >
               <>
                 {selectRandom(content).map((item, index) => (
                   <div
                     key={index}
-                    className={`${item.fields.filter} item fadingcol m-b20`}
+                    className={`${item.fields.filter} item fadingcol m-b20 add-box-shadow m-r15 p-a5`}
                   >
                     <div className="wt-img-effect">
                       <div className="wt-img-black-bg">

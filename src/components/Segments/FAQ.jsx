@@ -117,7 +117,7 @@ const FAQ = () => {
     },
 
     {
-      question: "Do you sew the drapery",
+      question: "Do you sew the drapery yourself",
       answer: () => {
         return (
           <>
