@@ -123,19 +123,31 @@ const Blog = () => {
             {/* BREADCRUMB ROW END */}
 
             {/* SHORT BLACK DIVIDER */}
-            <div className="text-left">
+            {/* <div className="text-left">
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="">
             <div className="">
               <div className="row m-t30">
                 <div className="col-lg-7 col-md-9 col-sm-12 m-b0">
+
+
+                      {/* TITLE START */}
+                      <div className="section-head text-left text-black">
+                        <h2 className="text-uppercase font-34">Learn With Marilyn: Inspiration, Tips, & Stories About Window Coverings & Beyond</h2>
+                        <div className="wt-separator-outer">
+                          <div className="wt-separator bg-black" />
+                        </div>
+                      </div>
+                      {/* TITLE END */}
+                
                   <p className="p-r30 text-left">
-                    Welcome to our blog page! Join us as we share our design
+                    {/* Welcome to our blog page!  */}
+                    Join us as we share our design
                     inspiration, tips and tricks, and behind-the-scenes stories
                     from our projects.
                   </p>

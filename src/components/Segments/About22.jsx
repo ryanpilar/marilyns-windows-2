@@ -8,19 +8,13 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import { createClient } from "contentful";
 import { MARKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import aboutImage22 from '../../images/landing/pexels-cottonbro-studio-4614237.jpg'
-// import aboutImage22 from '../../images/landing/pexels-cottonbro-studio-4614193.jpg'
-// import aboutImage22 from '../../images/landing/pexels-cottonbro-studio-4614220.jpg'
 
-// import aboutImage22 from '../../images/landing/pexels-pavel-danilyuk-6461130.jpg'
-// import aboutImage22 from '../../images/landing/pexels-cottonbro-studio-5095278.jpg'
 
 
 
 const About22 = () => {
   const [content, setContent] = useState(null);
-  const images = [ aboutImage22]
-
+  console.log('content', content);
 
   // Process Rich Text Coming From Contentful
   const richTextConversion = (richText) => {
@@ -48,7 +42,7 @@ const About22 = () => {
     const getAllEntries = async () => {
       try {
         await client
-          .getEntries({ content_type: "about" })
+          .getEntries({ content_type: "about22" })
           .then((allEntries) => {
             setContent(allEntries.items[0].fields);
           });
@@ -65,9 +59,9 @@ const About22 = () => {
   // Owl Carousel UX Options
   const options = {
     smartSpeed: 700,
-    loop: true,
+    loop: false,
     margin: 0,
-    autoplay: true,
+    autoplay: false,
     autoplayTimeout: 5000,
     //center: true,
     nav: false,
@@ -103,16 +97,17 @@ const About22 = () => {
                 {content && (
                   <>
                     <div className="m-carousel-1 mod m-r100 add-box-shadow ">
+
                       <OwlCarousel
                         className="owl-carousel home-carousel-1 owl-btn-vertical-center "
                         style={{background: 'white', padding: '5px'}}
                         {...options}
                       >
                         {/* {content.cloudinaryImage.map((item, index) => ( */}
-                          {images.map((item, index) => (
+                          {content.cloudinaryImage.map((item, index) => (
                           <div className="item " key={index}>
                             <div className="ow-img wt-img-effect zoom-slow">
-                              {/* <img
+                              <img
                                 
                                 className="item"
                                 src={item.secure_url}
@@ -123,8 +118,8 @@ const About22 = () => {
                                 caption={item.context.custom.caption}
                                 width={800}
                                 height={500}
-                              /> */}
-                              <img
+                              />
+                              {/* <img
                                 
                                 className="item"
                                 src={item}
@@ -133,7 +128,7 @@ const About22 = () => {
                                 caption='test'
                                 width={800}
                                 height={500}
-                              />
+                              /> */}
                             </div>
                           </div>
                         ))}
@@ -168,7 +163,7 @@ const About22 = () => {
                   <div className="text-right">
                     <NavLink
                       to={"/aboutme"}
-                      className="btn-half text-white site-button button-md m-b15 m-r15"
+                      className="btn-half text-white site-button adjust-color button-md m-b15 m-r15"
                     >
                       <span className="p-lr5">My Story</span>
                       <em />

@@ -96,8 +96,7 @@ const Gallery22 = () => {
       <SEO
         title={`Marilyn's Windows | Gallery | A Collection of Marilyn's Beautiful Custom Window Treatment Designs`}
         description={`Bedroom curtain ideas. Window coverings for patio doors. Living room drapery ideas. Light filtering curtains and blackout blinds. Outdoor curtain ideas.`}
-        location={ cononicalLocation.pathname }
-
+        location={cononicalLocation.pathname}
       />
 
       {bannerContent && imageList && (
@@ -117,7 +116,6 @@ const Gallery22 = () => {
               <div className="container">
                 <div className="container">
                   <div className="">
-
                     {/* BREADCRUMB ROW START*/}
                     <div className="p-t20 m-r20">
                       <div>
@@ -132,21 +130,30 @@ const Gallery22 = () => {
                     {/* BREADCRUMB ROW END */}
 
                     {/* SHORT BLACK DIVIDER */}
-                    <div className="text-left m-b40">
+                    {/* <div className="text-left m-b40">
                       <div className="wt-separator-outer">
                         <div className="wt-separator bg-black" />
                       </div>
-                    </div>
-
+                    </div> */}
                   </div>
 
                   <div className="row">
                     <div className="col-lg-8 col-md-9 col-sm-12">
+                      {/* TITLE START */}
+                      <div className="section-head text-left text-black p-t20">
+                        <h2 className="text-uppercase font-34">Explore Our Collection of Beautiful Drapes, Blinds, and Other Unique Works</h2>
+                        <div className="wt-separator-outer">
+                          <div className="wt-separator bg-black" />
+                        </div>
+                      </div>
+                      {/* TITLE END */}
+
                       <p className="p-r30">
-                        This is where we showcase our ability to design and
-                        create. We invite you to take a closer look at our
-                        portfolio and appreciate the level of quality and
-                        attention to detail that goes into each of our projects.
+                        {/* This is where we showcase our ability to design and
+                        create.  */}
+                        We invite you to take a closer look at our portfolio and
+                        appreciate the level of quality and attention to detail
+                        that goes into each of our projects.
                       </p>
                       <p className="p-r30">
                         From modern minimalism to classic elegance, our designs
@@ -159,7 +166,12 @@ const Gallery22 = () => {
                   <div className="filter-wrap p-b50 p-t10">
                     <ul className="masonry-filter link-style  text-uppercase ">
                       <li className="active ">
-                        <a className="font-30 " data-filter="*" href="#" aria-label="Show all items">
+                        <a
+                          className="font-30 "
+                          data-filter="*"
+                          href="#"
+                          aria-label="Show all items"
+                        >
                           All
                         </a>
                       </li>

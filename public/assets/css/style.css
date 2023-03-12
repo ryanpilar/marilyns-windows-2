@@ -620,8 +620,10 @@ h1.one-word-per-line {
   letter-spacing: 1rem;
   font-size: 9rem;
   line-height: 1;
+  font-weight: 500;
+
   text-shadow: 1.5px 1.5px 2px rgba(214, 181, 167, 0.9);
-  -webkit-text-stroke: .4px rgba(72, 72, 72, 0.9);
+  /* -webkit-text-stroke: .1px rgba(72, 72, 72, 0.9); */
    /* text-stroke: 4px navy; */
 
 }
@@ -9428,18 +9430,18 @@ ol.commentlist li::after {
 .m-carousel-1.mod:after {
   content: "";
   position: absolute;
-  top: 70px;
-  left: -70px;
+  top: 60px;
+  left: -60px;
   width: 100%;
   height: 100%;
   background-color: transparent;
-  border: 25px solid rgba(0, 0, 0, 0.1);
+  border: 22px solid rgba(0, 0, 0, 0.1);
 }
 
 .m-carousel-1.mod:after {
 
   /* top: 70px; */
-  left: 70px;
+  left: 60px;
   /* right: 70px; */
 
 }
@@ -9489,12 +9491,12 @@ ol.commentlist li::after {
   .m-carousel-1,
   .m-carousel-1.mod {
     margin-bottom: 100px;
-    margin-left: 70px;
+    margin-left: 60px;
     margin-top: 30px;
   }
   .m-carousel-1.mod {
     margin-left: 0px;
-    margin-right: 70px;
+    margin-right: 60px;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -9504,12 +9506,12 @@ ol.commentlist li::after {
   }
   .m-carousel-1::after,
   .m-carousel-1.mod::after {
-    left: -70px;
+    left: -60px;
     border: 20px solid rgba(0, 0, 0, 0.1);
   }
 
   .m-carousel-1.mod::after {
-    left: 70px;
+    left: 60px;
   }
 }
 

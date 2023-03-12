@@ -128,18 +128,19 @@ const Services = ({ showButton }) => {
                   </div>
                   <div className="col-lg-8 col-md-9 col-sm-12 m-b40">
                     <p className="p-r30 text-left text-white">
-                      We are a Canadian workroom! Each piece of drapery is
-                      meticulously handcrafted and sewn with the finest
-                      materials, premium fabrics, and top-of-the-line hardware.
+                      We are a Canadian workroom! Specializing in high-end blinds, shades, and shutters, and we
+                      also love to finish off rooms and spaces with custom throw pillows,
+                      cushions, and other soft furnishings.
+                      
                       {/* As industry leaders in bespoke window coverings design and
                       fabrication, we pride ourselves on creating truly
                       one-of-a-kind pieces. */}
                     </p>
 
                     <p className="p-r30 text-left text-white">
-                      Specializing in high-end blinds, shades, and shutters, and we
-                      also love to finish off rooms with custom throw pillows,
-                      cushions, and other soft furnishings.
+                      Each piece we work on is 
+                      meticulously handcrafted and sewn with the finest
+                      materials, premium fabrics, and top-of-the-line hardware.
                     </p>
                     <p className="p-r30 text-left text-white">
                       We have the best window solutions to match your needs,

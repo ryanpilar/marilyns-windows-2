@@ -9,17 +9,6 @@ import { createClient } from "contentful";
 import { MARKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-// import aboutImage from '../../images/landing/pexels-cottonbro-studio-4614220.jpg'
-// import aboutImage from '../../images/landing/pexels-cottonbro-studio-4614193.jpg'
-// import aboutImage from '../../images/landing/pexels-cottonbro-studio-4614237.jpg'
-import aboutImage from '../../images/landing/pexels-cottonbro-studio-4614127.jpg'
-
-
-
-
-
-
-
 const About = () => {
   const [content, setContent] = useState(null);
 
@@ -69,9 +58,9 @@ const About = () => {
   // Owl Carousel UX Options
   const options = {
     smartSpeed: 700,
-    loop: true,
+    loop: false,
     margin: 0,
-    autoplay: true,
+    autoplay: false,
     autoplayTimeout: 5000,
     //center: true,
     nav: false,
@@ -120,7 +109,7 @@ const About = () => {
                   
                   <NavLink
                     to={"/services"}
-                    className="btn-half text-white site-button button-md m-b15 m-r15"
+                    className="btn-half text-white site-button adjust-color button-md m-b15 m-r15"
                   >
                     <span className="p-lr5">Services</span>
                     <em />
@@ -147,16 +136,8 @@ const About = () => {
                         {content.cloudinaryImage.map((item, index) => (
                           <div className="item " key={index}>
                             <div className="ow-img wt-img-effect zoom-slow">
+
                               <img
-                                className=""
-                                src={aboutImage}
-                                alt='test'
-                                data-pin-description='test'
-                                caption='test'
-                                width={800}
-                                height={500}
-                              />
-                              {/* <img
                                 className=""
                                 src={item.secure_url}
                                 alt={item.context.custom.alt}
@@ -166,7 +147,8 @@ const About = () => {
                                 caption={item.context.custom.caption}
                                 width={800}
                                 height={500}
-                              /> */}
+                              />
+
                             </div>
                           </div>
                         ))}

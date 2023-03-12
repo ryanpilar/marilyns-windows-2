@@ -70,6 +70,7 @@ const Home2 = () => {
         <Slider22 />
         <About />
         <About22 />
+
         <Services showButton={true} />
         <LatestProjects />
         <ClientsLogo supplierList={false} />
