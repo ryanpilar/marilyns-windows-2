@@ -989,7 +989,7 @@ strong {
   line-height: 22px;
 }
 .font-18 {
-  font-size: 18px;
+  font-size: 18px !important;
   line-height: 24px;
 }
 .font-20 {

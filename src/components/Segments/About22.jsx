@@ -140,15 +140,18 @@ const About22 = () => {
 
               {content && (
                 <div className="col-md-5 col-sm-12 text-black  ">
-                  <h2 className="font-22 font-weight-400 text-uppercase ">
+                <span className="font-22 font-weight-400 text-uppercase ">
+                Milton & Surrounding Areas
+                  </span>
+                  {/* <h2 className="font-22 font-weight-400 text-uppercase ">
                     Milton & Surrounding Areas
-                  </h2>
-                  <h2 className="text-uppercase font-30">
+                  </h2> */}
+                  <h1 className="text-uppercase font-30">
                     Handcrafted Window Treatments for Homes & Businesses
-                  </h2>
+                  </h1>
 
                   {/* Attn: richTextConverstion renders in a <p> */}
-                  <div className="m-b30">
+                  <div className="m-b30 font-18">
                     For many years, we have been expertly creating custom window
                     treatments for homes and businesses across Oakville,
                     Burlington, Mississauga, Georgetown, Milton and surrounding
@@ -163,7 +166,7 @@ const About22 = () => {
                   <div className="text-right">
                     <NavLink
                       to={"/aboutme"}
-                      className="btn-half text-white site-button adjust-color button-md m-b15 m-r15"
+                      className="btn-half text-white site-button adjust-color button-md m-b15 m-r20"
                     >
                       <span className="p-lr5">My Story</span>
                       <em />

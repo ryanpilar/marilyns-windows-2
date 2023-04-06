@@ -99,17 +99,17 @@ const About = () => {
                   <h1 className="text-uppercase font-30">{content.heading}</h1>
 
                   {/* Attn: richTextConverstion renders in a <p> */}
-                  <div className="">
+                  <div className="font-18">
                     {richTextConversion(content.topParagraph)}
                   </div>
 
-                  <div className="">
+                  <div className="font-18">
                     {richTextConversion(content.bottomParagraph)}
                   </div>
                   
                   <NavLink
                     to={"/services"}
-                    className="btn-half text-white site-button adjust-color button-md m-b15 m-r15"
+                    className="btn-half text-white site-button adjust-color button-md m-b15 m-r20"
                   >
                     <span className="p-lr5">Services</span>
                     <em />
