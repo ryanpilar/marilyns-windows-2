@@ -59,6 +59,8 @@ const TermsOfService = () => {
       <SEO
         title={`Marilyn's Windows | Terms Of Service`}
         description={`Marilyn's Windows specializes in creating custom made drapes and window coverings. Learn more about our terms of service and commitment to customer satisfaction.`}
+        robots={'noindex, follow'}
+
       />
 
       <Header3 />

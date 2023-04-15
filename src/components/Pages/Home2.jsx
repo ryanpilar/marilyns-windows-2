@@ -61,6 +61,7 @@ const Home2 = () => {
         title={`Marilyn's Windows | Home | Crafting High-End Custom Drapes & Window Treatments in Milton, Ontario and Beyond.`}
         description={`Custom handcrafted window coverings, curtains, shades, blinds and soft furnishings. Serving Milton, Burlington, Oakville, Mississauga and surrounding areas.`}
         location={ cononicalLocation.pathname }
+        robots={'index, follow'}
         
       />
 

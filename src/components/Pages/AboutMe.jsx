@@ -61,6 +61,7 @@ const AboutMe = () => {
         title={`Marilyn's Windows | My Story `}
         description={`Professionally sewing for over 30 years and specializing in the tailored creation of hand-sewn curtains, drapes, blinds, and custom bedding`}
         location={ cononicalLocation.pathname }
+        robots={'index, follow'}
 
       />
       {/* Navigation  */}

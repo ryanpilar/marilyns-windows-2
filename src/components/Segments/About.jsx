@@ -99,11 +99,11 @@ const About = () => {
                   <h1 className="text-uppercase font-30">{content.heading}</h1>
 
                   {/* Attn: richTextConverstion renders in a <p> */}
-                  <div className="font-18">
+                  <div className="">
                     {richTextConversion(content.topParagraph)}
                   </div>
 
-                  <div className="font-18">
+                  <div className="">
                     {richTextConversion(content.bottomParagraph)}
                   </div>
                   

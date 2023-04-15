@@ -14,6 +14,8 @@ class NotFound extends React.Component {
         <SEO
           title={`Marilyn's Windows | 404 Error. Oops! You seem to be lost`}
           description={`Custom handcrafted window coverings, curtains, shades, blinds and soft furnishings. Serving Milton, Burlington, Oakville, Mississauga and surrounding areas.`}
+          robots={'noindex, follow'}
+
         />
 
         <Header3 />

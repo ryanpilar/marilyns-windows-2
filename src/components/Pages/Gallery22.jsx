@@ -97,6 +97,7 @@ const Gallery22 = () => {
         title={`Marilyn's Windows | Gallery | A Collection of Marilyn's Beautiful Custom Window Treatment Designs`}
         description={`Bedroom curtain ideas. Window coverings for patio doors. Living room drapery ideas. Light filtering curtains and blackout blinds. Outdoor curtain ideas.`}
         location={cononicalLocation.pathname}
+        robots={'index, follow'}
       />
 
       {bannerContent && imageList && (

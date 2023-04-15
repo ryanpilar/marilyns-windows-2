@@ -89,7 +89,7 @@ const Blog = () => {
         title={`Marilyn's Windows | Blog | Writings & Insights About Drapery and More`}
         description={`Interesting articles about window treatments and the wonderful world of drapery. Learn about industry trends, gain good advice, or read frequently asked questions.`}
         location={ cononicalLocation.pathname }
-
+        robots={'index, follow'}
       />
 
       <Header3 />

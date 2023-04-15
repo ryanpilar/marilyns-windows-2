@@ -185,6 +185,7 @@ const BlogPost = () => {
             title={`Marilyn's Windows | Blog Post | ${singleBlogPost?.fields?.title}`}
             description={singleBlogPost?.fields?.metaDescription}
             location={ cononicalLocation.pathname }
+            robots={'index, follow'}
           />
         )}
 

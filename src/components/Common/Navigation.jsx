@@ -24,7 +24,7 @@ class Navigation extends React.Component {
 
   render() {
     return (
-      <ul className=" nav navbar-nav font-20">
+      <ul className=" nav navbar-nav ">
           <li>
             <NavLink to="/">Home</NavLink>
           </li>

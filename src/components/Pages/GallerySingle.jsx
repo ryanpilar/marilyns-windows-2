@@ -107,6 +107,7 @@ const GallerySingle = () => {
         title={`Marilyn's Windows | Gallery | ${imageData?.fields?.cardTitle}`}
         description={`${imageData?.fields?.metaDescription}`}
         location={ cononicalLocation.pathname }
+        robots={'index, follow'}
       />
 
       <Header3 />

@@ -151,7 +151,7 @@ const About22 = () => {
                   </h1>
 
                   {/* Attn: richTextConverstion renders in a <p> */}
-                  <div className="m-b30 font-18">
+                  <div className="m-b30">
                     For many years, we have been expertly creating custom window
                     treatments for homes and businesses across Oakville,
                     Burlington, Mississauga, Georgetown, Milton and surrounding
