@@ -16,7 +16,7 @@
     // const fs = require('fs');
     
     import { createGzip } from "zlib";
-    import fs from "fs";
+    import { createWriteStream } from 'fs'
     
     module.exports = {
       generateSitemap: async () => {
@@ -53,7 +53,7 @@
         });
     
         // Add each gallery post to the sitemap
-        blogPosts.forEach((galleryPost) => {
+        galleryPosts.forEach((galleryPost) => {
           smStream.write({
             url: `/gallery/room/${galleryPost.slug}`,
             changefreq: "monthly",
@@ -67,7 +67,7 @@
         // Save sitemap to file
         const filePath = "./public/sitemap.xml.gz";  // .xml.gz is a combination of the standard filename for sitemap files and an indication that the file has been compressed.
 
-        const writeStream = fs.createWriteStream(filePath);
+        const writeStream = createWriteStream(filePath);
         await streamToPromise(pipeline.pipe(writeStream));
     
         console.log(`Sitemap generated at ${filePath}`);

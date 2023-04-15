@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.marilynswindows.com/sitemap.txt
+Sitemap: https://yourdomain.com/sitemap.xml.gz
