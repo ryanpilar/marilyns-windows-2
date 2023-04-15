@@ -6,52 +6,70 @@
     Finally, we're ending the sitemap stream and returning the sitemap as a string.
  */
 
-import { SitemapStream, streamToPromise } from 'sitemap';
-import { Readable } from 'stream';
+import { SitemapStream, streamToPromise } from "sitemap";
+import { Readable } from "stream";
 
-import { getBlogPostsFromContentful } from './getBlogPostsFromContentful';
-import { getGalleryPostsFromContentful } from './getGalleryPostsFromContentful';
+import { getBlogPostsFromContentful } from "./getBlogPostsFromContentful";
+import { getGalleryPostsFromContentful } from "./getGalleryPostsFromContentful";
+
+// const { createGzip } = require('zlib');
+// const fs = require('fs');
+
+import { createGzip } from "zlib";
+import fs from "fs";
 
 module.exports = {
+  generateSitemap: async () => {
+    // Create a new sitemap stream
 
-    generateSitemap: async (siteUrl) => {
-        // Create a new sitemap stream
-        const smStream = new SitemapStream({ hostname: siteUrl });
-      
-        // Add all of your website's pages to the sitemap
-        smStream.write({ url: '/' });
-        smStream.write({ url: '/aboutme' });
-        smStream.write({ url: '/services' });
-        smStream.write({ url: '/gallery' });
-        smStream.write({ url: '/blog' });
-        // ...
-      
-        // Fetch all of your blog & gallery posts from Contentful
-        const blogPosts = await getBlogPostsFromContentful();
-        const galleryPosts = await getGalleryPostsFromContentful();
-    
-        console.log('BLOGPOSTS', blogPosts)
-        console.log('GALLERY', galleryPosts);
-      
-        // Add each blog post to the sitemap
-        blogPosts.forEach((blogPost) => {
-          smStream.write({ url: `/blog/post/${blogPost.slug}` });
-        });
-    
-        // Add each gallery post to the sitemap
-        blogPosts.forEach((galleryPost) => {
-            smStream.write({ url: `/gallery/room/${galleryPost.slug}` });
-          });
-      
-        // End the sitemap stream
-        smStream.end();
-      
-        // Return the sitemap as a string
-        const sitemap = await streamToPromise(Readable.from(smStream.toString()));
-        return sitemap
-      }
-    
+    const siteUrl = "https://marilynswindows.com";
+    const smStream = new SitemapStream({ hostname: siteUrl });
 
-}
+    // Fetch all of your blog & gallery posts from Contentful
+    const blogPosts = await getBlogPostsFromContentful();
+    const galleryPosts = await getGalleryPostsFromContentful();
 
-  
+    // Add all of your website's pages to the sitemap
+    smStream.write({ url: "/", changefreq: "monthly", priority: 1 });
+    smStream.write({ url: "/aboutme", changefreq: "monthly", priority: 0.8 });
+    smStream.write({ url: "/services", changefreq: "monthly", priority: 0.9 });
+    smStream.write({ url: "/gallery", changefreq: "monthly", priority: 0.8 });
+    smStream.write({ url: "/blog", changefreq: "monthly", priority: 0.7 });
+    // ...
+
+    console.log("BLOGPOSTS", blogPosts);
+    console.log("GALLERY", galleryPosts);
+
+    // Add each blog post to the sitemap
+    blogPosts.forEach((blogPost) => {
+      smStream.write({
+        url: `/blog/post/${blogPost.slug}`,
+        changefreq: "monthly",
+        priority: 0.6,
+      });
+    });
+
+    // Add each gallery post to the sitemap
+    blogPosts.forEach((galleryPost) => {
+      smStream.write({
+        url: `/gallery/room/${galleryPost.slug}`,
+        changefreq: "monthly",
+        priority: 0.6,
+      });
+    });
+
+    // End the sitemap stream
+    smStream.end();
+
+    // Save sitemap to file
+    const filePath = "./public/sitemap.xml.gz";
+    const writeStream = fs.createWriteStream(filePath);
+    await streamToPromise(pipeline.pipe(writeStream));
+
+    console.log(`Sitemap generated at ${filePath}`);
+
+    // Return the sitemap as a string
+    // const sitemap = await streamToPromise(Readable.from(smStream.toString()));
+    // return sitemap;
+  },
+};

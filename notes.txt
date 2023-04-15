@@ -4,7 +4,7 @@ Don't forget to do when pushing production
     1.  Change the blogRoute for the React-Shares, currently set to a netlify path
     2.  Change the galleryRoute for the React-Shares, currently set to a netlify path
     3.  Change blogRoute and galleryRoute for 'recomended' cards in blogPost and GalleryPost
-
+    4.  
 Upgrades in future
     1.  Load Gallery in patches of 8 images and have a 'load more' btn.
 

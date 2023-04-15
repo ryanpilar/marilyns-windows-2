@@ -1,0 +1,8 @@
+[build]
+  functions = ".netlify/functions"
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml.gz"
+  status = 200
+  force = true
