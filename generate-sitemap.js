@@ -16,8 +16,10 @@
 
 // const { createGzip } = require('zlib');
 // const fs = require('fs');
+import zlibPkg from 'zlib'
+const { createGzip } = zlibPkg
+// import { createGzip } from "zlib";
 
-import { createGzip } from "zlib";
 import { createWriteStream } from "fs";
 
 import contenfulPkg from "contentful";
@@ -26,7 +28,6 @@ const { createClient } = contenfulPkg
 import sitemapPkg from "sitemap"
 const { SitemapStream, streamToPromise } = sitemapPkg
 
-console.log('process.env.REACT_APP_CONTENTFUL_SPACE', process.env.REACT_APP_CONTENTFUL_SPACE)
 const client = createClient({
 
   
@@ -72,7 +73,7 @@ async function generateSitemap () {
   const blogPosts = await getBlogPostsFromContentful();
   const galleryPosts = await getGalleryPostsFromContentful();
 
-  const pipeline = smStream.pipe(createGzip());
+  const pipeline = await smStream.pipe(createGzip());
 
   // Add all of your website's pages to the sitemap
   smStream.write({ url: "/", changefreq: "monthly", priority: 1 });
