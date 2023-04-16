@@ -165,7 +165,7 @@ async function generateSitemap () {
   console.log('TEST 56');
 
   // const filePath = './public/sitemap.xml.gz';
-  const writeStream = fs.createWriteStream(filePath);
+  const writeStream = createWriteStream(filePath);
   console.log('TEST 567');
 
   await pipelineAsync(
