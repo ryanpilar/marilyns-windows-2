@@ -6,27 +6,28 @@
     data, 
     
  */
-
-import { createClient } from "contentful";
+    import contenfulPkg from "contentful";
+    const { createClient } = contenfulPkg
+// import { createClient } from "contentful";
 // const contentful = require('contentful');
+
 
 const client = createClient({
   space: process.env.REACT_APP_CONTENTFUL_SPACE,
   accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
 });
 
-  
-  const getGalleryPostsFromContentful = async () => {
-    const entries = await client.getEntries({
-      content_type: "gallery",
-    });
+const getBlogPostsFromContentful = async () => {
+  const entries = await client.getEntries({
+    content_type: "blogPosts",
+  });
 
-    const galleryPosts = entries.items.map((entry) => ({
-      blogPostFields: entry.fields,
-      // ...
-    }));
+  const blogPosts = entries.items.map((entry) => ({
+    blogPostFields: entry.fields,
+    // ...
+  }));
 
-    return galleryPosts;
-  }
-  
-  export default getGalleryPostsFromContentful
+  return blogPosts;
+};
+
+export default getBlogPostsFromContentful;

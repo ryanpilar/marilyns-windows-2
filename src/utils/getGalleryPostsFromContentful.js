@@ -6,8 +6,9 @@
     data, 
     
  */
-
-import { createClient } from "contentful";
+import contenfulPkg from "contentful";
+const { createClient } = contenfulPkg;
+// import { createClient } from "contentful";
 // const contentful = require('contentful');
 
 const client = createClient({
@@ -15,17 +16,17 @@ const client = createClient({
   accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
 });
 
-const getBlogPostsFromContentful = async () => {
+const getGalleryPostsFromContentful = async () => {
   const entries = await client.getEntries({
-    content_type: "blogPosts",
+    content_type: "gallery",
   });
 
-  const blogPosts = entries.items.map((entry) => ({
+  const galleryPosts = entries.items.map((entry) => ({
     blogPostFields: entry.fields,
     // ...
   }));
 
-  return blogPosts;
+  return galleryPosts;
 };
 
-export default getBlogPostsFromContentful;
+export default getGalleryPostsFromContentful;

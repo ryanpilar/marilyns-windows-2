@@ -6,12 +6,14 @@
     Finally, we're ending the sitemap stream and returning the sitemap as a string.
  */
 
-import { createClient } from "contentful";
+// import contenfulPkg from "contentful";
+// const { createClient } = contenfulPkg
+
 import { SitemapStream, streamToPromise } from "sitemap";
 // import { Readable } from "stream";
 
-// import getBlogPostsFromContentful from "./src/utils/getBlogPostsFromContentful.mjs";
-// import getGalleryPostsFromContentful from "./src/utils/getGalleryPostsFromContentful.mjs";
+import getBlogPostsFromContentful from "./src/utils/getBlogPostsFromContentful.js";
+import getGalleryPostsFromContentful from "./src/utils/getGalleryPostsFromContentful.js";
 
 // const { createGzip } = require('zlib');
 // const fs = require('fs');
@@ -21,38 +23,39 @@ import { createWriteStream } from "fs";
 
 // const contentful = require('contentful');
 
-const client = createClient({
-  space: process.env.REACT_APP_CONTENTFUL_SPACE,
-  accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-});
+// const client = createClient({
+//   space: process.env.REACT_APP_CONTENTFUL_SPACE,
+//   accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+// });
 
-const getBlogPostsFromContentful = async () => {
-  const entries = await client.getEntries({
-    content_type: "blogPosts",
-  });
+// const getBlogPostsFromContentful = async () => {
+//   const entries = await client.getEntries({
+//     content_type: "blogPosts",
+//   });
 
-  const blogPosts = entries.items.map((entry) => ({
-    blogPostFields: entry.fields,
-    // ...
-  }));
+//   const blogPosts = entries.items.map((entry) => ({
+//     blogPostFields: entry.fields,
+//     // ...
+//   }));
 
-  return blogPosts;
-};
+//   return blogPosts;
+// };
 
-const getGalleryPostsFromContentful = async () => {
-  const entries = await client.getEntries({
-    content_type: "gallery",
-  });
+// const getGalleryPostsFromContentful = async () => {
+//   const entries = await client.getEntries({
+//     content_type: "gallery",
+//   });
 
-  const galleryPosts = entries.items.map((entry) => ({
-    blogPostFields: entry.fields,
-    // ...
-  }));
+//   const galleryPosts = entries.items.map((entry) => ({
+//     blogPostFields: entry.fields,
+//     // ...
+//   }));
 
-  return galleryPosts;
-};
+//   return galleryPosts;
+// };
 
-export async function generateSitemap() {
+export default generateSitemap = async () => {
+  
   // Create a new sitemap stream
 
   const siteUrl = "https://marilynswindows.com";
