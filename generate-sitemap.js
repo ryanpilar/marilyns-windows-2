@@ -74,7 +74,10 @@ async function generateSitemap () {
   const blogPosts = await getBlogPostsFromContentful();
   const galleryPosts = await getGalleryPostsFromContentful();
 
-  const pipeline = await smStream.pipe(createGzip());
+  // const pipeline = await smStream.pipe(createGzip());
+  const pipeline = await new Promise((resolve, reject) => {
+    smStream.pipe(createGzip()).on('error', reject).pipe(resolve);
+  });
 
   // console.log('pipeline', pipeline);
 
