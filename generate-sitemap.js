@@ -10,8 +10,8 @@
 
 import { Readable } from "stream";
 
-// import getBlogPostsFromContentful from "./src/utils/getBlogPostsFromContentful.js";
-// import getGalleryPostsFromContentful from "./src/utils/getGalleryPostsFromContentful.js";
+import getBlogPostsFromContentful from "./src/utils/getBlogPostsFromContentful.js";
+import getGalleryPostsFromContentful from "./src/utils/getGalleryPostsFromContentful.js";
 
 // const { createGzip } = require('zlib');
 // const fs = require('fs');
@@ -36,39 +36,39 @@ const { SitemapStream, streamToPromise } = sitemapPkg
 const pipelineAsync = promisify(pipeline);
 const gzipAsync = promisify(zlibPkg.gzip);
 
-const client = createClient({
+// const client = createClient({
 
   
-  space: process.env.REACT_APP_CONTENTFUL_SPACE,
-  accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-});
+//   space: process.env.REACT_APP_CONTENTFUL_SPACE,
+//   accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+// });
 
 
-const getBlogPostsFromContentful = async () => {
-  const entries = await client.getEntries({
-    content_type: "blogPosts",
-  });
+// const getBlogPostsFromContentful = async () => {
+//   const entries = await client.getEntries({
+//     content_type: "blogPosts",
+//   });
 
-  const blogPosts = entries.items.map((entry) => ({
-    blogPostFields: entry.fields,
-    // ...
-  }));
+//   const blogPosts = entries.items.map((entry) => ({
+//     blogPostFields: entry.fields,
+//     // ...
+//   }));
 
-  return blogPosts;
-};
+//   return blogPosts;
+// };
 
-const getGalleryPostsFromContentful = async () => {
-  const entries = await client.getEntries({
-    content_type: "gallery",
-  });
+// const getGalleryPostsFromContentful = async () => {
+//   const entries = await client.getEntries({
+//     content_type: "gallery",
+//   });
 
-  const galleryPosts = entries.items.map((entry) => ({
-    galleryPostFields: entry.fields,
-    // ...
-  }));
+//   const galleryPosts = entries.items.map((entry) => ({
+//     galleryPostFields: entry.fields,
+//     // ...
+//   }));
 
-  return galleryPosts;
-};
+//   return galleryPosts;
+// };
 
 function streamToBuffer(stream) {
   return new Promise((resolve, reject) => {
