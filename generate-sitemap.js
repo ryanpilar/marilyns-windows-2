@@ -6,14 +6,13 @@
     Finally, we're ending the sitemap stream and returning the sitemap as a string.
  */
 
-// import contenfulPkg from "contentful";
-// const { createClient } = contenfulPkg
+
 
 import { SitemapStream, streamToPromise } from "sitemap";
 // import { Readable } from "stream";
 
-import getBlogPostsFromContentful from "./src/utils/getBlogPostsFromContentful.js";
-import getGalleryPostsFromContentful from "./src/utils/getGalleryPostsFromContentful.js";
+// import getBlogPostsFromContentful from "./src/utils/getBlogPostsFromContentful.js";
+// import getGalleryPostsFromContentful from "./src/utils/getGalleryPostsFromContentful.js";
 
 // const { createGzip } = require('zlib');
 // const fs = require('fs');
@@ -21,41 +20,45 @@ import getGalleryPostsFromContentful from "./src/utils/getGalleryPostsFromConten
 import { createGzip } from "zlib";
 import { createWriteStream } from "fs";
 
-// const contentful = require('contentful');
+import contenfulPkg from "contentful";
+const { createClient } = contenfulPkg
+console.log('process.env.REACT_APP_CONTENTFUL_SPACE', process.env.REACT_APP_CONTENTFUL_SPACE)
+const client = createClient({
 
-// const client = createClient({
-//   space: process.env.REACT_APP_CONTENTFUL_SPACE,
-//   accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-// });
-
-// const getBlogPostsFromContentful = async () => {
-//   const entries = await client.getEntries({
-//     content_type: "blogPosts",
-//   });
-
-//   const blogPosts = entries.items.map((entry) => ({
-//     blogPostFields: entry.fields,
-//     // ...
-//   }));
-
-//   return blogPosts;
-// };
-
-// const getGalleryPostsFromContentful = async () => {
-//   const entries = await client.getEntries({
-//     content_type: "gallery",
-//   });
-
-//   const galleryPosts = entries.items.map((entry) => ({
-//     blogPostFields: entry.fields,
-//     // ...
-//   }));
-
-//   return galleryPosts;
-// };
-
-export default generateSitemap = async () => {
   
+  space: process.env.REACT_APP_CONTENTFUL_SPACE,
+  accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
+});
+
+
+const getBlogPostsFromContentful = async () => {
+  const entries = await client.getEntries({
+    content_type: "blogPosts",
+  });
+
+  const blogPosts = entries.items.map((entry) => ({
+    blogPostFields: entry.fields,
+    // ...
+  }));
+
+  return blogPosts;
+};
+
+const getGalleryPostsFromContentful = async () => {
+  const entries = await client.getEntries({
+    content_type: "gallery",
+  });
+
+  const galleryPosts = entries.items.map((entry) => ({
+    blogPostFields: entry.fields,
+    // ...
+  }));
+
+  return galleryPosts;
+};
+
+const generateSitemap = async () => {
+
   // Create a new sitemap stream
 
   const siteUrl = "https://marilynswindows.com";
@@ -111,3 +114,7 @@ export default generateSitemap = async () => {
   // const sitemap = await streamToPromise(Readable.from(smStream.toString()));
   // return sitemap;
 }
+
+generateSitemap()
+
+// export default generateSitemap
