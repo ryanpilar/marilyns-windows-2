@@ -1,15 +1,11 @@
 /**
-    We're creating a new Contentful client using the contentful package. 
-
-    We're then calling the getEntries() method to fetch all entries of type blogPosts from 
-    Contentful. We're then mapping over the returned entries and extracting the necessary 
-    data, 
-    
+    getGalleryPostsFromContentful() method fetches all entries of type gallery from 
+    Contentful.  It then extracts the necessary data from each entry and returns 
+    an array of gallery post objects.
  */
+
 import contenfulPkg from "contentful";
 const { createClient } = contenfulPkg;
-// import { createClient } from "contentful";
-// const contentful = require('contentful');
 
 const client = createClient({
   space: process.env.REACT_APP_CONTENTFUL_SPACE,

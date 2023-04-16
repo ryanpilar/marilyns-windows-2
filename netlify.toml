@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "/sitemap.xml"
-  to = "/sitemap.xml.gz"
-  status = 301
-  force = true

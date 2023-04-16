@@ -1,5 +1,9 @@
 https://marilyns-windows.netlify.app/*  https://www.marilynswindows.com/:splat  301!
 http://marilyns-windows.netlify.app/*  https://www.marilynswindows.com/:splat  301!
+
+https://marilynswindows.com/sitemap.xml https://marilynswindows.com/sitemap.xml.gz 301! 
+http://marilynswindows.com/sitemap.xml http://marilynswindows.com/sitemap.xml.gz 301! 
+
 /* /index.html 200
 
 

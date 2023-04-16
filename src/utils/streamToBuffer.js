@@ -18,7 +18,7 @@
     in the array into a single buffer object and resolves the promise with it. Finally, 
     the function is exported as a default export to be used in other modules.
 
-    @param {*} stream 
+    @param stream 
     @returns a promise that will resolve to a Buffer object that contains all the data from the stream
 */
 
