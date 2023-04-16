@@ -8,29 +8,24 @@
  */
 
 import { createClient } from "contentful";
+// const contentful = require('contentful');
 
 const client = createClient({
   space: process.env.REACT_APP_CONTENTFUL_SPACE,
   accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-
 });
 
-module.exports = {
+const getBlogPostsFromContentful = async () => {
+  const entries = await client.getEntries({
+    content_type: "blogPosts",
+  });
 
-    getBlogPostsFromContentful: async () => {
-        const entries = await client.getEntries({
-          content_type: "blogPosts",
-        });
-      
-        const blogPosts = entries.items.map((entry) => ({
-          blogPostFields: entry.fields,
-          // ...
-        }));
-      
-        return blogPosts
-      }
+  const blogPosts = entries.items.map((entry) => ({
+    blogPostFields: entry.fields,
+    // ...
+  }));
 
-}
+  return blogPosts;
+};
 
-
-
+export default getBlogPostsFromContentful;
