@@ -22,7 +22,7 @@ const getGalleryPostsFromContentful = async () => {
   });
 
   const galleryPosts = entries.items.map((entry) => ({
-    blogPostFields: entry.fields,
+    galleryPostFields: entry.fields,
     // ...
   }));
 
