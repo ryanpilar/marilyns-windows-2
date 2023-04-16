@@ -139,8 +139,12 @@ async function generateSitemap () {
     });
   });
 
+  console.log('TEST 5');
+
+
   // Compress the sitemap buffer
 const gzip = await zlibPkg.promises.gzip(sitemapBuffer);
+console.log('TEST 6');
 
 // Write the compressed sitemap to a file
 const writeStream = await createWriteStream(filePath);
@@ -151,11 +155,9 @@ console.log(`Sitemap generated at ${filePath}`);
 
   // const writeStream = await createWriteStream(filePath);
 
-  console.log('TEST 5');
 
   // await streamToPromise(pipeline.pipe(writeStream));
 
-  console.log('TEST 6');
 
 
   // Return the sitemap as a string
