@@ -8,7 +8,7 @@
 
 
 
-import { SitemapStream, streamToPromise } from "sitemap";
+// import { SitemapStream, streamToPromise } from "sitemap";
 // import { Readable } from "stream";
 
 // import getBlogPostsFromContentful from "./src/utils/getBlogPostsFromContentful.js";
@@ -22,6 +22,10 @@ import { createWriteStream } from "fs";
 
 import contenfulPkg from "contentful";
 const { createClient } = contenfulPkg
+
+import sitemapPkg from "sitemap"
+const { SitemapStream, streamToPromise } = sitemapPkg
+
 console.log('process.env.REACT_APP_CONTENTFUL_SPACE', process.env.REACT_APP_CONTENTFUL_SPACE)
 const client = createClient({
 
@@ -62,7 +66,7 @@ const generateSitemap = async () => {
   // Create a new sitemap stream
 
   const siteUrl = "https://marilynswindows.com";
-  const smStream = new SitemapStream({ hostname: siteUrl });
+  const smStream = await new SitemapStream({ hostname: siteUrl });
 
   // Fetch all of your blog & gallery posts from Contentful
   const blogPosts = await getBlogPostsFromContentful();
