@@ -6,17 +6,17 @@
     Finally, we're ending the sitemap stream and returning the sitemap as a string.
  */
 
-    import { SitemapStream, streamToPromise } from "sitemap";
-    // import { Readable } from "stream";
+    const { SitemapStream, streamToPromise } = require("sitemap");
+    // const { Readable } = require("stream");
     
-    import { getBlogPostsFromContentful } from "src/utils/getBlogPostsFromContentful";
-    import { getGalleryPostsFromContentful } from "src/utils/getGalleryPostsFromContentful";
+    const { getBlogPostsFromContentful } = require("src/utils/getBlogPostsFromContentful");
+    const { getGalleryPostsFromContentful } = require("src/utils/getGalleryPostsFromContentful");
     
     // const { createGzip } = require('zlib');
     // const fs = require('fs');
     
-    import { createGzip } from "zlib";
-    import { createWriteStream } from 'fs'
+    const { createGzip } = require("zlib");
+    const { createWriteStream } = require('fs');
     
     export async function generateSitemap(){
       // Create a new sitemap stream
