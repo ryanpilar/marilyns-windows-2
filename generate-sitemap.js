@@ -63,7 +63,7 @@ const getGalleryPostsFromContentful = async () => {
   });
 
   const galleryPosts = entries.items.map((entry) => ({
-    blogPostFields: entry.fields,
+    galleryPostFields: entry.fields,
     // ...
   }));
 
@@ -127,7 +127,7 @@ async function generateSitemap () {
   // Add each blog post to the sitemap
   blogPosts.forEach((blogPost) => {
     smStream.write({
-      url: `/blog/post/${blogPost.slug}`,
+      url: `/blog/post/${blogPost.blogPostFields.slug}`,
       changefreq: "monthly",
       priority: 0.6,
     });
@@ -139,7 +139,7 @@ async function generateSitemap () {
   galleryPosts.forEach((galleryPost) => {
     console.log('galleryPost', galleryPost);
     smStream.write({
-      url: `/gallery/room/${galleryPost.slug}`,
+      url: `/gallery/room/${galleryPost.galleryPostFields.slug}`,
       changefreq: "monthly",
       priority: 0.6,
     });
