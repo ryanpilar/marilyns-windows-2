@@ -61,7 +61,7 @@ const getGalleryPostsFromContentful = async () => {
   return galleryPosts;
 };
 
-const generateSitemap = async () => {
+async function generateSitemap () {
 
   // Create a new sitemap stream
 
@@ -82,8 +82,8 @@ const generateSitemap = async () => {
   smStream.write({ url: "/blog", changefreq: "monthly", priority: 0.7 });
   // ...
 
-  console.log("BLOGPOSTS", blogPosts);
-  console.log("GALLERY", galleryPosts);
+  // console.log("BLOGPOSTS", blogPosts);
+  // console.log("GALLERY", galleryPosts);
 
   // Add each blog post to the sitemap
   blogPosts.forEach((blogPost) => {
@@ -94,6 +94,8 @@ const generateSitemap = async () => {
     });
   });
 
+  console.log('TEST 1');
+
   // Add each gallery post to the sitemap
   galleryPosts.forEach((galleryPost) => {
     smStream.write({
@@ -103,14 +105,25 @@ const generateSitemap = async () => {
     });
   });
 
+  console.log('TEST 2');
+
   // End the sitemap stream
   smStream.end();
+
+  console.log('TEST 3');
 
   // Save sitemap to file
   const filePath = "./public/sitemap.xml.gz"; // .xml.gz is a combination of the standard filename for sitemap files and an indication that the file has been compressed.
 
+  console.log('TEST 4');
+
   const writeStream = createWriteStream(filePath);
+
+  console.log('TEST 5');
+
   await streamToPromise(pipeline.pipe(writeStream));
+
+  console.log('TEST 6');
 
   console.log(`Sitemap generated at ${filePath}`);
 
