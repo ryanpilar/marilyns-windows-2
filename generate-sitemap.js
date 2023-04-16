@@ -70,13 +70,29 @@ const getGalleryPostsFromContentful = async () => {
   return galleryPosts;
 };
 
-const streamToBuffer = async (stream) => {
-  const chunks = [];
-  for await (const chunk of stream) {
-    chunks.push(chunk);
-  }
-  return Buffer.concat(chunks);
-};
+function streamToBuffer(stream) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    stream.on('error', reject);
+    stream.on('data', (chunk) => {
+      if (typeof chunk === 'string') {
+        chunks.push(Buffer.from(chunk));
+      } else {
+        chunks.push(chunk);
+      }
+    });
+    stream.on('end', () => resolve(Buffer.concat(chunks)));
+  });
+}
+
+
+// const streamToBuffer = async (stream) => {
+//   const chunks = [];
+//   for await (const chunk of stream) {
+//     chunks.push(chunk);
+//   }
+//   return Buffer.concat(chunks);
+// };
 
 async function generateSitemap () {
 
