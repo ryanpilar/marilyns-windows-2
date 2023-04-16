@@ -9,8 +9,8 @@
     import { SitemapStream, streamToPromise } from "sitemap";
     // import { Readable } from "stream";
     
-    import { getBlogPostsFromContentful } from "./src/utils/getBlogPostsFromContentful";
-    import { getGalleryPostsFromContentful } from "./src/utils/getGalleryPostsFromContentful";
+    import { getBlogPostsFromContentful } from "/src/utils/getBlogPostsFromContentful";
+    import { getGalleryPostsFromContentful } from "/src/utils/getGalleryPostsFromContentful";
     
     // const { createGzip } = require('zlib');
     // const fs = require('fs');
