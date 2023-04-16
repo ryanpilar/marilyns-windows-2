@@ -8,7 +8,7 @@
 
 
 
-// import { Readable } from "stream";
+import { Readable } from "stream";
 
 // import getBlogPostsFromContentful from "./src/utils/getBlogPostsFromContentful.js";
 // import getGalleryPostsFromContentful from "./src/utils/getGalleryPostsFromContentful.js";
