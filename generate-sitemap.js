@@ -20,7 +20,8 @@ import zlibPkg from 'zlib'
 const { createGzip } = zlibPkg
 // import { createGzip } from "zlib";
 
-import { createWriteStream } from "fs";
+import fsPkg from 'fs'
+const { createWriteStream } = fsPkg;
 
 import contenfulPkg from "contentful";
 const { createClient } = contenfulPkg
