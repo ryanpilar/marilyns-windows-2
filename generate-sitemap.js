@@ -75,6 +75,8 @@ async function generateSitemap () {
 
   const pipeline = await smStream.pipe(createGzip());
 
+  console.log('pipeline', pipeline);
+
   // Add all of your website's pages to the sitemap
   smStream.write({ url: "/", changefreq: "monthly", priority: 1 });
   smStream.write({ url: "/aboutme", changefreq: "monthly", priority: 0.8 });
