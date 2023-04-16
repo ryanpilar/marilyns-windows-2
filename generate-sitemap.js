@@ -137,6 +137,7 @@ async function generateSitemap () {
 
   // Add each gallery post to the sitemap
   galleryPosts.forEach((galleryPost) => {
+    console.log('galleryPost', galleryPost);
     smStream.write({
       url: `/gallery/room/${galleryPost.slug}`,
       changefreq: "monthly",
