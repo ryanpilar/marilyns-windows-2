@@ -8,7 +8,6 @@
 
 
 
-// import { SitemapStream, streamToPromise } from "sitemap";
 // import { Readable } from "stream";
 
 // import getBlogPostsFromContentful from "./src/utils/getBlogPostsFromContentful.js";
@@ -74,7 +73,8 @@ async function generateSitemap () {
   const blogPosts = await getBlogPostsFromContentful();
   const galleryPosts = await getGalleryPostsFromContentful();
 
-  const pipeline = await smStream.pipe(createGzip());
+
+  // const pipeline = await smStream.pipe(createGzip());
   // const pipeline = await new Promise((resolve, reject) => {
   //   smStream.pipe(createGzip()).on('error', reject).pipe(resolve);
   // });
@@ -124,18 +124,42 @@ async function generateSitemap () {
 
   console.log('TEST 4');
 
-  const writeStream = await createWriteStream(filePath);
+  // Convert the sitemap stream to a buffer
+  const sitemapBuffer = await new Promise((resolve, reject) => {
+
+    const buffers = [];
+    smStream.on('data', (chunk) => {
+      buffers.push(chunk);
+    });
+    smStream.on('error', (err) => {
+      reject(err);
+    });
+    smStream.on('end', () => {
+      resolve(Buffer.concat(buffers));
+    });
+  });
+
+  // Compress the sitemap buffer
+const gzip = await zlibPkg.promises.gzip(sitemapBuffer);
+
+// Write the compressed sitemap to a file
+const writeStream = await createWriteStream(filePath);
+await writeStream.write(gzip);
+await writeStream.end();
+
+console.log(`Sitemap generated at ${filePath}`);
+
+  // const writeStream = await createWriteStream(filePath);
 
   console.log('TEST 5');
 
-  await streamToPromise(pipeline.pipe(writeStream));
+  // await streamToPromise(pipeline.pipe(writeStream));
 
   console.log('TEST 6');
 
-  console.log(`Sitemap generated at ${filePath}`);
 
   // Return the sitemap as a string
-  // const sitemap = await streamToPromise(Readable.from(smStream.toString()));
+  // await streamToPromise(Readable.from(smStream.toString()));
   // return sitemap;
 }
 
