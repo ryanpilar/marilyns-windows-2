@@ -15,6 +15,11 @@
 
 // const { createGzip } = require('zlib');
 // const fs = require('fs');
+
+
+import { pipeline } from 'stream';
+import { promisify } from 'util';
+
 import zlibPkg from 'zlib'
 const { createGzip } = zlibPkg
 // import { createGzip } from "zlib";
@@ -27,6 +32,9 @@ const { createClient } = contenfulPkg
 
 import sitemapPkg from "sitemap"
 const { SitemapStream, streamToPromise } = sitemapPkg
+
+const pipelineAsync = promisify(pipeline);
+const gzipAsync = promisify(zlibPkg.gzip);
 
 const client = createClient({
 
@@ -60,6 +68,14 @@ const getGalleryPostsFromContentful = async () => {
   }));
 
   return galleryPosts;
+};
+
+const streamToBuffer = async (stream) => {
+  const chunks = [];
+  for await (const chunk of stream) {
+    chunks.push(chunk);
+  }
+  return Buffer.concat(chunks);
 };
 
 async function generateSitemap () {
@@ -117,6 +133,8 @@ async function generateSitemap () {
   // End the sitemap stream
   smStream.end();
 
+
+
   console.log('TEST 3');
 
   // Save sitemap to file
@@ -124,34 +142,51 @@ async function generateSitemap () {
 
   console.log('TEST 4');
 
-  // Convert the sitemap stream to a buffer
-  const sitemapBuffer = await new Promise((resolve, reject) => {
-
-    const buffers = [];
-    smStream.on('data', (chunk) => {
-      buffers.push(chunk);
-    });
-    smStream.on('error', (err) => {
-      reject(err);
-    });
-    smStream.on('end', () => {
-      resolve(Buffer.concat(buffers));
-    });
-  });
-
+  const sitemapBuffer = await streamToBuffer(smStream);
   console.log('TEST 5');
+
+  const compressedBuffer = await gzipAsync(sitemapBuffer);
+  console.log('TEST 56');
+
+  // const filePath = './public/sitemap.xml.gz';
+  const writeStream = fs.createWriteStream(filePath);
+  console.log('TEST 567');
+
+  await pipelineAsync(
+    Readable.from(compressedBuffer),
+    writeStream
+  );
+
+  console.log(`Sitemap generated at ${filePath}`);
+// };
+
+  // Convert the sitemap stream to a buffer
+  // const sitemapBuffer = await new Promise((resolve, reject) => {
+
+  //   const buffers = [];
+  //   smStream.on('data', (chunk) => {
+  //     buffers.push(chunk);
+  //   });
+  //   smStream.on('error', (err) => {
+  //     reject(err);
+  //   });
+  //   smStream.on('end', () => {
+  //     resolve(Buffer.concat(buffers));
+  //   });
+  // });
+
 
 
   // Compress the sitemap buffer
-const gzip = await zlibPkg.promises.gzip(sitemapBuffer);
+// const gzip = await zlibPkg./promises.gzip(sitemapBuffer);
 console.log('TEST 6');
 
 // Write the compressed sitemap to a file
-const writeStream = await createWriteStream(filePath);
-await writeStream.write(gzip);
-await writeStream.end();
+// const writeStream = await createWriteStream(filePath);
+// await writeStream.write(gzip);
+// await writeStream.end();
 
-console.log(`Sitemap generated at ${filePath}`);
+// console.log(`Sitemap generated at ${filePath}`);
 
   // const writeStream = await createWriteStream(filePath);
 
