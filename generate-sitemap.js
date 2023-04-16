@@ -125,7 +125,7 @@ async function generateSitemap () {
 
   console.log('TEST 5');
 
-  streamToPromise(pipeline.pipe(writeStream));
+  await streamToPromise(pipeline.pipe(writeStream));
 
   console.log('TEST 6');
 
