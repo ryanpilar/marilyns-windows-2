@@ -30,7 +30,7 @@
   },
   "type": "module",
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "npm run generate-sitemap && react-scripts --openssl-legacy-provider start",
     "build": "npm run generate-sitemap && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
