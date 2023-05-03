@@ -315,7 +315,7 @@ const PrivacyPolicy = () => {
                           Marilyn’s Windows
                             <a
                               className="link-style font-14 text-uppercase"
-                              href="tel:905-878-0939"
+                              href="tel:905-878-0626"
                               aria-label="Call us at (905) 878 0626"
                             >
                               <p>(905) 878 0626</p>

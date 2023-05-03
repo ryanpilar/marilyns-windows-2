@@ -313,7 +313,7 @@ class Contact extends React.Component {
                             <h3 className="m-a0 p-b5 text-uppercase text-brownish font-16 p-a0">
                               Phone number
                             </h3>
-                            <a href="tel:905-878-0939">
+                            <a href="tel:905-878-0626">
                               <p className='font-14'>(905) 878 0626</p>
                             </a>
                           </div>
