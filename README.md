@@ -9,19 +9,19 @@ https://marilynswindows.com/
 
 ---
 
-## 👋  Introduction
+## 👋 Introduction
 
-This is a modern, full-stack website to help promote Marilyn’s company, contribute content through her blog and organize her social media presence. Blog content is integrated with Contentful CMS and is continuously deployed using Netlify. The design of this site enables content creators to post without needing a technical background.
-
----
-
-## 💪  Packages/Dependencies
-
-HTML | CSS | JSX | React | Contentful | EmailJs | Lightbox | Owl-Carousel | Cloudinary | react-scroll | react-share | react-router-dom 
+This is a modern, react website to help promote Marilyn’s company and contribute content through her blog and image gallery. Content is integrated with Contentful CMS and is continuously deployed using Netlify. The design of this site enables content creators to post without needing a technical background.
 
 ---
 
-## 🖥  How to run / Available Scripts
+## 💪 Packages/Dependencies
+
+HTML | CSS | JSX | React | Contentful | EmailJs | Lightbox | Owl-Carousel | Cloudinary | react-scroll | react-share | react-router-dom
+
+---
+
+## 🖥 How to run / Available Scripts
 
 To demo: In the project directory, first `npm install`, then `npm run start`. People running node 17+ will need to include this start script: "react-scripts --openssl-legacy-provider start"
 
@@ -45,12 +45,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ---
 
-
-## 🔨  Improvements on the Application
-
-
+## 🔨 Improvements on the Application
 
 ---
 
- 
- Have fun testing and improving it! 😎
+Have fun testing and improving it! 😎
