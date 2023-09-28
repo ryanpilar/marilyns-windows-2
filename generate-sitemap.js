@@ -21,10 +21,6 @@ import fsPkg from "fs";
 import zlibPkg from "zlib";
 import sitemapPkg from "sitemap";
 
-const { createGzip } = zlibPkg;
-const { createWriteStream } = fsPkg;
-const { SitemapStream, streamToPromise } = sitemapPkg;
-
 import getBlogPostsFromContentful from "./src/utils/getBlogPostsFromContentful.js";
 import getGalleryPostsFromContentful from "./src/utils/getGalleryPostsFromContentful.js";
 import streamToBuffer from "./src/utils/streamToBuffer.js";
@@ -50,6 +46,9 @@ import streamToBuffer from "./src/utils/streamToBuffer.js";
   This promisified function can be used later in the code to compress a buffer object using gzip 
   compression and return a promise that resolves to the compressed data.
 */
+const { createGzip } = zlibPkg;
+const { createWriteStream } = fsPkg;
+const { SitemapStream, streamToPromise } = sitemapPkg;
 
 const pipelineAsync = promisify(pipeline);
 const gzipAsync = promisify(zlibPkg.gzip);
