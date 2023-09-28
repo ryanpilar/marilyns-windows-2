@@ -21,9 +21,9 @@ import fsPkg from "fs";
 import zlibPkg from "zlib";
 import sitemapPkg from "sitemap";
 
-import getBlogPostsFromContentful from "./src/utils/getBlogPostsFromContentful.js";
-import getGalleryPostsFromContentful from "./src/utils/getGalleryPostsFromContentful.js";
-import streamToBuffer from "./src/utils/streamToBuffer.js";
+import getBlogPostsFromContentful from "./getBlogPostsFromContentful.js";
+import getGalleryPostsFromContentful from "./getGalleryPostsFromContentful.js";
+import streamToBuffer from "./streamToBuffer.js";
 
 /**
   Pipeline provides a way to work with streaming data in a more efficient and memory-friendly way. 
@@ -43,7 +43,7 @@ import streamToBuffer from "./src/utils/streamToBuffer.js";
   keyword to wait for it to finish executing and retrieve its result, instead of passing in a callback 
   function.
 
-  This promisified function can git abe used later in the code to compress a buffer object using gzip 
+  This promisified function can be used later in the code to compress a buffer object using gzip 
   compression and return a promise that resolves to the compressed data.
 */
 const { createGzip } = zlibPkg;

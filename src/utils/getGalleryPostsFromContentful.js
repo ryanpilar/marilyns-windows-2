@@ -5,9 +5,12 @@
  */
 import createContentfulClient from "./createContentfulClient";
 
-const client = createContentfulClient()
+
 
 const getGalleryPostsFromContentful = async () => {
+
+  const client = createContentfulClient()
+  
   const entries = await client.getEntries({
     content_type: "gallery",
   });

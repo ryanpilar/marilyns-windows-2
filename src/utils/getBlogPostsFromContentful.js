@@ -7,14 +7,9 @@
 // import contenfulPkg from "contentful";
 import createContentfulClient from "./createContentfulClient";
 
-// throw new TypeError('process.env.REACT_APP_CONTENTFUL_TOKEN', cREACT_APP_CONTENTFUL_TOKEN)
-// console.log('process.env.REACT_APP_CONTENTFUL_TOKEN', process.env.REACT_APP_CONTENTFUL_TOKEN)
-// console.log('process.env.REACT_APP_CONTENTFUL_SPACE', process.env.REACT_APP_CONTENTFUL_SPACE)
-
-
-const client = createContentfulClient()
-
 const getBlogPostsFromContentful = async () => {
+
+  const client = createContentfulClient()
   const entries = await client.getEntries({
     content_type: "blogPosts",
   });

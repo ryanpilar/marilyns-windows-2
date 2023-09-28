@@ -31,7 +31,7 @@
   },
   "type": "module",
   "scripts": {
-    "start": "npm run generate-sitemap && react-scripts --openssl-legacy-provider start",
+    "start": "npm run && react-scripts --openssl-legacy-provider start",
     "dev": "npm run && react-scripts --openssl-legacy-provider start",
     "build": "npm run && react-scripts build",
     "test": "react-scripts test",
