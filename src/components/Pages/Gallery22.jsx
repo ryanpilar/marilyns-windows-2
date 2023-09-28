@@ -1,6 +1,6 @@
 import { useEffect, useState, useLayoutEffect } from "react";
-import { createClient } from "contentful";
 import { NavLink, useLocation } from "react-router-dom";
+import createContentfulClient from "../../utils/createContentfulClient";
 
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
@@ -21,13 +21,11 @@ const Gallery22 = () => {
 
   const cononicalLocation = useLocation();
 
-  const client = createClient({
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
+  
 
   // Get Blog Post data from Contentful:
   useEffect(() => {
+    const client = createContentfulClient()
     const getAllEntries = async () => {
       try {
         await client

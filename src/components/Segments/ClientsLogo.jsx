@@ -1,9 +1,8 @@
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-
-import { createClient } from "contentful";
 import { useEffect, useState } from "react";
+import createContentfulClient from "../../utils/createContentfulClient";
 
 const ClientsLogo = ({ supplierList }) => {
   const [content, setContent] = useState(null);
@@ -11,10 +10,7 @@ const ClientsLogo = ({ supplierList }) => {
   // Connect And Data Fetch From Contentful & Shuffle
   useEffect(() => {
     // Connectto Connectful
-    const client = createClient({
-      space: process.env.REACT_APP_CONTENTFUL_SPACE,
-      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-    });
+    const client = createContentfulClient()
 
     // Shuffle entries
     const shuffle = (array) => {

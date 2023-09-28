@@ -99,14 +99,14 @@ class Header2 extends React.Component {
                               <a
                                 target="_blank"
                                 rel="noreferrer noopener"
-                                href="https://www.facebook.com/MarilynsWindows/"
+                                href="https://www.facebook.com/marilynswindows/"
                                 aria-label="My Facebook"
                               >
                                 <i className="fa fa-facebook" />
                               </a>
                             </li>
                             {/* <li><a target="_blank" rel="noreferrer noopener" href="https://twitter.com/marilynswindows" aria-label="My Twitter"><i className="fa fa-twitter" /></a></li> */}
-                            <li>
+                            {/* <li>
                               <a
                                 target="_blank"
                                 rel="noreferrer noopener"
@@ -115,7 +115,7 @@ class Header2 extends React.Component {
                               >
                                 <i className="fa fa-linkedin" />
                               </a>
-                            </li>
+                            </li> */}
                             <li>
                               <a
                                 target="_blank"

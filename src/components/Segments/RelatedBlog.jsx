@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createClient } from "contentful";
+import createContentfulClient from "../../utils/createContentfulClient";
 import BlogCard2 from "./BlogCard2";
 
 import OwlCarousel from "react-owl-carousel";
@@ -45,10 +45,7 @@ const RelatedBlog = ({ slug }) => {
   // Connect to Contentful & Fetch Data
   useEffect(() => {
 
-    const client = createClient({
-      space: process.env.REACT_APP_CONTENTFUL_SPACE,
-      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-    });
+    const client = createContentfulClient()
 
     const getAllEntries = async () => {
       try {

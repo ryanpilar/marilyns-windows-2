@@ -5,7 +5,7 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
-import { createClient } from "contentful";
+import createContentfulClient from "../../utils/createContentfulClient";
 import { MARKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
@@ -32,10 +32,7 @@ const About = () => {
   // Connect And Data Fetch From Contentful
   useEffect(() => {
 
-    const client = createClient({
-      space: process.env.REACT_APP_CONTENTFUL_SPACE,
-      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-    });
+    const client = createContentfulClient()
 
     const getAllEntries = async () => {
       try {

@@ -1,6 +1,6 @@
 import { useEffect, useState} from "react";
-import { createClient } from "contentful";
 import { Link, useLocation } from "react-router-dom";
+import createContentfulClient from "../../utils/createContentfulClient";
 
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
@@ -26,10 +26,7 @@ const Services = () => {
 
     const getContentfulContents = async () => {
 
-      const client = createClient({
-        space: process.env.REACT_APP_CONTENTFUL_SPACE,
-        accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-      });
+      const client = createContentfulClient()
       
       try {
         await client

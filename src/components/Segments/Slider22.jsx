@@ -1,5 +1,5 @@
 import { useEffect, useState, useLayoutEffect } from "react";
-import { createClient } from "contentful";
+import createContentfulClient from "../../utils/createContentfulClient";
 import SliderSingle from "./SliderSingle";
 
 const Slider22 = () => {
@@ -9,10 +9,7 @@ const Slider22 = () => {
   useEffect(() => {
 
     // contentful connect
-    const client = createClient({
-      space: process.env.REACT_APP_CONTENTFUL_SPACE,
-      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-    });
+    const client = createContentfulClient()
 
     // contentful get data
     const getAllEntries = async () => {

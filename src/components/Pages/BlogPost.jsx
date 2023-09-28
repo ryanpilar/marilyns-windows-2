@@ -19,12 +19,13 @@ import {
   TwitterShareButton,
 } from "react-share";
 
-import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { MARKS, BLOCKS } from "@contentful/rich-text-types";
 
 import toast, { Toaster } from "react-hot-toast";
 import webSitePaths from "../../assets/js/webSitePaths";
+
+import createContentfulClient from "../../utils/createContentfulClient";
 
 const BlogPost = () => {
 
@@ -51,10 +52,7 @@ const BlogPost = () => {
 
   // Get Blog Post data from Contentful
   useEffect(() => {
-    const client = createClient({
-      space: process.env.REACT_APP_CONTENTFUL_SPACE,
-      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-    });
+    const client = createContentfulClient()
     const getBanner = async () => {
       try {
         await client

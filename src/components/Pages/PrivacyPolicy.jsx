@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { createClient } from "contentful";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
+import createContentfulClient from "../../utils/createContentfulClient";
 
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
@@ -27,10 +27,7 @@ const PrivacyPolicy = () => {
 
   // Contentful Connect and Data Fetch
   useEffect(() => {
-    const client = createClient({
-      space: process.env.REACT_APP_CONTENTFUL_SPACE,
-      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-    });
+    const client = createContentfulClient()
 
     const getContentfulContents = async () => {
       try {

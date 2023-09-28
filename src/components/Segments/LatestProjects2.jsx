@@ -1,7 +1,6 @@
 import { useLayoutEffect, useEffect, useState } from "react";
-import { createClient } from "contentful";
+import createContentfulClient from "../../utils/createContentfulClient";
 import { Link } from "react-router-dom";
-
 
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -12,10 +11,7 @@ const LatestProjects2 = ({ content }) => {
 
   // Connect to Contentful, Fetch Data & Shuffle
   useEffect(() => {
-    const client = createClient({
-      space: process.env.REACT_APP_CONTENTFUL_SPACE,
-      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-    });
+    const client = createContentfulClient()
 
     const selectRandom = (projects) => {
       return shuffle(projects).slice(0, 9);

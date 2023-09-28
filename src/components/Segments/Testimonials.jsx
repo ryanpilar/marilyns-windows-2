@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createClient } from "contentful";
+import createContentfulClient from "../../utils/createContentfulClient";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
@@ -10,11 +10,7 @@ const Testimonials = () => {
   const [bgimg, setBgimg] = useState(null);
 
   // contentful connect
-  const client = createClient({
-    
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
+  const client = createContentfulClient()
 
   useEffect(() => {
 

@@ -1,8 +1,7 @@
 import { useEffect, useState, useLayoutEffect } from "react";
-import { createClient } from "contentful";
 import { Link, useParams, useLocation } from "react-router-dom";
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
-
+import createContentfulClient from "../../utils/createContentfulClient";
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
 import Banner3 from "../Segments/Banner3";
@@ -42,10 +41,7 @@ const GallerySingle = () => {
 
   // Contentful connect and data fetch
   useEffect(() => {
-    const client = createClient({
-      space: process.env.REACT_APP_CONTENTFUL_SPACE,
-      accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-    });
+    const client = createContentfulClient()
     const getContentfulEntries = async () => {
       try {
         await client

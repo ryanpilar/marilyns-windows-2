@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import { createClient } from "contentful";
 
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
@@ -11,6 +10,7 @@ import AboutImages from "../Segments/AboutImages";
 import AboutColumns from "../Segments/AboutColumns";
 import LatestProjects from "../Segments/LatestProjects";
 import Footer from "../Common/Footer";
+import createContentfulClient from "../../utils/createContentfulClient";
 
 const AboutMe = () => {
   const [banner, setBanner] = useState(null);
@@ -24,10 +24,8 @@ const AboutMe = () => {
   useEffect(() => {
     const getContentfulContents = async () => {
       try {
-        const client = createClient({
-          space: process.env.REACT_APP_CONTENTFUL_SPACE,
-          accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-        });
+        const client = createContentfulClient()
+
 
         await client.getEntries().then((allEntries) => {
           const contentfulContent = allEntries.items;

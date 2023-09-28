@@ -20,10 +20,8 @@ import { Readable } from "stream";
 import fsPkg from "fs";
 import zlibPkg from "zlib";
 import sitemapPkg from "sitemap";
-import contenfulPkg from "contentful";
 
 const { createGzip } = zlibPkg;
-const { createClient } = contenfulPkg;
 const { createWriteStream } = fsPkg;
 const { SitemapStream, streamToPromise } = sitemapPkg;
 

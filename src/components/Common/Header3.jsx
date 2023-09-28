@@ -105,7 +105,7 @@ class Header3 extends React.Component {
                               <a
                                 target="_blank"
                                 rel="noreferrer noopener"
-                                href="https://www.facebook.com/MarilynsWindows/"
+                                href="https://www.facebook.com/marilynswindows/"
                                 aria-label="My Facebook"
                               >
                                 <i className="fa fa-facebook" />
@@ -121,7 +121,7 @@ class Header3 extends React.Component {
                                 <i className="fa fa-twitter" />
                               </a>
                             </li> */}
-                            <li>
+                            {/* <li>
                               <a
                                 target="_blank"
                                 rel="noreferrer noopener"
@@ -130,7 +130,7 @@ class Header3 extends React.Component {
                               >
                                 <i className="fa fa-linkedin" />
                               </a>
-                            </li>
+                            </li> */}
                             <li>
                               <a
                                 target="_blank"

@@ -1,5 +1,5 @@
 import { useLayoutEffect, useEffect, useState } from "react";
-import { createClient } from "contentful";
+import createContentfulClient from "../../utils/createContentfulClient";
 import { Link } from "react-router-dom";
 
 // import servicesImage from '../../images/landing/pexels-cottonbro-studio-6660925.jpg'
@@ -57,10 +57,7 @@ const Services = ({ showButton }) => {
   const [content, setContent] = useState(null);
 
   // contentful connect
-  const client = createClient({
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-  });
+  const client = createContentfulClient()
 
   useEffect(() => {
 

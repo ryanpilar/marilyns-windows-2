@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { createClient } from "contentful";
+import createContentfulClient from "../../utils/createContentfulClient";
 import { useEffect, useState, useLayoutEffect } from "react";
 
 import OwlCarousel from "react-owl-carousel";
@@ -13,10 +13,8 @@ const LatestProjects = () => {
   // Connect to Contentful and Fetch Data
   useEffect(() => {
     const getAllEntries = async () => {
-      const client = createClient({
-        space: process.env.REACT_APP_CONTENTFUL_SPACE,
-        accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-      });
+      const client = createContentfulClient()
+
       try {
         await client
           .getEntries({ content_type: "gallery" })

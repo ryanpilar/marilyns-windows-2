@@ -161,7 +161,7 @@ class Contact extends React.Component {
                         className="p-r15"
                         target="_blank"
                         rel="noreferrer noopener"
-                        href="https://www.facebook.com/MarilynsWindows/"
+                        href="https://www.facebook.com/marilynswindows/"
                         aria-label="My Facebook"
                       >
                         <i className="fa fa-facebook" />
@@ -178,7 +178,7 @@ class Contact extends React.Component {
                         <i className="fa fa-twitter" />
                       </a>
                     </li>
-                    <li>
+                    {/* <li>
                       <a
                         className="p-r15"
                         target="_blank"
@@ -188,7 +188,7 @@ class Contact extends React.Component {
                       >
                         <i className="fa fa-linkedin" />
                       </a>
-                    </li>
+                    </li> */}
                     <li>
                       <a
                         className="p-r15"

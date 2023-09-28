@@ -4,14 +4,15 @@
     an array of blog post objects.
  */
 
-import contenfulPkg from "contentful";
+// import contenfulPkg from "contentful";
+import createContentfulClient from "./createContentfulClient";
 
-const { createClient } = contenfulPkg;
+// throw new TypeError('process.env.REACT_APP_CONTENTFUL_TOKEN', cREACT_APP_CONTENTFUL_TOKEN)
+// console.log('process.env.REACT_APP_CONTENTFUL_TOKEN', process.env.REACT_APP_CONTENTFUL_TOKEN)
+// console.log('process.env.REACT_APP_CONTENTFUL_SPACE', process.env.REACT_APP_CONTENTFUL_SPACE)
 
-const client = createClient({
-  space: process.env.REACT_APP_CONTENTFUL_SPACE,
-  accessToken: process.env.REACT_APP_CONTENTFUL_TOKEN,
-});
+
+const client = createContentfulClient()
 
 const getBlogPostsFromContentful = async () => {
   const entries = await client.getEntries({
