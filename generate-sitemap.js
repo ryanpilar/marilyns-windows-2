@@ -24,12 +24,15 @@ import sitemapPkg from "sitemap";
 import getBlogPostsFromContentful from "./src/utils/getBlogPostsFromContentful.js";
 import getGalleryPostsFromContentful from "./src/utils/getGalleryPostsFromContentful.js";
 import streamToBuffer from "./src/utils/streamToBuffer.js";
+<<<<<<< HEAD
 
 const { createGzip } = zlibPkg;
 const { createWriteStream } = fsPkg;
 const { SitemapStream, streamToPromise } = sitemapPkg;
 
 
+=======
+>>>>>>> stage
 
 /**
   Pipeline provides a way to work with streaming data in a more efficient and memory-friendly way. 
@@ -52,6 +55,9 @@ const { SitemapStream, streamToPromise } = sitemapPkg;
   This promisified function can be used later in the code to compress a buffer object using gzip 
   compression and return a promise that resolves to the compressed data.
 */
+const { createGzip } = zlibPkg;
+const { createWriteStream } = fsPkg;
+const { SitemapStream, streamToPromise } = sitemapPkg;
 
 const pipelineAsync = promisify(pipeline);
 const gzipAsync = promisify(zlibPkg.gzip);
