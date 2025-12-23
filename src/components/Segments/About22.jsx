@@ -9,13 +9,12 @@ import { MARKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import createContentfulClient from "../../utils/createContentfulClient";
-
-
+import { logDebug, logError } from "../../utils/logger";
 
 
 const About22 = () => {
   const [content, setContent] = useState(null);
-  console.log('content', content);
+  logDebug("content", content);
 
   // Process Rich Text Coming From Contentful
   const richTextConversion = (richText) => {
@@ -29,7 +28,7 @@ const About22 = () => {
       };
       return documentToReactComponents(richText, contentfulOptions);
     } else {
-      console.log("NO CONTENT PRESENT");
+      logDebug("NO CONTENT PRESENT");
     }
   };
 
@@ -45,7 +44,7 @@ const About22 = () => {
             setContent(allEntries.items[0].fields);
           });
       } catch (error) {
-        console.log(
+        logError(
           "this error arose from the client.getEntries() call to contentful"
         );
       }
@@ -101,8 +100,7 @@ const About22 = () => {
                         style={{background: 'white', padding: '5px'}}
                         {...options}
                       >
-                        {/* {content.cloudinaryImage.map((item, index) => ( */}
-                          {content.cloudinaryImage.map((item, index) => (
+                        {content.cloudinaryImage.map((item, index) => (
                           <div className="item " key={index}>
                             <div className="ow-img wt-img-effect zoom-slow">
                               <img
@@ -117,16 +115,6 @@ const About22 = () => {
                                 width={800}
                                 height={500}
                               />
-                              {/* <img
-                                
-                                className="item"
-                                src={item}
-                                alt='test'
-                                data-pin-description='test'
-                                caption='test'
-                                width={800}
-                                height={500}
-                              /> */}
                             </div>
                           </div>
                         ))}
@@ -141,25 +129,16 @@ const About22 = () => {
                 <span className="font-22 font-weight-400 text-uppercase ">
                 Milton & Surrounding Areas
                   </span>
-                  {/* <h2 className="font-22 font-weight-400 text-uppercase ">
-                    Milton & Surrounding Areas
-                  </h2> */}
                   <h1 className="text-uppercase font-30">
                     Handcrafted Window Treatments for Homes & Businesses
                   </h1>
 
-                  {/* Attn: richTextConverstion renders in a <p> */}
                   <div className="m-b30">
                     For many years, we have been expertly creating custom window
                     treatments for homes and businesses across Oakville,
                     Burlington, Mississauga, Georgetown, Milton and surrounding
                     areas, bringing a touch of elegance to every space we serve.
-                    {/* {richTextConversion(content.topParagraph)} */}
                   </div>
-
-                  {/* <div className="">
-                    {richTextConversion(content.bottomParagraph)}
-                  </div> */}
 
                   <div className="text-right">
                     <NavLink

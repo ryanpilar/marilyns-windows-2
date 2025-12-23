@@ -3,6 +3,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { useEffect, useState } from "react";
 import createContentfulClient from "../../utils/createContentfulClient";
+import { logError } from "../../utils/logger";
 
 const ClientsLogo = ({ supplierList }) => {
   const [content, setContent] = useState(null);
@@ -44,7 +45,7 @@ const ClientsLogo = ({ supplierList }) => {
             setContent(selectRandom(allEntries.items));
           });
       } catch (error) {
-        console.log(
+        logError(
           "this error arose from the client.getEntries() call to contentful"
         );
       }

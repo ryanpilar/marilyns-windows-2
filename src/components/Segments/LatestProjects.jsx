@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import createContentfulClient from "../../utils/createContentfulClient";
 import { useEffect, useState, useLayoutEffect } from "react";
+import { logError } from "../../utils/logger";
 
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -22,7 +23,7 @@ const LatestProjects = () => {
             setContent(selectRandom(allEntries.items));
           });
       } catch (error) {
-        console.log(
+        logError(
           "this error arose from the client.getEntries() call to contentful"
         );
       }

@@ -2,6 +2,7 @@ import { useEffect, useState, useLayoutEffect } from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
 import { EmailShareButton, FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
 import createContentfulClient from "../../utils/createContentfulClient";
+import { logError } from "../../utils/logger";
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
 import Banner3 from "../Segments/Banner3";
@@ -59,7 +60,7 @@ const GallerySingle = () => {
             );
           });
       } catch (error) {
-        console.log("error");
+        logError("error", error);
       }
     };
 

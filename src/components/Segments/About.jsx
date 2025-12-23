@@ -8,6 +8,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import createContentfulClient from "../../utils/createContentfulClient";
 import { MARKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { logDebug, logError } from "../../utils/logger";
 
 const About = () => {
   const [content, setContent] = useState(null);
@@ -25,7 +26,7 @@ const About = () => {
       return documentToReactComponents(richText, contentfulOptions);
 
     } else {
-      console.log("NO CONTENT PRESENT");
+      logDebug("NO CONTENT PRESENT");
     }
   };
 
@@ -43,7 +44,7 @@ const About = () => {
           });
 
       } catch (error) {
-        console.log(
+        logError(
           "this error arose from the client.getEntries() call to contentful"
         );
       }
@@ -95,7 +96,6 @@ const About = () => {
                   </span>
                   <h1 className="text-uppercase font-30">{content.heading}</h1>
 
-                  {/* Attn: richTextConverstion renders in a <p> */}
                   <div className="">
                     {richTextConversion(content.topParagraph)}
                   </div>
@@ -156,10 +156,6 @@ const About = () => {
               </div>
             </div>
 
-            {/* <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
-              <strong>30+ Years</strong>
-              <span className="text-black">Working Experience</span>
-            </div> */}
           </div>
         </div>
       </div>

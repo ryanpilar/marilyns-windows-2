@@ -26,6 +26,7 @@ import toast, { Toaster } from "react-hot-toast";
 import webSitePaths from "../../assets/js/webSitePaths";
 
 import createContentfulClient from "../../utils/createContentfulClient";
+import { logDebug, logError } from "../../utils/logger";
 
 const BlogPost = () => {
 
@@ -61,7 +62,7 @@ const BlogPost = () => {
             setBlogPostBanner(blogBanner.items[0].fields.image[0].secure_url);
           });
       } catch (error) {
-        console.log("error");
+        logError("error", error);
       }
     };
 
@@ -73,7 +74,7 @@ const BlogPost = () => {
             setSingleBlogPost(blogEntry.items[0]);
           });
       } catch (error) {
-        console.log("error");
+        logError("error", error);
       }
     };
 
@@ -145,7 +146,7 @@ const BlogPost = () => {
         contentfulOptions
       );
     } else {
-      console.log("NO CONTENT PRESENT");
+      logDebug("NO CONTENT PRESENT");
     }
   };
   // Owl Carousel Config Options

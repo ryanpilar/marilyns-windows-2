@@ -3,6 +3,7 @@ import createContentfulClient from "../../utils/createContentfulClient";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import { logError } from "../../utils/logger";
 
 
 const Testimonials = () => {
@@ -29,7 +30,7 @@ const Testimonials = () => {
             setContent(selectRandom(allEntries.items));
           });
       } catch (error) {
-        console.log(
+        logError(
           "this error arose from the client.getEntries() call to contentful"
         );
       }

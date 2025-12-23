@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import createContentfulClient from "../../utils/createContentfulClient";
 import BlogCard2 from "./BlogCard2";
+import { logError } from "../../utils/logger";
 
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -61,7 +62,7 @@ const RelatedBlog = ({ slug }) => {
 
           });
       } catch (error) {
-        console.log(
+        logError(
           "this error arose from the RelatedBlog client.getEntries() call to contentful"
         );
       }

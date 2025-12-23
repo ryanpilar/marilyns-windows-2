@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Banner3 = ({ bgimage, title, posLeft, posRight }) => {
-    // console.log('bgimg', bgimage)
   return (
     <>
     

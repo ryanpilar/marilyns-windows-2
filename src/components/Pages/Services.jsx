@@ -1,6 +1,7 @@
 import { useEffect, useState} from "react";
 import { Link, useLocation } from "react-router-dom";
 import createContentfulClient from "../../utils/createContentfulClient";
+import { logError } from "../../utils/logger";
 
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
@@ -60,7 +61,7 @@ const Services = () => {
             setAffiliates(affiliatesContent);
           });
       } catch (error) {
-        console.log(
+        logError(
           "this error arose from the client.getEntries() call to contentful"
         );
       }

@@ -36,7 +36,6 @@ class Contact extends React.Component {
 
     switch (name) {
       case "name":
-        console.log();
         errors.name =
           value.length === 0 ? "don't forget to include your full name" : "";
         break;
@@ -135,7 +134,6 @@ class Contact extends React.Component {
         (error) => {
           this.toggleSpinner();
           this.emailUnsuccessfull();
-          // console.log(error.text);
           //   alert("Something has gone wrong with your form submission. If this message persists, try emailing me directly at ryan_pilar@outlook.com.");
         }
       );
@@ -178,17 +176,6 @@ class Contact extends React.Component {
                         <i className="fa fa-twitter" />
                       </a>
                     </li>
-                    {/* <li>
-                      <a
-                        className="p-r15"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        href="https://www.linkedin.com/in/marilynswindows/"
-                        aria-label="My Linkedin"
-                      >
-                        <i className="fa fa-linkedin" />
-                      </a>
-                    </li> */}
                     <li>
                       <a
                         className="p-r15"
