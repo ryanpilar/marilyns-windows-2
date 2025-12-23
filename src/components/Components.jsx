@@ -13,12 +13,6 @@ import TermsOfService from './Pages/TermsOfService';
 import PrivacyPolicy from './Pages/PrivacyPolicy';
 
 const Components = () => {
-
-    const generateRandomKey = () => {
-        
-        return Math.floor(Math.random() * 4)
-    }
-
         return (
             <BrowserRouter basename="/">
                 <div className="page-wraper">
@@ -40,17 +34,25 @@ const Components = () => {
                                 changefreq='weekly'
                                 priority='0.9'
                             />
-                            <Route path='/gallery/room/:slug' exact component={ () => <GallerySingle  key={generateRandomKey()}
-
-                            /> }  />
+                            <Route
+                                path='/gallery/room/:slug'
+                                exact
+                                render={(props) => (
+                                    <GallerySingle key={props.match.params.slug} />
+                                )}
+                            />
                             <Route path='/blog' exact component={Blog} 
                                 sitemapIndex='true'
                                 changefreq='weekly'
                                 priority='0.8'
                             />
-                            <Route path='/blog/post/:slug' exact component={ () => <BlogPost key={generateRandomKey()}
-
-                            /> } />
+                            <Route
+                                path='/blog/post/:slug'
+                                exact
+                                render={(props) => (
+                                    <BlogPost key={props.match.params.slug} />
+                                )}
+                            />
                             <Route path='/services' exact component={Services} 
                                 sitemapIndex='true'
                                 changefreq='weekly'
