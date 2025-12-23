@@ -73,7 +73,8 @@ const LatestProjects = () => {
   };
 
   const selectRandom = (projects) => {
-    return shuffle(projects).slice(0, 9);
+    const copy = [...projects];
+    return shuffle(copy).slice(0, 9);
   };
 
   const options = {
@@ -160,7 +161,7 @@ const LatestProjects = () => {
               {...options}
             >
               <>
-                {selectRandom(content).map((item, index) => (
+                {content.map((item, index) => (
                   <div
                     key={index}
                     className={`${item.fields.filter} item fadingcol m-b20 add-box-shadow m-r15 p-a5`}
