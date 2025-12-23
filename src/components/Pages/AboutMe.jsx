@@ -11,6 +11,7 @@ import AboutColumns from "../Segments/AboutColumns";
 import LatestProjects from "../Segments/LatestProjects";
 import Footer from "../Common/Footer";
 import createContentfulClient from "../../utils/createContentfulClient";
+import { logError } from "../../utils/logger";
 
 const AboutMe = () => {
   const [banner, setBanner] = useState(null);
@@ -45,7 +46,7 @@ const AboutMe = () => {
           setImagesThree(aboutContent[0].fields.images3);
         });
       } catch (error) {
-        console.log(
+        logError(
           "this error arose from the client.getEntries() call to contentful"
         );
       }

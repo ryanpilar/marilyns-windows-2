@@ -1,12 +1,10 @@
 import { useLayoutEffect, useEffect, useState } from "react";
 import createContentfulClient from "../../utils/createContentfulClient";
 import { Link } from "react-router-dom";
+import { logError } from "../../utils/logger";
 
 // import servicesImage from '../../images/landing/pexels-cottonbro-studio-6660925.jpg'
 // import servicesImage from '../../images/landing/pexels-cottonbro-studio-4614193.jpg'
-import servicesImage from '../../images/landing/pexels-pavel-danilyuk-6461130.jpg'
-
-
 const servicesleft = [
   {
     counter: 0,
@@ -70,7 +68,7 @@ const Services = ({ showButton }) => {
             setContent(allEntries.items[0].fields);
           });
       } catch (error) {
-        console.log(
+        logError(
           "this error arose from the client.getEntries() call to contentful"
         );
       }
@@ -128,10 +126,6 @@ const Services = ({ showButton }) => {
                       We are a Canadian workroom! Specializing in high-end blinds, shades, and shutters, and we
                       also love to finish off rooms and spaces with custom throw pillows,
                       cushions, and other soft furnishings.
-                      
-                      {/* As industry leaders in bespoke window coverings design and
-                      fabrication, we pride ourselves on creating truly
-                      one-of-a-kind pieces. */}
                     </p>
 
                     <p className="p-r30 text-left text-white font-weight-300">
@@ -181,32 +175,6 @@ const Services = ({ showButton }) => {
                     </div>
                   ))}
                 </div>
-
-                {/* <div className="col-md-4 col-sm-12 m-b30 ">
-                  <div className="circle-content-pic tab-content ">
-                    {content.cloudinaryImage.map((item, index) => (
-                      <div
-                        className={index === 0 ? `tab-pane active ` : `tab-pane`}
-                        id={`tab${index}`}
-                        key={index}
-                      >
-                        <div className="wt-box ">
-                          <div className="wt-media text-primary m-b20  ">
-                            <img
-                              // src={item.secure_url}
-                              src={servicesImage}
-                              alt={item.context.custom.alt}
-                              data-pin-description={item.context.custom.dataPin}
-                              caption={item.context.custom.caption}
-                              width="360"
-                              height="560"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div> */}
 
                 <div className="col-md-6 col-sm-12 m-b30">
                   {servicesright.map((item, index) => (

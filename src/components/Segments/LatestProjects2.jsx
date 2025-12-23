@@ -1,6 +1,7 @@
 import { useLayoutEffect, useEffect, useState } from "react";
 import createContentfulClient from "../../utils/createContentfulClient";
 import { Link } from "react-router-dom";
+import { logError } from "../../utils/logger";
 
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -45,7 +46,7 @@ const LatestProjects2 = ({ content }) => {
             setImageList(selectRandom(allEntries.items));
           });
       } catch (error) {
-        console.log("error");
+        logError("error", error);
       }
     };
 
@@ -209,14 +210,6 @@ const LatestProjects2 = ({ content }) => {
           </div>
         </div>
 
-        {/* <div className="section-content "> */}
-
-        {/* </div> */}
-
-        {/* <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
-          <strong>Awesome</strong>
-          <span className="text-black">Designs</span>
-        </div> */}
       </div>
     </>
   );

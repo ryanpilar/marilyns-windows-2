@@ -1,6 +1,7 @@
 import { useEffect, useState, useLayoutEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import createContentfulClient from "../../utils/createContentfulClient";
+import { logError } from "../../utils/logger";
 
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
@@ -34,7 +35,7 @@ const Gallery22 = () => {
             setImageList(allEntries.items);
           });
       } catch (error) {
-        console.log(
+        logError(
           "this error arose from the client.getEntries() call to contentful"
         );
       }
@@ -48,7 +49,7 @@ const Gallery22 = () => {
             setBannerContent(allEntries.items[0].fields);
           });
       } catch (error) {
-        console.log(
+        logError(
           "this error arose from the client.getEntries() call to contentful"
         );
       }

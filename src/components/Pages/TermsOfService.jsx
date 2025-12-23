@@ -3,6 +3,7 @@ import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 
 import createContentfulClient from "../../utils/createContentfulClient";
+import { logError } from "../../utils/logger";
 
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
@@ -30,7 +31,7 @@ const TermsOfService = () => {
             });
           });
       } catch (error) {
-        console.log(
+        logError(
           "this error arose from the client.getEntries() call to contentful"
         );
       }

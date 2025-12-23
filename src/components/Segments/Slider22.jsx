@@ -1,6 +1,7 @@
 import { useEffect, useState, useLayoutEffect } from "react";
 import createContentfulClient from "../../utils/createContentfulClient";
 import SliderSingle from "./SliderSingle";
+import { logError } from "../../utils/logger";
 
 const Slider22 = () => {
   const [sliderList, setSliderList] = useState(false);
@@ -20,7 +21,7 @@ const Slider22 = () => {
             setSliderList(allEntries.items);
           });
       } catch (error) {
-        console.log(
+        logError(
           "this error arose from the client.getEntries() call to contentful"
         );
       }

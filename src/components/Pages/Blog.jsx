@@ -1,6 +1,7 @@
 import { useEffect, useState, useLayoutEffect } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import createContentfulClient from "../../utils/createContentfulClient";
+import { logError } from "../../utils/logger";
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
 import Banner from "../Segments/Banner";
@@ -39,7 +40,7 @@ const Blog = () => {
           );
         });
       } catch (error) {
-        console.log(
+        logError(
           "this error arose from the Blog client.getEntries() call to contentful"
         );
       }
