@@ -3,3 +3,7 @@ build
 .env
 # Local Netlify folder
 .netlify
+
+# JetBrains / IntelliJ / WebStorm
+.idea/
+*.iml
