@@ -84,15 +84,7 @@ const BlogPost = () => {
 
   // Scroll to top upon page load
   useEffect(() => {
-    window.addEventListener("load", () => {
-      window.scrollTo(0, 0);
-    });
-
-    return () => {
-      window.removeEventListener("load", () => {
-        window.scrollTo(0, 0);
-      });
-    };
+    window.scrollTo(0, 0);
   }, []);
 
   // Rich text config for data coming from Contenful

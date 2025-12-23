@@ -79,15 +79,7 @@ const Gallery22 = () => {
 
   // Scroll to top upon page load
   useEffect(() => {
-    window.addEventListener("load", () => {
-      window.scrollTo(0, 0);
-    });
-
-    return () => {
-      window.removeEventListener("load", () => {
-        window.scrollTo(0, 0);
-      });
-    };
+    window.scrollTo(0, 0);
   }, []);
 
   return (

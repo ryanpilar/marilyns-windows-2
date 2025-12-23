@@ -15,15 +15,7 @@ const PrivacyPolicy = () => {
   const [banner, setBanner] = useState(null);
 
   useEffect(() => {
-    window.addEventListener("load", () => {
-      window.scrollTo(0, 0);
-    });
-
-    return () => {
-      window.removeEventListener("load", () => {
-        window.scrollTo(0, 0);
-      });
-    };
+    window.scrollTo(0, 0);
   }, []);
 
   // Contentful Connect and Data Fetch
