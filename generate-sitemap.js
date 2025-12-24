@@ -49,6 +49,7 @@ const { createGzip } = zlibPkg;
 const { createWriteStream } = fsPkg;
 const { SitemapStream, streamToPromise } = sitemapPkg;
 
+
 const pipelineAsync = promisify(pipeline);
 const gzipAsync = promisify(zlibPkg.gzip);
 
