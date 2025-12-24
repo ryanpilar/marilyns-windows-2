@@ -11,7 +11,7 @@ https://marilynswindows.com/
 
 ## 👋 Introduction
 
-This is a modern, ReactJS website to help promote Marilyn’s company and contribute content through her blog and image gallery. Content is integrated with Contentful CMS and is continuously deployed using Netlify. The design of this site enables content creators to post without needing a technical background.
+This is a modern, ReactJs website to help promote Marilyn’s company and contribute content through her blog and image gallery. Content is integrated with Contentful CMS and is continuously deployed using Netlify. The design of this site enables content creators to post without needing a technical background.
 
 ---
 
@@ -23,7 +23,7 @@ HTML | CSS | JSX | React | Contentful | EmailJs | Lightbox | Owl-Carousel | Clou
 
 ## 🖥 How to run / Available Scripts
 
-To demo: In the project directory, first `npm install`, then `npm run start`. People running node 17+ will need to include this start script: "react-scripts --openssl-legacy-provider start"
+To demo:  In the project directory, first `npm install`, then `npm run start`. People running node 17+ will need to include this start script: "react-scripts --openssl-legacy-provider start"
 
 ### `npm start`
 
