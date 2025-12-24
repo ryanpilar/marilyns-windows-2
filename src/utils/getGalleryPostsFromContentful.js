@@ -3,7 +3,7 @@
     Contentful.  It then extracts the necessary data from each entry and returns 
     an array of gallery post objects.
  */
-import createContentfulClient from "./createContentfulClient";
+import createContentfulClient from "./createContentfulClient.js";
 
 
 

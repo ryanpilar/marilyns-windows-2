@@ -5,7 +5,7 @@
  */
 
 // import contenfulPkg from "contentful";
-import createContentfulClient from "./createContentfulClient";
+import createContentfulClient from "./createContentfulClient.js";
 
 const getBlogPostsFromContentful = async () => {
 
