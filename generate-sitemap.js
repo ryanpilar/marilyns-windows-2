@@ -20,10 +20,9 @@ import { Readable } from "stream";
 import fsPkg from "fs";
 import zlibPkg from "zlib";
 import sitemapPkg from "sitemap";
-
-import getBlogPostsFromContentful from "./getBlogPostsFromContentful.js";
-import getGalleryPostsFromContentful from "./getGalleryPostsFromContentful.js";
-import streamToBuffer from "./streamToBuffer.js";
+import getBlogPostsFromContentful from "./src/utils/getBlogPostsFromContentful.js";
+import getGalleryPostsFromContentful from "./src/utils/getGalleryPostsFromContentful.js";
+import streamToBuffer from "./src/utils/streamToBuffer.js";
 
 /**
   Pipeline provides a way to work with streaming data in a more efficient and memory-friendly way. 
