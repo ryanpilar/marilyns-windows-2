@@ -13,6 +13,8 @@
     named "sitemap.xml.gz".
  */
 
+import "dotenv/config";
+
 import { pipeline } from "stream";
 import { promisify } from "util";
 import { Readable } from "stream";
