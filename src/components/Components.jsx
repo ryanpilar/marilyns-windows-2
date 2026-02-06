@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import ScrollToTopOnRoute from './Segments/ScrollToTopOnRoute';
 
 import Home2 from './Pages/Home2';
 import AboutMe from './Pages/AboutMe';
@@ -22,6 +23,7 @@ const Components = () => {
         return (
             <BrowserRouter basename="/">
                 <div className="page-wraper">
+                        <ScrollToTopOnRoute />
 
                         <Switch>
 

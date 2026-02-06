@@ -1,17 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logoDark from "../../images/logo-dark.png";
 
 class Footer extends React.Component {
   
   constructor(props) {
     super(props);
     this.currentstate = {
-      logo: require("./../../images/logo-dark.png").default,
+      logo: logoDark,
     };
   }
 
   updateFooterLogo = (updatedlogo) => {
-    this.currentstate.logo = updatedlogo.default;
+    this.currentstate.logo =
+      updatedlogo && updatedlogo.default ? updatedlogo.default : updatedlogo;
   };
 
   render() {
@@ -25,7 +27,7 @@ class Footer extends React.Component {
                 <div className="col-lg-4 col-md-3 wt-footer-bot-left">
                   <a href={"/"} aria-label="Back to Home">
                     <img
-                      src={require("./../../images/logo-dark.png").default}
+                      src={this.currentstate.logo}
                       alt="marilyn's windows company logo"
                       width={140}
                       height={58}
@@ -34,7 +36,7 @@ class Footer extends React.Component {
                 </div>
                 <div className="col-lg-4 col-md-4 text-center copyright-block p-t15">
                   <span className="copyrights-text">
-                    © 2023 made with <i className='fa fa-heart heart-change' /> by{" "}
+                    © 2026 made with <i className='fa fa-heart heart-change' /> by{" "}
                     
                     <Link
                       to={{ pathname: "https://ryan-pilar.netlify.app/" }}

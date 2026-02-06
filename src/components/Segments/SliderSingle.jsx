@@ -17,7 +17,7 @@ const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
       });
     }
 
-    loadScript("./assets/js/rev-script-1.js");
+    loadScript("/assets/js/rev-script-1.js");
   }, []);
 
   return (

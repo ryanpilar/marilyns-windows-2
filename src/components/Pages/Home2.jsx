@@ -50,7 +50,7 @@ const Home2 = () => {
       });
     }
 
-    loadScript("./assets/js/custom.js");
+    loadScript("/assets/js/custom.js");
   }, []);
 
 

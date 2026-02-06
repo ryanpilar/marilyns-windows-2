@@ -95,7 +95,7 @@ const Services = ({ showButton }) => {
       });
     }
 
-    loadScript("./assets/js/custom.js");
+    loadScript("/assets/js/custom.js");
   }, []);
 
   return (
