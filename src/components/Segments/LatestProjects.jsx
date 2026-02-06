@@ -47,7 +47,7 @@ const LatestProjects = () => {
       });
     }
 
-    loadScript("./assets/js/custom.js");
+    loadScript("/assets/js/custom.js");
   }, []);
 
   // LATEST PROJECTS Shuffle

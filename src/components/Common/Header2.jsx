@@ -1,11 +1,12 @@
 import React from "react";
 import Navigation2 from "./Navigation2";
+import logoDark from "../../images/logo-dark.png";
 
 class Header2 extends React.Component {
   isMenuActive;
   constructor(props) {
     super(props);
-    this.state = { logo: require("./../../images/logo-dark.png") };
+    this.state = { logo: logoDark };
   }
 
   state = { isMenuActive: false };
@@ -19,6 +20,9 @@ class Header2 extends React.Component {
     const offset = window.scrollY;
 
     const stickyheader = document.querySelector(".sticky-header");
+    if (!stickyheader) {
+      return;
+    }
 
     if (offset >= 100) {
       stickyheader.classList.add("is-fixed");
@@ -33,8 +37,14 @@ class Header2 extends React.Component {
     window.addEventListener("scroll", this.handleScroll);
 
     window.updateTopMostParent = (logopath) => {
-      this.setState({ logo: logopath });
+      const resolvedLogo =
+        logopath && logopath.default ? logopath.default : logopath;
+      this.setState({ logo: resolvedLogo });
     };
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
   }
 
   render() {
@@ -54,7 +64,7 @@ class Header2 extends React.Component {
                   <div className="logo-header-inner logo-header-one">
                     <a href="/" aria-label="Back to Home">
                       <img
-                        src={this.state.logo.default}
+                        src={this.state.logo}
                         width={221}
                         height={70}
                         alt="Marilyn's Logo"

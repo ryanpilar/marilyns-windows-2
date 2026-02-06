@@ -44,7 +44,7 @@ const Slider22 = () => {
       });
     }
 
-    loadScript("./assets/js/rev-script-1.js");
+    loadScript("/assets/js/rev-script-1.js");
   }, []);
 
   return (
