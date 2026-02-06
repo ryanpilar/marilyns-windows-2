@@ -11,7 +11,7 @@ https://marilynswindows.com/
 
 ## 👋 Introduction
 
-This is a modern, ReactJs website to help promote Marilyn’s company and contribute content through her blog and image gallery. Content is integrated with Contentful CMS and is continuously deployed using Netlify. The design of this site enables content creators to post without needing a technical background.
+A modern, ReactJs website to help promote Marilyn’s company and contribute content through her blog and image gallery. Content is integrated with Contentful CMS and is continuously deployed using Netlify. The design of this site enables content creators to post without needing a technical background.
 
 ---
 
