@@ -13,52 +13,103 @@
     named "sitemap.xml.gz".
  */
 
-import "dotenv/config";
+const { pipeline, Readable } = require("stream");
+const { promisify } = require("util");
+const fs = require("fs");
+const zlib = require("zlib");
+const { SitemapStream } = require("sitemap");
+const { createClient } = require("contentful");
 
-import { pipeline } from "stream";
-import { promisify } from "util";
-import { Readable } from "stream";
-
-import fsPkg from "fs";
-import zlibPkg from "zlib";
-import sitemapPkg from "sitemap";
-import getBlogPostsFromContentful from "./src/utils/getBlogPostsFromContentful.js";
-import getGalleryPostsFromContentful from "./src/utils/getGalleryPostsFromContentful.js";
-import streamToBuffer from "./src/utils/streamToBuffer.js";
+require("dotenv").config();
 
 /**
-  Pipeline provides a way to work with streaming data in a more efficient and memory-friendly way. 
-  The pipeline function takes a sequence of stream instances and connects them together, so that data 
-  can flow from the source stream through a series of transformation streams and finally to the 
+  Pipeline provides a way to work with streaming data in a more efficient and memory-friendly way.
+  The pipeline function takes a sequence of stream instances and connects them together, so that data
+  can flow from the source stream through a series of transformation streams and finally to the
   destination stream.
 
-  The pipeline function takes care of error handling and backpressure management. In the example code, the 
-  pipeline function is used to compress the sitemap data using gzip compression and write it to a 
+  The pipeline function takes care of error handling and backpressure management. In the example code, the
+  pipeline function is used to compress the sitemap data using gzip compression and write it to a
   file using a WriteStream.
  */
 
 /**
-  Promisify is a way to convert callback-based APIs to promise-based APIs, which can be 
-  easier to work with and better suited for certain programming patterns. By wrapping the gzip 
-  function in a promisified version, it becomes possible to use the gzip function with the await 
-  keyword to wait for it to finish executing and retrieve its result, instead of passing in a callback 
+  Promisify is a way to convert callback-based APIs to promise-based APIs, which can be
+  easier to work with and better suited for certain programming patterns. By wrapping the gzip
+  function in a promisified version, it becomes possible to use the gzip function with the await
+  keyword to wait for it to finish executing and retrieve its result, instead of passing in a callback
   function.
 
-  This promisified function can be used later in the code to compress a buffer object using gzip 
+  This promisified function can be used later in the code to compress a buffer object using gzip
   compression and return a promise that resolves to the compressed data.
 */
-const { createGzip } = zlibPkg;
-const { createWriteStream } = fsPkg;
-const { SitemapStream, streamToPromise } = sitemapPkg;
-
-
+const { createWriteStream } = fs;
 const pipelineAsync = promisify(pipeline);
-const gzipAsync = promisify(zlibPkg.gzip);
+const gzipAsync = promisify(zlib.gzip);
+
+const createContentfulClient = () => {
+  const { REACT_APP_CONTENTFUL_SPACE, REACT_APP_CONTENTFUL_TOKEN } = process.env;
+
+  if (!REACT_APP_CONTENTFUL_SPACE || !REACT_APP_CONTENTFUL_TOKEN) {
+    throw new Error(
+      "Missing Contentful env vars: REACT_APP_CONTENTFUL_SPACE and/or REACT_APP_CONTENTFUL_TOKEN"
+    );
+  }
+
+  return createClient({
+    space: REACT_APP_CONTENTFUL_SPACE,
+    accessToken: REACT_APP_CONTENTFUL_TOKEN,
+  });
+};
+
+const getBlogPostsFromContentful = async () => {
+  const client = createContentfulClient();
+  const entries = await client.getEntries({
+    content_type: "blogPosts",
+  });
+
+  return entries.items.map((entry) => ({
+    blogPostFields: entry.fields,
+    // ...
+  }));
+};
+
+const getGalleryPostsFromContentful = async () => {
+  const client = createContentfulClient();
+  const entries = await client.getEntries({
+    content_type: "gallery",
+  });
+
+  return entries.items.map((entry) => ({
+    galleryPostFields: entry.fields,
+    // ...
+  }));
+};
+
+const streamToBuffer = async (stream) =>
+  new Promise((resolve, reject) => {
+    const chunks = [];
+
+    // Set up event listeners on the "stream" object.
+    stream.on("error", reject);
+
+    // Triggered each time a chunk of data is available from the stream.
+    stream.on("data", (chunk) => {
+      if (typeof chunk === "string") {
+        chunks.push(Buffer.from(chunk));
+      } else {
+        chunks.push(chunk);
+      }
+    });
+
+    // When the stream has read all data, "chunks" is concatenated into a single Buffer object
+    stream.on("end", () => resolve(Buffer.concat(chunks)));
+  });
 
 async function generateSitemap() {
   // Create a new sitemap stream
   const siteUrl = "https://marilynswindows.com";
-  const smStream = await new SitemapStream({ hostname: siteUrl });
+  const smStream = new SitemapStream({ hostname: siteUrl });
 
   // Fetch all of your blog & gallery posts from Contentful
   const blogPosts = await getBlogPostsFromContentful();
@@ -110,4 +161,7 @@ async function generateSitemap() {
   console.log(`Sitemap generated at ${filePath}`);
 }
 
-generateSitemap();
+generateSitemap().catch((error) => {
+  console.error("Sitemap generation failed.", error);
+  process.exitCode = 1;
+});

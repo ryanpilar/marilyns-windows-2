@@ -73,7 +73,7 @@ const Gallery22 = () => {
       });
     }
 
-    loadScript("./assets/js/custom.js");
+    loadScript("/assets/js/custom.js");
   }, []);
 
   // Scroll to top upon page load
@@ -126,14 +126,6 @@ const Gallery22 = () => {
                         </ul>
                       </div>
                     </div>
-                    {/* BREADCRUMB ROW END */}
-
-                    {/* SHORT BLACK DIVIDER */}
-                    {/* <div className="text-left m-b40">
-                      <div className="wt-separator-outer">
-                        <div className="wt-separator bg-black" />
-                      </div>
-                    </div> */}
                   </div>
 
                   <div className="row">
@@ -148,8 +140,6 @@ const Gallery22 = () => {
                       {/* TITLE END */}
 
                       <p className="p-r30">
-                        {/* This is where we showcase our ability to design and
-                        create.  */}
                         We invite you to take a closer look at our portfolio and
                         appreciate the level of quality and attention to detail
                         that goes into each of our projects.

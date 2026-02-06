@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "./Navigation";
 import { NavLink } from 'react-router-dom';
+import logoDark from "../../images/logo-dark.png";
 
 
 class Header3 extends React.Component {
@@ -8,7 +9,7 @@ class Header3 extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { logo: require("./../../images/logo-dark.png") };
+    this.state = { logo: logoDark };
   }
 
   state = { isMenuActive: false };
@@ -21,6 +22,9 @@ class Header3 extends React.Component {
     const offset = window.scrollY;
 
     const stickyheader = document.querySelector(".sticky-header");
+    if (!stickyheader) {
+      return;
+    }
 
     if (offset >= 100) {
       stickyheader.classList.add("is-fixed");
@@ -34,8 +38,14 @@ class Header3 extends React.Component {
     window.addEventListener("scroll", this.handleScroll);
 
     window.updateTopMostParent = (logopath) => {
-      this.setState({ logo: logopath });
+      const resolvedLogo =
+        logopath && logopath.default ? logopath.default : logopath;
+      this.setState({ logo: resolvedLogo });
     };
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
   }
 
   render() {
@@ -56,7 +66,7 @@ class Header3 extends React.Component {
                   <div className="logo-header-inner logo-header-one">
                   <NavLink to={"/"} aria-label="Back to Home">
                   <img
-                        src={this.state.logo.default}
+                        src={this.state.logo}
                         width={221}
                         height={70}
                         alt="Marilyn's Logo"

@@ -68,7 +68,7 @@ const LatestProjects2 = ({ content }) => {
       });
     }
 
-    loadScript("./assets/js/custom.js");
+    loadScript("/assets/js/custom.js");
   }, []);
 
   const options = {
@@ -177,7 +177,7 @@ const LatestProjects2 = ({ content }) => {
                                   {item.fields.cardTitle}
                                 </h2>
                                 <p>{item.fields.cardDescription}</p>
-                                <Link to={`${item.fields.slug}`}>
+                                <Link to={`/gallery/room/${item.fields.slug}`}>
                                   <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
                                     <p>
                                       <i

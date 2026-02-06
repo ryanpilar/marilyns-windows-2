@@ -64,7 +64,7 @@ const Blog = () => {
       });
     }
 
-    loadScript("./assets/js/custom.js");
+    loadScript("/assets/js/custom.js");
   }, []);
 
   // Scroll to the top upon page load

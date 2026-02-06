@@ -1,9 +1,9 @@
 import ReactDOM from 'react-dom';
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from './reportWebVitals.js';
 import { HelmetProvider } from 'react-helmet-async';
 
 import './index.css';
-import App from './App';
+import App from './App.js';
 
 import GA4React from 'react-ga4';
 
