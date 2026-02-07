@@ -52,7 +52,7 @@ const Slider22 = () => {
       {sliderList && (
         <div
           id="welcome_wrapper"
-          className="rev_slider_wrapper fullscreen-container"
+          className="rev_slider_wrapper fullscreen-container hero-slider"
           data-alias="goodnews-header"
           data-source="gallery"
           style={{ background: "#eeeeee", padding: 0 }}
@@ -98,6 +98,7 @@ const Slider22 = () => {
                   heading={sliderList[0].fields.heading}
                   largeSpan={sliderList[0].fields.largeSpan}
                   smallSpan={sliderList[0].fields.smallSpan}
+                  isPriority={true}
                 />
               </li>
               {/* SLIDER #2 */}
@@ -134,6 +135,7 @@ const Slider22 = () => {
                   heading={sliderList[1].fields.heading}
                   largeSpan={sliderList[1].fields.largeSpan}
                   smallSpan={sliderList[1].fields.smallSpan}
+                  isPriority={false}
                 />
               </li>
               {/* SLIDER #3 */}
@@ -170,6 +172,7 @@ const Slider22 = () => {
                   heading={sliderList[2].fields.heading}
                   largeSpan={sliderList[2].fields.largeSpan}
                   smallSpan={sliderList[2].fields.smallSpan}
+                  isPriority={false}
                 />
               </li>
             </ul>

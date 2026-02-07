@@ -1,6 +1,15 @@
 import { useLayoutEffect } from "react";
 
-const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
+const buildSizedUrl = (url, width) => {
+  if (!url) {
+    return url;
+  }
+
+  const separator = url.includes("?") ? "&" : "?";
+  return `${url}${separator}w=${width}&fm=jpg&q=80`;
+};
+
+const SliderSingle = ({ image, heading, largeSpan, smallSpan, isPriority }) => {
   useLayoutEffect(() => {
     function loadScript(src) {
       return new Promise(function (resolve, reject) {
@@ -23,7 +32,13 @@ const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
   return (
     <>
       <img
-        src={image[0].secure_url}
+        src={buildSizedUrl(image[0].secure_url, 1920)}
+        srcSet={[
+          `${buildSizedUrl(image[0].secure_url, 768)} 768w`,
+          `${buildSizedUrl(image[0].secure_url, 1280)} 1280w`,
+          `${buildSizedUrl(image[0].secure_url, 1920)} 1920w`,
+        ].join(", ")}
+        sizes="100vw"
         // alt={image[0].context.custom.alt}
         // data-pin-description={image[0].context.custom.dataPin}
         // data-caption={image[0].context.custom.caption}
@@ -33,6 +48,8 @@ const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
         data-bgparallax={4}
         className="rev-slidebg"
         data-no-retina
+        loading={isPriority ? "eager" : "lazy"}
+        fetchpriority={isPriority ? "high" : "low"}
         width="1920"
         height="900"
       />
