@@ -25,7 +25,7 @@ const AboutImage = ( {image} ) => {
               src={image.secure_url}
               alt={image.context.custom.alt}
               data-pin-description={image.context.custom.dataPin}
-              caption={image.context.custom.caption}
+              data-caption={image.context.custom.caption}
 
               width={1000}
               height={600}

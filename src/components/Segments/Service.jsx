@@ -33,7 +33,7 @@ const Service = ({ process }) => {
 
                       src={process.consultation.image.secure_url}
                       alt={process.consultation.image.context.custom.alt}
-                      caption={
+                      data-caption={
                         process.consultation.image.context.custom.caption
                       }
                       data-pin-description={
@@ -91,7 +91,7 @@ const Service = ({ process }) => {
                     <img
                       src={process.ideas.image.secure_url}
                       alt={process.ideas.image.context.custom.alt}
-                      caption={process.ideas.image.context.custom.caption}
+                      data-caption={process.ideas.image.context.custom.caption}
                       data-pin-description={
                         process.ideas.image.context.custom.dataPin
                       }
@@ -109,7 +109,7 @@ const Service = ({ process }) => {
                     <img
                       src={process.install.image.secure_url}
                       alt={process.install.image.context.custom.alt}
-                      caption={process.install.image.context.custom.caption}
+                      data-caption={process.install.image.context.custom.caption}
                       data-pin-description={
                         process.install.image.context.custom.dataPin
                       }
@@ -157,7 +157,7 @@ const Service = ({ process }) => {
                     <img
                       src={process.warranty.image.secure_url}
                       alt={process.warranty.image.context.custom.alt}
-                      caption={process.warranty.image.context.custom.caption}
+                      data-caption={process.warranty.image.context.custom.caption}
                       data-pin-description={
                         process.warranty.image.context.custom.dataPin
                       }

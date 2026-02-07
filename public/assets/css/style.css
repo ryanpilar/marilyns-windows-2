@@ -11297,3 +11297,47 @@ New Menu Style for mobile device (august/2021)
     padding: 0px !important;
   }
 }
+
+/* CLS skeleton placeholders */
+.skeleton {
+  background: #e6e6e6;
+  background: linear-gradient(90deg, #e6e6e6 25%, #f2f2f2 37%, #e6e6e6 63%);
+  background-size: 400% 100%;
+  animation: skeleton-shimmer 1.4s ease infinite;
+}
+.skeleton-line {
+  height: 16px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+.skeleton-button {
+  height: 40px;
+  width: 160px;
+  border-radius: 4px;
+  margin-top: 12px;
+}
+.skeleton-image-landscape {
+  width: 100%;
+  padding-top: 62.5%;
+  border-radius: 4px;
+}
+.skeleton-image-portrait {
+  width: 100%;
+  padding-top: 155%;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.skeleton-carousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 0 15px;
+}
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
