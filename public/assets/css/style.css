@@ -11341,3 +11341,20 @@ New Menu Style for mobile device (august/2021)
     background-position: 0 0;
   }
 }
+
+.hero-slider {
+  min-height: 60vh;
+}
+.hero-slider .rev_slider {
+  min-height: inherit;
+}
+@media (min-width: 768px) {
+  .hero-slider {
+    min-height: 70vh;
+  }
+}
+@media (min-width: 1200px) {
+  .hero-slider {
+    min-height: 80vh;
+  }
+}
