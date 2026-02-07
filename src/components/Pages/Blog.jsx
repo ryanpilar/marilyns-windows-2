@@ -82,7 +82,7 @@ const Blog = () => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | Blog | Writings & Insights About Drapery and More`}
+        title={`Blog | Writings & Insights About Drapery and More`}
         description={`Interesting articles about window treatments and the wonderful world of drapery. Learn about industry trends, gain good advice, or read frequently asked questions.`}
         location={ cononicalLocation.pathname }
         robots={'index, follow'}
@@ -333,14 +333,14 @@ const Blog = () => {
                       to={"/gallery"}
                       className="btn-half pad text-white site-button button-md m-b15 "
                     >
-                      <span className="p-lr5">Gallery</span>
+                      <span className="p-lr5">The Gallery</span>
                       <em />
                     </NavLink>
                     <NavLink
                       to={"/aboutme"}
                       className="btn-half pad text-white site-button button-md m-b15 "
                     >
-                      <span className="p-lr5"> My Story</span>
+                      <span className="p-lr5"> Marilyn's Story</span>
                       <em />
                     </NavLink>
                   </div>

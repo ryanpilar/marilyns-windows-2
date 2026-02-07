@@ -25,7 +25,7 @@ class Footer extends React.Component {
             <div className="container p-t30">
               <div className="row">
                 <div className="col-lg-4 col-md-3 wt-footer-bot-left">
-                  <a href={"/"} aria-label="Back to Home">
+                  <a href={"/"} aria-label="Home">
                     <img
                       src={this.currentstate.logo}
                       alt="marilyn's windows company logo"

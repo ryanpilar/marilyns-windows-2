@@ -82,9 +82,10 @@ const LatestProjects = () => {
     nav: true,
     dots: false,
     autoplayHoverPause: true,
+    navElement: 'button type="button"',
     navText: [
-      '<i class="fa fa-angle-left"></i>',
-      '<i class="fa fa-angle-right"></i>',
+      '<span class="sr-only">Previous slide</span><i class="fa fa-angle-left" aria-hidden="true"></i>',
+      '<span class="sr-only">Next slide</span><i class="fa fa-angle-right" aria-hidden="true"></i>',
     ],
     responsive: {
       0: {
@@ -135,12 +136,12 @@ const LatestProjects = () => {
                     Explore our gallery of window treatment designs and discover
                     the artistry that goes into every project. From elegant
                     drapes to functional shades, we offer a range of options to
-                    fit any design style.{" "}
+                    fit any design style. Visit the{" "}
                     <Link
                       className="link-style font-14 text-uppercase"
                       to="/gallery"
                     >
-                      Click here to see the full gallery
+                      Gallery
                     </Link>
                     .
                   </p>
@@ -221,7 +222,7 @@ const LatestProjects = () => {
             to="/gallery"
             className="btn-half site-button button-lg  font-30 m-tb15 text-right"
           >
-            <span className="">Visit My Gallery</span>
+            <span className="">Gallery</span>
             <em />
           </Link>
         </div>

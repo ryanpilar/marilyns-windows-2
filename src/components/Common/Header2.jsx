@@ -62,7 +62,7 @@ class Header2 extends React.Component {
               <div className="container">
                 <div className="logo-header">
                   <div className="logo-header-inner logo-header-one">
-                    <a href="/" aria-label="Back to Home">
+                    <a href="/" aria-label="Home">
                       <img
                         src={this.state.logo}
                         width={221}

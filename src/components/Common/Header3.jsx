@@ -64,7 +64,7 @@ class Header3 extends React.Component {
               <div className="container">
                 <div className="logo-header">
                   <div className="logo-header-inner logo-header-one">
-                  <NavLink to={"/"} aria-label="Back to Home">
+                  <NavLink to={"/"} aria-label="Home">
                   <img
                         src={this.state.logo}
                         width={221}
@@ -121,26 +121,6 @@ class Header3 extends React.Component {
                                 <i className="fa fa-facebook" />
                               </a>
                             </li>
-                            {/* <li>
-                              <a
-                                target="_blank"
-                                rel="noreferrer noopener"
-                                href="https://twitter.com/marilynswindows"
-                                aria-label="My Twitter"
-                              >
-                                <i className="fa fa-twitter" />
-                              </a>
-                            </li> */}
-                            {/* <li>
-                              <a
-                                target="_blank"
-                                rel="noreferrer noopener"
-                                href="https://www.linkedin.com/in/marilynswindows/"
-                                aria-label="My Linkedin"
-                              >
-                                <i className="fa fa-linkedin" />
-                              </a>
-                            </li> */}
                             <li>
                               <a
                                 target="_blank"

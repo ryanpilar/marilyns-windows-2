@@ -51,7 +51,7 @@ const PrivacyPolicy = () => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | Privacy Policy`}
+        title={`Privacy Policy`}
         description={`Our privacy policy outlines how we collect, use and protect your personal information. Learn more about how we keep your data safe and secure on our website.`}
         robots={'noindex, follow'}
 

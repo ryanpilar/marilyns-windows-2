@@ -83,7 +83,7 @@ const Services = () => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | Services | Sewing & Installing The Best Custom Window Treatments for the Halton Region`}
+        title={`Services | Sewing & Installing The Best Custom Window Treatments for the Halton Region`}
         description={`Specializing in custom drapery, high-end blinds and custom soft furnishings. Marilyn's work defines the art of couture drapery and window treatment design.`}
         location={ cononicalLocation.pathname }
         robots={'index, follow'}

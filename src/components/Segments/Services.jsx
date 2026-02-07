@@ -138,14 +138,14 @@ const Services = ({ showButton }) => {
                       We have the best window solutions to match your needs,
                       whether you are perfecting an interior design or
                       considering energy efficiency, privacy, automation, light
-                      filtering & blackout, etc.{" "}
+                      filtering & blackout, etc. Learn more on our{" "}
                       <Link
                         className="link-style font-14 text-uppercase"
                         to="/services"
                       >
-                        Click here to deep dive into our services
-                      </Link>
-                      .
+                        Services
+                      </Link>{" "}
+                      page.
                     </p>
 
                   </div>
@@ -239,7 +239,7 @@ const Services = ({ showButton }) => {
                       to={"/services"}
                       className="btn-half2 site-button button-xl font-weight-600 font-30 m-tb15 text-right"
                     >
-                      <span>See More Services</span>
+                      <span>Services</span>
                       <em />
                     </Link>
                   </div>

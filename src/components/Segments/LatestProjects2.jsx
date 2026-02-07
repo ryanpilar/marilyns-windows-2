@@ -78,9 +78,10 @@ const LatestProjects2 = ({ content }) => {
     nav: true,
     dots: false,
     autoplayHoverPause: true,
+    navElement: 'button type="button"',
     navText: [
-      '<i class="fa fa-angle-left"></i>',
-      '<i class="fa fa-angle-right"></i>',
+      '<span class="sr-only">Previous slide</span><i class="fa fa-angle-left" aria-hidden="true"></i>',
+      '<span class="sr-only">Next slide</span><i class="fa fa-angle-right" aria-hidden="true"></i>',
     ],
     responsive: {
       0: {
