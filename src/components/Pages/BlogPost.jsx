@@ -155,9 +155,10 @@ const BlogPost = () => {
     nav: true,
     dots: false,
     autoplay: true,
+    navElement: 'button type="button"',
     navText: [
-      '<i class="fa fa-angle-left"></i>',
-      '<i class="fa fa-angle-right"></i>',
+      '<span class="sr-only">Previous slide</span><i class="fa fa-angle-left" aria-hidden="true"></i>',
+      '<span class="sr-only">Next slide</span><i class="fa fa-angle-right" aria-hidden="true"></i>',
     ],
     responsive: {
       0: {
@@ -180,7 +181,7 @@ const BlogPost = () => {
       <>
         {singleBlogPost && (
           <SEO
-            title={`Marilyn's Windows | Blog Post | ${singleBlogPost?.fields?.title}`}
+            title={`Blog Post | ${singleBlogPost?.fields?.title}`}
             description={singleBlogPost?.fields?.metaDescription}
             location={ cononicalLocation.pathname }
             robots={'index, follow'}

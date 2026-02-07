@@ -11358,3 +11358,26 @@ New Menu Style for mobile device (august/2021)
     min-height: 80vh;
   }
 }
+
+#about .m-carousel-1,
+#about22 .m-carousel-1 {
+  aspect-ratio: 8 / 5;
+  width: 100%;
+}
+#about .m-carousel-1 .owl-carousel,
+#about22 .m-carousel-1 .owl-carousel,
+#about .m-carousel-1 .owl-stage-outer,
+#about22 .m-carousel-1 .owl-stage-outer,
+#about .m-carousel-1 .owl-stage,
+#about22 .m-carousel-1 .owl-stage,
+#about .m-carousel-1 .owl-item,
+#about22 .m-carousel-1 .owl-item {
+  height: 100%;
+}
+#about .m-carousel-1 img,
+#about22 .m-carousel-1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

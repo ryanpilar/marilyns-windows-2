@@ -100,7 +100,7 @@ const GallerySingle = () => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | Gallery | ${imageData?.fields?.cardTitle}`}
+        title={`Gallery | ${imageData?.fields?.cardTitle}`}
         description={`${imageData?.fields?.metaDescription}`}
         location={ cononicalLocation.pathname }
         robots={'index, follow'}

@@ -24,7 +24,7 @@ const About2 = ({ images }) => {
   return (
     <>
       <SEO
-        title={`Marilyn's Windows | My Story`}
+        title={`My Story`}
         description={`Professionally sewing for over 30 years and specializing in the tailored creation of hand-sewn curtains, drapes, blinds, and custom bedding.`}
       />
 
