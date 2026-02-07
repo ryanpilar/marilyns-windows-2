@@ -416,7 +416,7 @@ jQuery.extend(true,_R, {
 		}
 		/* END OF DEBUGGING */
 
-		var handlecaption=0,
+		var handledata-caption=0,
 			layervisible =  _.visibility === undefined ? "oon" : makeArray(_.visibility,opt)[opt.forcedWinRange] || makeArray(_.visibility,opt) || "ooon";
 		
 		// HIDE CAPTION IF RESOLUTION IS TOO LOW			

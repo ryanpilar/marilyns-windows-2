@@ -234,7 +234,10 @@ All JavaScript fuctions Start
 			
 	// > home_projects_filter Full Screen with no margin function by = owl.carousel.js ========================== //
 	function home_projects_filter(){
-		
+		if (!jQuery().owlCarousel || typeof jQuery.fn.owlFilter !== "function") {
+			return;
+		}
+
 		var owl = jQuery('.owl-carousel-filter').owlCarousel({
 		loop:false,
 		autoplay:true,

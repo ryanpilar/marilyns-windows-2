@@ -88,7 +88,7 @@ const About = () => {
         <div className="container">
           <div className="section-content">
             <div className="row">
-              {content && (
+              {content ? (
                 <div className="col-md-5 col-sm-12 text-black">
                   <span className="font-22 font-weight-400 text-uppercase ">
                     {content.span}
@@ -120,9 +120,19 @@ const About = () => {
                     <em />
                   </NavLink>
                 </div>
+              ) : (
+                <div className="col-md-5 col-sm-12 text-black" aria-hidden="true">
+                  <div className="skeleton skeleton-line" style={{ width: "55%" }} />
+                  <div className="skeleton skeleton-line" style={{ width: "70%" }} />
+                  <div className="skeleton skeleton-line" style={{ width: "95%" }} />
+                  <div className="skeleton skeleton-line" style={{ width: "92%" }} />
+                  <div className="skeleton skeleton-line" style={{ width: "88%" }} />
+                  <div className="skeleton skeleton-line" style={{ width: "60%" }} />
+                  <div className="skeleton skeleton-button" />
+                </div>
               )}
               <div className="col-md-7 col-sm-12 m-b30">
-                {content && (
+                {content ? (
                   <>
                     <div className="m-carousel-1 m-l100 add-box-shadow2 ">
                       <OwlCarousel
@@ -141,7 +151,7 @@ const About = () => {
                                 data-pin-description={
                                   item.context.custom.dataPin
                                 }
-                                caption={item.context.custom.caption}
+                                data-caption={item.context.custom.caption}
                                 width={800}
                                 height={500}
                               />
@@ -152,6 +162,10 @@ const About = () => {
                       </OwlCarousel>
                     </div>
                   </>
+                ) : (
+                  <div className="m-carousel-1 m-l100 add-box-shadow2 " aria-hidden="true">
+                    <div className="skeleton skeleton-image-landscape" />
+                  </div>
                 )}
               </div>
             </div>

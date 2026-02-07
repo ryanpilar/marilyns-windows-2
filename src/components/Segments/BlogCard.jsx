@@ -35,7 +35,7 @@ const BlogCard = ({ passItem, passIndex }) => {
                     data-pin-description={
                       post.fields.blogImages[0].context.custom.dataPin
                     }
-                    caption={post.fields.blogImages[0].context.custom.caption}
+                    data-caption={post.fields.blogImages[0].context.custom.caption}
                     width={800}
                     height={500}
                   />

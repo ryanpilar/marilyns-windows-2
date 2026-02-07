@@ -199,7 +199,7 @@ const Gallery22 = () => {
                                   item.fields.smallImage[0]?.context?.custom
                                     ?.alt
                                 }
-                                caption={
+                                data-caption={
                                   item.fields.smallImage[0]?.context?.custom
                                     ?.caption
                                 }

@@ -293,6 +293,9 @@ const ClientsLogo = ({ supplierList }) => {
                                       alt={
                                         item.fields.logo[0].context.custom.alt
                                       }
+                                      loading="lazy"
+                                      decoding="async"
+                                      fetchpriority="low"
                                       width={200}
                                       height={120}
                                     />

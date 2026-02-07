@@ -161,7 +161,7 @@ const GallerySingle = () => {
                           alt={
                             imageData.fields.largeImage[0]?.context?.custom?.alt
                           }
-                          caption={
+                          data-caption={
                             imageData.fields.largeImage[0]?.context?.custom
                               ?.caption
                           }

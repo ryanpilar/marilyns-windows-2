@@ -1,17 +1,18 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Suspense, lazy } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTopOnRoute from './Segments/ScrollToTopOnRoute';
 
-import Home2 from './Pages/Home2';
-import AboutMe from './Pages/AboutMe';
-import Services from './Pages/Services';
-import Blog from './Pages/Blog'
-import BlogPost from './Pages/BlogPost';
-import Gallery22 from './Pages/Gallery22';
-import GallerySingle from './Pages/GallerySingle'
+import Home2 from "./Pages/Home2";
+import Gallery22 from "./Pages/Gallery22";
 
-import NotFound from './Pages/NotFound';
-import TermsOfService from './Pages/TermsOfService';
-import PrivacyPolicy from './Pages/PrivacyPolicy';
+const AboutMe = lazy(() => import("./Pages/AboutMe"));
+const Services = lazy(() => import("./Pages/Services"));
+const Blog = lazy(() => import("./Pages/Blog"));
+const BlogPost = lazy(() => import("./Pages/BlogPost"));
+const GallerySingle = lazy(() => import("./Pages/GallerySingle"));
+const NotFound = lazy(() => import("./Pages/NotFound"));
+const TermsOfService = lazy(() => import("./Pages/TermsOfService"));
+const PrivacyPolicy = lazy(() => import("./Pages/PrivacyPolicy"));
 
 const Components = () => {
 
@@ -25,6 +26,7 @@ const Components = () => {
                 <div className="page-wraper">
                         <ScrollToTopOnRoute />
 
+                        <Suspense fallback={null}>
                         <Switch>
 
                             <Route path='/' exact component={Home2} 
@@ -81,6 +83,7 @@ const Components = () => {
                             <Route component={Error} /> */}
                             
                         </Switch>
+                        </Suspense>
 
                 </div>
             </BrowserRouter>

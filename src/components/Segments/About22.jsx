@@ -15,7 +15,7 @@ import createContentfulClient from "../../utils/createContentfulClient";
 
 const About22 = () => {
   const [content, setContent] = useState(null);
-  console.log('content', content);
+
 
   // Process Rich Text Coming From Contentful
   const richTextConversion = (richText) => {
@@ -113,7 +113,7 @@ const About22 = () => {
                                 data-pin-description={
                                   item.context.custom.dataPin
                                 }
-                                caption={item.context.custom.caption}
+                                data-caption={item.context.custom.caption}
                                 width={800}
                                 height={500}
                               />
@@ -123,7 +123,7 @@ const About22 = () => {
                                 src={item}
                                 alt='test'
                                 data-pin-description='test'
-                                caption='test'
+                                data-caption='test'
                                 width={800}
                                 height={500}
                               /> */}

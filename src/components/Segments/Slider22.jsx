@@ -1,4 +1,4 @@
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import createContentfulClient from "../../utils/createContentfulClient";
 import SliderSingle from "./SliderSingle";
 

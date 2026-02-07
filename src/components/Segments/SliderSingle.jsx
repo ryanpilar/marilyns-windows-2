@@ -26,7 +26,7 @@ const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
         src={image[0].secure_url}
         // alt={image[0].context.custom.alt}
         // data-pin-description={image[0].context.custom.dataPin}
-        // caption={image[0].context.custom.caption}
+        // data-caption={image[0].context.custom.caption}
         // data-lazyload={image[0].secure_url}
         data-bgposition="center center"
         data-bgfit="cover"
@@ -72,11 +72,6 @@ const SliderSingle = ({ image, heading, largeSpan, smallSpan }) => {
         }}
       >
       </div>
-
-      {/* <div
-        className="tp-bannertimer tp-bottom"
-        style={{ visibility: "hidden !important" }}
-      /> */}
     </>
   );
 };

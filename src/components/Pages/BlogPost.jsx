@@ -243,7 +243,7 @@ const BlogPost = () => {
                                   data-pin-description={
                                     item.context.custom.dataPin
                                   }
-                                  caption={item.context.custom.caption}
+                                  data-caption={item.context.custom.caption}
                                   width="800"
                                   height="500"
                                 />

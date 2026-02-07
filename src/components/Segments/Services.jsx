@@ -1,11 +1,6 @@
-import { useLayoutEffect, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import createContentfulClient from "../../utils/createContentfulClient";
 import { Link } from "react-router-dom";
-
-// import servicesImage from '../../images/landing/pexels-cottonbro-studio-6660925.jpg'
-// import servicesImage from '../../images/landing/pexels-cottonbro-studio-4614193.jpg'
-import servicesImage from '../../images/landing/pexels-pavel-danilyuk-6461130.jpg'
-
 
 const servicesleft = [
   {
@@ -79,7 +74,7 @@ const Services = ({ showButton }) => {
     getAllEntries();
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     function loadScript(src) {
       return new Promise(function (resolve, reject) {
         var script = document.createElement("script");
@@ -197,7 +192,7 @@ const Services = ({ showButton }) => {
                               src={servicesImage}
                               alt={item.context.custom.alt}
                               data-pin-description={item.context.custom.dataPin}
-                              caption={item.context.custom.caption}
+                              data-caption={item.context.custom.caption}
                               width="360"
                               height="560"
                             />

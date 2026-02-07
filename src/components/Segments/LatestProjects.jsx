@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import createContentfulClient from "../../utils/createContentfulClient";
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
@@ -31,7 +31,7 @@ const LatestProjects = () => {
     getAllEntries();
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     function loadScript(src) {
       return new Promise(function (resolve, reject) {
         var script = document.createElement("script");
@@ -170,7 +170,10 @@ const LatestProjects = () => {
                           <img
                             src={item.fields.smallImage[0].secure_url}
                             alt={item.fields.smallImage[0].context.custom.alt}
-                            caption={
+                            loading="lazy"
+                            decoding="async"
+                            fetchpriority="low"
+                            data-caption={
                               item.fields.smallImage[0].context.custom.caption
                             }
                             data-pin-description={
