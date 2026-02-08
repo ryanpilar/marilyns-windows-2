@@ -6,6 +6,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
 const About2 = ({ images }) => {
+  const hasImages = images?.images?.length;
   
   // const options = {
   //   loop: true,
@@ -260,7 +261,22 @@ const About2 = ({ images }) => {
               </OwlCarousel> */}
 
             <div className="">
-              <AboutImages2 images={images} id="aboutImages2" />
+              {hasImages ? (
+                <AboutImages2 images={images} id="aboutImages2" />
+              ) : (
+                <div className="row" aria-hidden="true">
+                  <div className="col-lg-6 col-md-6 col-sm-12">
+                    <div className="add-box-shadow p-a10 m-a10">
+                      <div className="skeleton skeleton-image-landscape" />
+                    </div>
+                  </div>
+                  <div className="col-lg-6 col-md-6 col-sm-12">
+                    <div className="add-box-shadow p-a10 m-a10">
+                      <div className="skeleton skeleton-image-landscape" />
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* </div> */}

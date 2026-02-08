@@ -14,6 +14,9 @@ const Blog = () => {
   const [blackOpacity, setBlackOpacity] = useState({
     isHover: false,
   });
+  const featuredImage = blogPost?.items?.[0]?.fields?.blogImages?.[0];
+  const featuredImageWidth = featuredImage?.width || 1200;
+  const featuredImageHeight = featuredImage?.height || 750;
 
   const cononicalLocation = useLocation();
 
@@ -73,15 +76,13 @@ const Blog = () => {
       <Header3 />
 
       <div className="page-content">
-        {blogBanner && (
-          <Banner
-            title="Marilyn's Blog"
-            pagename="Blog Post"
-            bgimage={blogBanner}
-            // posLeft={true}
-            posRight={true}
-          />
-        )}
+        <Banner
+          title="Marilyn's Blog"
+          pagename="Blog Post"
+          bgimage={blogBanner}
+          // posLeft={true}
+          posRight={true}
+        />
 
         <div className="container">
           <div className="">
@@ -186,6 +187,10 @@ const Blog = () => {
                                     ? `${blogPost.items[0].fields.descriptiveTitle} image`
                                     : "Blog post image"
                                 )}
+                                width={featuredImageWidth}
+                                height={featuredImageHeight}
+                                loading="eager"
+                                fetchpriority="high"
                               />
                             </Link>
                           </div>

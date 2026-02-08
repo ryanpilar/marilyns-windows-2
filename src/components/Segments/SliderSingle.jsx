@@ -28,7 +28,7 @@ const SliderSingle = ({ image, heading, largeSpan, smallSpan, isPriority }) => {
         className="rev-slidebg"
         data-no-retina
         loading={isPriority ? "eager" : "lazy"}
-        fetchpriority={isPriority ? "high" : "low"}
+        fetchPriority={isPriority ? "high" : "low"}
         width="1920"
         height="900"
       />
