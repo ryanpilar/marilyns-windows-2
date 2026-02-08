@@ -1,12 +1,14 @@
 import React from "react";
 
 const Banner = ({ bgimage, title, posLeft, posRight }) => {
+  const bannerStyle = bgimage ? { backgroundImage: `url(${bgimage})` } : undefined;
+
   return (
     <>
       <div
         className="wt-bnr-inr overlay-wraper bg-parallax bg-parallax-fallback bg-top-center"
         data-stellar-background-ratio="0.5"
-        style={{ backgroundImage: "url(" + bgimage + ")" }}
+        style={bannerStyle}
       >
         {/* <div className="overlay-main bg-black opacity-04 " /> */}
         <div className="overlay-main" />

@@ -93,17 +93,17 @@ const Services = () => {
       <Header3 />
 
       <div className="page-content">
-        {affiliates && banner && designProcess && (
-          <>
-            <Banner
-              heading="Services"
-              title="Our Services Offered"
-              pagename="Services"
-              bgimage={banner.image}
-              posLeft={true}
-              // posRight={true}
-            />
+        <Banner
+          heading="Services"
+          title="Our Services Offered"
+          pagename="Services"
+          bgimage={banner?.image}
+          posLeft={true}
+          // posRight={true}
+        />
 
+        {affiliates && designProcess && (
+          <>
             <div className="container">
               <div className="max-mid-container">
                 {/* BREADCRUMB ROW */}
@@ -126,7 +126,6 @@ const Services = () => {
             <Service process={designProcess} />
 
             <ClientsLogo content={affiliates} supplierList={true} />
-
 
             <FAQ />
 

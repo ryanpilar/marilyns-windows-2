@@ -11380,6 +11380,10 @@ New Menu Style for mobile device (august/2021)
   object-fit: cover;
   display: block;
 }
+.hero-placeholder {
+  width: 100%;
+  height: 100%;
+}
 .hero-slider .hermes .tp-bullet:after {
   height: 100%;
   transform: scaleY(0);
@@ -11429,4 +11433,17 @@ New Menu Style for mobile device (august/2021)
   height: 100%;
   object-fit: cover;
   display: block;
+}
+#about .about-copy {
+  min-height: 380px;
+}
+@media (min-width: 768px) {
+  #about .about-copy {
+    min-height: 340px;
+  }
+}
+@media (min-width: 992px) {
+  #about .about-copy {
+    min-height: 320px;
+  }
 }

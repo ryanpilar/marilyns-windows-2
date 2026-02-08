@@ -67,16 +67,13 @@ const AboutMe = () => {
 
             <div className="page-content">
                 {/* BANNER  */}
-                {banner && (
-                    <Banner
-                        title="Marilyn's Story"
-                        pagename="About Us"
-                        bgimage={banner.image.data.secure_url}
-                        posLeft={true}
-                        // posRight={true}
-
-                    />
-                )}
+                <Banner
+                    title="Marilyn's Story"
+                    pagename="About Us"
+                    bgimage={banner?.image?.data?.secure_url}
+                    posLeft={true}
+                    // posRight={true}
+                />
 
                 <div className="section-full p-b90 bg-gray tm-about2-wrap">
                     <div className="container ">
@@ -96,7 +93,7 @@ const AboutMe = () => {
                         {/* BREADCRUMB END  */}
 
                         {/* INTRO & 1ST SET OF IMAGES START */}
-                        {imageCarousel && <About2 images={imageCarousel}/>}
+                        <About2 images={imageCarousel} />
 
                         {/* 1ST COLUMNER TEXT */}
                         <AboutColumns>

@@ -90,7 +90,7 @@ const About = () => {
           <div className="section-content">
             <div className="row">
               {content ? (
-                <div className="col-md-5 col-sm-12 text-black">
+                <div className="col-md-5 col-sm-12 text-black about-copy">
                   <span className="font-22 font-weight-400 text-uppercase ">
                     {content.span}
                   </span>
@@ -122,7 +122,10 @@ const About = () => {
                   </NavLink>
                 </div>
               ) : (
-                <div className="col-md-5 col-sm-12 text-black" aria-hidden="true">
+                <div
+                  className="col-md-5 col-sm-12 text-black about-copy"
+                  aria-hidden="true"
+                >
                   <div className="skeleton skeleton-line" style={{ width: "55%" }} />
                   <div className="skeleton skeleton-line" style={{ width: "70%" }} />
                   <div className="skeleton skeleton-line" style={{ width: "95%" }} />
