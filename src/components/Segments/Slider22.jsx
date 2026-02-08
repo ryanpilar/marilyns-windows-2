@@ -38,16 +38,13 @@ const Slider22 = () => {
       "/assets/css/rev-slider-4.css",
       "/assets/plugins/revolution/revolution/css/settings.css",
       "/assets/plugins/revolution/revolution/css/navigation.css",
-      "/assets/plugins/revolution-addons/beforeafter/css/revolution.addon.beforeafter.css",
     ];
 
     const revScripts = [
-      "/assets/plugins/revolution/revolution-addons/reveal/js/revolution.addon.revealer.min.js",
       "/assets/plugins/revolution/revolution/js/jquery.themepunch.tools.min.js",
       "/assets/plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js",
       "/assets/plugins/revolution/revolution/js/extensions/revolution-plugin.js",
       "/assets/js/rev-script-1.js",
-      "/assets/plugins/revolution-addons/beforeafter/js/revolution.addon.beforeafter.min.js",
     ];
 
     function loadStyle(href) {

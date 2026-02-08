@@ -1,6 +1,7 @@
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import createContentfulClient from "../../utils/createContentfulClient";
+import loadMasonryAssets from "../../utils/loadMasonryAssets";
 
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
@@ -57,24 +58,13 @@ const Gallery22 = () => {
     getAllEntries();
   }, []);
 
-  useLayoutEffect(() => {
-    function loadScript(src) {
-      return new Promise(function (resolve, reject) {
-        var script = document.createElement("script");
-        script.src = src;
-        script.addEventListener("load", function () {
-          resolve();
-        });
-        script.addEventListener("error", function (e) {
-          reject(e);
-        });
-        document.body.appendChild(script);
-        document.body.removeChild(script);
-      });
+  useEffect(() => {
+    if (!imageList) {
+      return;
     }
 
-    loadScript("/assets/js/custom.js");
-  }, []);
+    loadMasonryAssets();
+  }, [imageList]);
 
   // Scroll to top upon page load
   useEffect(() => {
@@ -199,6 +189,9 @@ const Gallery22 = () => {
                                   item.fields.smallImage[0]?.context?.custom
                                     ?.alt
                                 }
+                                loading="lazy"
+                                decoding="async"
+                                fetchpriority="low"
                                 data-caption={
                                   item.fields.smallImage[0]?.context?.custom
                                     ?.caption
