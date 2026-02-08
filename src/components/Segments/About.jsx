@@ -132,10 +132,10 @@ const About = () => {
                   <div className="skeleton skeleton-button" />
                 </div>
               )}
-              <div className="col-md-7 col-sm-12 m-b30">
+              <div className="col-md-7 col-sm-12 m-b60">
                 {content ? (
                   <>
-                    <div className="m-carousel-1 m-l100 add-box-shadow2 ">
+                    <div className="m-carousel-1 m-l50 mod add-box-shadow2 ">
                       <LazyOwlCarousel
                         className="owl-carousel home-carousel-1 owl-btn-vertical-center"
                         style={{background: 'white', padding: '5px'}}

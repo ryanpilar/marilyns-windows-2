@@ -88,9 +88,15 @@ const Slider22 = () => {
       );
     }
 
-    window.__revAssetsPromise.finally(() => {
-      hasLoadedScript.current = true;
-    });
+    window.__revAssetsPromise
+      .then(() => {
+        if (typeof window.initWelcomeSlider === "function") {
+          window.initWelcomeSlider();
+        }
+      })
+      .finally(() => {
+        hasLoadedScript.current = true;
+      });
   }, [sliderList]);
 
   return (

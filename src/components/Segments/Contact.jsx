@@ -158,7 +158,7 @@ class Contact extends React.Component {
                   <ul className="list-inline contact-socials">
                     <li>
                       <a
-                        className="p-r15"
+                        className="p-r20"
                         target="_blank"
                         rel="noreferrer noopener"
                         href="https://www.facebook.com/marilynswindows/"
@@ -169,29 +169,7 @@ class Contact extends React.Component {
                     </li>
                     <li>
                       <a
-                        className="p-r15"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        href="https://twitter.com/marilynswindows"
-                        aria-label="My Twitter"
-                      >
-                        <i className="fa fa-twitter" />
-                      </a>
-                    </li>
-                    {/* <li>
-                      <a
-                        className="p-r15"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        href="https://www.linkedin.com/in/marilynswindows/"
-                        aria-label="My Linkedin"
-                      >
-                        <i className="fa fa-linkedin" />
-                      </a>
-                    </li> */}
-                    <li>
-                      <a
-                        className="p-r15"
+                        className="p-r20"
                         target="_blank"
                         rel="noreferrer noopener"
                         href="https://www.instagram.com/marilynwindowsandinteriors/"
