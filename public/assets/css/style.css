@@ -10660,11 +10660,11 @@ img.ril-image-current {
 
 .owl-carousel-filter .owl-item {
   opacity: 0;
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: opacity 0.2s ease;
+  -moz-transition: opacity 0.2s ease;
+  -ms-transition: opacity 0.2s ease;
+  -o-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 .owl-carousel-filter .owl-item.active {
   opacity: 1;
@@ -11308,10 +11308,23 @@ New Menu Style for mobile device (august/2021)
 
 /* CLS skeleton placeholders */
 .skeleton {
+  position: relative;
+  overflow: hidden;
   background: #e6e6e6;
-  background: linear-gradient(90deg, #e6e6e6 25%, #f2f2f2 37%, #e6e6e6 63%);
-  background-size: 400% 100%;
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(230, 230, 230, 0) 0%,
+    rgba(242, 242, 242, 0.9) 50%,
+    rgba(230, 230, 230, 0) 100%
+  );
+  transform: translateX(-100%);
   animation: skeleton-shimmer 1.4s ease infinite;
+  pointer-events: none;
 }
 .skeleton-line {
   height: 16px;
@@ -11343,10 +11356,10 @@ New Menu Style for mobile device (august/2021)
 }
 @keyframes skeleton-shimmer {
   0% {
-    background-position: 100% 0;
+    transform: translateX(-100%);
   }
   100% {
-    background-position: 0 0;
+    transform: translateX(100%);
   }
 }
 
@@ -11367,10 +11380,31 @@ New Menu Style for mobile device (august/2021)
   object-fit: cover;
   display: block;
 }
+.hero-slider .hermes .tp-bullet:after {
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+.hero-slider .hermes .tp-bullet.selected:after {
+  transform: scaleY(1);
+}
 @media (min-width: 1240px) {
   .hero-slider {
     min-height: 840px;
     height: 840px;
+  }
+}
+
+.loading-area svg#triangle {
+  animation: loader-rotate 2.5s linear infinite;
+}
+.loading-area svg#triangle polygon {
+  animation: none;
+}
+@keyframes loader-rotate {
+  to {
+    transform: rotate(360deg);
   }
 }
 
