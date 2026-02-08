@@ -1,4 +1,4 @@
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import createContentfulClient from "../../utils/createContentfulClient";
 import SEO from "../Segments/SEO";
@@ -47,25 +47,6 @@ const Blog = () => {
     };
 
     getAllEntries();
-  }, []);
-
-  useLayoutEffect(() => {
-    function loadScript(src) {
-      return new Promise(function (resolve, reject) {
-        var script = document.createElement("script");
-        script.src = src;
-        script.addEventListener("load", function () {
-          resolve();
-        });
-        script.addEventListener("error", function (e) {
-          reject(e);
-        });
-        document.body.appendChild(script);
-        document.body.removeChild(script);
-      });
-    }
-
-    loadScript("/assets/js/custom.js");
   }, []);
 
   // Scroll to the top upon page load
