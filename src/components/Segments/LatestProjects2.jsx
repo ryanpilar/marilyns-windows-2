@@ -2,7 +2,7 @@ import { useLayoutEffect, useEffect, useState } from "react";
 import createContentfulClient from "../../utils/createContentfulClient";
 import { Link } from "react-router-dom";
 
-import OwlCarousel from "react-owl-carousel";
+import LazyOwlCarousel from "../Common/LazyOwlCarousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
@@ -140,7 +140,7 @@ const LatestProjects2 = ({ content }) => {
           <div className="container">
             <div className="section-content">
               {imageList && (
-                <OwlCarousel
+                <LazyOwlCarousel
                   className="owl-carousel owl-carousel-filter  owl-btn-bottom-left"
                   {...options}
                 >
@@ -196,7 +196,7 @@ const LatestProjects2 = ({ content }) => {
                       </div>
                     ))}
                   </>
-                </OwlCarousel>
+                </LazyOwlCarousel>
               )}
               <div className="section-content m-t20 m-b40">
                 <Link

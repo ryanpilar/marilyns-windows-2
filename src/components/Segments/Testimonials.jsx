@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import createContentfulClient from "../../utils/createContentfulClient";
-import OwlCarousel from "react-owl-carousel";
+import LazyOwlCarousel from "../Common/LazyOwlCarousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
@@ -109,7 +109,7 @@ const Testimonials = () => {
               {/* TESTIMONIAL 4 START ON BACKGROUND */}
               <div className="section-content">
                 {content && (
-                  <OwlCarousel
+                  <LazyOwlCarousel
                     className="owl-carousel testimonial-home"
                     {...options}
                   >
@@ -156,7 +156,7 @@ const Testimonials = () => {
                         </div>
                       </div>
                     ))}
-                  </OwlCarousel>
+                  </LazyOwlCarousel>
                 )}
               </div>
             </div>

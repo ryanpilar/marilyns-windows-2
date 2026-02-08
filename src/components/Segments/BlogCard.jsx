@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { normalizeAltText } from "../../utils/contentfulText";
 
 const BlogCard = ({ passItem, passIndex }) => {
 
@@ -31,7 +32,12 @@ const BlogCard = ({ passItem, passIndex }) => {
                 <Link to={`/blog/post/${post.fields.slug}`}>
                   <img
                     src={post.fields.blogImages[0].secure_url}
-                    alt={post.fields.blogImages[0].context.custom.alt}
+                    alt={normalizeAltText(
+                      post.fields.blogImages[0].context.custom.alt,
+                      post.fields.descriptiveTitle
+                        ? `${post.fields.descriptiveTitle} image`
+                        : "Blog post image"
+                    )}
                     data-pin-description={
                       post.fields.blogImages[0].context.custom.dataPin
                     }
@@ -60,9 +66,6 @@ const BlogCard = ({ passItem, passIndex }) => {
                 <li className="post-date">
                   <strong> {post.fields.dateCreated}</strong>{" "}
                 </li>
-                <li className="post-author">
-                  By <span>{post.fields.blogAuthor}</span>{" "}
-                </li>
               </ul>
             </div>
             <div className="wt-post-text">
@@ -72,7 +75,7 @@ const BlogCard = ({ passItem, passIndex }) => {
               to={`/blog/post/${post.fields.slug}`}
               className="site-button black radius-no text-uppercase "
             >
-              <span className="font-12 letter-spacing-5"> Read Blog </span>
+              <span className="font-12 letter-spacing-5"> Read Post </span>
             </Link>
           </div>
         </div>

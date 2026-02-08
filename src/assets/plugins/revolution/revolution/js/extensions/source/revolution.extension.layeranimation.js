@@ -1,4 +1,4 @@
-/************************************************
+  /************************************************
  * REVOLUTION 5.4.6.4 EXTENSION - LAYER ANIMATION
  * @version: 3.6.5 (08.03.2018)
  * @requires jquery.themepunch.revolution.js
@@ -254,7 +254,7 @@ jQuery.extend(true,_R, {
 						console.log(ct);
 						console.log(isvisible)*/
 
-						// LAYER ALREADY VISIBLE, TIMER IS NOT UNKNOW ANY MORE
+						// LAYER ALREADY VISIBLE, TIMER IS NOT UNKNOW ANYMORE
 						if (ct!==undefined && isvisible) {							
 							if (triggerstate=="keep") {				
 								
@@ -416,7 +416,7 @@ jQuery.extend(true,_R, {
 		}
 		/* END OF DEBUGGING */
 
-		var handledata-caption=0,
+		var handlecaption=0,
 			layervisible =  _.visibility === undefined ? "oon" : makeArray(_.visibility,opt)[opt.forcedWinRange] || makeArray(_.visibility,opt) || "ooon";
 		
 		// HIDE CAPTION IF RESOLUTION IS TOO LOW			

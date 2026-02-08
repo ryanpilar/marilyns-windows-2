@@ -1,4 +1,4 @@
-import OwlCarousel from "react-owl-carousel";
+import LazyOwlCarousel from "../Common/LazyOwlCarousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { useEffect, useState } from "react";
@@ -276,7 +276,7 @@ const ClientsLogo = ({ supplierList }) => {
                   <div className="col-md-12 col-sm-12">
                     <div className="section-content bg-white p-tb80">
                       {content && (
-                        <OwlCarousel
+                        <LazyOwlCarousel
                           className="owl-carousel home-client-carousel owl-btn-center-v"
                           {...options}
                         >
@@ -305,7 +305,7 @@ const ClientsLogo = ({ supplierList }) => {
                               </div>
                             </div>
                           ))}
-                        </OwlCarousel>
+                        </LazyOwlCarousel>
                       )}
                     </div>
                   </div>

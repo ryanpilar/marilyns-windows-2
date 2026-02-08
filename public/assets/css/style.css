@@ -5195,7 +5195,6 @@ ol.list-num-count p {
   display: block;
   padding: 3px;
 }
-
 .social-icons.social-md {
   font-size: 18px;
 }
@@ -6259,6 +6258,15 @@ blockquote.transparentBanner:before {
   margin: 0;
   text-transform: uppercase;
   font-weight: normal;
+}
+.blog-post.blog-masonry .wt-post-title .post-title,
+.blog-post.blog-grid .wt-post-title .post-title {
+  line-height: 22px;
+}
+.blog-post.blog-masonry .wt-post-meta,
+.blog-post.blog-grid .wt-post-meta {
+  margin-top: -9px;
+  margin-bottom: 8px;
 }
 
 .wt-post-meta {

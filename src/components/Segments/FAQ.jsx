@@ -187,7 +187,7 @@ const FAQ = () => {
         <div className="section-full p-tb80 tm-shortcode-wrap">
           <div className="container">
             <div className="section-head text-left text-black">
-              <h2 className="text-uppercase font-34">FAQ Section</h2>
+              <h2 className="text-uppercase font-34">FAQ's</h2>
 
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />

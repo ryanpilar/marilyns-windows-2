@@ -1,10 +1,11 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import createContentfulClient from "../../utils/createContentfulClient";
 import SliderSingle from "./SliderSingle";
 
 const Slider22 = () => {
   const [sliderList, setSliderList] = useState(false);
   const [frameSpeed, setFrameSpeed] = useState(1000);
+  const hasLoadedScript = useRef(false);
 
   useEffect(() => {
 
@@ -29,10 +30,49 @@ const Slider22 = () => {
   }, []);
 
   useLayoutEffect(() => {
+    if (!sliderList || hasLoadedScript.current) {
+      return;
+    }
+
+    const revStyles = [
+      "/assets/css/rev-slider-4.css",
+      "/assets/plugins/revolution/revolution/css/settings.css",
+      "/assets/plugins/revolution/revolution/css/navigation.css",
+      "/assets/plugins/revolution-addons/beforeafter/css/revolution.addon.beforeafter.css",
+    ];
+
+    const revScripts = [
+      "/assets/plugins/revolution/revolution-addons/reveal/js/revolution.addon.revealer.min.js",
+      "/assets/plugins/revolution/revolution/js/jquery.themepunch.tools.min.js",
+      "/assets/plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js",
+      "/assets/plugins/revolution/revolution/js/extensions/revolution-plugin.js",
+      "/assets/js/rev-script-1.js",
+      "/assets/plugins/revolution-addons/beforeafter/js/revolution.addon.beforeafter.min.js",
+    ];
+
+    function loadStyle(href) {
+      if (document.querySelector(`link[data-rev-asset="${href}"]`)) {
+        return;
+      }
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = href;
+      link.setAttribute("data-rev-asset", href);
+      document.head.appendChild(link);
+    }
+
     function loadScript(src) {
       return new Promise(function (resolve, reject) {
-        var script = document.createElement("script");
+        if (document.querySelector(`script[data-rev-asset="${src}"]`)) {
+          resolve();
+          return;
+        }
+        const script = document.createElement("script");
         script.src = src;
+        script.async = false;
+        script.defer = false;
+        script.setAttribute("data-rev-asset", src);
         script.addEventListener("load", function () {
           resolve();
         });
@@ -40,12 +80,21 @@ const Slider22 = () => {
           reject(e);
         });
         document.body.appendChild(script);
-        document.body.removeChild(script);
       });
     }
 
-    loadScript("/assets/js/rev-script-1.js");
-  }, []);
+    if (!window.__revAssetsPromise) {
+      revStyles.forEach(loadStyle);
+      window.__revAssetsPromise = revScripts.reduce(
+        (promise, src) => promise.then(() => loadScript(src)),
+        Promise.resolve()
+      );
+    }
+
+    window.__revAssetsPromise.finally(() => {
+      hasLoadedScript.current = true;
+    });
+  }, [sliderList]);
 
   return (
     <>

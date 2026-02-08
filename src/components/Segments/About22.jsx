@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import OwlCarousel from "react-owl-carousel";
+import LazyOwlCarousel from "../Common/LazyOwlCarousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
@@ -97,7 +97,7 @@ const About22 = () => {
                   <>
                     <div className="m-carousel-1 mod m-r100 add-box-shadow ">
 
-                      <OwlCarousel
+                      <LazyOwlCarousel
                         className="owl-carousel home-carousel-1 owl-btn-vertical-center "
                         style={{background: 'white', padding: '5px'}}
                         {...options}
@@ -131,7 +131,7 @@ const About22 = () => {
                             </div>
                           </div>
                         ))}
-                      </OwlCarousel>
+                      </LazyOwlCarousel>
                     </div>
                   </>
                 )}
@@ -145,9 +145,9 @@ const About22 = () => {
                   {/* <h2 className="font-22 font-weight-400 text-uppercase ">
                     Milton & Surrounding Areas
                   </h2> */}
-                  <h1 className="text-uppercase font-30">
+                  <h2 className="text-uppercase font-30">
                     Handcrafted Window Treatments for Homes & Businesses
-                  </h1>
+                  </h2>
 
                   {/* Attn: richTextConverstion renders in a <p> */}
                   <div className="m-b30">
