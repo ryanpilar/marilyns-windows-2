@@ -84,30 +84,7 @@ All JavaScript fuctions Start
 		jQuery('iframe[src*="vimeo.com"]').wrap('<div class="embed-responsive embed-responsive-16by9"></div>');	
 	}  
 
-	// > magnificPopup function	by = magnific-popup.js =========================== //
-	function magnific_popup(){
-        jQuery('.mfp-gallery').magnificPopup({
-          delegate: '.mfp-link',
-          type: 'image',
-          tLoading: 'Loading image #%curr%...',
-          mainClass: 'mfp-img-mobile',
-          gallery: {
-            enabled: true,
-            navigateByImgClick: true,
-            preload: [0,1] // Will preload 0 - before current, and 1 after the current image
-          },
-          image: {
-            tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-          }
-       });
-	}
-
-	// > magnificPopup for video function	by = magnific-popup.js ===================== //	
-	function magnific_video(){	
-		jQuery('.mfp-video').magnificPopup({
-			type: 'iframe',
-		});
-	}
+	// Magnific popup removed (unused).
 
 // Vertically center Bootstrap modal popup function by = custom.js ==============//
 	function popup_vertical_center(){	
@@ -462,12 +439,9 @@ All JavaScript fuctions Start
 		site_search(),
 		// > Video responsive function by = custom.js 
 		video_responsive(),
-		// > magnificPopup function	by = magnific-popup.js
-		magnific_popup(),
 		
 		masonryBox(),
-		// > magnificPopup for video function	by = magnific-popup.js
-		//magnific_video(),
+		
 		// > Vertically center Bootstrap modal popup function by = custom.js
 		popup_vertical_center();
 		// > page scroll top on button click function by = custom.js	

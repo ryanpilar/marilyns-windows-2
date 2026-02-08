@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
 
-import OwlCarousel from "react-owl-carousel";
+import LazyOwlCarousel from "../Common/LazyOwlCarousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
@@ -12,20 +12,14 @@ import SEO from "../Segments/SEO";
 import RelatedBlog from "../Segments/RelatedBlog";
 
 // Social Media Share Buttons:
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  LinkedinShareButton,
-  TwitterShareButton,
-} from "react-share";
-
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { MARKS, BLOCKS } from "@contentful/rich-text-types";
 
-import toast, { Toaster } from "react-hot-toast";
-import webSitePaths from "../../assets/js/webSitePaths";
-
 import createContentfulClient from "../../utils/createContentfulClient";
+import {
+  createHeadingRenderer,
+  normalizeAltText,
+} from "../../utils/contentfulText";
 
 const BlogPost = () => {
 
@@ -37,19 +31,6 @@ const BlogPost = () => {
   const [singleBlogPost, setSingleBlogPost] = useState([]);
 
   const { slug } = useParams();
-  const blogRoute = webSitePaths.blogRoute + slug;
-
-  // Interactive Toast for copying the blogpost link
-  const clipboardToast = () =>
-    toast.success("Copied! Check your clipboard for link.", {
-      duration: 6000,
-      style: {
-        borderRadius: "10px",
-        background: "#333",
-        color: "#fff",
-      },
-    });
-
   // Get Blog Post data from Contentful
   useEffect(() => {
     const client = createContentfulClient()
@@ -110,13 +91,33 @@ const BlogPost = () => {
         },
         renderNode: {
           "embedded-asset-block": (node) => (
-            <img
-              className="m-t20 m-b30"
-              width={`100%`}
-              src={node.data.target.fields.file.url}
-              aria-hidden="true"
-            />
+            (() => {
+              const asset = node?.data?.target?.fields;
+              const assetFile = asset?.file;
+              const assetDetails = assetFile?.details?.image;
+              const rawAlt = asset?.description || asset?.title;
+              const fallbackAlt = singleBlogPost?.fields?.descriptiveTitle
+                ? `${singleBlogPost.fields.descriptiveTitle} image`
+                : "Blog post image";
+              const altText = normalizeAltText(rawAlt, fallbackAlt);
+
+              return (
+                <img
+                  className="m-t20 m-b30"
+                  src={assetFile?.url}
+                  alt={altText}
+                  width={assetDetails?.width}
+                  height={assetDetails?.height}
+                />
+              );
+            })()
           ),
+          [BLOCKS.HEADING_1]: createHeadingRenderer("h1"),
+          [BLOCKS.HEADING_2]: createHeadingRenderer("h2"),
+          [BLOCKS.HEADING_3]: createHeadingRenderer("h3"),
+          [BLOCKS.HEADING_4]: createHeadingRenderer("h4"),
+          [BLOCKS.HEADING_5]: createHeadingRenderer("h5"),
+          [BLOCKS.HEADING_6]: createHeadingRenderer("h6"),
           [BLOCKS.QUOTE]: (node, children) => (
             <div className="p-4 m-lr30">
               <blockquote className="blockquote">
@@ -224,12 +225,12 @@ const BlogPost = () => {
                   {/* BREADCRUMB END */}
                 </div>
 
-                {singleBlogPost?.fields?.blogImages && blogRoute && (
+                {singleBlogPost?.fields?.blogImages && (
                   <div className="blog-post blog-lg date-style-1 text-black">
                     <div className="wt-post-media">
 
                       {/* IMAGE CAROUSEL START*/}
-                      <OwlCarousel
+                      <LazyOwlCarousel
                         className="owl-carousel owl-fade-slider-one owl-btn-vertical-center owl-dots-bottom-right"
                         {...options}
                       >
@@ -240,7 +241,12 @@ const BlogPost = () => {
 
                                 <img
                                   src={item.secure_url}
-                                  alt={item.context.custom.alt}
+                                  alt={normalizeAltText(
+                                    item?.context?.custom?.alt,
+                                    singleBlogPost?.fields?.descriptiveTitle
+                                      ? `${singleBlogPost.fields.descriptiveTitle} image`
+                                      : "Blog post image"
+                                  )}
                                   data-pin-description={
                                     item.context.custom.dataPin
                                   }
@@ -253,7 +259,7 @@ const BlogPost = () => {
                             </div>
                           )
                         )}
-                      </OwlCarousel>
+                      </LazyOwlCarousel>
                       {/* IMAGE CAROUSEL END*/}
 
                     </div>
@@ -275,9 +281,6 @@ const BlogPost = () => {
                                   {singleBlogPost?.fields?.dateCreated}
                                 </strong>
                               </li>
-                              <li className="post-comment">
-                                {singleBlogPost?.fields?.blogAuthor}
-                              </li>
                             </ul>
                           </div>
                         </div>
@@ -288,113 +291,6 @@ const BlogPost = () => {
                           </div>
                         </div>
 
-                        <div className="row">
-                          <div className="col-md-4 col-sm-6">
-                            <div className="wt-box">
-                              <div className="row  p-lr15">
-                                <h3 className="tagcloud text-uppercase font-weight-500">
-                                  Share this Post:
-                                </h3>
-                                <div className="widget_social_inks">
-                                  <ul className="social-icons social-md social-square social-dark m-b0">
-                                    <li>
-                                      <FacebookShareButton
-                                        hashtag={"#marilynswindowsandinteriors"}
-                                        quote={`Read Marilyn's article: '${singleBlogPost?.fields?.descriptiveTitle}'`}
-                                        url={blogRoute}
-                                        aria-label="Share to Facebook"
-                                        role="button"
-                                      >
-                                        <a>
-                                          <i
-                                            className="fa fa-facebook"
-                                            aria-hidden="true"
-                                          />
-                                        </a>
-                                      </FacebookShareButton>
-                                    </li>
-                                    <li>
-                                      <TwitterShareButton
-                                        title={`Checkout this fantastic article by Marilyn: \n'${singleBlogPost?.fields?.descriptiveTitle}':`}
-                                        hashtags={[
-                                          "marilynswindowsandinteriors",
-                                        ]}
-                                        url={blogRoute}
-                                        aria-label="Share to Twitter"
-                                        role="button"
-                                      >
-                                        <a>
-                                          <i
-                                            className="fa fa-twitter"
-                                            aria-hidden="true"
-                                          />
-                                        </a>
-                                      </TwitterShareButton>
-                                    </li>
-                                    <li>
-                                      <LinkedinShareButton
-                                        title={
-                                          singleBlogPost?.fields
-                                            ?.descriptiveTitle
-                                        }
-                                        summary={
-                                          singleBlogPost?.fields?.blogSummary
-                                        }
-                                        source={blogRoute}
-                                        url={blogRoute}
-                                        aria-label="Share to Linkedin"
-                                        role="button"
-                                      >
-                                        <a>
-                                          <i
-                                            className="fa fa-linkedin"
-                                            aria-hidden="true"
-                                          />
-                                        </a>
-                                      </LinkedinShareButton>
-                                    </li>
-
-                                    <li>
-                                      <EmailShareButton
-                                        subject={`Read Marilyn's article: ${singleBlogPost?.fields?.descriptiveTitle}`}
-                                        body="Link to article: "
-                                        url={blogRoute}
-                                        aria-label="Share to Email"
-                                        role="button"
-                                      >
-                                        <a>
-                                          <i
-                                            className="fa fa-envelope"
-                                            aria-hidden="true"
-                                          />
-                                        </a>
-                                      </EmailShareButton>
-                                    </li>
-                                    {/* Copy link to clipboard */}
-                                    <li>
-                                      <a
-                                        style={{ cursor: "pointer" }}
-                                        onClick={() => {
-                                          navigator.clipboard.writeText(
-                                            blogRoute
-                                          );
-                                          clipboardToast();
-                                        }}
-                                        aria-label="Copy Link Address"
-                                        role="button"
-                                      >
-                                        <i
-                                          className="fa fa-link"
-                                          aria-hidden="true"
-                                        />
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -419,7 +315,6 @@ const BlogPost = () => {
       </>
 
       <Footer />
-      <Toaster position="bottom-center" reverseOrder={false} />
     </>
   );
 };

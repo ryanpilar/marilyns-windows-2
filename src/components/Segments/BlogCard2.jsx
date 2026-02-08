@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { normalizeAltText } from "../../utils/contentfulText";
 
 
 const BlogCard2 = ({ item, index }) => {
@@ -24,7 +25,17 @@ const BlogCard2 = ({ item, index }) => {
             >
               <div className={blackOpacity.isHover ? "" : "img-opacity"}>
                 <Link to={`/blog/post/${item.fields.slug}`}>
-                  <img src={item.fields.blogImages[0].secure_url} alt={item.fields.blogImages[0].context.custom.alt} width={800} height={500} />
+                  <img
+                    src={item.fields.blogImages[0].secure_url}
+                    alt={normalizeAltText(
+                      item.fields.blogImages[0].context.custom.alt,
+                      item.fields.title
+                        ? `${item.fields.title} image`
+                        : "Blog post image"
+                    )}
+                    width={800}
+                    height={500}
+                  />
                 </Link>
               </div>
             </div>
@@ -46,11 +57,6 @@ const BlogCard2 = ({ item, index }) => {
                 <li className="post-date">
                   <strong> {item.fields.dateCreated}</strong>{" "}
                 </li>
-                <li className="post-author">
-                  {/* <NavLink to={""}> */}
-                  By <span>{item.fields.blogAuthor}</span>
-                  {/* </NavLink>{" "} */}
-                </li>
               </ul>
             </div>
             <div className="wt-post-text">
@@ -60,7 +66,7 @@ const BlogCard2 = ({ item, index }) => {
               to={`/blog/post/${item.fields.slug}`}
               className="site-button black radius-no text-uppercase"
             >
-              <span className="font-12 letter-spacing-5"> Read Blog </span>{" "}
+              <span className="font-12 letter-spacing-5"> Read Post </span>{" "}
             </Link>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import OwlCarousel from "react-owl-carousel";
+import LazyOwlCarousel from "../Common/LazyOwlCarousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
@@ -136,7 +136,7 @@ const About = () => {
                 {content ? (
                   <>
                     <div className="m-carousel-1 m-l100 add-box-shadow2 ">
-                      <OwlCarousel
+                      <LazyOwlCarousel
                         className="owl-carousel home-carousel-1 owl-btn-vertical-center"
                         style={{background: 'white', padding: '5px'}}
                         {...options}
@@ -160,7 +160,7 @@ const About = () => {
                             </div>
                           </div>
                         ))}
-                      </OwlCarousel>
+                      </LazyOwlCarousel>
                     </div>
                   </>
                 ) : (

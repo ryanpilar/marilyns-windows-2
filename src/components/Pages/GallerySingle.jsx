@@ -1,6 +1,5 @@
 import { useEffect, useState, useLayoutEffect } from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
-import { EmailShareButton, FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
 import createContentfulClient from "../../utils/createContentfulClient";
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
@@ -10,8 +9,6 @@ import Footer from "../Common/Footer";
 
 import Loader from "../Segments/Loader";
 
-import toast, { Toaster } from "react-hot-toast";
-import webSitePaths from "../../assets/js/webSitePaths";
 
 const GallerySingle = () => {
   const { slug } = useParams();
@@ -19,25 +16,12 @@ const GallerySingle = () => {
   const [imageData, setImageData] = useState(null);
   const [galleryBanner, setGalleryBanner] = useState(null);
 
-  const galleryRoute = webSitePaths.galleryRoomRoute + slug;
-
   const cononicalLocation = useLocation();
 
   // Spinner for when gallery content is loading
   const toggleSpinner = () => {
     setSpinner((prevState) => !prevState);
   };
-
-  // Toast confirmation for copied link
-  const clipboardToast = () =>
-    toast.success("Copied! Check your clipboard for link.", {
-      duration: 6000,
-      style: {
-        borderRadius: "10px",
-        background: "#333",
-        color: "#fff",
-      },
-    });
 
   // Contentful connect and data fetch
   useEffect(() => {
@@ -216,93 +200,6 @@ const GallerySingle = () => {
               </div>
               {/* HEADING AND PARAGRAPH END */}
 
-              <div className="section-content m-t20 ">
-                <div className="m-b15">
-
-                  {/* SOCIAL MEDIA SHARE BUTTONS */}
-                  <div className="wt-box">
-                    <div className="row  p-lr15">
-                      <h2 className="tagcloud text-uppercase">
-                        Share this Post:
-                      </h2>
-                      <div className="widget_social_inks">
-                        <ul className="social-icons social-md social-square social-dark m-b40">
-                          <li>
-                            <FacebookShareButton
-                              hashtag={"#marilynswindowsandinteriors"}
-                              quote={`Checkout this fantastic room by Marilyn: '${imageData?.fields?.descriptiveTitle}'`}
-                              url={galleryRoute}
-                              aria-label="Share to Facebook"
-                              role="button"
-                            >
-                              <a className="">
-                                <i className="fa fa-facebook" aria-hidden="true" />
-                              </a>
-                            </FacebookShareButton>
-                          </li>
-                          <li>
-                            <TwitterShareButton
-                              title={`Another Fantastic Room by Marilyn: '${imageData?.fields?.descriptiveTitle}':`}
-                              hashtags={["marilynswindowsandinteriors"]}
-                              url={galleryRoute}
-                              aria-label="Share to Twitter"
-                              role="button"
-                            >
-                              <a className="">
-                                <i className="fa fa-twitter" aria-hidden="true" />
-                              </a>
-                            </TwitterShareButton>
-                          </li>
-                          <li>
-                            <LinkedinShareButton
-                              title={imageData?.fields?.descriptiveTitle}
-                              summary={imageData?.fields?.metaDescription}
-                              source={galleryRoute}
-                              url={galleryRoute}
-                            >
-                              <a
-                                target="_blank"
-                                rel="noreferrer noopener"
-                                href="https://in.linkedin.com"
-                                aria-label="Share to Linkedin"
-                                role="button"
-                              >
-                                <i className="fa fa-linkedin" aria-hidden="true" />
-                              </a>
-                            </LinkedinShareButton>
-                          </li>
-                          <li>
-                            <EmailShareButton
-                              subject={`Share or save this room example from Marilyn's Gallery: '${imageData?.fields?.descriptiveTitle}'`}
-                              body="Link to a high-def image: "
-                              url={galleryRoute}
-                              role="button"
-                              aria-label="Share to Email"
-                            >
-                              <a >
-                                <i className="fa fa-envelope" aria-hidden="true" />
-                              </a>
-                            </EmailShareButton>
-                          </li>
-                          <li>
-                            <a
-                              style={{ cursor: "pointer" }}
-                              onClick={() => {
-                                navigator.clipboard.writeText(galleryRoute);
-                                clipboardToast();
-                              }}
-                              aria-label="Copy Link Address"
-                              role="button"
-                            >
-                              <i className="fa fa-link" aria-hidden="true" />
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </>
@@ -327,8 +224,6 @@ const GallerySingle = () => {
       )}
 
       <Footer />
-      
-      <Toaster position="bottom-center" reverseOrder={false} />
 
     </>
   );

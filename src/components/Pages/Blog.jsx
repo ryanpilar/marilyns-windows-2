@@ -6,6 +6,7 @@ import Header3 from "../Common/Header3";
 import Banner from "../Segments/Banner";
 import RelatedBlog from "../Segments/RelatedBlog";
 import Footer from "../Common/Footer";
+import { normalizeAltText } from "../../utils/contentfulText";
 
 const Blog = () => {
   const [blogPost, setBlogPost] = useState(null);
@@ -28,7 +29,7 @@ const Blog = () => {
       try {
         // blog post data
         await client
-          .getEntries({ content_type: "blogPosts" })
+          .getEntries({ content_type: "blogPosts", order: "-fields.dateCreated" })
           .then((blogEntries) => {
             setBlogPost(blogEntries);
           });
@@ -134,7 +135,7 @@ const Blog = () => {
 
                       {/* TITLE START */}
                       <div className="section-head text-left text-black">
-                        <h2 className="text-uppercase font-34">Learn With Marilyn: Inspiration, Tips, & Stories About Window Coverings & Beyond</h2>
+                        <h2 className="text-uppercase font-34">Inspiration, Tips, & Stories About Window Coverings & Beyond</h2>
                         <div className="wt-separator-outer">
                           <div className="wt-separator bg-black" />
                         </div>
@@ -197,10 +198,13 @@ const Blog = () => {
                                   blogPost.items[0].fields.blogImages[0]
                                     .secure_url
                                 }
-                                alt={
+                                alt={normalizeAltText(
                                   blogPost.items[0].fields.blogImages[0].context
-                                    .custom.alt
-                                }
+                                    .custom.alt,
+                                  blogPost.items[0].fields.descriptiveTitle
+                                    ? `${blogPost.items[0].fields.descriptiveTitle} image`
+                                    : "Blog post image"
+                                )}
                               />
                             </Link>
                           </div>
@@ -225,17 +229,6 @@ const Blog = () => {
                                 {blogPost.items[0].fields.dateCreated}
                               </strong>{" "}
                             </li>
-                            <li className="post-author">
-                              <Link
-                                to={`/blog/post/${blogPost.items[0].fields.slug}`}
-                                aria-label={`Navigate to Blog Post: ${blogPost.items[0].fields.descriptiveTitle}`}
-                              >
-                                By{" "}
-                                <span>
-                                  {blogPost.items[0].fields.blogAuthor}
-                                </span>
-                              </Link>{" "}
-                            </li>
                           </ul>
                         </div>
                         <div className="wt-post-text">
@@ -246,7 +239,7 @@ const Blog = () => {
                           aria-label={`Navigate to Blog Post: ${blogPost.items[0].fields.descriptiveTitle}`}
                           className="link-style font-14 letter-spacing-4 text-uppercase"
                         >
-                          Read Blog
+                          Read Post
                         </Link>
                       </div>
                     </div>

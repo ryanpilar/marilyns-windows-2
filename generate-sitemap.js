@@ -43,7 +43,7 @@ require("dotenv").config();
   This promisified function can be used later in the code to compress a buffer object using gzip
   compression and return a promise that resolves to the compressed data.
 */
-const { createWriteStream } = fs;
+const { createWriteStream, promises: fsPromises } = fs;
 const pipelineAsync = promisify(pipeline);
 const gzipAsync = promisify(zlib.gzip);
 
@@ -108,7 +108,7 @@ const streamToBuffer = async (stream) =>
 
 async function generateSitemap() {
   // Create a new sitemap stream
-  const siteUrl = "https://marilynswindows.com";
+  const siteUrl = "https://www.marilynswindows.com";
   const smStream = new SitemapStream({ hostname: siteUrl });
 
   // Fetch all of your blog & gallery posts from Contentful
@@ -146,19 +146,21 @@ async function generateSitemap() {
   smStream.end();
 
   // .xml.gz is a standard sitemap filename and an indication that the file has been compressed.
-  const filePath = "./public/sitemap.xml.gz";
+  const xmlFilePath = "./public/sitemap.xml";
+  const gzipFilePath = "./public/sitemap.xml.gz";
 
   // Returns a promise, that resolves to a Buffer, containing all the data from the stream.
   const sitemapBuffer = await streamToBuffer(smStream);
+  await fsPromises.writeFile(xmlFilePath, sitemapBuffer);
   const compressedBuffer = await gzipAsync(sitemapBuffer);
 
   // Returns a new WriteStream object that writes data to the file specified by filePath
-  const writeStream = createWriteStream(filePath);
+  const writeStream = createWriteStream(gzipFilePath);
 
   // Write the compressed sitemap data to a file.
   await pipelineAsync(Readable.from(compressedBuffer), writeStream);
 
-  console.log(`Sitemap generated at ${filePath}`);
+  console.log(`Sitemap generated at ${xmlFilePath} and ${gzipFilePath}`);
 }
 
 generateSitemap().catch((error) => {

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import createContentfulClient from "../../utils/createContentfulClient";
 import BlogCard2 from "./BlogCard2";
 
-import OwlCarousel from "react-owl-carousel";
+import LazyOwlCarousel from "../Common/LazyOwlCarousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
@@ -39,8 +39,16 @@ const RelatedBlog = ({ slug }) => {
 
 
   const removeDouble = (entries, theSlug) => {
-    const filtered = entries.filter((post) => post.fields.slug !== theSlug);
-    return filtered;
+    return entries.filter((post) => post.fields.slug !== theSlug);
+  };
+
+  const shuffleEntries = (entries) => {
+    const result = [...entries];
+    for (let i = result.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+    return result;
   };
 
   // Connect to Contentful & Fetch Data
@@ -58,7 +66,7 @@ const RelatedBlog = ({ slug }) => {
               ? removeDouble(blogEntries.items, slug)
               : blogEntries.items;
 
-            setBlogPost(filteredEntries);
+            setBlogPost(shuffleEntries(filteredEntries));
 
           });
       } catch (error) {
@@ -68,7 +76,7 @@ const RelatedBlog = ({ slug }) => {
       }
     };
     getAllEntries();
-  }, []);
+  }, [slug]);
 
   useEffect(() => {
     window.addEventListener("load", () => {
@@ -100,14 +108,14 @@ const RelatedBlog = ({ slug }) => {
           <div className="section-content ">
             {blogPost && (
               <div className="">
-                <OwlCarousel
+                <LazyOwlCarousel
                   className="owl-carousel blog-related-slider  owl-btn-top-right p-lr10"
                   {...options}
                 >
                   {blogPost.map((item, index) => (
                     <BlogCard2 item={item} key={index} />
                   ))}
-                </OwlCarousel>
+                </LazyOwlCarousel>
               </div>
             )}
           </div>
