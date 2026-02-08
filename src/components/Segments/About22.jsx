@@ -95,7 +95,7 @@ const About22 = () => {
               <div className="col-md-7 col-sm-12 ">
                 {content && (
                   <>
-                    <div className="m-carousel-1 mod m-r100 add-box-shadow ">
+                    <div className="m-carousel-1 m-r100 add-box-shadow ">
 
                       <LazyOwlCarousel
                         className="owl-carousel home-carousel-1 owl-btn-vertical-center "
