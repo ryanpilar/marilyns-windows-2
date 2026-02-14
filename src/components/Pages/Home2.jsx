@@ -14,9 +14,7 @@ import LatestProjects from "./../Segments/LatestProjects";
 import Contact from "../Segments/Contact";
 import Footer from "../Common/Footer";
 
-// import GoogleAnalytics from '../Segments/GoogleAnalytics';
 import { useLocation } from "react-router-dom";
-import GA4React from "react-ga4";
 
 const Home2 = () => {
 
