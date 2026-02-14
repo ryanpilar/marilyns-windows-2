@@ -1,12 +1,42 @@
 import { Helmet } from 'react-helmet-async';
 
-export default function SEO({ title, description, location, robots }) {
+const CANONICAL_ORIGIN = "https://www.marilynswindows.com";
 
+function normalizeCanonicalPath(inputPath) {
+  if (!inputPath) {
+    return "/";
+  }
+
+  let candidatePath = String(inputPath).trim();
+  if (!candidatePath) {
+    return "/";
+  }
+
+  try {
+    candidatePath = new URL(candidatePath, CANONICAL_ORIGIN).pathname || "/";
+  } catch (error) {
+    // Keep the raw path when parsing fails; we'll normalize it below.
+  }
+
+  const withLeadingSlash = candidatePath.startsWith("/")
+    ? candidatePath
+    : `/${candidatePath}`;
+  const withoutDuplicateSlashes = withLeadingSlash.replace(/\/{2,}/g, "/");
+
+  if (withoutDuplicateSlashes === "/") {
+    return "/";
+  }
+
+  return withoutDuplicateSlashes.replace(/\/+$/, "");
+}
+
+export default function SEO({
+  title = "Marilyn's Windows",
+  description = "",
+  location,
+  robots = "index, follow",
+}) {
   const siteName = "Marilyn's Windows";
-  const baseUrl =
-    typeof window !== "undefined" && window.location
-      ? window.location.origin
-      : "https://www.marilynswindows.com";
   const fallbackPath =
     typeof window !== "undefined" && window.location
       ? window.location.pathname
@@ -17,36 +47,35 @@ export default function SEO({ title, description, location, robots }) {
       : location && typeof location.pathname === "string"
         ? location.pathname
         : fallbackPath;
-  const normalizedPath = rawPath
-    ? rawPath.startsWith("/")
-      ? rawPath
-      : `/${rawPath}`
-    : "";
-  const canonicalUrl = `${baseUrl}${normalizedPath}`;
+  const normalizedPath = normalizeCanonicalPath(rawPath);
+  const canonicalUrl = `${CANONICAL_ORIGIN}${normalizedPath}`;
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteName,
-    url: baseUrl,
+    url: CANONICAL_ORIGIN,
   };
 
-return (
+  return (
     <Helmet>
-        { /* Standard metadata tags */ }
-        <title>{title}</title>
-        <meta name='description' content={description} />
-        <link rel="canonical" href={canonicalUrl} />
+      {/* Standard metadata tags */}
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href={canonicalUrl} />
 
-        <meta name="robots" content={robots} />
-        <meta property="og:site_name" content={siteName} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <script type="application/ld+json">
-          {JSON.stringify(websiteJsonLd)}
-        </script>
+      <meta name="robots" content={robots} />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content={siteName} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <script type="application/ld+json">
+        {JSON.stringify(websiteJsonLd)}
+      </script>
 
     </Helmet>
-)
+  );
 }
