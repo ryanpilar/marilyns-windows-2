@@ -7,15 +7,6 @@ http://marilyns-windows.netlify.app/* https://www.marilynswindows.com/:splat 301
 /pages/* /services 301
 /blogs/* /blog 301
 
-/aboutme/ /aboutme 301!
-/services/ /services 301!
-/gallery/ /gallery 301!
-/blog/ /blog 301!
-/terms/ /terms 301!
-/privacy/ /privacy 301!
-/blog/post/:slug/ /blog/post/:slug 301!
-/gallery/room/:slug/ /gallery/room/:slug 301!
-
 /sitemap.xml /sitemap.xml.gz 301!
 
 /* /index.html 200
