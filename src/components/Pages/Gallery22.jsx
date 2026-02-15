@@ -12,14 +12,15 @@ const Gallery22 = () => {
   const [imageList, setImageList] = useState(null);
   const [bannerContent, setBannerContent] = useState(null);
   const [openCards, setOpenCards] = useState({});
-  const [filters, setFilters] = useState([
+  const [activeFilter, setActiveFilter] = useState("*");
+  const filters = [
     { label: "Bed", filter: ".Bedroom" },
     { label: "Bath", filter: ".Bathroom" },
     { label: "Dine", filter: ".Dining" },
     { label: "Kitchen", filter: ".Kitchen" },
     { label: "Living", filter: ".Living" },
     { label: "Office", filter: ".Office" },
-  ]);
+  ];
 
   const cononicalLocation = useLocation();
 
@@ -117,7 +118,10 @@ const Gallery22 = () => {
         />
 
         {imageList && (
-          <div className="section-full p-t5 p-b90 tm-work-wrap  ">
+          <section
+            className="section-full p-t5 p-b90 tm-work-wrap  "
+            aria-labelledby="gallery-intro-title"
+          >
             <div className="container">
               <div className="container">
                 <div className="">
@@ -138,7 +142,13 @@ const Gallery22 = () => {
                   <div className="col-lg-8 col-md-9 col-sm-12">
                     {/* TITLE START */}
                     <div className="section-head text-left text-black p-t20">
-                      <h2 className="text-uppercase font-34">Explore Our Collection of Beautiful Drapes, Blinds, and Other Unique Works</h2>
+                      <h2
+                        id="gallery-intro-title"
+                        className="text-uppercase font-34"
+                      >
+                        Explore Our Collection of Beautiful Drapes, Blinds, and
+                        Other Unique Works
+                      </h2>
                       <div className="wt-separator-outer">
                         <div className="wt-separator bg-black" />
                       </div>
@@ -159,26 +169,39 @@ const Gallery22 = () => {
                 </div>
                 {/* PAGINATION START */}
                 <div className="filter-wrap p-b50 p-t10">
-                  <ul className="masonry-filter link-style  text-uppercase ">
-                    <li className="active ">
-                      <a
+                  <ul
+                    className="masonry-filter link-style  text-uppercase "
+                    role="toolbar"
+                    aria-label="Filter gallery items by room type"
+                  >
+                    <li className={activeFilter === "*" ? "active" : ""}>
+                      <button
+                        type="button"
                         className="font-30 "
                         data-filter="*"
-                        href="#"
-                        aria-label="Show all items"
+                        aria-label="Show all gallery items"
+                        aria-pressed={activeFilter === "*"}
+                        aria-controls="gallery-grid"
+                        onClick={() => setActiveFilter("*")}
                       >
                         All
-                      </a>
+                      </button>
                     </li>
                     {filters.map((item, index) => (
-                      <li key={index}>
-                        <a
+                      <li
+                        key={index}
+                        className={activeFilter === item.filter ? "active" : ""}
+                      >
+                        <button
+                          type="button"
                           data-filter={item.filter}
-                          href="#"
-                          aria-label="Show select items"
+                          aria-label={`Show ${item.label.toLowerCase()} items`}
+                          aria-pressed={activeFilter === item.filter}
+                          aria-controls="gallery-grid"
+                          onClick={() => setActiveFilter(item.filter)}
                         >
                           {item.label}
-                        </a>
+                        </button>
                       </li>
                     ))}
                   </ul>
@@ -188,7 +211,11 @@ const Gallery22 = () => {
             </div>
 
             {/* GALLERY CONTENT START */}
-            <div className="portfolio-wrap mfp-gallery work-grid clearfix ">
+            <section
+              id="gallery-grid"
+              className="portfolio-wrap mfp-gallery work-grid clearfix "
+              aria-label="Gallery items"
+            >
               <div className="container-fluid ">
                 <div className="row m-lr10 ">
                   {imageList.map((item, index) => (
@@ -274,9 +301,9 @@ const Gallery22 = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </section>
             {/* GALLERY CONTENT END */}
-          </div>
+          </section>
         )}
       </div>
 

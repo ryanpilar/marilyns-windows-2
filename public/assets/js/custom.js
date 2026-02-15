@@ -401,7 +401,7 @@ All JavaScript fuctions Start
 				});
 
             jQuery('.masonry-filter li').on('click',function() {                           
-                var selector = jQuery(this).find("a").attr('data-filter');
+                var selector = jQuery(this).find("[data-filter]").first().attr('data-filter');
                 jQuery('.masonry-filter li').removeClass('active');
                 jQuery(this).addClass('active');
                 $container.isotope({ filter: selector });
@@ -619,7 +619,7 @@ function masonryBox() {
 			});
 
 		jQuery('.masonry-filter li').on('click',function() {                           
-			var selector = jQuery(this).find("a").attr('data-filter');
+			var selector = jQuery(this).find("[data-filter]").first().attr('data-filter');
 			jQuery('.masonry-filter li').removeClass('active');
 			jQuery(this).addClass('active');
 			$container.isotope({ filter: selector });
