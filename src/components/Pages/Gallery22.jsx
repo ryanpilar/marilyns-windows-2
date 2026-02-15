@@ -21,6 +21,7 @@ const Gallery22 = () => {
     { label: "Living", filter: ".Living" },
     { label: "Office", filter: ".Office" },
   ];
+  const filterTabs = [{ label: "All", filter: "*" }, ...filters];
 
   const cononicalLocation = useLocation();
 
@@ -82,6 +83,36 @@ const Gallery22 = () => {
       ...previous,
       [slug]: false,
     }));
+  };
+
+  const handleFilterTabKeyDown = (event, index) => {
+    const horizontalKeys = ["ArrowRight", "ArrowLeft", "Home", "End"];
+    if (!horizontalKeys.includes(event.key)) {
+      return;
+    }
+
+    event.preventDefault();
+
+    let nextIndex = index;
+    if (event.key === "ArrowRight") {
+      nextIndex = (index + 1) % filterTabs.length;
+    } else if (event.key === "ArrowLeft") {
+      nextIndex = (index - 1 + filterTabs.length) % filterTabs.length;
+    } else if (event.key === "Home") {
+      nextIndex = 0;
+    } else if (event.key === "End") {
+      nextIndex = filterTabs.length - 1;
+    }
+
+    const nextFilter = filterTabs[nextIndex].filter;
+    setActiveFilter(nextFilter);
+
+    window.requestAnimationFrame(() => {
+      const nextTab = document.getElementById(`gallery-filter-tab-${nextIndex}`);
+      if (nextTab) {
+        nextTab.focus();
+      }
+    });
   };
 
   // Scroll to top upon page load
@@ -171,39 +202,36 @@ const Gallery22 = () => {
                 <div className="filter-wrap p-b50 p-t10">
                   <ul
                     className="masonry-filter link-style  text-uppercase "
-                    role="toolbar"
+                    role="tablist"
                     aria-label="Filter gallery items by room type"
                   >
-                    <li className={activeFilter === "*" ? "active" : ""}>
-                      <button
-                        type="button"
-                        className="font-30 "
-                        data-filter="*"
-                        aria-label="Show all gallery items"
-                        aria-pressed={activeFilter === "*"}
-                        aria-controls="gallery-grid"
-                        onClick={() => setActiveFilter("*")}
-                      >
-                        All
-                      </button>
-                    </li>
-                    {filters.map((item, index) => (
+                    {filterTabs.map((item, index) => {
+                      const isActive = activeFilter === item.filter;
+                      return (
                       <li
                         key={index}
-                        className={activeFilter === item.filter ? "active" : ""}
+                        role="presentation"
+                        className={isActive ? "active" : ""}
                       >
                         <button
+                          id={`gallery-filter-tab-${index}`}
+                          role="tab"
                           type="button"
                           data-filter={item.filter}
+                          className={index === 0 ? "font-30 " : undefined}
                           aria-label={`Show ${item.label.toLowerCase()} items`}
-                          aria-pressed={activeFilter === item.filter}
+                          aria-selected={isActive}
                           aria-controls="gallery-grid"
+                          tabIndex={isActive ? 0 : -1}
+                          onKeyDown={(event) =>
+                            handleFilterTabKeyDown(event, index)
+                          }
                           onClick={() => setActiveFilter(item.filter)}
                         >
                           {item.label}
                         </button>
                       </li>
-                    ))}
+                    )})}
                   </ul>
                 </div>
                 {/* PAGINATION END */}
@@ -213,14 +241,19 @@ const Gallery22 = () => {
             {/* GALLERY CONTENT START */}
             <section
               id="gallery-grid"
+              role="tabpanel"
+              aria-labelledby={`gallery-filter-tab-${filterTabs.findIndex(
+                (tab) => tab.filter === activeFilter
+              )}`}
               className="portfolio-wrap mfp-gallery work-grid clearfix "
               aria-label="Gallery items"
             >
               <div className="container-fluid ">
-                <div className="row m-lr10 ">
+                <div className="row m-lr10 " role="list">
                   {imageList.map((item, index) => (
                     <div
                       key={index}
+                      role="listitem"
                       className={`${item.fields.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30 `}
                     >
                       <div className="add-box-shadow p-a5">
