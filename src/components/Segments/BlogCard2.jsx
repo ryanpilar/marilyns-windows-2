@@ -42,7 +42,7 @@ const BlogCard2 = ({ item, index }) => {
           </div>
           <div className="wt-post-info p-a20 bg-gray text-black">
             <div className="wt-post-title ">
-              <h2 className="post-title">
+              <h3 className="post-title">
                 <Link
                   to={`/blog/post/${item.fields.slug}`}
                   className="text-black letter-spacing-1 font-weight-600 "
@@ -50,7 +50,7 @@ const BlogCard2 = ({ item, index }) => {
                 <span className=' font-16 no-line-height'>{item.fields.title}</span>
                 
                 </Link>
-              </h2>
+              </h3>
             </div>
             <div className="wt-post-meta ">
               <ul>
