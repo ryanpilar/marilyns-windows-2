@@ -44,7 +44,7 @@ const Home2 = () => {
 
       <Header3 />
 
-      <div className="page-content">
+      <div className="page-content home-page-layout">
         <Slider22 />
         <About />
         <About22 />

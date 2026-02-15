@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import createContentfulClient from "../../utils/createContentfulClient";
 import { Link } from "react-router-dom";
 
@@ -6,12 +6,35 @@ import LazyOwlCarousel from "../Common/LazyOwlCarousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
-const LatestProjects2 = ({ content }) => {
+const LatestProjects2 = ({
+  content,
+  excludedSlug,
+  sectionClassName = "",
+  outerContainerClassName = "",
+  carouselContainerClassName = "",
+  sectionStyle,
+  outerContainerStyle,
+  carouselContainerStyle,
+}) => {
   const [imageList, setImageList] = useState(null);
+  const carouselContainerRef = useRef(null);
+  const SMALL_CARD_WIDTH_THRESHOLD = 225;
+  const SMALL_CARD_MAX_DESCRIPTION_CHARS = 150;
+
+  const truncateDescription = (text, maxChars) => {
+    if (!text || text.length <= maxChars) {
+      return text;
+    }
+
+    const trimmed = text.slice(0, maxChars);
+    const lastSpaceIndex = trimmed.lastIndexOf(" ");
+    const safeText = lastSpaceIndex > 0 ? trimmed.slice(0, lastSpaceIndex) : trimmed;
+    return `${safeText}...`;
+  };
 
   // Connect to Contentful, Fetch Data & Shuffle
   useEffect(() => {
-    const client = createContentfulClient()
+    const client = createContentfulClient();
 
     const selectRandom = (projects) => {
       return shuffle(projects).slice(0, 9);
@@ -42,7 +65,13 @@ const LatestProjects2 = ({ content }) => {
         await client
           .getEntries({ content_type: "gallery" })
           .then((allEntries) => {
-            setImageList(selectRandom(allEntries.items));
+            const filteredProjects = excludedSlug
+              ? allEntries.items.filter(
+                  (item) => item?.fields?.slug !== excludedSlug
+                )
+              : allEntries.items;
+
+            setImageList(selectRandom(filteredProjects));
           });
       } catch (error) {
         console.log("error");
@@ -50,7 +79,54 @@ const LatestProjects2 = ({ content }) => {
     };
 
     getEntry();
-  }, []);
+  }, [excludedSlug]);
+
+  useEffect(() => {
+    const container = carouselContainerRef.current;
+    if (!container) {
+      return;
+    }
+
+    const handleCardClick = (event) => {
+      const closeButton = event.target.closest(".gallery-click-overlay-close");
+      if (closeButton) {
+        event.preventDefault();
+        event.stopPropagation();
+        const card = closeButton.closest(".gallery-click-overlay-card");
+        const overlay = card?.querySelector(".gallery-click-overlay");
+        overlay?.classList.remove("is-open");
+        return;
+      }
+
+      const link = event.target.closest("a");
+      if (link) {
+        return;
+      }
+
+      const card = event.target.closest(".gallery-click-overlay-card");
+      if (!card || !container.contains(card)) {
+        return;
+      }
+
+      const description = card.querySelector(".gallery-click-overlay-description");
+      if (description) {
+        const fullText = description.getAttribute("data-full-text") || "";
+        const isSmallCard = card.getBoundingClientRect().width < SMALL_CARD_WIDTH_THRESHOLD;
+        description.textContent = isSmallCard
+          ? truncateDescription(fullText, SMALL_CARD_MAX_DESCRIPTION_CHARS)
+          : fullText;
+      }
+
+      const overlay = card.querySelector(".gallery-click-overlay");
+      overlay?.classList.toggle("is-open");
+    };
+
+    container.addEventListener("click", handleCardClick);
+
+    return () => {
+      container.removeEventListener("click", handleCardClick);
+    };
+  }, [imageList]);
 
   const options = {
     loop: true,
@@ -96,13 +172,17 @@ const LatestProjects2 = ({ content }) => {
     <>
       <div
         id="work"
-        className="section-full p-t90 square_shape3"
+        className={`section-full p-t90 square_shape3 ${sectionClassName}`.trim()}
+        style={sectionStyle}
       >
-        <div className="container">
+        <div
+          className={`container ${outerContainerClassName}`.trim()}
+          style={outerContainerStyle}
+        >
           <div className="">
             <div className="section-content">
               {/* TITLE START */}
-              <div className="section-head text-left">
+              <div className="section-head text-left gallery-related-title">
                 <div className="row">
                   <div className="col-lg-4 col-md-12 ">
                     <h2 className="text-uppercase font-34">
@@ -118,7 +198,11 @@ const LatestProjects2 = ({ content }) => {
             </div>
           </div>
           {/* IMAGE CAROUSEL START */}
-          <div className="container">
+          <div
+            className={`gallery-related-cards ${carouselContainerClassName}`.trim()}
+            style={carouselContainerStyle}
+            ref={carouselContainerRef}
+          >
             <div className="section-content">
               {imageList && (
                 <LazyOwlCarousel
@@ -131,7 +215,7 @@ const LatestProjects2 = ({ content }) => {
                         key={index}
                         className={`${item.fields.filter} item fadingcol`}
                       >
-                        <div className="wt-img-effect ">
+                        <div className="wt-img-effect gallery-click-overlay-card">
                           <div className="wt-img-black-bg">
                             <div className="img-opacity">
                               <img
@@ -152,23 +236,33 @@ const LatestProjects2 = ({ content }) => {
                               />
                             </div>
                           </div>
-                          <div className="overlay-bx-2 ">
+                          <div className="overlay-bx-2 gallery-click-overlay">
                             <div className="line-amiation">
                               <div className="text-white  font-weight-300 p-a40">
-                                <h2 className="text-white font-20 letter-spacing-1 text-uppercase">
+                                <button
+                                  type="button"
+                                  className="gallery-click-overlay-close"
+                                  aria-label="Close card details"
+                                >
+                                  <span
+                                    className="gallery-click-overlay-close-icon"
+                                    aria-hidden="true"
+                                  ></span>
+                                </button>
+                                <h3 className="text-white font-20 letter-spacing-1 text-uppercase gallery-click-overlay-title">
                                   {item.fields.cardTitle}
-                                </h2>
-                                <p>{item.fields.cardDescription}</p>
-                                <Link to={`/gallery/room/${item.fields.slug}`}>
-                                  <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
-                                    <p>
-                                      <i
-                                        className="fa fa-search"
-                                        aria-hidden="true"
-                                      ></i>{" "}
-                                      Zoom
-                                    </p>
-                                  </div>
+                                </h3>
+                                <p
+                                  className="gallery-click-overlay-description"
+                                  data-full-text={item.fields.cardDescription}
+                                >
+                                  {item.fields.cardDescription}
+                                </p>
+                                <Link
+                                  to={`/gallery/room/${item.fields.slug}`}
+                                  className="gallery-click-overlay-see-more"
+                                >
+                                  See More
                                 </Link>
                               </div>
                             </div>

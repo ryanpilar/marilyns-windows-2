@@ -90,7 +90,7 @@ const About = () => {
           <div className="section-content">
             <div className="row">
               {content ? (
-                <div className="col-md-5 col-sm-12 text-black about-copy">
+                <div className="col-md-5 col-sm-12 text-black about-copy home-copy-offset">
                   <span className="font-22 font-weight-400 text-uppercase ">
                     {content.span}
                   </span>
@@ -123,7 +123,7 @@ const About = () => {
                 </div>
               ) : (
                 <div
-                  className="col-md-5 col-sm-12 text-black about-copy"
+                  className="col-md-5 col-sm-12 text-black about-copy home-copy-offset"
                   aria-hidden="true"
                 >
                   <div className="skeleton skeleton-line" style={{ width: "55%" }} />
@@ -173,11 +173,6 @@ const About = () => {
                 )}
               </div>
             </div>
-
-            {/* <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
-              <strong>30+ Years</strong>
-              <span className="text-black">Working Experience</span>
-            </div> */}
           </div>
         </div>
       </div>
