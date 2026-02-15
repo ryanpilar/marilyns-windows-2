@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import createContentfulClient from "../../utils/createContentfulClient";
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
-import Banner3 from "../Segments/Banner3";
 import LatestProjects2 from "../Segments/LatestProjects2";
 import Footer from "../Common/Footer";
 
@@ -14,7 +13,6 @@ const GallerySingle = () => {
   const { slug } = useParams();
   const [spinner, setSpinner] = useState(true);
   const [imageData, setImageData] = useState(null);
-  const [galleryBanner, setGalleryBanner] = useState(null);
 
   const cononicalLocation = useLocation();
 
@@ -33,14 +31,6 @@ const GallerySingle = () => {
           .then((galleryEntry) => {
             setImageData(galleryEntry.items[0]);
             toggleSpinner();
-          });
-
-        await client
-          .getEntries({ content_type: "banner" })
-          .then((galleryBanner) => {
-            setGalleryBanner(
-              galleryBanner.items[0].fields.backgroundImage[0].secure_url
-            );
           });
       } catch (error) {
         console.log("error");
@@ -73,37 +63,10 @@ const GallerySingle = () => {
 
       <Header3 />
 
-      <div className="page-content">
-        {galleryBanner && (
-          <Banner3
-            title="Gallery Photo"
-            pagename="Blog Post"
-            bgimage={galleryBanner}
-            // posLeft={true}
-            posRight={true}
-          />
-        )}
-
+      <div className="page-content gallery-single-page">
         <div className="">
           <div className="container">
             <div className="">
-              {/* BREADCRUMB ROW START */}
-              <div className="">
-                <div className="p-tb20 m-r40 m-b00">
-                  <div>
-                    <ul className="wt-breadcrumb breadcrumb-style-2">
-                      <li>
-                        <Link to={"/"}>Home</Link>
-                      </li>
-                      <li>
-                        <Link to={"/gallery"}>Gallery</Link>
-                      </li>
-                      <li>High-Def Photo</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              {/* BREADCRUMB ROW END */}
             </div>
           </div>
 
@@ -148,7 +111,7 @@ const GallerySingle = () => {
         </div>
       </div>
 
-      <div className="container p-lr10">
+      <div className="container p-lr10 gallery-single-content-gutter">
         <>
           <div className="">
             <div id="work" className="section-full p-t10 latest_project-outer">
@@ -168,11 +131,11 @@ const GallerySingle = () => {
                             <div className="wt-separator bg-black" />
                           </div>
                         </div>
-                        <div className="">
-                          <p className="p-r30">
-                            {imageData.fields.cardDescription}
-                          </p>
-                        </div>
+<div className="">
+  <p className="p-r30 gallery-single-description">
+    {imageData.fields.cardDescription}
+  </p>
+</div>
                       </div>
                     </div>
                     <div className="row"></div>
@@ -185,7 +148,7 @@ const GallerySingle = () => {
           </div>
         </>
       </div>
-      <div className="container">
+      <div className="container p-lr10 gallery-single-mobile-gutter">
         <div className="">
           <div
             style={{
@@ -200,7 +163,11 @@ const GallerySingle = () => {
       {/* OTHER GALLERY SUGGESTION (CAROUSEL) */}
       {imageData && (
         <div className="page-content">
-          <LatestProjects2 />
+          <LatestProjects2
+            excludedSlug={slug}
+            sectionClassName="gallery-single-related-spacing"
+            outerContainerClassName="p-lr10 gallery-single-mobile-gutter"
+          />
         </div>
       )}
 

@@ -91,7 +91,7 @@ const Services = ({ showButton }) => {
               {/* TITLE START */}
               <div className="section-head text-left">
                 <div className="row m-t30">
-                  <div className="section-head text-white col-lg-4 col-md-12 ">
+                  <div className="section-head text-white col-lg-4 col-md-12 home-copy-offset">
                     <h2 className="text-uppercase font-34 ">
                       Services - a quick view
                     </h2>
@@ -99,8 +99,8 @@ const Services = ({ showButton }) => {
                       <div className="wt-separator bg-white" />
                     </div>
                   </div>
-                  <div className="col-lg-8 col-md-9 col-sm-12 m-b40 ">
-                    <p className="p-r30 text-left text-white font-weight-300">
+                  <div className="col-lg-8 col-md-9 col-sm-12 m-b40 home-copy-offset">
+                    <p className="text-left text-white font-weight-300">
                       We are a Canadian workroom! Specializing in high-end blinds, shades, and shutters, and we
                       also love to finish off rooms and spaces with custom throw pillows,
                       cushions, and other soft furnishings.
@@ -110,12 +110,12 @@ const Services = ({ showButton }) => {
                       one-of-a-kind pieces. */}
                     </p>
 
-                    <p className="p-r30 text-left text-white font-weight-300">
+                    <p className="text-left text-white font-weight-300">
                       Each piece we work on is 
                       meticulously handcrafted and sewn with the finest
                       materials, premium fabrics, and top-of-the-line hardware.
                     </p>
-                    <p className="p-r30 text-left text-white font-weight-300">
+                    <p className="text-left text-white font-weight-300">
                       We have the best window solutions to match your needs,
                       whether you are perfecting an interior design or
                       considering energy efficiency, privacy, automation, light
@@ -202,23 +202,23 @@ const Services = ({ showButton }) => {
                   ))}
                 </div>
 
-                <div className="col-sm-12">
+                <div className="col-sm-12 home-copy-offset">
                   <h2 className="text-brownish">Locations We Serve</h2>
-                  <p className="p-r30 text-left text-white font-18 font-weight-300">
-                    <span className="">Milton</span> |{" "}
-                    <span className="p-lr5">Georgetown</span> |{" "}
-                    <span className="p-lr5">Burlington</span> |{" "}
-                    <span className="p-lr5">Oakville</span> |{" "}
-                    <span className="p-lr5">Mississauga</span> |{" "}
-                    <span className="p-lr5">and surrounding areas...</span>
-                  </p>
+                  <ul className="locations-inline-list text-white font-18 font-weight-300">
+                    <li>Milton</li>
+                    <li>Georgetown</li>
+                    <li>Burlington</li>
+                    <li>Oakville</li>
+                    <li>Mississauga</li>
+                    <li>and surrounding areas...</li>
+                  </ul>
                 </div>
 
                 {showButton && (
                   <div className="col-sm-12 m-tb30 text-center">
                     <Link
                       to={"/services"}
-                      className="btn-half2 site-button button-xl font-weight-600 font-30 m-tb15 text-right"
+                      className="btn-half2 site-button button-lg font-weight-600 font-30 m-tb15 text-right"
                     >
                       <span>Services</span>
                       <em />
@@ -235,3 +235,4 @@ const Services = ({ showButton }) => {
 };
 
 export default Services;
+

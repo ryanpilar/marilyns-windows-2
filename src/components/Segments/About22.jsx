@@ -118,16 +118,6 @@ const About22 = () => {
                                 width={800}
                                 height={500}
                               />
-                              {/* <img
-                                
-                                className="item"
-                                src={item}
-                                alt='test'
-                                data-pin-description='test'
-                                data-caption='test'
-                                width={800}
-                                height={500}
-                              /> */}
                             </div>
                           </div>
                         ))}
@@ -138,13 +128,10 @@ const About22 = () => {
               </div>
 
               {content && (
-                <div className="col-md-5 col-sm-12 text-black  ">
+                <div className="col-md-5 col-sm-12 text-black home-copy-offset">
                 <span className="font-22 font-weight-400 text-uppercase ">
                 Milton & Surrounding Areas
                   </span>
-                  {/* <h2 className="font-22 font-weight-400 text-uppercase ">
-                    Milton & Surrounding Areas
-                  </h2> */}
                   <h2 className="text-uppercase font-30">
                     Handcrafted Window Treatments for Homes & Businesses
                   </h2>
@@ -172,7 +159,7 @@ const About22 = () => {
                     </NavLink>
                     <NavLink
                       to={"/blog"}
-                      className="btn-half text-white site-button adjust-color button-md m-b15 m-r15"
+                      className="btn-half text-white site-button adjust-color button-md m-b15 m-r5"
                     >
                       <span className="p-lr5"> Blog</span>
                       <em />
@@ -183,8 +170,8 @@ const About22 = () => {
             </div>
 
             <div className="hilite-title p-lr20 m-tb20 text-right text-uppercase bdr-gray bdr-right">
-              <strong>30+ Years</strong>
-              <span className="text-black">Working Experience</span>
+              <strong>35+ Years</strong>
+              <span className="text-black">Serving Milton & Halton</span>
             </div>
           </div>
         </div>
@@ -194,3 +181,4 @@ const About22 = () => {
 };
 
 export default About22;
+

@@ -6,6 +6,7 @@ http://marilyns-windows.netlify.app/* https://www.marilynswindows.com/:splat 301
 
 /pages/* /services 301
 /blogs/* /blog 301
+/gallery/room/eloguent-dining-room* /gallery/room/elegant-dining-room 301!
 
 /sitemap.xml /sitemap.xml.gz 301!
 
