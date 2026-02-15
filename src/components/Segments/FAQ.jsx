@@ -207,10 +207,14 @@ const FAQ = () => {
                               <div className="acod-head acc-actives">
                                 <h3 className="acod-title text-uppercase">
                                   <a
+                                    id={`faq-toggle-${index}`}
                                     data-toggle="collapse"
                                     href={`#collapse${index}9`}
                                     className="collapsed"
                                     data-parent="#accordion9"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-controls={`collapse${index}9`}
                                   >
                                     {faq.question}
                                     <i className="fa fa-question text-orange p-l5" />
@@ -224,6 +228,7 @@ const FAQ = () => {
                               <div
                                 id={`collapse${index}9`}
                                 className="acod-body collapse"
+                                aria-labelledby={`faq-toggle-${index}`}
                               >
                                 <div className="acod-content p-tb15">
                                   {faq.answer()}
@@ -237,10 +242,14 @@ const FAQ = () => {
                               <div className="acod-head">
                                 <h3 className="acod-title text-uppercase">
                                   <a
+                                    id={`faq-toggle-${index}`}
                                     data-toggle="collapse"
                                     href={`#collapse${index}9`}
                                     className="collapsed"
                                     data-parent="#accordion9"
+                                    role="button"
+                                    aria-expanded="false"
+                                    aria-controls={`collapse${index}9`}
                                   >
                                     {faq.question}
                                     <i className="fa fa-question text-orange p-l5" />
@@ -254,6 +263,7 @@ const FAQ = () => {
                               <div
                                 id={`collapse${index}9`}
                                 className="acod-body collapse"
+                                aria-labelledby={`faq-toggle-${index}`}
                               >
                                 <div className="acod-content p-tb15">
                                   {faq.answer()}

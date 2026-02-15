@@ -1,7 +1,15 @@
 import React from "react";
 
-const Banner = ({ bgimage, title, posLeft, posRight }) => {
+const Banner = ({
+  bgimage,
+  title,
+  posLeft,
+  posRight,
+  titleTag = "h1",
+  titleDecorative = false,
+}) => {
   const bannerStyle = bgimage ? { backgroundImage: `url(${bgimage})` } : undefined;
+  const TitleTag = titleTag;
 
   return (
     <>
@@ -24,9 +32,12 @@ const Banner = ({ bgimage, title, posLeft, posRight }) => {
                   posRight ? "text-right" : ""
                 }`}
               >
-                <h1 className="text-white hatton text-uppercase one-word-per-line m-b5 p-b5">
+                <TitleTag
+                  className="text-white hatton text-uppercase one-word-per-line banner-main-title m-b5 p-b5"
+                  aria-hidden={titleDecorative ? "true" : undefined}
+                >
                   {title}
-                </h1>
+                </TitleTag>
               </div>
             </>
           )}

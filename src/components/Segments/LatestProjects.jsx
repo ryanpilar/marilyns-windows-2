@@ -58,7 +58,13 @@ const LatestProjects = () => {
         event.stopPropagation();
         const card = closeButton.closest(".gallery-click-overlay-card");
         const overlay = card?.querySelector(".gallery-click-overlay");
-        overlay?.classList.remove("is-open");
+        if (overlay) {
+          overlay.classList.remove("is-open");
+          overlay.setAttribute("aria-hidden", "true");
+        }
+        if (card) {
+          card.setAttribute("aria-expanded", "false");
+        }
         return;
       }
 
@@ -82,13 +88,34 @@ const LatestProjects = () => {
       }
 
       const overlay = card.querySelector(".gallery-click-overlay");
-      overlay?.classList.toggle("is-open");
+      if (overlay) {
+        const isOpen = !overlay.classList.contains("is-open");
+        overlay.classList.toggle("is-open", isOpen);
+        overlay.setAttribute("aria-hidden", isOpen ? "false" : "true");
+        card.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      }
+    };
+
+    const handleCardKeyDown = (event) => {
+      if (event.key !== "Enter" && event.key !== " ") {
+        return;
+      }
+
+      const card = event.target.closest(".gallery-click-overlay-card");
+      if (!card || !container.contains(card)) {
+        return;
+      }
+
+      event.preventDefault();
+      card.click();
     };
 
     container.addEventListener("click", handleCardClick);
+    container.addEventListener("keydown", handleCardKeyDown);
 
     return () => {
       container.removeEventListener("click", handleCardClick);
+      container.removeEventListener("keydown", handleCardKeyDown);
     };
   }, [content]);
 
@@ -194,10 +221,15 @@ const LatestProjects = () => {
         </div>
 
         {/* IMAGE CAROUSEL START */}
-        <div className="section-content gallery-related-cards" ref={carouselContainerRef}>
+        <section
+          className="section-content gallery-related-cards"
+          ref={carouselContainerRef}
+          aria-label="Latest projects gallery cards"
+        >
 
           {content && (
             <LazyOwlCarousel
+              role="list"
               className="owl-carousel owl-carousel-filter  owl-btn-bottom-left "
               {...options}
             >
@@ -205,9 +237,17 @@ const LatestProjects = () => {
                 {selectRandom(content).map((item, index) => (
                   <div
                     key={index}
+                    role="listitem"
                     className={`${item.fields.filter} item fadingcol m-b20 add-box-shadow m-r15 p-a5`}
                   >
-                    <div className="wt-img-effect gallery-click-overlay-card">
+                    <div
+                      className="wt-img-effect gallery-click-overlay-card"
+                      role="button"
+                      tabIndex={0}
+                      aria-expanded="false"
+                      aria-controls={`latest-projects-overlay-${item.fields.slug}-${index}`}
+                      aria-label={`Toggle details for ${item.fields.cardTitle}`}
+                    >
                       <div className="wt-img-black-bg">
                         <div className="img-opacity">
                           <img
@@ -228,7 +268,11 @@ const LatestProjects = () => {
                         </div>
                       </div>
 
-                      <div className="overlay-bx-2 gallery-click-overlay">
+                      <div
+                        id={`latest-projects-overlay-${item.fields.slug}-${index}`}
+                        className="overlay-bx-2 gallery-click-overlay"
+                        aria-hidden="true"
+                      >
                         <div className="line-amiation">
                           <div className="text-white  font-weight-300 p-a40">
                             <button
@@ -268,7 +312,7 @@ const LatestProjects = () => {
               </>
             </LazyOwlCarousel>
           )}
-        </div>
+        </section>
         {/* IMAGE CAROUSEL END */}
 
         <div className="section-content m-t20 m-b40">

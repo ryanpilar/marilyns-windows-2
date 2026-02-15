@@ -94,7 +94,13 @@ const LatestProjects2 = ({
         event.stopPropagation();
         const card = closeButton.closest(".gallery-click-overlay-card");
         const overlay = card?.querySelector(".gallery-click-overlay");
-        overlay?.classList.remove("is-open");
+        if (overlay) {
+          overlay.classList.remove("is-open");
+          overlay.setAttribute("aria-hidden", "true");
+        }
+        if (card) {
+          card.setAttribute("aria-expanded", "false");
+        }
         return;
       }
 
@@ -118,13 +124,34 @@ const LatestProjects2 = ({
       }
 
       const overlay = card.querySelector(".gallery-click-overlay");
-      overlay?.classList.toggle("is-open");
+      if (overlay) {
+        const isOpen = !overlay.classList.contains("is-open");
+        overlay.classList.toggle("is-open", isOpen);
+        overlay.setAttribute("aria-hidden", isOpen ? "false" : "true");
+        card.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      }
+    };
+
+    const handleCardKeyDown = (event) => {
+      if (event.key !== "Enter" && event.key !== " ") {
+        return;
+      }
+
+      const card = event.target.closest(".gallery-click-overlay-card");
+      if (!card || !container.contains(card)) {
+        return;
+      }
+
+      event.preventDefault();
+      card.click();
     };
 
     container.addEventListener("click", handleCardClick);
+    container.addEventListener("keydown", handleCardKeyDown);
 
     return () => {
       container.removeEventListener("click", handleCardClick);
+      container.removeEventListener("keydown", handleCardKeyDown);
     };
   }, [imageList]);
 
@@ -171,7 +198,7 @@ const LatestProjects2 = ({
   return (
     <>
       <div
-        id="work"
+        id="related-gallery-work"
         className={`section-full p-t90 square_shape3 ${sectionClassName}`.trim()}
         style={sectionStyle}
       >
@@ -215,7 +242,14 @@ const LatestProjects2 = ({
                         key={index}
                         className={`${item.fields.filter} item fadingcol`}
                       >
-                        <div className="wt-img-effect gallery-click-overlay-card">
+                        <div
+                          className="wt-img-effect gallery-click-overlay-card"
+                          role="button"
+                          tabIndex={0}
+                          aria-expanded="false"
+                          aria-controls={`related-gallery-overlay-${item.fields.slug}-${index}`}
+                          aria-label={`Toggle details for ${item.fields.cardTitle}`}
+                        >
                           <div className="wt-img-black-bg">
                             <div className="img-opacity">
                               <img
@@ -236,7 +270,11 @@ const LatestProjects2 = ({
                               />
                             </div>
                           </div>
-                          <div className="overlay-bx-2 gallery-click-overlay">
+                          <div
+                            id={`related-gallery-overlay-${item.fields.slug}-${index}`}
+                            className="overlay-bx-2 gallery-click-overlay"
+                            aria-hidden="true"
+                          >
                             <div className="line-amiation">
                               <div className="text-white  font-weight-300 p-a40">
                                 <button

@@ -49,7 +49,9 @@ const Service2 = ({ testimonial }) => {
           <div  className="max-mid-container ">
             {/* TITLE START */}
             <div  className="section-head text-left text-black">
-              <h2 className="text-uppercase font-34">Overview</h2>
+              <h1 className="text-uppercase font-34 font-weight-500 m-t20">
+                Overview: Custom Window Treatments
+              </h1>
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />
               </div>
@@ -58,75 +60,77 @@ const Service2 = ({ testimonial }) => {
             <div className="blog-post date-style-1 blog-detail text-black m-tauto ">
               <div className="row">
                 <div className="wt-post-text col-md-4 col-sm-12 col-xs-12 float-right ">
-                  <h2 className="font-weight-500 text-uppercase font-16 m-t0 m-b5 p-t0">
+                  <h3 className="font-weight-500 text-uppercase font-16 m-t0 m-b5 p-t0">
                     Quick Links
-                  </h2>
-                  <ul className="p-l40 ">
-                    <li className="m-a0">
-                      <HashLink
-                        smooth
-                        className="link-style font-14 text-uppercase p-lr10"
-                        to="#locations"
-                        aria-label="scroll down to locations served"
-                      >
-                        Location
-                      </HashLink>
-                    </li>
-                    <li className="">
-                      <HashLink
-                        smooth
-                        className="link-style font-14 text-uppercase p-lr10"
-                        to="#selectServices"
-                        aria-label="scroll down to select services"
-                      >
-                        Select Services
-                      </HashLink>
-                    </li>
+                  </h3>
+                  <nav aria-label="Quick links">
+                    <ul className="p-l40 ">
+                      <li className="m-a0">
+                        <HashLink
+                          smooth
+                          className="link-style font-14 text-uppercase p-lr10"
+                          to="#locations"
+                          aria-label="scroll down to locations served"
+                        >
+                          Location
+                        </HashLink>
+                      </li>
+                      <li className="">
+                        <HashLink
+                          smooth
+                          className="link-style font-14 text-uppercase p-lr10"
+                          to="#selectServices"
+                          aria-label="scroll down to select services"
+                        >
+                          Select Services
+                        </HashLink>
+                      </li>
 
-                    <li className="">
-                      <HashLink
-                        smooth
-                        className="link-style font-14 text-uppercase p-lr10"
-                        to="#designProcess"
-                        aria-label="scroll down to design process"
-                      >
-                        The Design Process
-                      </HashLink>
-                    </li>
+                      <li className="">
+                        <HashLink
+                          smooth
+                          className="link-style font-14 text-uppercase p-lr10"
+                          to="#designProcess"
+                          aria-label="scroll down to design process"
+                        >
+                          The Design Process
+                        </HashLink>
+                      </li>
 
-                    <li className="">
-                      <HashLink
-                        smooth
-                        className="link-style font-14 text-uppercase p-lr10"
-                        to="#clientsLogo"
-                        aria-label="scroll down to premium suppliers served"
-                      >
-                        Our Premium Suppliers
-                      </HashLink>
-                    </li>
+                      <li className="">
+                        <HashLink
+                          smooth
+                          className="link-style font-14 text-uppercase p-lr10"
+                          to="#clientsLogo"
+                          aria-label="scroll down to premium suppliers served"
+                        >
+                          Our Premium Suppliers
+                        </HashLink>
+                      </li>
 
-                    <li className="">
-                      <HashLink
-                        smooth
-                        className="link-style font-14 text-uppercase p-lr10"
-                        to="#faq"
-                        aria-label="scroll down to contact us"
-                      >
-                        FAQ 
-                      </HashLink>
-                    </li>
+                      <li className="">
+                        <HashLink
+                          smooth
+                          className="link-style font-14 text-uppercase p-lr10"
+                          to="#faq"
+                          aria-label="scroll down to contact us"
+                        >
+                          FAQ
+                        </HashLink>
+                      </li>
 
-                    <li className="">
-                      <HashLink
-                        smooth
-                        className="link-style font-14 text-uppercase p-lr10"
-                        to="#contact"
-                        aria-label="scroll down to contact us"
-                      >
-                        Contact Us
-                      </HashLink>
-                    </li>
-                  </ul>
+                      <li className="">
+                        <HashLink
+                          smooth
+                          className="link-style font-14 text-uppercase p-lr10"
+                          to="#contact"
+                          aria-label="scroll down to contact us"
+                        >
+                          Contact Us
+                        </HashLink>
+                      </li>
+                    </ul>
+                  </nav>
                 </div>
                 <div className="wt-post-text col-md-8 col-sm-12 col-xs-12">
                   <div className="">
@@ -245,7 +249,7 @@ const Service2 = ({ testimonial }) => {
               <div className="section-content m-b50 max-height">
                 <div className="row ">
                   <div className="row ">
-                    <div id="customDraperey ">
+                    <div id="customDraperyItem">
                       <ServiceCard
                         title={selectServices[0].title}
                         description={selectServices[0].description}
@@ -276,7 +280,7 @@ const Service2 = ({ testimonial }) => {
                       </ServiceCard>
                     </div>
 
-                    <div id="draperyHardware max-height">
+                    <div id="draperyHardware">
                       <ServiceCard
                         title={selectServices[1].title}
                         description={selectServices[1].description}
