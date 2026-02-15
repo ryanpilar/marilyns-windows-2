@@ -49,7 +49,9 @@ const Service2 = ({ testimonial }) => {
           <div  className="max-mid-container ">
             {/* TITLE START */}
             <div  className="section-head text-left text-black">
-              <h2 className="text-uppercase font-34">Overview</h2>
+              <h1 className="text-uppercase font-34 font-weight-500 m-t20">
+                Overview: Custom Window Treatments
+              </h1>
               <div className="wt-separator-outer">
                 <div className="wt-separator bg-black" />
               </div>
@@ -58,9 +60,9 @@ const Service2 = ({ testimonial }) => {
             <div className="blog-post date-style-1 blog-detail text-black m-tauto ">
               <div className="row">
                 <div className="wt-post-text col-md-4 col-sm-12 col-xs-12 float-right ">
-                  <h2 className="font-weight-500 text-uppercase font-16 m-t0 m-b5 p-t0">
+                  <h3 className="font-weight-500 text-uppercase font-16 m-t0 m-b5 p-t0">
                     Quick Links
-                  </h2>
+                  </h3>
                   <ul className="p-l40 ">
                     <li className="m-a0">
                       <HashLink

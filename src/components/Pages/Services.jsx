@@ -95,7 +95,9 @@ const Services = () => {
       <div className="page-content">
         <Banner
           heading="Services"
-          title="Our Services Offered"
+          title="Our Services"
+          titleTag="div"
+          titleDecorative={true}
           pagename="Services"
           bgimage={banner?.image}
           posLeft={true}
