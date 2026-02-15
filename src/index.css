@@ -205,6 +205,38 @@ code {
   padding-left: 0 !important;
 }
 
+.masonry-filter > li button {
+  background: none;
+  border: 0;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 450;
+  cursor: pointer;
+  text-transform: inherit;
+  font-family: inherit;
+}
+
+.masonry-filter > li.active button,
+.masonry-filter > li button:hover,
+.masonry-filter > li button:active,
+.masonry-filter > li button:focus {
+  color: rgb(235, 172, 89);
+}
+
+.masonry-filter.link-style > li button {
+  font-size: 19px;
+  font-weight: 400;
+  margin: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  .masonry-filter > li button {
+    font-size: 14px !important;
+  }
+}
+
 @container gallery-card (max-width: 299px) {
   .gallery-click-overlay .text-white {
     padding: 28px 28px 24px 34px !important;
