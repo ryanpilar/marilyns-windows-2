@@ -297,17 +297,17 @@ const Service2 = ({ testimonial }) => {
                         <ul className="list-simple list-check m-b0">
                           <li className="m-l10">
                             <span className="m-l10">
-                              can fit unique shapes & angles
+                              Unique shapes & angles
                             </span>
                           </li>
                           <li className="m-l10">
                             <span className="m-l10">
-                              has many paint & finish options
+                              Many paint & finish options
                             </span>
                           </li>
                           <li className="m-l10">
                             <span className="m-l10">
-                              can be motorized & automated
+                              Motorized & automated
                             </span>
                           </li>
                         </ul>

@@ -11,6 +11,7 @@ import Footer from "../Common/Footer";
 const Gallery22 = () => {
   const [imageList, setImageList] = useState(null);
   const [bannerContent, setBannerContent] = useState(null);
+  const [openCards, setOpenCards] = useState({});
   const [filters, setFilters] = useState([
     { label: "Bed", filter: ".Bedroom" },
     { label: "Bath", filter: ".Bathroom" },
@@ -65,6 +66,22 @@ const Gallery22 = () => {
 
     loadMasonryAssets();
   }, [imageList]);
+
+  const toggleCardOverlay = (slug) => {
+    setOpenCards((previous) => ({
+      ...previous,
+      [slug]: !previous[slug],
+    }));
+  };
+
+  const closeCardOverlay = (event, slug) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setOpenCards((previous) => ({
+      ...previous,
+      [slug]: false,
+    }));
+  };
 
   // Scroll to top upon page load
   useEffect(() => {
@@ -180,7 +197,19 @@ const Gallery22 = () => {
                       className={`${item.fields.filter} masonry-item col-lg-3 col-md-6 col-sm-6 m-b30 `}
                     >
                       <div className="add-box-shadow p-a5">
-                        <div className="wt-img-effect wt-img-black-bg ">
+                        <div
+                          className="wt-img-effect wt-img-black-bg gallery-click-overlay-card"
+                          onClick={() => toggleCardOverlay(item.fields.slug)}
+                          onKeyDown={(event) => {
+                            if (event.key === "Enter" || event.key === " ") {
+                              event.preventDefault();
+                              toggleCardOverlay(item.fields.slug);
+                            }
+                          }}
+                          role="button"
+                          tabIndex={0}
+                          aria-label={`Toggle details for ${item.fields.cardTitle}`}
+                        >
                           <div className="img-opacity ">
                             <img
                               src={item.fields.smallImage[0].secure_url}
@@ -203,23 +232,38 @@ const Gallery22 = () => {
                               height={560}
                             />
                           </div>
-                          <div className="overlay-bx-2 ">
+                          <div
+                            className={`overlay-bx-2 gallery-click-overlay${
+                              openCards[item.fields.slug] ? " is-open" : ""
+                            }`}
+                          >
                             <div className="line-amiation">
                               <div className="text-white font-weight-300 p-a40">
-                                <h2>{item.fields.cardTitle}</h2>
-                                <p>{item.fields.cardDescription}</p>
+                                <button
+                                  type="button"
+                                  className="gallery-click-overlay-close"
+                                  aria-label="Close card details"
+                                  onClick={(event) =>
+                                    closeCardOverlay(event, item.fields.slug)
+                                  }
+                                >
+                                  <span
+                                    className="gallery-click-overlay-close-icon"
+                                    aria-hidden="true"
+                                  ></span>
+                                </button>
+                                <h3 className="gallery-click-overlay-title text-white font-20 letter-spacing-1 text-uppercase">
+                                  {item.fields.cardTitle}
+                                </h3>
+                                <p className="gallery-click-overlay-description">
+                                  {item.fields.cardDescription}
+                                </p>
                                 <NavLink
                                   to={`/gallery/room/${item.fields.slug}`}
+                                  className="gallery-click-overlay-see-more"
+                                  onClick={(event) => event.stopPropagation()}
                                 >
-                                  <div className="v-button letter-spacing-4 font-18 text-uppercase p-l15 make-pointer">
-                                    <p className="font-22">
-                                      <i
-                                        className="fa fa-search"
-                                        aria-hidden="true"
-                                      ></i>{" "}
-                                      Zoom
-                                    </p>
-                                  </div>
+                                  See More
                                 </NavLink>
                               </div>
                             </div>
