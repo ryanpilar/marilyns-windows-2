@@ -100,6 +100,14 @@ code {
   opacity: 1;
 }
 
+.portfolio-wrap .gallery-click-overlay-card .img-opacity {
+  transition: opacity 0.2s ease;
+}
+
+.portfolio-wrap .gallery-click-overlay-card:hover .img-opacity {
+  opacity: 1;
+}
+
 .gallery-click-overlay {
   opacity: 0 !important;
   pointer-events: none;
@@ -292,5 +300,33 @@ code {
   .home-page-layout .m-carousel-1.mod {
     margin-left: 0 !important;
     margin-right: 0 !important;
+  }
+}
+
+@container gallery-card (min-width: 380px) {
+  .portfolio-wrap .gallery-click-overlay .gallery-click-overlay-title,
+  .gallery-related-cards .gallery-click-overlay .gallery-click-overlay-title,
+  .gallery-click-overlay .gallery-click-overlay-title {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+    margin-top: 22px !important;
+    margin-left: 10px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .portfolio-wrap .gallery-click-overlay p,
+  .gallery-related-cards .gallery-click-overlay p,
+  .gallery-click-overlay p,
+  .gallery-click-overlay .gallery-click-overlay-description {
+    font-size: 19px !important;
+    line-height: 1.45 !important;
+    margin-left: 10px !important;
+  }
+
+  .portfolio-wrap .gallery-click-overlay .gallery-click-overlay-see-more,
+  .gallery-related-cards .gallery-click-overlay .gallery-click-overlay-see-more,
+  .gallery-click-overlay .gallery-click-overlay-see-more {
+    margin-left: 10px !important;
+    padding: 10px 16px !important;
   }
 }

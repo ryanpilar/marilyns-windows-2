@@ -1,4 +1,3 @@
-import { HashLink } from "react-router-hash-link";
 
 import SEO from "../Segments/SEO";
 import AboutImages2 from "./AboutImages2";
@@ -7,20 +6,6 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 
 const About2 = ({ images }) => {
   const hasImages = images?.images?.length;
-  
-  // const options = {
-  //   loop: true,
-  //   autoplay: true,
-  //   autoplayTimeout: 3000,
-  //   margin: 30,
-  //   nav: true,
-  //   navText: [
-  //     '<i class="fa fa-angle-left"></i>',
-  //     '<i class="fa fa-angle-right"></i>',
-  //   ],
-  //   items: 1,
-  //   dots: false,
-  // };
 
   return (
     <>
@@ -32,14 +17,14 @@ const About2 = ({ images }) => {
 
       <div className="section-content ">
         {/* TITLE START */}
-        <div className="p-b40 p-l30 text-left ">
+        <div className="p-b40 p-l10 text-left ">
           <div className="wt-separator bg-black" />
         </div>
         {/* TITLE END */}
 
 
 
-        <div className="row p-l30">
+        <div className="row p-l10">
           <div className="wt-post-text col-md-8 col-sm-12 col-xs-12 p-l15 p-b15">
             <div className="">
               <span className="font-24 font-weight-300 text-uppercase m-b20">

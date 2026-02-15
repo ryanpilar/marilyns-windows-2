@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import {useParams, useLocation, NavLink} from "react-router-dom";
 import createContentfulClient from "../../utils/createContentfulClient";
 import SEO from "../Segments/SEO";
 import Header3 from "../Common/Header3";
@@ -71,6 +71,21 @@ const GallerySingle = () => {
           </div>
 
           <div className="container">
+              {/* BREADCRUMB ROW START*/}
+              <div className="p-t20 m-r20">
+                  <div>
+                      <ul className="wt-breadcrumb breadcrumb-style-2">
+                          <li>
+                              <NavLink to={"/"}>Home</NavLink>
+                          </li>
+                          <li>
+                              <NavLink to={"/gallery"}>Gallery</NavLink>
+                          </li>
+                          {imageData && <li>{imageData.fields.cardTitle}</li>}
+
+                      </ul>
+                  </div>
+              </div>
             <div className="">
 
               {/* IMG CONTENT START */}
