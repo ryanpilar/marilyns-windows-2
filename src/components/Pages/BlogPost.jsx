@@ -60,7 +60,7 @@ const BlogPost = () => {
 
     getBanner();
     getEntry();
-  }, []);
+  }, [slug]);
 
   // Scroll to top upon page load
   useEffect(() => {
@@ -195,6 +195,8 @@ const BlogPost = () => {
           {blogPostBanner && (
             <Banner3
               title="Blog Posting"
+              titleTag="div"
+              titleDecorative={true}
               pagename="Blog Post"
               bgimage={blogPostBanner}
               // posLeft={true}
@@ -209,7 +211,7 @@ const BlogPost = () => {
                   {/* BREADCRUMB START */}
                   <div className="">
                     <div className="p-t20 m-r20">
-                      <div>
+                      <nav aria-label="Breadcrumb">
                         <ul className="wt-breadcrumb breadcrumb-style-2">
                           <li>
                             <Link to={"/"}>Home</Link>
@@ -219,7 +221,7 @@ const BlogPost = () => {
                           </li>
                           <li>Post</li>
                         </ul>
-                      </div>
+                      </nav>
                     </div>
                   </div>
                   {/* BREADCRUMB END */}
@@ -268,11 +270,11 @@ const BlogPost = () => {
                         <div className="">
                           {/* BLOG DETAILS */}
                           <div className="wt-post-title ">
-                            <h2 className="post-title">
+                            <h1 className="post-title">
                               <span className="text-black font-45 letter-spacing-1">
                                 {singleBlogPost?.fields?.descriptiveTitle}
                               </span>
-                            </h2>
+                            </h1>
                           </div>
                           <div className="wt-post-meta">
                             <ul>

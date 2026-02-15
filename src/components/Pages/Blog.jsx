@@ -89,14 +89,14 @@ const Blog = () => {
             {/* BREADCRUMB ROW */}
             <div className="">
               <div className="p-t20 m-r20">
-                <div>
+                <nav aria-label="Breadcrumb">
                   <ul className="wt-breadcrumb breadcrumb-style-2">
                     <li>
                       <Link to={"/"}>Home</Link>
                     </li>
                     <li>Blog</li>
                   </ul>
-                </div>
+                </nav>
               </div>
             </div>
             {/* BREADCRUMB ROW END */}
@@ -198,7 +198,7 @@ const Blog = () => {
                       </div>
                       <div className="wt-post-info p-tb30 text-black">
                         <div className="wt-post-title ">
-                          <h2 className="post-title">
+                          <h3 className="post-title">
                             <Link
                               to={`/blog/post/${blogPost.items[0].fields.slug}`}
                               className="text-black font-18 letter-spacing-1 font-weight-600"
@@ -206,7 +206,7 @@ const Blog = () => {
                             >
                               {blogPost.items[0].fields.descriptiveTitle}
                             </Link>
-                          </h2>
+                          </h3>
                         </div>
                         <div className="wt-post-meta ">
                           <ul>

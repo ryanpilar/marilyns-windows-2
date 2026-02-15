@@ -1,6 +1,14 @@
 import React from 'react'
 
-const Banner3 = ({ bgimage, title, posLeft, posRight }) => {
+const Banner3 = ({
+  bgimage,
+  title,
+  posLeft,
+  posRight,
+  titleTag = "h1",
+  titleDecorative = false,
+}) => {
+    const TitleTag = titleTag;
     // console.log('bgimg', bgimage)
   return (
     <>
@@ -15,9 +23,12 @@ const Banner3 = ({ bgimage, title, posLeft, posRight }) => {
           {title && (
             <>
               <div className={`${posLeft ? 'text-left' : ''} ${posRight ? 'text-right' : ''}`}>
-                <h1 className="text-white hatton text-uppercase one-word-per-line m-b5 p-b5">
+                <TitleTag
+                  className="text-white hatton text-uppercase one-word-per-line banner-main-title m-b5 p-b5"
+                  aria-hidden={titleDecorative ? "true" : undefined}
+                >
                   {title}
-                </h1>
+                </TitleTag>
               </div>
             </>
           )}
