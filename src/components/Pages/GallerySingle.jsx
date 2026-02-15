@@ -38,7 +38,7 @@ const GallerySingle = () => {
     };
 
     getContentfulEntries();
-  }, []);
+  }, [slug]);
 
   useEffect(() => {
     window.addEventListener("load", () => {
@@ -72,7 +72,7 @@ const GallerySingle = () => {
 
           <div className="container">
               {/* BREADCRUMB ROW START*/}
-              <div className="p-t20 m-r20">
+              <div className="p-t20 m-r20 m-b10">
                   <div>
                       <ul className="wt-breadcrumb breadcrumb-style-2">
                           <li>
@@ -129,7 +129,7 @@ const GallerySingle = () => {
       <div className="container p-lr10 gallery-single-content-gutter">
         <>
           <div className="">
-            <div id="work" className="section-full p-t10 latest_project-outer">
+            <div id="gallery-single-work" className="section-full p-t10 latest_project-outer">
               <div className=""></div>
 
               {/* TITLE HEADING AND PARAGRAPH START */}
@@ -139,9 +139,9 @@ const GallerySingle = () => {
                     <div className="row">
                       <div className="col-md-7 col-lg-7">
                         <div className="">
-                          <h2 className="text-uppercase font-34">
+                          <h1 className="text-uppercase font-34">
                             {imageData.fields.cardTitle}
-                          </h2>
+                          </h1>
                           <div className="wt-separator-outer">
                             <div className="wt-separator bg-black" />
                           </div>
