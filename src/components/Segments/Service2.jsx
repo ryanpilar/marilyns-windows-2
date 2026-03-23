@@ -134,11 +134,6 @@ const Service2 = ({ testimonial }) => {
                 </div>
                 <div className="wt-post-text col-md-8 col-sm-12 col-xs-12">
                   <div className="">
-                    {/* <p>
-                      For over 30 years, Marilyn’s Windows has been providing
-                      exquisitely handcrafted custom drapery to luxury homeowners,
-                      interior designers, home builders and commercial clients.
-                    </p> */}
                     <p>
                       Marilyn’s Windows is a high-end workroom that designs and
                       manufactures all forms of custom window coverings.
@@ -174,7 +169,7 @@ const Service2 = ({ testimonial }) => {
             </div>
             {/* TITLE END */}
             <div className="blog-post date-style-1 blog-detail text-black">
-              <div className="wt-post-text p-b30 col-md-8 col-sm-12 ">
+              <div className="wt-post-text p-b30 col-md-8 col-sm-12 p-lr0">
                 <p>
                   Providing custom window treatment design solutions for
                   residential and commercial spaces across the Halton Region:
@@ -197,7 +192,7 @@ const Service2 = ({ testimonial }) => {
                       <span className="">Georgetown</span>
                     </li>
                     <li>
-                      <span className="">and surrounding areas</span>
+                      <span className="">Halton & surrounding areas</span>
                     </li>
                   </ul>
                   <HashLink
