@@ -9,14 +9,11 @@ const Banner3 = ({
   titleDecorative = false,
 }) => {
     const TitleTag = titleTag;
-    // console.log('bgimg', bgimage)
   return (
     <>
     
       <div
         className="wt-bnr-inr3 overlay-wraper bg-parallax bg-top-center "
-        // data-stellar-background-ratio="0.5"
-        // style={{ backgroundImage: "url(" + bgimage + ")" }}
       >
         <div className="overlay-main bg-black opacity-01 " />
         <div className={`container ${posLeft ? `flex-bottom-left` : ''} ${posRight ? `flex-bottom-right` : ''}` }>
@@ -24,7 +21,7 @@ const Banner3 = ({
             <>
               <div className={`${posLeft ? 'text-left' : ''} ${posRight ? 'text-right' : ''}`}>
                 <TitleTag
-                  className="text-white hatton text-uppercase one-word-per-line banner-main-title m-b5 p-b5"
+                  className="text-white hatton text-uppercase one-word-per-line banner-main-title m-t5 m-b5 p-t15 p-b5"
                   aria-hidden={titleDecorative ? "true" : undefined}
                 >
                   {title}

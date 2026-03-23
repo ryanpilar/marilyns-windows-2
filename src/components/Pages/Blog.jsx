@@ -130,11 +130,6 @@ const Blog = () => {
                     inspiration, tips and tricks, and behind-the-scenes stories
                     from our projects.
                   </p>
-                  <p className="p-r30 text-left">
-                    Whether you're a homeowner, designer, or just looking for
-                    inspiration, we invite you to explore the world of window
-                    coverings with us.
-                  </p>
                 </div>
               </div>
             </div>
