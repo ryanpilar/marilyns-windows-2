@@ -61,9 +61,11 @@ const LatestProjects = () => {
         if (overlay) {
           overlay.classList.remove("is-open");
           overlay.setAttribute("aria-hidden", "true");
+          overlay.setAttribute("inert", "");
         }
         if (card) {
           card.setAttribute("aria-expanded", "false");
+          card.focus();
         }
         return;
       }
@@ -92,12 +94,21 @@ const LatestProjects = () => {
         const isOpen = !overlay.classList.contains("is-open");
         overlay.classList.toggle("is-open", isOpen);
         overlay.setAttribute("aria-hidden", isOpen ? "false" : "true");
+        if (isOpen) {
+          overlay.removeAttribute("inert");
+        } else {
+          overlay.setAttribute("inert", "");
+        }
         card.setAttribute("aria-expanded", isOpen ? "true" : "false");
       }
     };
 
     const handleCardKeyDown = (event) => {
       if (event.key !== "Enter" && event.key !== " ") {
+        return;
+      }
+
+      if (event.target.closest("a, button")) {
         return;
       }
 
@@ -270,6 +281,7 @@ const LatestProjects = () => {
                         id={`latest-projects-overlay-${item.fields.slug}-${index}`}
                         className="overlay-bx-2 gallery-click-overlay"
                         aria-hidden="true"
+                        inert=""
                       >
                         <div className="line-amiation">
                           <div className="text-white  font-weight-300 p-a40">
@@ -299,7 +311,10 @@ const LatestProjects = () => {
                               to={`/gallery/room/${item.fields.slug}`}
                               className="gallery-click-overlay-see-more"
                             >
-                              See More
+                              View Project
+                              <span className="sr-only">
+                                : {item.fields.cardTitle}
+                              </span>
                             </Link>
                           </div>
                         </div>
