@@ -79,10 +79,14 @@ const Gallery22 = () => {
   const closeCardOverlay = (event, slug) => {
     event.preventDefault();
     event.stopPropagation();
+    const card = event.currentTarget.closest(".gallery-click-overlay-card");
     setOpenCards((previous) => ({
       ...previous,
       [slug]: false,
     }));
+    if (card) {
+      card.focus();
+    }
   };
 
   const handleFilterTabKeyDown = (event, index) => {
@@ -300,6 +304,8 @@ const Gallery22 = () => {
                             className={`overlay-bx-2 gallery-click-overlay${
                               openCards[item.fields.slug] ? " is-open" : ""
                             }`}
+                            aria-hidden={!openCards[item.fields.slug]}
+                            inert={openCards[item.fields.slug] ? undefined : ""}
                           >
                             <div className="line-amiation">
                               <div className="text-white font-weight-300 p-a40">
@@ -327,7 +333,10 @@ const Gallery22 = () => {
                                   className="gallery-click-overlay-see-more"
                                   onClick={(event) => event.stopPropagation()}
                                 >
-                                  See More
+                                  View Project
+                                  <span className="sr-only">
+                                    : {item.fields.cardTitle}
+                                  </span>
                                 </NavLink>
                               </div>
                             </div>
