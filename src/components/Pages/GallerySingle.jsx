@@ -55,10 +55,19 @@ const GallerySingle = () => {
   return (
     <>
       <SEO
-        title={`Gallery | ${imageData?.fields?.cardTitle}`}
-        description={`${imageData?.fields?.metaDescription}`}
+        title={imageData?.fields?.cardTitle
+          ? `Gallery | ${imageData.fields.cardTitle}`
+          : "Gallery Project | Marilyn's Windows & Interiors"}
+        description={imageData?.fields?.metaDescription ||
+          "Explore a custom drapery and window treatment project from Marilyn's Windows & Interiors."}
         location={ cononicalLocation.pathname }
         robots={'index, follow'}
+        breadcrumbs={imageData?.fields ? [
+          {name: "Home", path: "/"},
+          {name: "Gallery", path: "/gallery"},
+          {name: imageData.fields.cardTitle, path: cononicalLocation.pathname},
+        ] : []}
+        image={imageData?.fields?.largeImage?.[0]?.secure_url}
       />
 
       <Header3 />
@@ -73,7 +82,7 @@ const GallerySingle = () => {
           <div className="container">
               {/* BREADCRUMB ROW START*/}
               <div className="p-t20 m-r20 m-b10">
-                  <div>
+                  <nav aria-label="Breadcrumb">
                       <ul className="wt-breadcrumb breadcrumb-style-2">
                           <li>
                               <NavLink to={"/"}>Home</NavLink>
@@ -84,7 +93,7 @@ const GallerySingle = () => {
                           {imageData && <li>{imageData.fields.cardTitle}</li>}
 
                       </ul>
-                  </div>
+                  </nav>
               </div>
             <div className="">
 

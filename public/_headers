@@ -1,0 +1,39 @@
+# Fingerprinted Create React App assets can be cached permanently.
+/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Font files change rarely, but these legacy paths are not fingerprinted.
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000
+
+/assets/css/fontawesome/fonts/*
+  Cache-Control: public, max-age=31536000
+
+/assets/plugins/revolution/revolution/fonts/font-awesome/fonts/*
+  Cache-Control: public, max-age=31536000
+
+/assets/plugins/revolution/revolution/fonts/pe-icon-7-stroke/fonts/*
+  Cache-Control: public, max-age=31536000
+
+/assets/plugins/revolution/revolution/fonts/revicons/*
+  Cache-Control: public, max-age=31536000
+
+/assets/plugins/revolution/revolution-addons/weather/css/fonts/*
+  Cache-Control: public, max-age=31536000
+
+/assets/plugins/revolution-addons/weather/css/fonts/*
+  Cache-Control: public, max-age=31536000
+
+# Unfingerprinted legacy assets should refresh quickly after a deployment.
+/assets/css/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/assets/js/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/assets/plugins/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# HTML and other unfingerprinted files are revalidated before reuse.
+/*
+  Cache-Control: public, max-age=0, must-revalidate

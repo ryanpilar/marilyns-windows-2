@@ -71,6 +71,10 @@ const Blog = () => {
         description={`Interesting articles about window treatments and the wonderful world of drapery. Learn about industry trends, gain good advice, or read frequently asked questions.`}
         location={ cononicalLocation.pathname }
         robots={'index, follow'}
+        breadcrumbs={[
+          {name: "Home", path: "/"},
+          {name: "Blog", path: "/blog"},
+        ]}
       />
 
       <Header3 />

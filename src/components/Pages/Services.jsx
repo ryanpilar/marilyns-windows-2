@@ -87,7 +87,10 @@ const Services = () => {
         description={`Specializing in custom drapery, high-end blinds and custom soft furnishings. Marilyn's work defines the art of couture drapery and window treatment design.`}
         location={ cononicalLocation.pathname }
         robots={'index, follow'}
-
+        breadcrumbs={[
+          {name: "Home", path: "/"},
+          {name: "Services", path: "/services"},
+        ]}
       />
 
       <Header3 />
