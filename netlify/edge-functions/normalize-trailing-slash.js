@@ -30,5 +30,5 @@ export const config = {
     "/terms/",
     "/privacy/",
   ],
-  method: ["GET", "HEAD"],
+  method: ["GET"],
 };
