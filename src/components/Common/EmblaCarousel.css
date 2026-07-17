@@ -1,0 +1,167 @@
+.embla-section-carousel {
+  --embla-slide-gap: 0px;
+  --embla-slide-size: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.embla-section-carousel__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.embla-section-carousel__container {
+  display: flex;
+  margin: 0;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla-section-carousel__slide {
+  flex: 0 0 var(--embla-slide-size);
+  margin-right: var(--embla-slide-gap);
+  min-width: 0;
+}
+
+.embla-section-carousel__navigation {
+  height: 35px;
+}
+
+.embla-section-carousel__button {
+  background-color: #000;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  height: 35px;
+  padding: 8px 10px;
+  text-align: center;
+  width: 35px;
+}
+
+.embla-section-carousel__button--previous {
+  margin-right: 5px;
+}
+
+.embla-section-carousel__button--next {
+  margin-left: 5px;
+}
+
+.embla-section-carousel__button:hover,
+.embla-section-carousel__button:active,
+.embla-section-carousel__button:focus {
+  background-color: #212121;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.embla-section-carousel__button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.embla-latest-projects {
+  --embla-slide-gap: 20px;
+}
+
+.embla-latest-projects .embla-section-carousel__navigation {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.embla-suppliers {
+  --embla-slide-gap: 10px;
+}
+
+.embla-suppliers .embla-section-carousel__viewport {
+  height: 140px;
+}
+
+.embla-suppliers .ow-client-logo img {
+  display: inline-block;
+  max-height: 100%;
+  width: auto;
+}
+
+.embla-suppliers .embla-section-carousel__navigation {
+  left: -80px;
+  position: absolute;
+  top: -10px;
+  width: 70px;
+}
+
+.embla-suppliers .embla-section-carousel__button {
+  background-color: #1a1a1a;
+  margin: 0;
+  position: absolute;
+}
+
+.embla-suppliers .embla-section-carousel__button--previous {
+  left: 40px;
+  top: 0;
+}
+
+.embla-suppliers .embla-section-carousel__button--next {
+  left: 40px;
+  top: 40px;
+}
+
+.embla-testimonials {
+  --embla-slide-gap: 80px;
+}
+
+@media (min-width: 480px) {
+  .embla-suppliers {
+    --embla-slide-size: calc(50% - 5px);
+  }
+}
+
+@media (min-width: 580px) {
+  .embla-latest-projects {
+    --embla-slide-size: calc(50% - 10px);
+  }
+}
+
+@media (min-width: 991px) {
+  .embla-latest-projects {
+    --embla-slide-size: calc(33.333333% - 13.333333px);
+  }
+
+  .embla-testimonials {
+    --embla-slide-size: calc(50% - 40px);
+  }
+}
+
+@media (min-width: 1000px) {
+  .embla-suppliers {
+    --embla-slide-size: calc(33.333333% - 6.666667px);
+  }
+}
+
+@media (min-width: 1152px) {
+  .embla-latest-projects {
+    --embla-slide-size: calc(25% - 15px);
+  }
+}
+
+@media (max-width: 800px) {
+  .embla-suppliers .embla-section-carousel__navigation {
+    bottom: -47px;
+    display: flex;
+    gap: 5px;
+    left: auto;
+    right: 5px;
+    top: auto;
+  }
+
+  .embla-suppliers .embla-section-carousel__button {
+    flex: 0 0 35px;
+    position: static;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .embla-latest-projects .embla-section-carousel__navigation {
+    margin-top: 20px;
+  }
+}
