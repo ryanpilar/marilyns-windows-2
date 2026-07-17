@@ -1,56 +1,26 @@
 import LazyOwlCarousel from "../Common/LazyOwlCarousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import { useEffect, useState } from "react";
-import createContentfulClient from "../../utils/createContentfulClient";
 
-const ClientsLogo = ({ supplierList }) => {
-  const [content, setContent] = useState(null);
+const normalizeSupplier = (supplier) => {
+  if (!supplier.fields) {
+    return supplier;
+  }
 
-  // Connect And Data Fetch From Contentful & Shuffle
-  useEffect(() => {
-    // Connectto Connectful
-    const client = createContentfulClient()
+  const logo = supplier.fields.logo?.[0];
 
-    // Shuffle entries
-    const shuffle = (array) => {
-    let currentIndex = array.length,
-      randomIndex;
-
-    // While there remains elements to shuffle,
-    while (currentIndex !== 0) {
-      // Pick a remaining element
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
-      ];
-    }
-    return array;
+  return {
+    title: supplier.fields.title,
+    website: supplier.fields.companyWebsite,
+    image: {
+      src: logo?.secure_url,
+      alt: logo?.context?.custom?.alt || supplier.fields.title,
+    },
   };
+};
 
-
-  const selectRandom = (projects) => {
-    return shuffle(projects);
-  };
-    const getAllEntries = async () => {
-      try {
-        await client
-          .getEntries({ content_type: "affiliates" })
-          .then((allEntries) => {
-            setContent(selectRandom(allEntries.items));
-          });
-      } catch (error) {
-        console.log(
-          "this error arose from the client.getEntries() call to contentful"
-        );
-      }
-    };
-    getAllEntries();
-  }, []);
+const ClientsLogo = ({ content = [], supplierList }) => {
+  const suppliers = content.map(normalizeSupplier);
 
   // Owl Carousel Options
   const options = {
@@ -111,6 +81,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-r10"
                                 href="https://www.altawindowfashions.ca/"
                                 target="_blank"
+                                rel="noreferrer noopener"
                               >
                                 Alta Window Fashions & Shadeomatic
                               </a>{" "}
@@ -119,6 +90,7 @@ const ClientsLogo = ({ supplierList }) => {
                                 className="p-lr10"
                                 href="https://www.shadex.com/"
                                 target="_blank"
+                                rel="noreferrer noopener"
                               >
                                 Shadex
                               </a>{" "}
@@ -275,25 +247,24 @@ const ClientsLogo = ({ supplierList }) => {
 
                   <div className="col-md-12 col-sm-12">
                     <div className="section-content bg-white p-tb80">
-                      {content && (
+                      {suppliers.length > 0 && (
                         <LazyOwlCarousel
                           className="owl-carousel home-client-carousel owl-btn-center-v"
                           {...options}
                         >
-                          {content.map((item, index) => (
-                            <div className="item" key={index}>
+                          {suppliers.map((supplier) => (
+                            <div className="item" key={supplier.title}>
                               <div className="ow-client-logo">
                                 <div className="client-logo client-logo-media">
                                   <a
-                                    href={item.fields.companyWebsite}
+                                    href={supplier.website}
                                     target="_blank"
-                                    aria-label={`Visit ${item.fields.title}`}
+                                    rel="noreferrer noopener"
+                                    aria-label={`Visit ${supplier.title}`}
                                   >
                                     <img
-                                      src={item.fields.logo[0].secure_url}
-                                      alt={
-                                        item.fields.logo[0].context.custom.alt
-                                      }
+                                      src={supplier.image.src}
+                                      alt={supplier.image.alt}
                                       loading="lazy"
                                       decoding="async"
                                       fetchpriority="low"
