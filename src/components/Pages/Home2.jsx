@@ -13,6 +13,7 @@ import LatestProjects from "./../Segments/LatestProjects";
 
 import Contact from "../Segments/Contact";
 import Footer from "../Common/Footer";
+import { homeSuppliers } from "../../content/homeContent";
 
 import { useLocation } from "react-router-dom";
 
@@ -51,7 +52,7 @@ const Home2 = () => {
 
         <Services showButton={true} />
         <LatestProjects />
-        <ClientsLogo supplierList={false} />
+        <ClientsLogo content={homeSuppliers} supplierList={false} />
         <Testimonials />
         <Contact />
       </div>

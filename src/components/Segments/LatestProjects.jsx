@@ -229,7 +229,6 @@ const LatestProjects = () => {
 
           {content && (
             <LazyOwlCarousel
-              role="list"
               className="owl-carousel owl-carousel-filter  owl-btn-bottom-left "
               {...options}
             >
@@ -237,7 +236,6 @@ const LatestProjects = () => {
                 {selectRandom(content).map((item, index) => (
                   <div
                     key={index}
-                    role="listitem"
                     className={`${item.fields.filter} item fadingcol m-b20 add-box-shadow m-r15 p-a5`}
                   >
                     <div
