@@ -28,7 +28,7 @@ const BlogPost = () => {
   const bgimg = require("./../../images/background/ptn-1.png");
 
   const [blogPostBanner, setBlogPostBanner] = useState(null);
-  const [singleBlogPost, setSingleBlogPost] = useState([]);
+  const [singleBlogPost, setSingleBlogPost] = useState(null);
 
   const { slug } = useParams();
   // Get Blog Post data from Contentful
@@ -180,14 +180,31 @@ const BlogPost = () => {
   return (
     <>
       <>
-        {singleBlogPost && (
-          <SEO
-            title={`Blog Post | ${singleBlogPost?.fields?.title}`}
-            description={singleBlogPost?.fields?.metaDescription}
-            location={ cononicalLocation.pathname }
-            robots={'index, follow'}
-          />
-        )}
+        <SEO
+          title={singleBlogPost?.fields?.title
+            ? `Blog Post | ${singleBlogPost.fields.title}`
+            : "Blog Post | Marilyn's Windows & Interiors"}
+          description={singleBlogPost?.fields?.metaDescription ||
+            "Drapery and window treatment insights from Marilyn's Windows & Interiors."}
+          location={ cononicalLocation.pathname }
+          robots={'index, follow'}
+          breadcrumbs={singleBlogPost?.fields ? [
+            {name: "Home", path: "/"},
+            {name: "Blog", path: "/blog"},
+            {
+              name: singleBlogPost.fields.descriptiveTitle || singleBlogPost.fields.title,
+              path: cononicalLocation.pathname,
+            },
+          ] : []}
+          article={singleBlogPost?.fields ? {
+            headline: singleBlogPost.fields.descriptiveTitle || singleBlogPost.fields.title,
+            description: singleBlogPost.fields.metaDescription,
+            image: singleBlogPost.fields.blogImages?.[0]?.secure_url,
+            datePublished: singleBlogPost.fields.dateCreated,
+            dateModified: singleBlogPost.sys?.updatedAt,
+          } : null}
+          image={singleBlogPost?.fields?.blogImages?.[0]?.secure_url}
+        />
 
         <Header3 />
 
@@ -219,7 +236,11 @@ const BlogPost = () => {
                           <li>
                             <Link to={"/blog"}>Blog</Link>
                           </li>
-                          <li>Post</li>
+                          <li>
+                            {singleBlogPost?.fields?.descriptiveTitle ||
+                              singleBlogPost?.fields?.title ||
+                              "Post"}
+                          </li>
                         </ul>
                       </nav>
                     </div>

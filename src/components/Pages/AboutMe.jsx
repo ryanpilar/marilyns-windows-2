@@ -60,7 +60,10 @@ const AboutMe = () => {
                 description={`Professionally sewing for over 30 years and specializing in the tailored creation of hand-sewn curtains, drapes, blinds, and custom bedding`}
                 location={cononicalLocation.pathname}
                 robots={'index, follow'}
-
+                breadcrumbs={[
+                    {name: "Home", path: "/"},
+                    {name: "My Story", path: "/aboutme"},
+                ]}
             />
             {/* Navigation  */}
             <Header3/>

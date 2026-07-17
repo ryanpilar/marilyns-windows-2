@@ -135,6 +135,10 @@ const Gallery22 = () => {
         description={`Bedroom curtain ideas. Window coverings for patio doors. Living room drapery ideas. Light filtering curtains and blackout blinds. Outdoor curtain ideas.`}
         location={cononicalLocation.pathname}
         robots={'index, follow'}
+        breadcrumbs={[
+          {name: "Home", path: "/"},
+          {name: "Gallery", path: "/gallery"},
+        ]}
       />
 
       <Header3 />

@@ -1,298 +1,276 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import createContentfulClient from "../../utils/createContentfulClient";
+import { useCallback, useEffect, useRef, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import Fade from "embla-carousel-fade";
+import heroSlideData from "../../generated/heroSlides.json";
 import SliderSingle from "./SliderSingle";
 
-const buildSizedUrl = (url, width) => {
-  if (!url) {
-    return url;
-  }
-
-  const separator = url.includes("?") ? "&" : "?";
-  return `${url}${separator}w=${width}&fm=jpg&q=80`;
-};
-
-const buildSrcSet = (url) => [
-  `${buildSizedUrl(url, 768)} 768w`,
-  `${buildSizedUrl(url, 1280)} 1280w`,
-  `${buildSizedUrl(url, 1920)} 1920w`,
-].join(", ");
-
-const getOrigin = (url) => {
-  try {
-    return new URL(url).origin;
-  } catch (error) {
-    return null;
-  }
-};
+const AUTOPLAY_DELAY = 8000;
+const slides = heroSlideData.slides;
 
 const Slider22 = () => {
-  const [sliderList, setSliderList] = useState(false);
-  const [frameSpeed, setFrameSpeed] = useState(1000);
-  const hasLoadedScript = useRef(false);
+  const heroRef = useRef(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [loadedSlides, setLoadedSlides] = useState({});
+  const [loadSecondarySlides, setLoadSecondarySlides] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [autoplayPlugin] = useState(() =>
+    Autoplay({
+      delay: AUTOPLAY_DELAY,
+      playOnInit: false,
+      stopOnInteraction: false,
+      stopOnMouseEnter: false,
+    })
+  );
+  const [fadePlugin] = useState(() => Fade());
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: slides.length > 1,
+      duration: 38,
+      skipSnaps: false,
+    },
+    [fadePlugin, autoplayPlugin]
+  );
+
+  const selectSlide = useCallback(() => {
+    if (emblaApi) {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    }
+  }, [emblaApi]);
 
   useEffect(() => {
+    if (!emblaApi) {
+      return undefined;
+    }
 
-    // contentful connect
-    const client = createContentfulClient()
+    selectSlide();
+    emblaApi.on("select", selectSlide).on("reInit", selectSlide);
 
-    // contentful get data
-    const getAllEntries = async () => {
-      try {
-        await client
-          .getEntries({ content_type: "slider" })
-          .then((allEntries) => {
-            setSliderList(allEntries.items);
-          });
-      } catch (error) {
-        console.log(
-          "this error arose from the client.getEntries() call to contentful"
-        );
-      }
+    return () => {
+      emblaApi.off("select", selectSlide).off("reInit", selectSlide);
     };
-    getAllEntries();
+  }, [emblaApi, selectSlide]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updateMotionPreference = () =>
+      setPrefersReducedMotion(mediaQuery.matches);
+
+    updateMotionPreference();
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener("change", updateMotionPreference);
+      return () =>
+        mediaQuery.removeEventListener("change", updateMotionPreference);
+    }
+
+    mediaQuery.addListener(updateMotionPreference);
+    return () => mediaQuery.removeListener(updateMotionPreference);
   }, []);
 
-  useLayoutEffect(() => {
-    if (!sliderList || hasLoadedScript.current) {
+  useEffect(() => {
+    const firstSlide = slides[0];
+    if (!firstSlide || !loadedSlides[firstSlide.id]) {
+      return undefined;
+    }
+
+    const revealSecondarySlides = () => setLoadSecondarySlides(true);
+
+    if (window.requestIdleCallback) {
+      const idleCallback = window.requestIdleCallback(revealSecondarySlides, {
+        timeout: 1200,
+      });
+      return () => window.cancelIdleCallback(idleCallback);
+    }
+
+    const timeout = window.setTimeout(revealSecondarySlides, 250);
+    return () => window.clearTimeout(timeout);
+  }, [loadedSlides]);
+
+  useEffect(() => {
+    if (!emblaApi) {
       return;
     }
 
-    const heroImageUrl =
-      sliderList[0]?.fields?.cloudinaryImage?.[0]?.secure_url;
+    const autoplay = emblaApi.plugins().autoplay;
+    const allSlidesReady = slides.every((slide) => loadedSlides[slide.id]);
 
-    if (heroImageUrl) {
-      const heroOrigin = getOrigin(heroImageUrl);
-      if (heroOrigin) {
-        if (!document.querySelector(`link[data-preconnect="${heroOrigin}"]`)) {
-          const link = document.createElement("link");
-          link.rel = "preconnect";
-          link.href = heroOrigin;
-          link.crossOrigin = "";
-          link.setAttribute("data-preconnect", heroOrigin);
-          document.head.appendChild(link);
-        }
-      }
-
-      const preloadHref = buildSizedUrl(heroImageUrl, 1920);
-      if (!document.querySelector(`link[data-hero-preload="${preloadHref}"]`)) {
-        const link = document.createElement("link");
-        link.rel = "preload";
-        link.as = "image";
-        link.href = preloadHref;
-        link.setAttribute("imagesrcset", buildSrcSet(heroImageUrl));
-        link.setAttribute("imagesizes", "100vw");
-        link.setAttribute("fetchpriority", "high");
-        link.setAttribute("data-hero-preload", preloadHref);
-        document.head.appendChild(link);
-      }
+    if (prefersReducedMotion || !allSlidesReady || slides.length < 2) {
+      autoplay.stop();
+      return;
     }
 
-    const revStyles = [
-      "/assets/css/rev-slider-4.css",
-      "/assets/plugins/revolution/revolution/css/settings.css",
-      "/assets/plugins/revolution/revolution/css/navigation.css",
-    ];
+    autoplay.play();
+  }, [emblaApi, loadedSlides, prefersReducedMotion]);
 
-    const revScripts = [
-      "/assets/plugins/revolution/revolution/js/jquery.themepunch.tools.min.js",
-      "/assets/plugins/revolution/revolution/js/jquery.themepunch.revolution.min.js",
-      "/assets/plugins/revolution/revolution/js/extensions/revolution-plugin.js",
-      "/assets/js/rev-script-1.js",
-    ];
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) {
+      return undefined;
+    }
 
-    function loadStyle(href) {
-      if (document.querySelector(`link[data-rev-asset="${href}"]`)) {
+    if (prefersReducedMotion) {
+      hero.style.setProperty("--hero-parallax-y", "0px");
+      return undefined;
+    }
+
+    let animationFrame = 0;
+
+    const updateParallax = () => {
+      animationFrame = 0;
+      const bounds = hero.getBoundingClientRect();
+
+      if (bounds.bottom <= 0 || bounds.top >= window.innerHeight) {
         return;
       }
-      const link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.type = "text/css";
-      link.href = href;
-      link.setAttribute("data-rev-asset", href);
-      document.head.appendChild(link);
-    }
 
-    function loadScript(src) {
-      return new Promise(function (resolve, reject) {
-        if (document.querySelector(`script[data-rev-asset="${src}"]`)) {
-          resolve();
-          return;
-        }
-        const script = document.createElement("script");
-        script.src = src;
-        script.async = false;
-        script.defer = false;
-        script.setAttribute("data-rev-asset", src);
-        script.addEventListener("load", function () {
-          resolve();
-        });
-        script.addEventListener("error", function (e) {
-          reject(e);
-        });
-        document.body.appendChild(script);
-      });
-    }
+      const distance = Math.min(Math.max(-bounds.top, 0), bounds.height);
+      const maximumOffset = window.innerWidth < 779 ? 28 : 48;
+      const offset = (distance / bounds.height) * maximumOffset;
+      hero.style.setProperty("--hero-parallax-y", `${offset.toFixed(2)}px`);
+    };
 
-    if (!window.__revAssetsPromise) {
-      revStyles.forEach(loadStyle);
-      window.__revAssetsPromise = revScripts.reduce(
-        (promise, src) => promise.then(() => loadScript(src)),
-        Promise.resolve()
-      );
-    }
+    const requestParallaxUpdate = () => {
+      if (!animationFrame) {
+        animationFrame = window.requestAnimationFrame(updateParallax);
+      }
+    };
 
-    window.__revAssetsPromise
-      .then(() => {
-        if (typeof window.initWelcomeSlider === "function") {
-          window.initWelcomeSlider();
-        }
-      })
-      .finally(() => {
-        hasLoadedScript.current = true;
-      });
-  }, [sliderList]);
+    updateParallax();
+    window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
+    window.addEventListener("resize", requestParallaxUpdate);
+
+    return () => {
+      window.removeEventListener("scroll", requestParallaxUpdate);
+      window.removeEventListener("resize", requestParallaxUpdate);
+      if (animationFrame) {
+        window.cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [prefersReducedMotion]);
+
+  const markSlideLoaded = useCallback((slideId) => {
+    setLoadedSlides((currentSlides) =>
+      currentSlides[slideId]
+        ? currentSlides
+        : { ...currentSlides, [slideId]: true }
+    );
+  }, []);
+
+  const resetAutoplay = useCallback(() => {
+    if (emblaApi && !prefersReducedMotion) {
+      emblaApi.plugins().autoplay.reset();
+    }
+  }, [emblaApi, prefersReducedMotion]);
+
+  const scrollPrevious = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+      resetAutoplay();
+    }
+  }, [emblaApi, resetAutoplay]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollNext();
+      resetAutoplay();
+    }
+  }, [emblaApi, resetAutoplay]);
+
+  const scrollTo = useCallback(
+    (index) => {
+      if (emblaApi) {
+        emblaApi.scrollTo(index);
+        resetAutoplay();
+      }
+    },
+    [emblaApi, resetAutoplay]
+  );
+
+  const handleKeyDown = (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      scrollPrevious();
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      scrollNext();
+    }
+  };
+
+  if (!slides.length) {
+    return null;
+  }
 
   return (
-    <div
+    <section
+      ref={heroRef}
       id="welcome_wrapper"
-      className="rev_slider_wrapper fullscreen-container hero-slider"
-      data-alias="goodnews-header"
-      data-source="gallery"
-      style={{ background: "#eeeeee", padding: 0 }}
+      className="hero-slider hero-carousel"
+      aria-label="Featured interior design projects"
+      aria-roledescription="carousel"
+      onKeyDown={handleKeyDown}
     >
-      {sliderList ? (
-        <div
-          id="welcome"
-          className="rev_slider fullscreenbanner"
-          style={{ display: "none" }}
-          data-version="5.4.3.1"
-        >
-          <ul>
-            {/* SLIDE 1 */}
-            <li
-              data-index="rs-902"
-              data-transition="fadethroughdark"
-              data-slotamount="default"
-              data-hideafterloop={0}
-              data-hideslideonmobile="off"
-              data-easein="default"
-              data-easeout="default"
-              data-masterspeed="default"
-              data-thumb={sliderList[0].fields.cloudinaryImage[0].secure_url}
-              data-rotate={0}
-              data-fstransition="fade"
-              data-fsmasterspeed={frameSpeed}
-              data-fsslotamount={7}
-              data-saveperformance="off"
-              data-title
-              data-param1
-              data-param2
-              data-param3
-              data-param4
-              data-param5
-              data-param6
-              data-param7
-              data-param8
-              data-param9
-              data-param10
-              data-description
+      <div className="hero-carousel__viewport" ref={emblaRef}>
+        <div className="hero-carousel__container" aria-live="off">
+          {slides.map((slide, index) => (
+            <div
+              className="hero-carousel__slide"
+              key={slide.id}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${index + 1} of ${slides.length}`}
+              aria-hidden={selectedIndex !== index}
             >
-              <SliderSingle
-                image={sliderList[0].fields.cloudinaryImage}
-                heading={sliderList[0].fields.heading}
-                largeSpan={sliderList[0].fields.largeSpan}
-                smallSpan={sliderList[0].fields.smallSpan}
-                isPriority={true}
-              />
-            </li>
-            {/* SLIDER #2 */}
-            <li
-              data-index="rs-903"
-              data-transition="fadethroughdark"
-              data-slotamount="default"
-              data-hideafterloop={0}
-              data-hideslideonmobile="off"
-              data-easein="default"
-              data-easeout="default"
-              data-masterspeed="default"
-              data-thumb={sliderList[1].fields.cloudinaryImage[0].secure_url}
-              data-rotate={0}
-              data-fstransition="fade"
-              data-fsmasterspeed={frameSpeed}
-              data-fsslotamount={7}
-              data-saveperformance="off"
-              data-title
-              data-param1
-              data-param2
-              data-param3
-              data-param4
-              data-param5
-              data-param6
-              data-param7
-              data-param8
-              data-param9
-              data-param10
-              data-description
-            >
-              <SliderSingle
-                image={sliderList[1].fields.cloudinaryImage}
-                heading={sliderList[1].fields.heading}
-                largeSpan={sliderList[1].fields.largeSpan}
-                smallSpan={sliderList[1].fields.smallSpan}
-                isPriority={false}
-              />
-            </li>
-            {/* SLIDER #3 */}
-            <li
-              data-index="rs-904"
-              data-transition="fadethroughdark"
-              data-slotamount="default"
-              data-hideafterloop={0}
-              data-hideslideonmobile="off"
-              data-easein="default"
-              data-easeout="default"
-              data-masterspeed="default"
-              data-thumb={sliderList[2].fields.cloudinaryImage[0].secure_url}
-              data-rotate={0}
-              data-fstransition="fade"
-              data-fsmasterspeed={frameSpeed}
-              data-fsslotamount={7}
-              data-saveperformance="off"
-              data-title
-              data-param1
-              data-param2
-              data-param3
-              data-param4
-              data-param5
-              data-param6
-              data-param7
-              data-param8
-              data-param9
-              data-param10
-              data-description
-            >
-              <SliderSingle
-                image={sliderList[2].fields.cloudinaryImage}
-                heading={sliderList[2].fields.heading}
-                largeSpan={sliderList[2].fields.largeSpan}
-                smallSpan={sliderList[2].fields.smallSpan}
-                isPriority={false}
-              />
-            </li>
-          </ul>
-
-          <div
-            className="tp-bannertimer tp-bottom"
-            style={{ visibility: "hidden !important" }}
-          />
+              <div className="hero-carousel__media">
+                <SliderSingle
+                  slide={slide}
+                  isPriority={index === 0}
+                  shouldLoad={index === 0 || loadSecondarySlides}
+                  onLoadComplete={() => markSlideLoaded(slide.id)}
+                />
+              </div>
+            </div>
+          ))}
         </div>
-      ) : (
-        <div
-          className="hero-placeholder skeleton"
-          aria-hidden="true"
-        />
+      </div>
+
+      <div className="hero-carousel__frame" aria-hidden="true" />
+
+      {slides.length > 1 && (
+        <>
+          <button
+            className="hero-carousel__arrow hero-carousel__arrow--previous"
+            type="button"
+            aria-label="Show previous slide"
+            onClick={scrollPrevious}
+          >
+            <span aria-hidden="true" />
+          </button>
+          <button
+            className="hero-carousel__arrow hero-carousel__arrow--next"
+            type="button"
+            aria-label="Show next slide"
+            onClick={scrollNext}
+          >
+            <span aria-hidden="true" />
+          </button>
+          <div className="hero-carousel__dots" aria-label="Choose a slide">
+            {slides.map((slide, index) => (
+              <button
+                className={`hero-carousel__dot${
+                  selectedIndex === index ? " is-selected" : ""
+                }`}
+                key={slide.id}
+                type="button"
+                aria-label={`Show slide ${index + 1}`}
+                aria-current={selectedIndex === index ? "true" : undefined}
+                onClick={() => scrollTo(index)}
+              />
+            ))}
+          </div>
+        </>
       )}
-    </div>
+    </section>
   );
 };
 

@@ -18,34 +18,12 @@ class Header3 extends React.Component {
   handleMenuToggle = () => {
     this.setState({ isMenuActive: !this.state.isMenuActive });
   };
-  handleScroll = () => {
-    const offset = window.scrollY;
-
-    const stickyheader = document.querySelector(".sticky-header");
-    if (!stickyheader) {
-      return;
-    }
-
-    if (offset >= 100) {
-      stickyheader.classList.add("is-fixed");
-      stickyheader.classList.add("color-fill");
-    } else {
-      stickyheader.classList.remove("is-fixed");
-      stickyheader.classList.remove("color-fill");
-    }
-  };
   componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
-
     window.updateTopMostParent = (logopath) => {
       const resolvedLogo =
         logopath && logopath.default ? logopath.default : logopath;
       this.setState({ logo: resolvedLogo });
     };
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
   }
 
   render() {
@@ -57,7 +35,7 @@ class Header3 extends React.Component {
         <header
           className={`${
             isMenuActive ? "active" : null
-          } site-header header-style-1  nav-wide mobile-responsive-navigation`}
+          } site-header site-header-sticky header-style-1 nav-wide mobile-responsive-navigation`}
         >
           <div id="top" className="sticky-header main-bar-wraper">
             <div className="main-bar bg-white p-t10">

@@ -418,19 +418,6 @@ All JavaScript fuctions Start
 	};
 
 	/*--------------------------------------------------------------------------------------------
-		Window on scroll ALL FUNCTION START
-	---------------------------------------------------------------------------------------------*/
-
-    function color_fill_header() {
-        var scroll = $(window).scrollTop();
-        if(scroll >= 100) {
-            $(".is-fixed").addClass("color-fill");
-        } else {
-            $(".is-fixed").removeClass("color-fill");
-        }
-    };	
-
-	/*--------------------------------------------------------------------------------------------
 		document.ready ALL FUNCTION START
 	---------------------------------------------------------------------------------------------*/
 	jQuery(document).ready(function() {
@@ -466,15 +453,6 @@ All JavaScript fuctions Start
 
 	
 
-	/*===========================
-		Window Scroll ALL FUNCTION START
-	===========================*/
-
-	jQuery(window).on('scroll', function () {
-	// > Window on scroll header color fill 
-		color_fill_header()
-	});
-	
 	/*===========================
 		Window Resize ALL FUNCTION START
 	===========================*/
