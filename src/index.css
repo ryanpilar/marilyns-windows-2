@@ -358,6 +358,11 @@ code {
   }
 }
 
+.home-page-layout .home-about-static-image {
+  position: relative;
+  z-index: 1;
+}
+
 @container gallery-card (min-width: 380px) {
   .portfolio-wrap .gallery-click-overlay .gallery-click-overlay-title,
   .gallery-related-cards .gallery-click-overlay .gallery-click-overlay-title,
