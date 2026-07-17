@@ -7,9 +7,9 @@ import Slider22 from "./../Segments/Slider22";
 import About from "./../Segments/About";
 import About22 from '../Segments/About22';
 import Services from "./../Segments/Services";
-import ClientsLogo from "./../Segments/ClientsLogo";
-import Testimonials from "./../Segments/Testimonials";
-import LatestProjects from "./../Segments/LatestProjects";
+import ClientsLogoEmbla from "./../Segments/ClientsLogoEmbla";
+import TestimonialsEmbla from "./../Segments/TestimonialsEmbla";
+import LatestProjectsEmbla from "./../Segments/LatestProjectsEmbla";
 
 import Contact from "../Segments/Contact";
 import Footer from "../Common/Footer";
@@ -51,9 +51,9 @@ const Home2 = () => {
         <About22 />
 
         <Services showButton={true} />
-        <LatestProjects />
-        <ClientsLogo content={homeSuppliers} supplierList={false} />
-        <Testimonials />
+        <LatestProjectsEmbla />
+        <ClientsLogoEmbla content={homeSuppliers} />
+        <TestimonialsEmbla />
         <Contact />
       </div>
       
