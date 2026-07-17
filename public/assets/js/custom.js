@@ -412,11 +412,6 @@ All JavaScript fuctions Start
 
 
 
-	// > page loader function by = custom.js ========================= //		
-	function page_loader() {
-		$('.loading-area').fadeOut(1000)
-	};
-
 	/*--------------------------------------------------------------------------------------------
 		document.ready ALL FUNCTION START
 	---------------------------------------------------------------------------------------------*/
@@ -476,12 +471,7 @@ All JavaScript fuctions Start
 	// 		data: form.serialize() + "&action=contactform",
 	// 		type: 'POST',
 	// 		dataType: 'JSON',
-	// 		beforeSend: function() {
-	// 			jQuery('.loading-area').show();
-	// 		},
-
 	// 		success:function(data){
-	// 			jQuery('.loading-area').hide();
 	// 			if(data['success']){
 	// 			jQuery("<div class='alert alert-success'>"+data['message']+"</div>").insertBefore('form.cons-contact-form');
 	// 			}else{
@@ -550,11 +540,9 @@ All JavaScript fuctions Start
 jQuery(window).on('load', function () {
 									
 	// > equal each box function by  = custom.js			
-	equalheight(".equal-wraper .equal-col"),
+	equalheight(".equal-wraper .equal-col");
 	// > masonry function function by = isotope.pkgd.min.js		
-	masonryBox(),
-	// > page loader function by = custom.js		
-	page_loader();
+	masonryBox();
 	// > Nav submenu on off function by = custome.js ===================//
 	mobile_nav();
 
@@ -637,8 +625,3 @@ function equalheight(container) {
 		}
 	});
 }
-
-// > page loader function by = custom.js ========================= //		
-function page_loader() {
-	$('.loading-area').fadeOut(1000)
-};
