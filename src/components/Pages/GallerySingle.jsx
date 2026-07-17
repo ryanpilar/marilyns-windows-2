@@ -6,8 +6,6 @@ import Header3 from "../Common/Header3";
 import LatestProjects2 from "../Segments/LatestProjects2";
 import Footer from "../Common/Footer";
 
-import Loader from "../Segments/Loader";
-
 
 const GallerySingle = () => {
   const { slug } = useParams();
@@ -98,7 +96,19 @@ const GallerySingle = () => {
             <div className="">
 
               {/* IMG CONTENT START */}
-              {spinner && <Loader />}
+              {spinner && (
+                <div
+                  className="gallery-loading-status"
+                  role="status"
+                  aria-live="polite"
+                >
+                  <span
+                    className="gallery-loading-status__indicator"
+                    aria-hidden="true"
+                  />
+                  <span className="sr-only">Loading gallery project</span>
+                </div>
+              )}
               <div className="section-content ">
                 <>
                   {imageData && (
