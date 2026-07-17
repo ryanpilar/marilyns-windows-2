@@ -5,24 +5,14 @@ export const homeAbout = {
     "We specialize in creating high-end window coverings, blinds, pillows, and custom furnishings with couture-level attention to detail and quality.",
     "Our clients return to us time and again for the exceptional craftsmanship and the detail-oriented designs that we deliver.",
   ],
-  images: [
-    {
-      src: "https://res.cloudinary.com/ryan-pilar/image/upload/c_fill,g_auto,h_500,q_auto,w_800/f_auto/q_auto/v1678571453/marilyns-windows/index/pexels-cottonbro-studio-4614127-min_jd6fc2.webp",
-      alt: "A horizontal accessory hook in a sewing workroom, holding various sewing materials such as piping and rolls of velcro. The blurred background suggests a busy environment, while the focus on the hook and its contents suggests organization and attention to detail. These materials are used to create custom drapery and window treatments.",
-      caption: "Organized Sewing Supplies for Custom Drapery",
-      dataPin: "A horizontal accessory hook. The hook is used to organize and hold various sewing materials, including piping and rolls of velcro, which are necessary for creating custom drapery and window treatments. The blurred background adds a sense of activity and motion to the image, while the focus on the hook and its contents highlights the importance of organization and attention to detail in sewing projects.",
-      width: 800,
-      height: 500,
-    },
-    {
-      src: "https://res.cloudinary.com/ryan-pilar/image/upload/f_auto/q_auto/v1667175135/marilyns-windows/misc/workroom-misc_wo83id.jpg",
-      alt: "Spools of thread in the workroom",
-      caption: "Spools of thread",
-      dataPin: "Spools of thread",
-      width: 800,
-      height: 500,
-    },
-  ],
+  image: {
+    src: "https://res.cloudinary.com/ryan-pilar/image/upload/c_fill,g_auto,h_500,q_auto,w_800/f_auto/q_auto/v1678571453/marilyns-windows/index/pexels-cottonbro-studio-4614127-min_jd6fc2.webp",
+    alt: "A horizontal accessory hook in a sewing workroom, holding various sewing materials such as piping and rolls of velcro. The blurred background suggests a busy environment, while the focus on the hook and its contents suggests organization and attention to detail. These materials are used to create custom drapery and window treatments.",
+    caption: "Organized Sewing Supplies for Custom Drapery",
+    dataPin: "A horizontal accessory hook. The hook is used to organize and hold various sewing materials, including piping and rolls of velcro, which are necessary for creating custom drapery and window treatments. The blurred background adds a sense of activity and motion to the image, while the focus on the hook and its contents highlights the importance of organization and attention to detail in sewing projects.",
+    width: 800,
+    height: 500,
+  },
 };
 
 export const homeAboutSecondary = {
