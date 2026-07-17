@@ -59,7 +59,11 @@ const Testimonials = () => {
                         </span>
                       </div>
 
-                      <div className="p-b10" aria-label="5 out of 5 stars">
+                      <div
+                        className="p-b10"
+                        role="img"
+                        aria-label="5 out of 5 stars"
+                      >
                         {Array.from({ length: 5 }, (_, index) => (
                           <span
                             className="fa fa-star p-r5"
