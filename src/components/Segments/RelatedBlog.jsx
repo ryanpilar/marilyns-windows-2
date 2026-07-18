@@ -2,40 +2,11 @@ import { useEffect, useState } from "react";
 import createContentfulClient from "../../utils/createContentfulClient";
 import BlogCard2 from "./BlogCard2";
 
-import LazyOwlCarousel from "../Common/LazyOwlCarousel";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
+import EmblaCarousel from "../Common/EmblaCarousel";
 
 const RelatedBlog = ({ slug }) => {
 
   const [blogPost, setBlogPost] = useState(null);
-  var bgimg = require("./../../images/background/ptn-1.png");
-  
-  const options = {
-    loop: true,
-    margin: 30,
-    nav: true,
-    dots: false,
-    navElement: 'button type="button"',
-    navText: [
-      '<span class="sr-only">Previous slide</span><i class="fa fa-angle-left" aria-hidden="true"></i>',
-      '<span class="sr-only">Next slide</span><i class="fa fa-angle-right" aria-hidden="true"></i>',
-    ],
-    responsive: {
-      0: {
-        items: 1,
-      },
-      480: {
-        items: 1,
-      },
-      767: {
-        items: 2,
-      },
-      1100: {
-        items: 3,
-      },
-    },
-  };
 
 
   const removeDouble = (entries, theSlug) => {
@@ -108,14 +79,17 @@ const RelatedBlog = ({ slug }) => {
           <div className="section-content ">
             {blogPost && (
               <div className="">
-                <LazyOwlCarousel
-                  className="owl-carousel blog-related-slider  owl-btn-top-right p-lr10"
-                  {...options}
+                <EmblaCarousel
+                  ariaLabel="More blog posts"
+                  className="embla-related-blog p-lr10"
+                  options={{ duration: 25, loop: true }}
+                  navigationClassName="embla-related-blog__navigation"
+                  showNavigation
                 >
                   {blogPost.map((item, index) => (
                     <BlogCard2 item={item} key={index} />
                   ))}
-                </LazyOwlCarousel>
+                </EmblaCarousel>
               </div>
             )}
           </div>

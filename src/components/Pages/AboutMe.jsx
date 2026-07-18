@@ -8,7 +8,7 @@ import Banner from "../Segments/Banner";
 import About2 from "../Segments/About2";
 import AboutImages from "../Segments/AboutImages";
 import AboutColumns from "../Segments/AboutColumns";
-import LatestProjects from "../Segments/LatestProjects";
+import LatestProjects from "../Segments/LatestProjectsEmbla";
 import Footer from "../Common/Footer";
 import createContentfulClient from "../../utils/createContentfulClient";
 

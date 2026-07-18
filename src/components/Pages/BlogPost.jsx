@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useLocation } from "react-router-dom";
 
-import LazyOwlCarousel from "../Common/LazyOwlCarousel";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
+import EmblaCarousel from "../Common/EmblaCarousel";
 
 import Header3 from "../Common/Header3";
 import Footer from "../Common/Footer";
@@ -149,34 +147,6 @@ const BlogPost = () => {
       console.log("NO CONTENT PRESENT");
     }
   };
-  // Owl Carousel Config Options
-  const options = {
-    loop: true,
-    margin: 30,
-    nav: true,
-    dots: false,
-    autoplay: true,
-    navElement: 'button type="button"',
-    navText: [
-      '<span class="sr-only">Previous slide</span><i class="fa fa-angle-left" aria-hidden="true"></i>',
-      '<span class="sr-only">Next slide</span><i class="fa fa-angle-right" aria-hidden="true"></i>',
-    ],
-    responsive: {
-      0: {
-        items: 1,
-      },
-      480: {
-        items: 1,
-      },
-      767: {
-        items: 1,
-      },
-      1000: {
-        items: 1,
-      },
-    },
-  };
-
   return (
     <>
       <>
@@ -253,9 +223,13 @@ const BlogPost = () => {
                     <div className="wt-post-media">
 
                       {/* IMAGE CAROUSEL START*/}
-                      <LazyOwlCarousel
-                        className="owl-carousel owl-fade-slider-one owl-btn-vertical-center owl-dots-bottom-right"
-                        {...options}
+                      <EmblaCarousel
+                        ariaLabel="Blog post images"
+                        autoplay={{ delay: 5000 }}
+                        className="embla-blog-images"
+                        options={{ duration: 25, loop: true }}
+                        navigationClassName="embla-blog-images__navigation"
+                        showNavigation
                       >
                         {singleBlogPost?.fields?.blogImages?.map(
                           (item, index) => (
@@ -282,7 +256,7 @@ const BlogPost = () => {
                             </div>
                           )
                         )}
-                      </LazyOwlCarousel>
+                      </EmblaCarousel>
                       {/* IMAGE CAROUSEL END*/}
 
                     </div>

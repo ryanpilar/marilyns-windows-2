@@ -21,17 +21,7 @@ All JavaScript fuctions Start
 	> accordion active calss function by = custom.js
     > Nav submenu show hide on mobile by = custom.js
 	> Vertical Nav submenu show hide on mobile by = custom.js
-	> Home Carousel_1 Full Screen with no margin function by = owl.carousel.js
-	> related with content function by = owl.carousel.js
-	> Fade slider for home function by = owl.carousel.js
-	> home_carousel_1 Full Screen with no margin function by = owl.carousel.js
-	> home_carousel_2 Full Screen with no margin function by = owl.carousel.js
-	> home_projects_filter Full Screen with no margin function by = owl.carousel.js
-	> Home page testimonial function by = owl.carousel.js
-    > home_client_carouse function by = owl.carousel.js 
-	> work carousel  function by = owl.carousel.js
     > Hover Tab  function
-    > Portfolio Carousel no margin function by = owl.carousel.js ========================== //
 
 	
  */	
@@ -209,72 +199,6 @@ All JavaScript fuctions Start
 
 	}
 			
-	// > home_projects_filter Full Screen with no margin function by = owl.carousel.js ========================== //
-	function home_projects_filter(){
-		if (!jQuery().owlCarousel || typeof jQuery.fn.owlFilter !== "function") {
-			return;
-		}
-
-		var owl = jQuery('.owl-carousel-filter').owlCarousel({
-		loop:false,
-		autoplay:true,
-		margin:20,
-		nav:true,
-		dots: false,
-		navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-		responsive:{
-			0:{
-				items:1
-			},
-			480:{
-				items:1
-			},
-			580:{
-				items:2
-			},						
-			767:{
-				items:2
-			},
-			991:{
-				items:3
-			},			
-			1152:{
-				items:4
-			},
-			1360:{
-				items:4
-			},
-			1366:{
-				items:5
-			}	
-		    }
-		})
-		
-		/* Filter Nav */
-
-		jQuery('.btn-filter-wrap').on('click', '.btn-filter', function(e) {
-			var filter_data = jQuery(this).data('filter');
-
-			/* return if current */
-			if(jQuery(this).hasClass('btn-active')) return;
-
-			/* active current */
-			jQuery(this).addClass('btn-active').siblings().removeClass('btn-active');
-
-			/* Filter */
-			owl.owlFilter(filter_data, function(_owl) { 
-				jQuery(_owl).find('.item').each(owlAnimateFilter); 
-			});
-		})
-	
-	
-	
-	}
-	
-
-
-
-	
 	// > Hover Tab  function ========================== //
 	function hover_tab(){
 	jQuery('.circle-block-outer[data-toggle="tab-hover"] div').on('mouseenter', function(){
@@ -438,9 +362,6 @@ All JavaScript fuctions Start
 		accordion_active(),
 		// > Nav submenu on off function by = custome.js ===================//
 		mobile_nav(),
-		//  home_projects_filter() Full Screen with no margin function by = owl.carousel.js ==========================  //  
-		home_projects_filter(),
-		
 		// > Hover Tab  function ========================== //
 		hover_tab();
 
