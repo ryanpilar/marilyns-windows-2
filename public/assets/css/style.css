@@ -11441,40 +11441,51 @@ New Menu Style for mobile device (august/2021)
 .hero-carousel__dots {
   position: absolute;
   left: 50%;
-  bottom: 20px;
+  bottom: 4px;
   z-index: 4;
   display: flex;
-  gap: 5px;
+  gap: 0;
   transform: translateX(-50%);
 }
 .hero-carousel__dot {
-  width: 16px;
-  height: 16px;
+  width: 48px;
+  height: 48px;
   position: relative;
-  overflow: hidden;
-  flex: 0 0 16px;
+  flex: 0 0 48px;
   padding: 0;
   border: 0;
-  border-radius: 50%;
   background: transparent;
-  box-shadow: inset 0 0 0 2px #ffffff;
   cursor: pointer;
 }
+.hero-carousel__dot::before,
 .hero-carousel__dot::after {
   content: "";
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
+  left: 50%;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.hero-carousel__dot::before {
+  box-shadow: inset 0 0 0 2px #ffffff;
+}
+.hero-carousel__dot::after {
   background: #ffffff;
-  transform: scaleY(0);
+  transform: translate(-50%, -50%) scaleY(0);
   transform-origin: bottom;
   transition: transform 0.3s ease;
 }
-.hero-carousel__dot:hover {
+.hero-carousel__dot:hover::before {
   background: rgba(0, 0, 0, 0.21);
 }
 .hero-carousel__dot.is-selected::after {
-  transform: scaleY(1);
+  transform: translate(-50%, -50%) scaleY(1);
+}
+.hero-carousel__dot:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: -6px;
 }
 @media (max-width: 778px) {
   .hero-slider {

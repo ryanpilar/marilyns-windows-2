@@ -45,7 +45,7 @@ const Home2 = () => {
 
       <Header3 />
 
-      <div className="page-content home-page-layout">
+      <main className="page-content home-page-layout">
         <Slider22 />
         <About />
         <About22 />
@@ -55,7 +55,7 @@ const Home2 = () => {
         <ClientsLogoEmbla content={homeSuppliers} />
         <TestimonialsEmbla />
         <Contact />
-      </div>
+      </main>
       
       <Footer />
     </>
