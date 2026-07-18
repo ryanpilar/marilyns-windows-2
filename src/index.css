@@ -354,8 +354,18 @@ code {
 
 .home-page-layout .m-carousel-1,
 .home-page-layout .m-carousel-1.mod {
-  background-color: #fff;
+  background-color: #fff !important;
   isolation: isolate;
+  opacity: 1;
+}
+
+.home-page-layout .m-carousel-1::before,
+.home-page-layout .m-carousel-1.mod::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: #fff;
+  content: "";
 }
 
 .home-page-layout .m-carousel-1::after,
