@@ -585,6 +585,63 @@ story======================================
 
 
 
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../fonts/google/poppins-300.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/google/poppins-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/google/poppins-400-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/google/poppins-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/google/poppins-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/google/roboto-condensed-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Crete Round";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/google/crete-round-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Crete Round";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/google/crete-round-400-italic.woff2") format("woff2");
+}
+
 /*======================================
 1. GENERAL 
 ======================================*/
