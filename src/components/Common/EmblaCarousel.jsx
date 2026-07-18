@@ -1,6 +1,7 @@
 import { Children, useCallback, useEffect, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
+import Icon from "./Icon";
 
 import "./EmblaCarousel.css";
 
@@ -133,7 +134,7 @@ const EmblaCarousel = ({
             disabled={!canScrollPrevious}
             onClick={scrollPrevious}
           >
-            <i className="fa fa-angle-left" aria-hidden="true" />
+            <Icon name="angle-left" />
           </button>
           <button
             className="embla-section-carousel__button embla-section-carousel__button--next"
@@ -142,7 +143,7 @@ const EmblaCarousel = ({
             disabled={!canScrollNext}
             onClick={scrollNext}
           >
-            <i className="fa fa-angle-right" aria-hidden="true" />
+            <Icon name="angle-right" />
           </button>
         </div>
       )}

@@ -1,4 +1,5 @@
 import EmblaCarousel from "../Common/EmblaCarousel";
+import Icon from "../Common/Icon";
 import { homeTestimonials } from "../../content/homeContent";
 
 const TestimonialsEmbla = () => (
@@ -44,17 +45,17 @@ const TestimonialsEmbla = () => (
                       aria-label="5 out of 5 stars"
                     >
                       {Array.from({ length: 5 }, (_, index) => (
-                        <span
-                          className="fa fa-star p-r5"
+                        <Icon
+                          name="star"
+                          className="p-r5"
                           style={{ color: "#e7a403" }}
-                          aria-hidden="true"
                           key={index}
                         />
                       ))}
                     </div>
 
                     <div className="testimonial-paragraph text-black p-t15">
-                      <span className="fa fa-quote-left" aria-hidden="true" />
+                      <Icon name="quote-left" />
                       <p>{testimonial.description}</p>
                     </div>
                   </div>
