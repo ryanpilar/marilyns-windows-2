@@ -1,7 +1,7 @@
 import {
   HERO_PRELOAD_HREF,
   HERO_PRELOAD_SRCSET,
-} from "./generated-hero-preload.js";
+} from "../generated/generated-hero-preload.js";
 
 const CANONICAL_ORIGIN = "https://www.marilynswindows.com";
 

@@ -13,7 +13,7 @@ const outputPath = path.join(
 const edgePreloadOutputPath = path.join(
   __dirname,
   "netlify",
-  "edge-functions",
+  "generated",
   "generated-hero-preload.js"
 );
 const cloudinaryVersionSegment = /\/v\d+\//;
