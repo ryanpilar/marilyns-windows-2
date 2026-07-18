@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
 
 class Navigation2 extends React.Component {
   render() {
@@ -28,10 +27,7 @@ class Navigation2 extends React.Component {
           </li>
 
           <li>
-            {" "}
-            <HashLink smooth className="" to="/services/#contact">
-              Contact
-            </HashLink>
+            <NavLink to="/contact">Contact</NavLink>
           </li>
         </ul>
       </>

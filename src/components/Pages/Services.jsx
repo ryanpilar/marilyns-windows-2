@@ -9,7 +9,6 @@ import Service from "./../Segments/Service";
 import Service2 from "../Segments/Service2";
 import ClientsLogo from "../Segments/ClientsLogo";
 import FAQ from "../Segments/FAQ";
-import Contact from "../Segments/Contact";
 import Footer from "../Common/Footer";
 
 const Services = () => {
@@ -133,8 +132,6 @@ const Services = () => {
             <ClientsLogo content={affiliates} supplierList={true} />
 
             <FAQ />
-
-            <Contact />
           </>
         )}
       </div>

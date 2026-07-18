@@ -13,6 +13,7 @@ const GallerySingle = lazy(() => import("./Pages/GallerySingle"));
 const NotFound = lazy(() => import("./Pages/NotFound"));
 const TermsOfService = lazy(() => import("./Pages/TermsOfService"));
 const PrivacyPolicy = lazy(() => import("./Pages/PrivacyPolicy"));
+const ContactPage = lazy(() => import("./Pages/ContactPage"));
 
 const Components = () => {
 
@@ -59,6 +60,11 @@ const Components = () => {
                                 sitemapIndex='true'
                                 changefreq='weekly'
                                 priority='0.9'
+                            />
+                            <Route path='/contact' exact component={ContactPage}
+                                sitemapIndex='true'
+                                changefreq='monthly'
+                                priority='0.8'
                             />
                             <Route path='/terms' exact component={TermsOfService} 
                                 sitemapIndex='true'

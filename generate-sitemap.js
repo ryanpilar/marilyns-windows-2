@@ -119,6 +119,7 @@ async function generateSitemap() {
   smStream.write({ url: "/", changefreq: "monthly", priority: 1 });
   smStream.write({ url: "/aboutme", changefreq: "monthly", priority: 0.8 });
   smStream.write({ url: "/services", changefreq: "monthly", priority: 0.9 });
+  smStream.write({ url: "/contact", changefreq: "monthly", priority: 0.8 });
   smStream.write({ url: "/gallery", changefreq: "monthly", priority: 0.8 });
   smStream.write({ url: "/blog", changefreq: "monthly", priority: 0.7 });
   // ...

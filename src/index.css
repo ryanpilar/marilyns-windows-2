@@ -35,6 +35,13 @@ code {
   }
 }
 
+/* Keep bottom-aligned banner titles visible on short desktop viewports. */
+@media only screen and (min-width: 992px) and (max-height: 900px) {
+  .wt-bnr-inr {
+    height: clamp(620px, calc(100svh - 100px), 680px);
+  }
+}
+
 @font-face {
   font-family: 'Hatton';
   /* src: url("./fonts/Hatton-Semibold.otf") format("opentype"); */
@@ -377,6 +384,22 @@ code {
   position: relative;
   z-index: 1;
   background-color: #fff;
+}
+
+.contact-page-intro {
+  max-width: 900px;
+}
+
+.contact-page-intro p {
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.contact-page-intro a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 @container gallery-card (min-width: 380px) {

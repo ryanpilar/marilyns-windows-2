@@ -119,16 +119,6 @@ const Service2 = ({ testimonial }) => {
                         </HashLink>
                       </li>
 
-                      <li className="">
-                        <HashLink
-                          smooth
-                          className="link-style font-14 text-uppercase p-lr10"
-                          to="#contact"
-                          aria-label="scroll down to contact us"
-                        >
-                          Contact Us
-                        </HashLink>
-                      </li>
                     </ul>
                   </nav>
                 </div>
@@ -196,9 +186,9 @@ const Service2 = ({ testimonial }) => {
                     </li>
                   </ul>
                   <HashLink
-                    smooth
-                    to="#contact"
+                    to="/contact"
                     className="btn-half site-button button-lg m-tb15 text-right"
+                    aria-label="go to the contact page"
                   >
                     <span>Contact Us</span>
                     <em />

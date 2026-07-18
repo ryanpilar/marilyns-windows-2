@@ -44,10 +44,7 @@ class Navigation extends React.Component {
           </li>
 
           <li>
-            {" "}
-            <HashLink smooth className="" to="/services/#contact">
-              Contact
-            </HashLink>
+            <NavLink to="/contact">Contact</NavLink>
           </li>
         </ul>
     );

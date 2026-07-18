@@ -64,9 +64,8 @@ class NotFound extends React.Component {
                           </li>
                           <li>
                             <HashLink
-                              smooth
                               className=""
-                              to="/services/#contact"
+                              to="/contact"
                             >
                               Contact
                             </HashLink>

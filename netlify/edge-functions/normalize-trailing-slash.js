@@ -68,6 +68,7 @@ export const config = {
     "/",
     "/aboutme/",
     "/services/",
+    "/contact/",
     "/gallery/",
     "/gallery/room/*/",
     "/blog/",
