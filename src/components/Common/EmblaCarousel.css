@@ -64,9 +64,14 @@
   --embla-slide-gap: 20px;
 }
 
-.embla-latest-projects .embla-section-carousel__navigation {
+.embla-latest-projects .embla-section-carousel__navigation,
+.embla-related-projects .embla-section-carousel__navigation {
   margin-top: 40px;
   text-align: left;
+}
+
+.embla-related-projects {
+  --embla-slide-gap: 20px;
 }
 
 .embla-suppliers {
@@ -110,9 +115,55 @@
   --embla-slide-gap: 80px;
 }
 
+.embla-related-blog {
+  --embla-slide-gap: 30px;
+}
+
+.embla-related-blog .embla-section-carousel__viewport {
+  padding-top: 60px;
+}
+
+.embla-related-blog .embla-section-carousel__navigation {
+  left: 0;
+  position: absolute;
+  text-align: right;
+  top: 0;
+  width: 100%;
+}
+
+.embla-blog-images {
+  --embla-slide-gap: 30px;
+}
+
+.embla-blog-images .embla-section-carousel__navigation {
+  height: auto;
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.embla-blog-images .embla-section-carousel__button {
+  margin: -15px 0 0;
+  pointer-events: auto;
+  position: absolute;
+  top: 50%;
+}
+
+.embla-blog-images .embla-section-carousel__button--previous {
+  left: 0;
+}
+
+.embla-blog-images .embla-section-carousel__button--next {
+  right: 0;
+}
+
 @media (min-width: 480px) {
   .embla-suppliers {
     --embla-slide-size: calc(50% - 5px);
+  }
+
+  .embla-related-projects {
+    --embla-slide-size: calc(50% - 10px);
   }
 }
 
@@ -124,6 +175,10 @@
 
 @media (min-width: 991px) {
   .embla-latest-projects {
+    --embla-slide-size: calc(33.333333% - 13.333333px);
+  }
+
+  .embla-related-projects {
     --embla-slide-size: calc(33.333333% - 13.333333px);
   }
 
@@ -139,8 +194,21 @@
 }
 
 @media (min-width: 1152px) {
-  .embla-latest-projects {
+  .embla-latest-projects,
+  .embla-related-projects {
     --embla-slide-size: calc(25% - 15px);
+  }
+}
+
+@media (min-width: 767px) {
+  .embla-related-blog {
+    --embla-slide-size: calc(50% - 15px);
+  }
+}
+
+@media (min-width: 1100px) {
+  .embla-related-blog {
+    --embla-slide-size: calc(33.333333% - 20px);
   }
 }
 
@@ -161,7 +229,8 @@
 }
 
 @media (max-width: 479.98px) {
-  .embla-latest-projects .embla-section-carousel__navigation {
+  .embla-latest-projects .embla-section-carousel__navigation,
+  .embla-related-projects .embla-section-carousel__navigation {
     margin-top: 20px;
   }
 }

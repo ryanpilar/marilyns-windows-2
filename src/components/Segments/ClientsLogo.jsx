@@ -1,6 +1,4 @@
-import LazyOwlCarousel from "../Common/LazyOwlCarousel";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
+import EmblaCarousel from "../Common/EmblaCarousel";
 
 const normalizeSupplier = (supplier) => {
   if (!supplier.fields) {
@@ -21,34 +19,6 @@ const normalizeSupplier = (supplier) => {
 
 const ClientsLogo = ({ content = [], supplierList }) => {
   const suppliers = content.map(normalizeSupplier);
-
-  // Owl Carousel Options
-  const options = {
-    autoplay: true,
-    loop: true,
-    margin: 10,
-    nav: true,
-    dots: false,
-    navElement: 'button type="button"',
-    navText: [
-      '<span class="sr-only">Previous slide</span><i class="fa fa-angle-left" aria-hidden="true"></i>',
-      '<span class="sr-only">Next slide</span><i class="fa fa-angle-right" aria-hidden="true"></i>',
-    ],
-    responsive: {
-      0: {
-        items: 1,
-      },
-      480: {
-        items: 2,
-      },
-      767: {
-        items: 2,
-      },
-      1000: {
-        items: 3,
-      },
-    },
-  };
 
   return (
     <>
@@ -248,9 +218,13 @@ const ClientsLogo = ({ content = [], supplierList }) => {
                   <div className="col-md-12 col-sm-12">
                     <div className="section-content bg-white p-tb80">
                       {suppliers.length > 0 && (
-                        <LazyOwlCarousel
-                          className="owl-carousel home-client-carousel owl-btn-center-v"
-                          {...options}
+                        <EmblaCarousel
+                          ariaLabel="Premium suppliers"
+                          autoplay={{ delay: 5000 }}
+                          className="embla-suppliers"
+                          options={{ duration: 25, loop: true }}
+                          navigationClassName="embla-suppliers__navigation"
+                          showNavigation
                         >
                           {suppliers.map((supplier) => (
                             <div className="item" key={supplier.title}>
@@ -276,7 +250,7 @@ const ClientsLogo = ({ content = [], supplierList }) => {
                               </div>
                             </div>
                           ))}
-                        </LazyOwlCarousel>
+                        </EmblaCarousel>
                       )}
                     </div>
                   </div>

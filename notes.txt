@@ -64,24 +64,10 @@ Weird things I had to do:
             -   From npm --openssl-legacy-provider start to npm start --openssl-legacy-provider start
             -   From npm --openssl-legacy-provider build to npm start --openssl-legacy-provider build
 
-    4.  Owl carousel problem
-        -   Seems like OwlCarousel doesn't re-render upon state change and as such even though your state updates and your 
-            callback sends it new set of children, OwlCarousel stays as it was from the initial render. 
-            
-            It does have callback hooks 
-            that you can tie your updates into so that it will update, but seems like very poor documentation 
-            so I did not spend time on it. There's something called onRefresh hook that you can use that takes in a 
-            function but again no example that tells you how to do it. https://owlcarousel2.github.io/OwlCarousel2/docs/api-events.html
-
-        -   To overcome this I wrapped OwlCarousel in the length check which will only render once 
-            state has something to render after API call returns.
-
-            https://stackoverflow.com/questions/56771532/react-owl-carousel-is-blank
-
-    5.  bg-paralax unsupportive in iOS devices 
+    4.  bg-paralax unsupportive in iOS devices
         -   background-attachment: fixed not supported in ios
         -   i put a media query in that targets hover and the background-attachment: initial. 
 
-    6.  square_shape2 and other square_shape's cause a interesting clearfixing issue that i couldn't solve. It was
+    5.  square_shape2 and other square_shape's cause a interesting clearfixing issue that i couldn't solve. It was
         particularly problesome when make a quicklinks or a table of contents. When you press the link to smooth scroll
         downwards, when you scrolled back up, text near the top would completely disapear.

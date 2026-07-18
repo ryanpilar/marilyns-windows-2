@@ -71,12 +71,6 @@ code {
   }
 }
 
-@media (max-width: 479.98px) {
-  .gallery-related-cards .owl-nav {
-    margin-top: 20px !important;
-  }
-}
-
 @media (min-width: 576px) and (max-width: 991.98px) {
   .gallery-single-related-spacing {
     padding-top: 45px !important;

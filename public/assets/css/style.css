@@ -4562,12 +4562,6 @@ ol.list-num-count p {
   vertical-align: middle;
   padding: 10px;
 }
-.owl-carousel .ow-client-logo img {
-  max-height: 100%;
-  width: auto;
-  display: inline-block;
-}
-
 .client-logo-media img {
   max-width: 100% !important;
   margin: 0px auto !important;
@@ -4728,28 +4722,6 @@ ol.list-num-count p {
 .testimonial-grid-6 .testimonial-detail {
   padding-left: 0px;
   padding-right: 0px;
-}
-
-/* testimonial 6 owl-dots*/
-.testimonial-home.owl-carousel .owl-dots .owl-dot span {
-  height: 10px;
-  width: 20px;
-  background: no-repeat;
-  border: 1px solid #000;
-  -webkit-transition: all 0.5s linear;
-  -moz-transition: all 0.5s linear;
-  -ms-transition: all 0.5s linear;
-  -o-transition: all 0.5s linear;
-  transition: all 0.5s linear;
-}
-.testimonial-home.owl-carousel .owl-dots .owl-dot.active span {
-  border: none;
-  background-color: #000 !important;
-  -webkit-transition: all 0.5s linear;
-  -moz-transition: all 0.5s linear;
-  -ms-transition: all 0.5s linear;
-  -o-transition: all 0.5s linear;
-  transition: all 0.5s linear;
 }
 
 /*-------------------------------------
@@ -5967,48 +5939,6 @@ input[type="radio"]:checked + label:before {
   z-index: 0;
   color: rgba(0, 0, 0, 0.05);
 }
-/* 19.18 widget client slider */
-.widget-client {
-  background-color: #f6f7f8;
-}
-.widget-client.owl-carousel .owl-dots {
-  position: absolute;
-  right: 15px;
-  margin-top: 0px;
-  top: 50%;
-  width: 0px;
-  transform: translateX(-50%) translateY(-50%);
-}
-.widget-client.owl-carousel .owl-dots .owl-dot span {
-  width: 12px;
-  height: 3px;
-  border: none;
-  float: right;
-  clear: both;
-  position: relative;
-}
-.widget-client.owl-carousel .owl-dots .owl-dot span:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 12px;
-  height: 3px;
-  background-color: #000;
-  -webkit-transition: all 0.5s linear;
-  -moz-transition: all 0.5s linear;
-  -ms-transition: all 0.5s linear;
-  -o-transition: all 0.5s linear;
-  transition: all 0.5s linear;
-}
-
-.widget-client.owl-carousel .owl-dots .owl-dot.active span:after {
-  width: 50px;
-}
-.widget-client .ow-client-logo {
-  background-color: #f6f7f8;
-}
-
 /*-------------------------------------
 	20. Table 
 -------------------------------------*/
@@ -8234,203 +8164,6 @@ ol.comment-list li.comment .comment-respond .comment-form p {
 }
 
 /*======================================
-20. SLIDER
-======================================*/
-
-/*-------------------------------------
-	1. owl slider 
--------------------------------------*/
-
-/*-------------------------------------
-	1.1  next pre btn
--------------------------------------*/
-.owl-carousel .owl-nav {
-  margin-top: 40px;
-  text-align: center;
-}
-
-.owl-carousel .owl-nav .disabled {
-  opacity: 0.5;
-  cursor: default;
-}
-
-/*-------------------------------------
-	1.2 owl dots button
--------------------------------------*/
-.owl-carousel .owl-dots {
-  text-align: center;
-  margin-top: 20px;
-}
-.owl-carousel .owl-dots .owl-dot {
-  display: inline-block;
-  background: none;
-  border: none;
-}
-.owl-carousel .owl-dots .owl-dot span {
-  width: 12px;
-  height: 12px;
-  margin: 5px 7px;
-  background: #1a1a1a;
-  border: 1px solid #fff;
-  display: block;
-
-  -webkit-transition: opacity 200ms ease;
-  -moz-transition: opacity 200ms ease;
-  -ms-transition: opacity 200ms ease;
-  -o-transition: opacity 200ms ease;
-  transition: opacity 200ms ease;
-}
-.owl-carousel .owl-dots .owl-dot.active span,
-.owl-carousel .owl-dots .owl-dot:hover span {
-  background: #979797;
-}
-
-/*-------------------------------------
-	1.3 owl button top to center
--------------------------------------*/
-.owl-btn-top-center .owl-nav,
-.owl-btn-top-left .owl-nav,
-.owl-btn-top-right .owl-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin: 0;
-}
-.owl-btn-top-center .owl-stage-outer,
-.owl-btn-top-left .owl-stage-outer,
-.owl-btn-top-right .owl-stage-outer {
-  padding-top: 60px;
-}
-.owl-btn-top-center .owl-nav {
-  text-align: center;
-}
-
-/*-------------------------------------
-	1.4 owl button top to left
--------------------------------------*/
-.owl-btn-top-left .owl-nav {
-  text-align: left;
-}
-
-/*-------------------------------------
-	1.5 owl button top to right
--------------------------------------*/
-.owl-btn-top-right .owl-nav {
-  text-align: right;
-}
-
-/*-------------------------------------
-	1.6 owl button bottom to center [it is default position ]
--------------------------------------*/
-.owl-btn-bottom-center .owl-nav {
-  text-align: center;
-}
-
-/*-------------------------------------
-	1.7 owl button bottom to left
--------------------------------------*/
-.owl-btn-bottom-left .owl-nav {
-  text-align: left;
-}
-
-/*-------------------------------------
-	1.8 owl button bottom to right
--------------------------------------*/
-.owl-btn-bottom-right .owl-nav {
-  text-align: right;
-}
-
-/*-------------------------------------
-	1.9 owl button vertical to center
--------------------------------------*/
-.owl-btn-vertical-center .owl-nav {
-  margin: 0px;
-}
-
-.owl-btn-vertical-center .owl-nav .owl-prev,
-.owl-btn-vertical-center .owl-nav .owl-next {
-  position: absolute;
-  top: 50%;
-  margin: -15px 0;
-  border: none;
-}
-.owl-btn-vertical-center .owl-nav .owl-prev {
-  left: 0;
-}
-.owl-btn-vertical-center .owl-nav .owl-next {
-  right: 0;
-}
-
-/*-------------------------------------
-	1.10 owl button show on hover
--------------------------------------*/
-.owl-btn-hover .owl-nav {
-  opacity: 0;
-}
-.owl-btn-hover:hover .owl-nav {
-  opacity: 1;
-}
-
-.owl-carousel .owl-item img {
-  transform-style: inherit;
-}
-
-/*-------------------------------------
-    1.11 owl slider button
--------------------------------------*/
-.owl-prev,
-.owl-next {
-  background-color: #000 !important;
-  color: #ffffff !important;
-  padding: 8px 10px;
-  width: 35px;
-  height: 35px;
-  text-align: center;
-  font-size: 14px;
-  display: inline-block;
-  cursor: pointer;
-  border: none;
-}
-.owl-prev {
-  margin-right: 5px;
-}
-.owl-next {
-  margin-left: 5px;
-}
-
-.owl-prev:hover,
-.owl-prev:active,
-.owl-prev:focus,
-.owl-next:hover,
-.owl-next:active,
-.owl-next:focus {
-  background-color: #212121;
-  border-color: #212121;
-  color: #ffffff;
-  opacity: 0.9;
-}
-
-/*-------------------------------------
-	1.12 owl dots nav position
--------------------------------------*/
-
-.owl-dots-bottom-left .owl-dots,
-.owl-dots-bottom-right .owl-dots,
-.owl-dots-bottom-center .owl-dots {
-  bottom: 0px;
-  padding: 15px 20px;
-  position: absolute;
-  width: 100%;
-}
-.owl-dots-bottom-left .owl-dots {
-  text-align: left;
-}
-.owl-dots-bottom-right .owl-dots {
-  text-align: right;
-}
-
-/*======================================
 21. PAGINATION 
 ======================================*/
 
@@ -9428,47 +9161,6 @@ ol.commentlist li::after {
 
 }
 
-.m-carousel-1 .owl-carousel .owl-dots,
-.m-carousel-1.mod .owl-carousel .owl-dots {
-  position: absolute;
-  right: 20px;
-  margin-top: 0px;
-  top: 50%;
-  width: 0px;
-  transform: translateX(-50%) translateY(-50%);
-}
-.m-carousel-1 .owl-carousel .owl-dots .owl-dot span,
-.m-carousel-1.mod .owl-carousel .owl-dots .owl-dot span {
-  width: 12px;
-  height: 3px;
-  border: none;
-  float: right;
-  clear: both;
-  position: relative;
-}
-.m-carousel-1.mod .owl-carousel .owl-dots .owl-dot span {
-  float: none;
-}
-.m-carousel-1 .owl-carousel .owl-dots .owl-dot span:after,
-.m-carousel-1.mod .owl-carousel .owl-dots .owl-dot span:after  {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 12px;
-  height: 3px;
-  background-color: #000;
-  -webkit-transition: all 0.5s linear;
-  -moz-transition: all 0.5s linear;
-  -ms-transition: all 0.5s linear;
-  -o-transition: all 0.5s linear;
-  transition: all 0.5s linear;
-}
-
-.m-carousel-1 .owl-carousel .owl-dots .owl-dot.active span:after,
-.m-carousel-1.mod .owl-carousel .owl-dots .owl-dot.active span:after {
-  width: 50px;
-}
 @media only screen and (max-width: 991px) {
   .m-carousel-1,
   .m-carousel-1.mod {
@@ -9547,20 +9239,6 @@ ol.commentlist li::after {
   border-bottom: 0px;
   border-left: 0px;
 }
-.m-carousel-2 .home-carousel-2 .owl-nav {
-  margin: 0px;
-  position: absolute;
-  bottom: -30px;
-  left: 30px;
-}
-
-.m-carousel-2 .home-carousel-2 .owl-nav .owl-prev {
-  left: -30px;
-}
-.m-carousel-2 .home-carousel-2 .owl-nav .owl-next {
-  right: -44px;
-}
-
 .carousel-bg-img {
   position: absolute;
   right: -65px;
@@ -9650,30 +9328,9 @@ ol.commentlist li::after {
   left: -20px;
   bottom: -40px;
 }
-.carousel-hover .owl-item .gradi-black:before {
-  opacity: 0;
-}
-.carousel-hover .owl-item.active .gradi-black:before {
-  opacity: 1;
-  -webkit-transition: all 1s linear;
-  -moz-transition: all 1s linear;
-  -ms-transition: all 1s linear;
-  -o-transition: all 1s linear;
-  transition: all 1s linear;
-}
-
 .carousel-hover .wt-carousel-info {
   bottom: -300px;
   opacity: 0px;
-}
-.carousel-hover .owl-item.active .wt-carousel-info {
-  bottom: 0px;
-  opacity: 1px;
-  -webkit-transition: all 1.5s linear;
-  -moz-transition: all 1.5s linear;
-  -ms-transition: all 1.5s linear;
-  -o-transition: all 11.5s linear;
-  transition: all 1.5s linear;
 }
 
 @media only screen and (max-width: 460px) {
@@ -9909,42 +9566,6 @@ ol.commentlist li::after {
 }
 /*=========================*/
 
-.home-client-carousel.owl-btn-center-v.owl-carousel .owl-nav {
-  position: absolute;
-  margin-top: 0px;
-  top: -10px;
-  left: -80px;
-}
-.home-client-carousel.owl-btn-center-v.owl-carousel .owl-nav .owl-prev {
-  left: 40px;
-  position: relative;
-  background-color: #1a1a1a;
-  margin: 0px;
-  border: none;
-}
-.home-client-carousel.owl-btn-center-v.owl-carousel .owl-nav .owl-next {
-  left: 5px;
-  position: relative;
-  top: 40px;
-  background-color: #1a1a1a;
-  margin: 0px;
-  border: none;
-}
-@media only screen and (max-width: 800px) {
-  .home-client-carousel.owl-btn-center-v.owl-carousel .owl-nav {
-    left: auto;
-    right: 5px;
-    top: auto;
-    bottom: -47px;
-  }
-  .home-client-carousel.owl-btn-center-v.owl-carousel .owl-nav .owl-prev {
-    left: 0px;
-  }
-  .home-client-carousel.owl-btn-center-v.owl-carousel .owl-nav .owl-next {
-    left: 5px;
-    top: 0px;
-  }
-}
 /*=========================
 39. background Square block
 =========================*/
@@ -10016,17 +9637,6 @@ ol.commentlist li::after {
   bottom: -50px;
   z-index: -1;
 }
-.about-us-carousel.owl-carousel .owl-nav {
-  margin-top: 0px;
-  position: absolute;
-  right: -15px;
-  bottom: 15px;
-}
-.about-us-carousel.owl-carousel .owl-nav .owl-prev,
-.about-us-carousel.owl-carousel .owl-nav .owl-next {
-  display: block;
-  margin: 0px;
-}
 @media only screen and (max-width: 991px) {
   .m-about {
     margin-right: 0px;
@@ -10038,9 +9648,6 @@ ol.commentlist li::after {
   }
   .m-about-containt {
     margin-top: 60px;
-  }
-  .about-us-carousel.owl-carousel .owl-nav {
-    right: 15px;
   }
 }
 /*======================================
@@ -10157,60 +9764,7 @@ ol.commentlist li::after {
   }
 }
 
-/*======================================
-43. Work carousal
-======================================*/
-/*====preview inner pages ====*/
-.work-carousel .owl-stage {
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-@media only screen and (max-width: 853px) {
-  .work-carousel .owl-stage {
-    padding: 0px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .work-carousel .owl-stage {
-    margin-bottom: 30px;
-  }
-}
-.work-carousel .owl-item {
-  background-color: #fff;
-}
-.work-carousel .owl-item > .item {
-  opacity: 0.6;
-}
-.work-carousel .owl-item.active.center > .item {
-  opacity: 1;
-}
-.work-carousel .owl-item.active.center {
-  opacity: 1;
-  z-index: 1;
-  -webkit-transition: all 1s linear;
-  -moz-transition: all 1s linear;
-  -ms-transition: all 1s linear;
-  -o-transition: all 1s linear;
-  transition: all 1s linear;
-
-  -moz-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  -o-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-.work-carousel .owl-item.active.center {
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-}
 @media only screen and (max-width: 1200px) {
-  .work-carousel .owl-item > .item h2 {
-    margin-bottom: 10px;
-  }
-  .work-carousel .owl-item > .item h2 a {
-    font-size: 24px;
-    line-height: 24px;
-  }
   .work-carousel .line-amiation {
     padding: 10px 40px;
   }
@@ -10228,15 +9782,6 @@ ol.commentlist li::after {
     margin-bottom: 10px;
   }
 }
-@media only screen and (max-width: 854px) {
-  .work-carousel .owl-item.active.center {
-    -moz-transform: scale(1);
-    -webkit-transform: scale(1);
-    -o-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-  }
-}
 @media only screen and (max-width: 768px) {
   .latest_project-outer {
     padding-left: 30px;
@@ -10247,19 +9792,6 @@ ol.commentlist li::after {
   .latest_project-outer {
     padding-left: 15px;
     padding-right: 15px;
-  }
-}
-@media only screen and (max-width: 480px) {
-  .work-carousel .owl-item p {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-}
-@media only screen and (max-width: 360px) {
-  .work-carousel .owl-item > .item h2 a {
-    font-size: 14px;
-    line-height: 14px;
   }
 }
 /*======================================
@@ -10462,190 +9994,6 @@ img.ril-image-current {
 /*=========================================================
 
 =============================================================*/
-
-/* 
- *  Owl Carousel - Animate Plugin
- */
-.owl-carousel-filter .animated {
-  -webkit-animation-duration: 1000ms;
-  animation-duration: 1000ms;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-.owl-carousel-filter .owl-animated-in {
-  z-index: 0;
-}
-.owl-carousel-filter .owl-animated-out {
-  z-index: 1;
-}
-.owl-carousel-filter .fadeOut {
-  -webkit-animation-name: fadeOut;
-  animation-name: fadeOut;
-}
-
-@-webkit-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-/* 
- *  Core Owl Carousel CSS File
- */
-.owl-carousel-filter {
-  display: none;
-  width: 100%;
-  -webkit-tap-highlight-color: transparent;
-  /* position relative and z-index fix webkit rendering fonts issue */
-  position: relative;
-  z-index: 1;
-}
-.owl-carousel-filter .owl-stage {
-  position: relative;
-}
-.owl-carousel-filter .owl-stage:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0;
-}
-.owl-carousel-filter .owl-stage-outer {
-  position: relative;
-  overflow: hidden;
-  /* fix for flashing background */
-  -webkit-transform: translate3d(0px, 0px, 0px);
-  transform: translate3d(0px, 0px, 0px);
-}
-.owl-carousel-filter .owl-controls .owl-nav .owl-prev,
-.owl-carousel-filter .owl-controls .owl-nav .owl-next,
-.owl-carousel-filter .owl-controls .owl-dot {
-  cursor: pointer;
-  cursor: hand;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.owl-carousel-filter.owl-loaded {
-  display: block;
-}
-.owl-carousel-filter.owl-loading {
-  opacity: 0;
-  display: block;
-}
-.owl-carousel-filter.owl-hidden {
-  opacity: 0;
-}
-.owl-carousel-filter .owl-refresh .owl-item {
-  display: none;
-}
-.owl-carousel-filter .owl-item {
-  position: relative;
-  min-height: 1px;
-  float: left;
-
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.owl-carousel-filter .owl-item img {
-  display: block;
-  width: 100%;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-}
-.owl-carousel-filter.owl-text-select-on .owl-item {
-  -webkit-user-select: auto;
-  -moz-user-select: auto;
-  -ms-user-select: auto;
-  user-select: auto;
-}
-.owl-carousel-filter .owl-grab {
-  cursor: move;
-  cursor: -webkit-grab;
-  cursor: -o-grab;
-  cursor: -ms-grab;
-  cursor: grab;
-}
-.owl-carousel-filter.owl-rtl {
-  direction: rtl;
-}
-.owl-carousel-filter.owl-rtl .owl-item {
-  float: right;
-}
-
-/* No Js */
-.no-js .owl-carousel-filter {
-  display: block;
-}
-
-/*===============================*/
-.btn-filter-wrap {
-  list-style: none;
-  margin: 64px 0 0;
-  float: right;
-}
-.btn-filter-wrap li {
-  position: relative;
-  display: inline-block;
-  font-size: 18px;
-  font-weight: 600;
-  color: #000;
-  padding: 0 20px;
-  cursor: pointer;
-}
-.btn-filter-wrap li:last-child {
-  padding-right: 0;
-}
-.btn-filter-wrap li.btn-active {
-  color: #d5dd02;
-}
-.btn-filter-wrap li:after {
-  content: "/";
-  position: absolute;
-  left: -2px;
-  top: 4px;
-  font-size: 14px;
-  opacity: 0.2;
-  color: #000;
-}
-.btn-filter-wrap li:first-child:after {
-  display: none;
-}
-
-.owl-carousel-filter .owl-item {
-  opacity: 0;
-  -webkit-transition: opacity 0.2s ease;
-  -moz-transition: opacity 0.2s ease;
-  -ms-transition: opacity 0.2s ease;
-  -o-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease;
-}
-.owl-carousel-filter .owl-item.active {
-  opacity: 1;
-}
-.owl-carousel-filter .owl-item > .owl-item {
-  opacity: 1;
-}
 
 /*===============
 	PARTICLE CANVAS
@@ -11543,16 +10891,6 @@ New Menu Style for mobile device (august/2021)
   }
 }
 
-#about .m-carousel-1 .owl-carousel,
-#about22 .m-carousel-1 .owl-carousel,
-#about .m-carousel-1 .owl-stage-outer,
-#about22 .m-carousel-1 .owl-stage-outer,
-#about .m-carousel-1 .owl-stage,
-#about22 .m-carousel-1 .owl-stage,
-#about .m-carousel-1 .owl-item,
-#about22 .m-carousel-1 .owl-item {
-  height: 100%;
-}
 #about .m-carousel-1 img,
 #about22 .m-carousel-1 img {
   width: 100%;

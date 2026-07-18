@@ -2,9 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import createContentfulClient from "../../utils/createContentfulClient";
 import { Link } from "react-router-dom";
 
-import LazyOwlCarousel from "../Common/LazyOwlCarousel";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
+import EmblaCarousel from "../Common/EmblaCarousel";
 
 const LatestProjects2 = ({
   content,
@@ -166,46 +164,6 @@ const LatestProjects2 = ({
     };
   }, [imageList]);
 
-  const options = {
-    loop: true,
-    autoplay: true,
-    margin: 20,
-    nav: true,
-    dots: false,
-    autoplayHoverPause: true,
-    navElement: 'button type="button"',
-    navText: [
-      '<span class="sr-only">Previous slide</span><i class="fa fa-angle-left" aria-hidden="true"></i>',
-      '<span class="sr-only">Next slide</span><i class="fa fa-angle-right" aria-hidden="true"></i>',
-    ],
-    responsive: {
-      0: {
-        items: 1,
-      },
-      480: {
-        items: 2,
-      },
-      580: {
-        items: 2,
-      },
-      767: {
-        items: 2,
-      },
-      991: {
-        items: 3,
-      },
-      1152: {
-        items: 4,
-      },
-      1360: {
-        items: 4,
-      },
-      1366: {
-        items: 4,
-      },
-    },
-  };
-
   return (
     <>
       <div
@@ -243,12 +201,15 @@ const LatestProjects2 = ({
           >
             <div className="section-content">
               {imageList && (
-                <LazyOwlCarousel
-                  className="owl-carousel owl-carousel-filter  owl-btn-bottom-left"
-                  {...options}
+                <EmblaCarousel
+                  ariaLabel="More gallery projects"
+                  autoplay={{ delay: 5000, stopOnMouseEnter: true }}
+                  className="embla-related-projects"
+                  options={{ duration: 25, loop: true }}
+                  navigationClassName="embla-related-projects__navigation"
+                  showNavigation
                 >
-                  <>
-                    {imageList.map((item, index) => (
+                  {imageList.map((item, index) => (
                       <div
                         key={index}
                         className={`${item.fields.filter} item fadingcol`}
@@ -322,9 +283,8 @@ const LatestProjects2 = ({
                           </div>
                         </div>
                       </div>
-                    ))}
-                  </>
-                </LazyOwlCarousel>
+                  ))}
+                </EmblaCarousel>
               )}
               <div className="section-content m-t20 m-b40">
                 <Link

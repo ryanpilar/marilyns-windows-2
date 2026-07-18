@@ -17,7 +17,7 @@ A modern, ReactJs website to help promote Marilyn’s company and contribute con
 
 ## 💪 Packages/Dependencies
 
-HTML | CSS | JSX | React | Contentful | EmailJs | Lightbox | Owl-Carousel | Cloudinary | react-scroll | react-share | react-router-dom
+HTML | CSS | JSX | React | Contentful | EmailJs | Lightbox | Embla Carousel | Cloudinary | react-scroll | react-share | react-router-dom
 
 ---
 

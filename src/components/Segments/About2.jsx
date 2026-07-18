@@ -1,8 +1,6 @@
 
 import SEO from "../Segments/SEO";
 import AboutImages2 from "./AboutImages2";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
 
 const About2 = ({ images }) => {
   const hasImages = images?.images?.length;
@@ -220,30 +218,6 @@ const About2 = ({ images }) => {
           {" "}
           <div className="col-lg-12 col-md-12">
             {/* <div className="m-about m-l50 m-r50"> */}
-
-            {/* <OwlCarousel
-                className="owl-carousel about-us-carousel owl-btn-bottom-right"
-                {...options}
-              >
-                {images.images.map((item, index) => (
-                  <div className="item" key={index}>
-                    <div className="ow-img wt-img-effect zoom-slow">
-                      <img
-                        src={item.secure_url}
-                        // alt={item.context.custom.alt}
-                        // data-pin-description={item.context.custom.dataPin}
-                        // data-caption={item.context.custom.caption}
-
-                        alt={item.context.custom.alt}
-                        data-caption={item.context.custom.caption}
-                        data-pin-description={item.context.custom.dataPin}
-                        width={360}
-                        height={560}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </OwlCarousel> */}
 
             <div className="">
               {hasImages ? (
