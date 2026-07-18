@@ -159,15 +159,6 @@ All JavaScript fuctions Start
 		/*fix for IE7 and IE8 end */
 	}	
 
-	// > footer fixed on bottom function by = custom.js ======================== //	
-	function footer_fixed() {
-	  jQuery('.site-footer').css('display', 'block');
-	  jQuery('.site-footer').css('height', 'auto');
-	  var footerHeight = jQuery('.site-footer').outerHeight();
-	  jQuery('.footer-fixed > .page-wraper').css('padding-bottom', footerHeight);
-	  jQuery('.site-footer').css('height', footerHeight);
-	}
-
 	// > accordion active calss function by = custom.js ========================= //	
 	function accordion_active() {
 		$('.acod-head a').on('click', function() {
@@ -207,146 +198,13 @@ All JavaScript fuctions Start
 	}
 
 	/*--------------------------------------------------------------------------------------------
-		Window on load ALL FUNCTION START
-	---------------------------------------------------------------------------------------------*/
-
-	// > equal each box function by  = custom.js =========================== //	 
-	function equalheight(container) {
-		var currentTallest = 0, 
-			currentRowStart = 0, 
-			rowDivs = new Array(), 
-			$el, topPosition = 0,
-			currentDiv = 0;
-
-		jQuery(container).each(function() {
-			$el = jQuery(this);
-			jQuery($el).height('auto');
-			var topPostion = $el.position().top;
-			if (currentRowStart != topPostion) {
-				for (currentDiv = 0; currentDiv < rowDivs.length; currentDiv++) {
-					rowDivs[currentDiv].height(currentTallest);
-				}
-				rowDivs.length = 0; // empty the array
-				currentRowStart = topPostion;
-				currentTallest = $el.height();
-				rowDivs.push($el);
-			} else {
-
-				rowDivs.push($el);
-				currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
-			}
-
-			for (currentDiv = 0; currentDiv < rowDivs.length; currentDiv++) {
-				rowDivs[currentDiv].height(currentTallest);
-			}
-		});
-	}
-
-
-	// text animation function
-	
-	var TxtType = function(el, toRotate, period) {
-        this.toRotate = toRotate;
-        this.el = el;
-        this.loopNum = 0;
-        this.period = parseInt(period, 10) || 2000;
-        this.txt = '';
-        this.tick();
-        this.isDeleting = false;
-    };
-
-    TxtType.prototype.tick = function() {
-        var i = this.loopNum % this.toRotate.length;
-        var fullTxt = this.toRotate[i];
-
-        if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-        } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-        }
-
-        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
-
-        var that = this;
-        var delta = 200 - Math.random() * 100;
-
-        if (this.isDeleting) { delta /= 2; }
-
-        if (!this.isDeleting && this.txt === fullTxt) {
-        delta = this.period;
-        this.isDeleting = true;
-        } else if (this.isDeleting && this.txt === '') {
-        this.isDeleting = false;
-        this.loopNum++;
-        delta = 500;
-        }
-
-        setTimeout(function() {
-        that.tick();
-        }, delta);
-    };
-
-    /*window.onload = function() {
-       typewriter_text();
-    };*/
-	/*jQuery(window).on('load', function () {
-	typewriter_text();
-	});
-*/
-
-	function typewriter_text(){
-		var elements = document.getElementsByClassName('typewrite');
-        for (var i=0; i<elements.length; i++) {
-            var toRotate = elements[i].getAttribute('data-type');
-            var period = elements[i].getAttribute('data-period');
-            if (toRotate) {
-              new TxtType(elements[i], JSON.parse(toRotate), period);
-            }
-        }
-        // INJECT CSS
-        var css = document.createElement("style");
-        css.type = "text/css";
-        css.innerHTML = ".typewrite > .wrap {}";
-        document.body.appendChild(css);
-	}
-	// > masonry function function by = isotope.pkgd.min.js ========================= //	
-	function masonryBox() {
-        if ( jQuery().isotope ) {      
-            var $container = jQuery('.portfolio-wrap');
-            var $grid = $container.isotope({
-                    itemSelector: '.masonry-item',
-                    transitionDuration: '1s',
-					originLeft: true,
-					stamp: '.stamp'
-                });
-				
-			$grid.imagesLoaded().progress( function() {
-					$grid.isotope('layout');
-				});
-
-            jQuery('.masonry-filter li').on('click',function() {                           
-                var selector = jQuery(this).find("[data-filter]").first().attr('data-filter');
-                jQuery('.masonry-filter li').removeClass('active');
-                jQuery(this).addClass('active');
-                $container.isotope({ filter: selector });
-                return false;
-            });
-    	}
-	}	
-
-
-
-	/*--------------------------------------------------------------------------------------------
 		document.ready ALL FUNCTION START
 	---------------------------------------------------------------------------------------------*/
 	jQuery(document).ready(function() {
-		typewriter_text();
 		// > Top Search bar Show Hide function by = custom.js  		
 		site_search(),
 		// > Video responsive function by = custom.js 
 		video_responsive(),
-		
-		masonryBox(),
 		
 		// > Vertically center Bootstrap modal popup function by = custom.js
 		popup_vertical_center();
@@ -356,8 +214,6 @@ All JavaScript fuctions Start
 		input_type_file_form(),
 		// > input Placeholder in IE9 function by = custom.js		
 		placeholderSupport(),
-		// > footer fixed on bottom function by = custom.js	
-		footer_fixed(),
 		// > accordion active calss function by = custom.js ========================= //			
 		accordion_active(),
 		// > Nav submenu on off function by = custome.js ===================//
@@ -368,15 +224,6 @@ All JavaScript fuctions Start
 	}); 
 
 	
-
-	/*===========================
-		Window Resize ALL FUNCTION START
-	===========================*/
-
-	jQuery(window).on('resize', function () {
-	// > footer fixed on bottom function by = custom.js		 
-	 	footer_fixed()
-	});
 
 	/*===========================
 		Document on  Submit FUNCTION START
@@ -455,41 +302,6 @@ All JavaScript fuctions Start
 
 })(window.jQuery);
 
-/*--------------------------------------------------------------------------------------------
-	Window Load START
----------------------------------------------------------------------------------------------*/
-jQuery(window).on('load', function () {
-									
-	// > equal each box function by  = custom.js			
-	equalheight(".equal-wraper .equal-col");
-	// > masonry function function by = isotope.pkgd.min.js		
-	masonryBox();
-	// > Nav submenu on off function by = custome.js ===================//
-	mobile_nav();
-
-});
-
-//________Nav submenu show hide on mobile by = custom.js________//
-function mobile_nav(){
-	jQuery(".sub-menu, .mega-menu").parent('li').addClass('has-child');
-	jQuery("<div class='fa fa-angle-right submenu-toogle'></div>").insertAfter(".has-child > a");
-
-	jQuery('.has-child a+.submenu-toogle').on('click',function(ev) {
-
-		jQuery(this).parent().siblings(".has-child ").children(".sub-menu, .mega-menu").slideUp(500, function(){
-			jQuery(this).parent().removeClass('nav-active');
-		});
-
-		jQuery(this).next(jQuery('.sub-menu, .mega-menu ')).slideToggle(500, function(){
-			jQuery(this).parent().toggleClass('nav-active');
-		});
-
-		ev.stopPropagation();
-	});
-
-}
- 
-
 // > masonry function function by = isotope.pkgd.min.js ========================= //	
 function masonryBox() {
 	if ( jQuery().isotope ) {      
@@ -514,35 +326,3 @@ function masonryBox() {
 		});
 	}
 }	
-
-// > equal each box function by  = custom.js =========================== //	 
-function equalheight(container) {
-	var currentTallest = 0, 
-		currentRowStart = 0, 
-		rowDivs = new Array(), 
-		$el, topPosition = 0,
-		currentDiv = 0;
-
-	jQuery(container).each(function() {
-		$el = jQuery(this);
-		jQuery($el).height('auto');
-		var topPostion = $el.position().top;
-		if (currentRowStart != topPostion) {
-			for (currentDiv = 0; currentDiv < rowDivs.length; currentDiv++) {
-				rowDivs[currentDiv].height(currentTallest);
-			}
-			rowDivs.length = 0; // empty the array
-			currentRowStart = topPostion;
-			currentTallest = $el.height();
-			rowDivs.push($el);
-		} else {
-
-			rowDivs.push($el);
-			currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
-		}
-
-		for (currentDiv = 0; currentDiv < rowDivs.length; currentDiv++) {
-			rowDivs[currentDiv].height(currentTallest);
-		}
-	});
-}

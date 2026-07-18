@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logoDark from "../../images/logo-dark.png";
+import logoDark from "../../images/logo-dark.webp";
 
 class Footer extends React.Component {
   
@@ -29,8 +29,8 @@ class Footer extends React.Component {
                     <img
                       src={this.currentstate.logo}
                       alt="marilyn's windows company logo"
-                      width={140}
-                      height={58}
+                      width={320}
+                      height={123}
                     />
                   </a>
                 </div>

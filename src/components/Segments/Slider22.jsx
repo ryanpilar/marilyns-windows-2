@@ -136,7 +136,6 @@ const Slider22 = () => {
       }
     };
 
-    updateParallax();
     window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
     window.addEventListener("resize", requestParallaxUpdate);
 
