@@ -1,6 +1,6 @@
 import React from "react";
 import Navigation2 from "./Navigation2";
-import logoDark from "../../images/logo-dark.png";
+import logoDark from "../../images/logo-dark.webp";
 
 class Header2 extends React.Component {
   isMenuActive;
@@ -65,8 +65,8 @@ class Header2 extends React.Component {
                     <a href="/" aria-label="Home">
                       <img
                         src={this.state.logo}
-                        width={221}
-                        height={70}
+                        width={320}
+                        height={123}
                         alt="Marilyn's Logo"
                       />
                     </a>

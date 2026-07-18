@@ -1,7 +1,7 @@
 import React from "react";
 import Navigation from "./Navigation";
 import { NavLink } from 'react-router-dom';
-import logoDark from "../../images/logo-dark.png";
+import logoDark from "../../images/logo-dark.webp";
 
 
 class Header3 extends React.Component {
@@ -45,8 +45,8 @@ class Header3 extends React.Component {
                   <NavLink to={"/"} aria-label="Home">
                   <img
                         src={this.state.logo}
-                        width={221}
-                        height={70}
+                        width={320}
+                        height={123}
                         alt="Marilyn's Logo"
                       />
                   </NavLink>

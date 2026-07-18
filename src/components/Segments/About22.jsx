@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
 
 import { homeAboutSecondary } from "../../content/homeContent";
+import { buildResponsiveCloudinarySrcSet } from "../../utils/responsiveCloudinaryImage";
+
+const ABOUT_IMAGE_WIDTHS = [400, 600, 640, 800];
 
 const About22 = () => {
   const { image } = homeAboutSecondary;
@@ -21,6 +24,11 @@ const About22 = () => {
                 <div className="ow-img wt-img-effect zoom-slow home-about-static-image">
                   <img
                     src={image.src}
+                    srcSet={buildResponsiveCloudinarySrcSet(
+                      image.src,
+                      ABOUT_IMAGE_WIDTHS
+                    )}
+                    sizes="(min-width: 1200px) 565px, (min-width: 992px) 48vw, (min-width: 768px) 55vw, calc(100vw - 30px)"
                     alt={image.alt}
                     data-pin-description={image.dataPin}
                     data-caption={image.caption}
