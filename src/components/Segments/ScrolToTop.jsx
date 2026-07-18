@@ -1,7 +1,13 @@
 
+import Icon from "../Common/Icon";
+
 const ScrolToTop = () => {
     return (
-        <button className="scroltop" aria-label="scroll to top"><span className="fa fa-angle-up  relative" id="btn-vibrate" /></button>
+        <button className="scroltop" aria-label="scroll to top">
+            <span className="relative" id="btn-vibrate">
+                <Icon name="angle-up" />
+            </span>
+        </button>
     );
 };
 

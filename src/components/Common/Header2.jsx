@@ -1,5 +1,6 @@
 import React from "react";
 import Navigation2 from "./Navigation2";
+import Icon from "./Icon";
 import logoDark from "../../images/logo-dark.webp";
 
 class Header2 extends React.Component {
@@ -100,7 +101,7 @@ class Header2 extends React.Component {
                         data-toggle="dropdown"
                         aria-label="Toggle My Social Media"
                       >
-                        <i className="fa fa-share-alt" aria-hidden="true" />
+                        <Icon name="share-alt" />
                       </button>
                       <div className="dropdown-menu bg-white">
                         <div className="top-bar">
@@ -112,10 +113,9 @@ class Header2 extends React.Component {
                                 href="https://www.facebook.com/marilynswindows/"
                                 aria-label="My Facebook"
                               >
-                                <i className="fa fa-facebook" />
+                                <Icon name="facebook" />
                               </a>
                             </li>
-                            {/* <li><a target="_blank" rel="noreferrer noopener" href="https://twitter.com/marilynswindows" aria-label="My Twitter"><i className="fa fa-twitter" /></a></li> */}
                             {/* <li>
                               <a
                                 target="_blank"
@@ -123,7 +123,7 @@ class Header2 extends React.Component {
                                 href="https://www.linkedin.com/in/marilynswindows/"
                                 aria-label="My Linkedin"
                               >
-                                <i className="fa fa-linkedin" />
+                                <Icon name="linkedin" />
                               </a>
                             </li> */}
                             <li>
@@ -133,7 +133,7 @@ class Header2 extends React.Component {
                                 href="https://www.instagram.com/marilynwindowsandinteriors/"
                                 aria-label="My Instagram"
                               >
-                                <i className="fa fa-instagram" />
+                                <Icon name="instagram" />
                               </a>
                             </li>
                           </ul>

@@ -1,5 +1,6 @@
 import React from "react";
 import emailjs from "@emailjs/browser";
+import Icon from "../Common/Icon";
 
 class Contact extends React.Component {
   constructor(props) {
@@ -164,7 +165,7 @@ class Contact extends React.Component {
                         href="https://www.facebook.com/marilynswindows/"
                         aria-label="My Facebook"
                       >
-                        <i className="fa fa-facebook" />
+                        <Icon name="facebook" />
                       </a>
                     </li>
                     <li>
@@ -175,7 +176,7 @@ class Contact extends React.Component {
                         href="https://www.instagram.com/marilynwindowsandinteriors/"
                         aria-label="My Instagram"
                       >
-                        <i className="fa fa-instagram" />
+                        <Icon name="instagram" />
                       </a>
                     </li>
                   </ul>
@@ -265,7 +266,7 @@ class Contact extends React.Component {
                             disabled={this.state.spinner}
                           >
                             
-                            { this.state.spinner ? <span className="font-12 letter-spacing-5"><i className="fa fa-spinner fa-spin" /></span> : <span className="font-12 letter-spacing-5">Submit</span>}
+                            { this.state.spinner ? <span className="font-12 letter-spacing-5"><Icon name="spinner" className="fa-spin" /></span> : <span className="font-12 letter-spacing-5">Submit</span>}
                               
                           </button>
                         </>
@@ -285,7 +286,7 @@ class Contact extends React.Component {
                       <div className="contact-info bg-black text-white p-tb40 p-l15 p-r10">
                         <div className="wt-icon-box-wraper left p-b30">
                           <div className="icon-xs">
-                            <i className="fa fa-phone" />
+                            <Icon name="phone" />
                           </div>
                           <div className="icon-content text-white ">
                             <h3 className="m-a0 p-b5 text-uppercase text-brownish font-16 p-a0">
@@ -298,7 +299,7 @@ class Contact extends React.Component {
                         </div>
                         <div className="wt-icon-box-wraper left p-b30">
                           <div className="icon-xs">
-                            <i className="fa fa-envelope" />
+                            <Icon name="envelope" />
                           </div>
                           <div className="icon-content text-white">
                             <h3 className="m-a0 p-b5  text-uppercase text-brownish font-16 ">
@@ -311,7 +312,7 @@ class Contact extends React.Component {
                         </div>
                         <div className="wt-icon-box-wraper left">
                           <div className="icon-xs">
-                            <i className="fa fa-map-marker" />
+                            <Icon name="map-marker" />
                           </div>
                           <div className="icon-content text-white">
                             <h3 className="m-a0 p-b5  text-uppercase text-brownish font-16 p-a0">

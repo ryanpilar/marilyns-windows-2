@@ -1,5 +1,6 @@
 import React from "react";
 import emailjs from "@emailjs/browser";
+import Icon from "../Common/Icon";
 
 const FAQ = () => {
   const faqList = [
@@ -217,9 +218,9 @@ const FAQ = () => {
                                     aria-controls={`collapse${index}9`}
                                   >
                                     {faq.question}
-                                    <i className="fa fa-question text-orange p-l5" />
+                                    <Icon name="question" className="text-orange p-l5" />
                                     <span className="indicator">
-                                      <i className="fa fa-plus " />
+                                      <Icon name="plus" />
                                     </span>
                                   </a>
                                 </h3>
@@ -252,9 +253,9 @@ const FAQ = () => {
                                     aria-controls={`collapse${index}9`}
                                   >
                                     {faq.question}
-                                    <i className="fa fa-question text-orange p-l5" />
+                                    <Icon name="question" className="text-orange p-l5" />
                                     <span className="indicator">
-                                      <i className="fa fa-plus " />
+                                      <Icon name="plus" />
                                     </span>
                                   </a>
                                 </h3>

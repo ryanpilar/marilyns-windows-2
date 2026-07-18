@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Icon from "./Icon";
 import logoDark from "../../images/logo-dark.webp";
 
 class Footer extends React.Component {
@@ -29,14 +30,14 @@ class Footer extends React.Component {
                     <img
                       src={this.currentstate.logo}
                       alt="marilyn's windows company logo"
-                      width={320}
-                      height={123}
+                      width={140}
+                      height={58}
                     />
                   </a>
                 </div>
                 <div className="col-lg-4 col-md-4 text-center copyright-block p-t15">
                   <span className="copyrights-text">
-                    © 2026 made with <i className='fa fa-heart heart-change' /> by{" "}
+                    © 2026 made with <Icon name="heart" className="heart-change" /> by{" "}
                     
                     <Link
                       to={{ pathname: "https://ryan-pilar.netlify.app/" }}

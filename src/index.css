@@ -352,9 +352,21 @@ code {
   }
 }
 
+.home-page-layout .m-carousel-1,
+.home-page-layout .m-carousel-1.mod {
+  background-color: #fff;
+  isolation: isolate;
+}
+
+.home-page-layout .m-carousel-1::after,
+.home-page-layout .m-carousel-1.mod::after {
+  z-index: -1;
+}
+
 .home-page-layout .home-about-static-image {
   position: relative;
   z-index: 1;
+  background-color: #fff;
 }
 
 @container gallery-card (min-width: 380px) {

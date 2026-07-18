@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "./Navigation";
 import { NavLink } from 'react-router-dom';
+import Icon from "./Icon";
 import logoDark from "../../images/logo-dark.webp";
 
 
@@ -84,7 +85,7 @@ class Header3 extends React.Component {
                         data-toggle="dropdown"
                         aria-label="Toggle My Social Media"
                       >
-                        <i className="fa fa-share-alt" aria-hidden="true" />
+                        <Icon name="share-alt" />
                       </button>
                       <div className="dropdown-menu bg-white">
                         <div className="top-bar">
@@ -96,7 +97,7 @@ class Header3 extends React.Component {
                                 href="https://www.facebook.com/marilynswindows/"
                                 aria-label="My Facebook"
                               >
-                                <i className="fa fa-facebook" />
+                                <Icon name="facebook" />
                               </a>
                             </li>
                             <li>
@@ -106,7 +107,7 @@ class Header3 extends React.Component {
                                 href="https://www.instagram.com/marilynwindowsandinteriors/"
                                 aria-label="My Instagram"
                               >
-                                <i className="fa fa-instagram" />
+                                <Icon name="instagram" />
                               </a>
                             </li>
                           </ul>
