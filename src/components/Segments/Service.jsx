@@ -58,10 +58,9 @@ const Service = ({process}) => {
                                         </p>
 
                                         <HashLink
-                                            smooth
                                             className="btn-half site-button button-lg m-tb15 text-right"
-                                            to="#contact"
-                                            aria-label="scroll down to contact"
+                                            to="/contact"
+                                            aria-label="go to the contact page"
                                         >
                                             <span>Book Appointment</span>
                                             <em/>

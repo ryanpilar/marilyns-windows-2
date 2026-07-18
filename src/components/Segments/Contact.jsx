@@ -151,9 +151,12 @@ class Contact extends React.Component {
           <div className="section-full p-tb80 tm-shortcode-wrap">
             {/* LOCATION BLOCK*/}
             <div className="container">
+              <div className={this.props.contentClassName || undefined}>
               {/* SOCIAL LINKS START */}
               <div className="section-head text-left text-black">
-                <h2 className="text-uppercase font-34">Contact us </h2>
+                <h2 className="text-uppercase font-34">
+                  {this.props.heading || "Contact us"}
+                </h2>
 
                 <div className="p-t10">
                   <ul className="list-inline contact-socials">
@@ -227,7 +230,7 @@ class Contact extends React.Component {
                       </div>
                       <div className="form-group">
                         <input
-                          type="phone"
+                          type="tel"
                           className="form-control"
                           id="phone"
                           name="phone"
@@ -261,7 +264,6 @@ class Contact extends React.Component {
                             type="submit"
                             name="submit"
                             className="site-button black radius-no text-uppercase m-r10"
-                            role="button"
                             aria-label="send email"
                             disabled={this.state.spinner}
                           >
@@ -273,9 +275,9 @@ class Contact extends React.Component {
                         
 
                       <button
+                        type="button"
                         onClick={this.resetEmailForm.bind(this)}
                         className="site-button black radius-no text-uppercase"
-                        role="button"
                         aria-label="clear form"
                       >
                         <span className="font-12 letter-spacing-5">
@@ -325,6 +327,7 @@ class Contact extends React.Component {
                     </div>
                   </form>
                 </div>
+              </div>
               </div>
             </div>
           </div>

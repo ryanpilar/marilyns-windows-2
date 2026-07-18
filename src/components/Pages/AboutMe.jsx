@@ -395,9 +395,8 @@ const AboutMe = () => {
 
                                         <div className="text-center">
                                             <HashLink
-                                                smooth
                                                 className="btn-half site-button adjust-color button-lg font-weight-600 font-30 m-tb30 text-right"
-                                                to="/services/#contact"
+                                                to="/contact"
                                             >
                                                 <span>Book Appointment Here</span>
                                                 <em/>
