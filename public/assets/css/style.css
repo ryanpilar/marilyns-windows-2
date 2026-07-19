@@ -661,6 +661,14 @@ body {
   overflow-x: hidden;
 }
 
+@font-face {
+  font-family: "Hatton";
+  src: url("../fonts/hatton/Hatton-Medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
 .hatton {
   font-family: "Hatton";
 }
