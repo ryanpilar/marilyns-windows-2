@@ -135,6 +135,16 @@
   --embla-slide-gap: 30px;
 }
 
+.embla-blog-images .aon-thum-bx,
+.embla-blog-images .aon-thum-bx img {
+  width: 100%;
+}
+
+.embla-blog-images .aon-thum-bx img {
+  display: block;
+  height: auto;
+}
+
 .embla-blog-images .embla-section-carousel__navigation {
   height: auto;
   inset: 0;

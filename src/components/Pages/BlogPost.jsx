@@ -101,7 +101,7 @@ const BlogPost = () => {
 
               return (
                 <img
-                  className="m-t20 m-b30"
+                  className="blog-post-content-image m-t20 m-b30"
                   src={assetFile?.url}
                   alt={altText}
                   width={assetDetails?.width}

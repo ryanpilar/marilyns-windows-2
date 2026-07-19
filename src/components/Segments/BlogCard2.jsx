@@ -4,6 +4,8 @@ import { normalizeAltText } from "../../utils/contentfulText";
 
 
 const BlogCard2 = ({ item, index }) => {
+  const postTitle = item.fields.descriptiveTitle || item.fields.title;
+  const postLinkLabel = `Read blog post: ${postTitle}`;
 
   const [blackOpacity, setBlackOpacity] = React.useState({
     isHover: false,
@@ -24,7 +26,10 @@ const BlogCard2 = ({ item, index }) => {
               onMouseLeave={handleHover}
             >
               <div className={blackOpacity.isHover ? "" : "img-opacity"}>
-                <Link to={`/blog/post/${item.fields.slug}`}>
+                <Link
+                  to={`/blog/post/${item.fields.slug}`}
+                  aria-label={postLinkLabel}
+                >
                   <img
                     src={item.fields.blogImages[0].secure_url}
                     alt={normalizeAltText(
@@ -46,6 +51,7 @@ const BlogCard2 = ({ item, index }) => {
                 <Link
                   to={`/blog/post/${item.fields.slug}`}
                   className="text-black letter-spacing-1 font-weight-600 "
+                  aria-label={postLinkLabel}
                 >
                 <span className=' font-16 no-line-height'>{item.fields.title}</span>
                 
@@ -65,6 +71,7 @@ const BlogCard2 = ({ item, index }) => {
             <Link
               to={`/blog/post/${item.fields.slug}`}
               className="site-button black radius-no text-uppercase"
+              aria-label={postLinkLabel}
             >
               <span className="font-12 letter-spacing-5"> Read Post </span>{" "}
             </Link>
