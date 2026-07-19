@@ -82,8 +82,8 @@ const Services = () => {
   return (
     <>
       <SEO
-        title={`Services | Sewing & Installing The Best Custom Window Treatments for the Halton Region`}
-        description={`Specializing in custom drapery, high-end blinds and custom soft furnishings. Marilyn's work defines the art of couture drapery and window treatment design.`}
+        title={`Custom Window Treatment Services in Milton | Marilyn's Windows`}
+        description={`Explore custom drapery, blinds, shades, shutters and soft furnishings, with consultation, handcrafted production and professional installation across Halton.`}
         location={ cononicalLocation.pathname }
         robots={'index, follow'}
         breadcrumbs={[

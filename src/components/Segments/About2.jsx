@@ -1,5 +1,4 @@
 
-import SEO from "../Segments/SEO";
 import AboutImages2 from "./AboutImages2";
 
 const About2 = ({ images }) => {
@@ -7,12 +6,6 @@ const About2 = ({ images }) => {
 
   return (
     <>
-      <SEO
-        title={`My Story`}
-        description={`Professionally sewing for over 30 years and specializing in the tailored creation of hand-sewn curtains, drapes, blinds, and custom bedding.`}
-      />
-
-
       <div className="section-content ">
         {/* TITLE START */}
         <div className="p-b40 p-l10 text-left ">

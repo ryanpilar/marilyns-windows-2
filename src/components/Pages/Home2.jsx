@@ -36,8 +36,8 @@ const Home2 = () => {
   return (
     <>
       <SEO
-        title={`Home | Crafting High-End Custom Drapes & Window Treatments in Milton, Ontario and Beyond.`}
-        description={`Custom handcrafted window coverings, curtains, shades, blinds and soft furnishings. Serving Milton, Burlington, Oakville, Mississauga and surrounding areas.`}
+        title={`Custom Window Treatments in Milton | Marilyn's Windows`}
+        description={`Custom drapery, blinds, shades and soft furnishings handcrafted in Milton and serving Burlington, Oakville, Mississauga and surrounding areas.`}
         location={ cononicalLocation.pathname }
         robots={'index, follow'}
         

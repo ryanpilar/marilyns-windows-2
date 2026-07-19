@@ -12,8 +12,8 @@ class NotFound extends React.Component {
     return (
       <>
         <SEO
-          title={`Marilyn's Windows & Interiors | 404 Error. Oops! You seem to be lost`}
-          description={`Custom handcrafted window coverings, curtains, shades, blinds and soft furnishings. Serving Milton, Burlington, Oakville, Mississauga and surrounding areas.`}
+          title={`Page Not Found | Marilyn's Windows`}
+          description={`The page you requested could not be found. Return to the Marilyn's Windows homepage or explore our services and contact page.`}
           robots={'noindex, follow'}
 
         />
