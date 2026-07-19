@@ -79,7 +79,7 @@ const Blog = () => {
 
       <Header3 />
 
-      <div className="page-content">
+      <main className="page-content">
         <Banner
           title="Marilyn's Blog"
           pagename="Blog Post"
@@ -172,7 +172,7 @@ const Blog = () => {
                           >
                             <Link
                               to={`/blog/post/${blogPost.items[0].fields.slug}`}
-                              aria-label={`Navigate to Blog Post: ${blogPost.items[0].fields.descriptiveTitle}`}
+                              aria-label={`Read blog post: ${blogPost.items[0].fields.descriptiveTitle}`}
                             >
                               <img
                                 src={
@@ -201,7 +201,7 @@ const Blog = () => {
                             <Link
                               to={`/blog/post/${blogPost.items[0].fields.slug}`}
                               className="text-black font-18 letter-spacing-1 font-weight-600"
-                              aria-label={`Navigate to Blog Post: ${blogPost.items[0].fields.descriptiveTitle}`}
+                              aria-label={`Read blog post: ${blogPost.items[0].fields.descriptiveTitle}`}
                             >
                               {blogPost.items[0].fields.descriptiveTitle}
                             </Link>
@@ -221,7 +221,7 @@ const Blog = () => {
                         </div>
                         <Link
                           to={`/blog/post/${blogPost.items[0].fields.slug}`}
-                          aria-label={`Navigate to Blog Post: ${blogPost.items[0].fields.descriptiveTitle}`}
+                          aria-label={`Read blog post: ${blogPost.items[0].fields.descriptiveTitle}`}
                           className="link-style font-14 letter-spacing-4 text-uppercase"
                         >
                           Read Post
@@ -262,7 +262,7 @@ const Blog = () => {
                               <Link
                                 to={`/blog/post/${post.fields.slug}`}
                                 className="text-uppercase link-style font-14"
-                                aria-label={`Navigate to Blog Post: ${post.fields.descriptiveTitle}`}
+                                aria-label={`Read blog post: ${post.fields.descriptiveTitle}`}
                               >
                                 {post.fields.descriptiveTitle}
                               </Link>
@@ -328,7 +328,7 @@ const Blog = () => {
           </div>
         </div>
         {/* DON'T MISS OUT BOX! END */}
-      </div>
+      </main>
 
       <Footer />
     </>

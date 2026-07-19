@@ -541,3 +541,8 @@ code {
     padding: 10px 16px !important;
   }
 }
+.blog-post-content-image {
+  display: block;
+  height: auto;
+  width: 100%;
+}
