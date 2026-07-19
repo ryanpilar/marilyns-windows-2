@@ -56,8 +56,8 @@ const AboutMe = () => {
     return (
         <>
             <SEO
-                title={`My Story `}
-                description={`Professionally sewing for over 30 years and specializing in the tailored creation of hand-sewn curtains, drapes, blinds, and custom bedding`}
+                title={`Marilyn's Story | Custom Drapery Workroom in Milton`}
+                description={`Meet Marilyn and discover more than 30 years of professional sewing experience creating custom drapery, blinds, curtains and soft furnishings in Milton.`}
                 location={cononicalLocation.pathname}
                 robots={'index, follow'}
                 breadcrumbs={[
