@@ -1,5 +1,24 @@
 import React from "react";
 
+export const BannerBackgroundImage = ({ src }) => {
+  if (!src) {
+    return null;
+  }
+
+  return (
+    <img
+      className="banner-background-image"
+      src={src}
+      alt=""
+      aria-hidden="true"
+      width={1920}
+      height={900}
+      loading="eager"
+      fetchpriority="high"
+    />
+  );
+};
+
 const Banner = ({
   bgimage,
   title,
@@ -8,16 +27,14 @@ const Banner = ({
   titleTag = "h1",
   titleDecorative = false,
 }) => {
-  const bannerStyle = bgimage ? { backgroundImage: `url(${bgimage})` } : undefined;
   const TitleTag = titleTag;
 
   return (
     <>
       <div
-        className="wt-bnr-inr overlay-wraper bg-parallax bg-parallax-fallback bg-top-center"
-        data-stellar-background-ratio="0.5"
-        style={bannerStyle}
+        className="wt-bnr-inr overlay-wraper"
       >
+        <BannerBackgroundImage src={bgimage} />
         {/* <div className="overlay-main bg-black opacity-04 " /> */}
         <div className="overlay-main" />
         <div

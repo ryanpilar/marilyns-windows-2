@@ -1,4 +1,5 @@
 import React from 'react'
+import { BannerBackgroundImage } from './Banner'
 
 const Banner3 = ({
   bgimage,
@@ -13,8 +14,9 @@ const Banner3 = ({
     <>
     
       <div
-        className="wt-bnr-inr3 overlay-wraper bg-parallax bg-top-center "
+        className="wt-bnr-inr3 overlay-wraper"
       >
+        <BannerBackgroundImage src={bgimage} />
         <div className="overlay-main bg-black opacity-01 " />
         <div className={`container ${posLeft ? `flex-bottom-left` : ''} ${posRight ? `flex-bottom-right` : ''}` }>
           {title && (
