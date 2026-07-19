@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { BUSINESS_IMAGES } from "../../content/seoImages";
 
 export const CANONICAL_ORIGIN = "https://www.marilynswindows.com";
 export const SITE_NAME = "Marilyn's Windows & Interiors";
@@ -112,6 +113,7 @@ export default function SEO({
   breadcrumbs = [],
   article = null,
   image,
+  imageAlt,
 }) {
   const fallbackPath =
     typeof window !== "undefined" && window.location
@@ -144,7 +146,7 @@ export default function SEO({
     description: BUSINESS_DESCRIPTION,
     url: `${CANONICAL_ORIGIN}/`,
     logo: `${CANONICAL_ORIGIN}/logo512.png`,
-    image: `${CANONICAL_ORIGIN}/logo512.png`,
+    image: BUSINESS_IMAGES,
     telephone: "+1-905-878-0626",
     email: "marilyn@marilynswindows.com",
     address: {
@@ -215,12 +217,18 @@ export default function SEO({
         <meta property="og:description" content={safeDescription} />
       )}
       {socialImage && <meta property="og:image" content={socialImage} />}
+      {socialImage && imageAlt && (
+        <meta property="og:image:alt" content={imageAlt} />
+      )}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={safeTitle} />
       {safeDescription && (
         <meta name="twitter:description" content={safeDescription} />
       )}
       {socialImage && <meta name="twitter:image" content={socialImage} />}
+      {socialImage && imageAlt && (
+        <meta name="twitter:image:alt" content={imageAlt} />
+      )}
       <script type="application/ld+json">
         {JSON.stringify(structuredData)}
       </script>

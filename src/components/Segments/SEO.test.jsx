@@ -66,6 +66,14 @@ test("renders canonical business and breadcrumb data", async () => {
     "https://www.facebook.com/marilynswindows/",
     "https://www.instagram.com/marilynwindowsandinteriors/",
   ]);
+  expect(business.image).toHaveLength(3);
+  expect(business.image).toEqual(
+    expect.arrayContaining([
+      expect.stringContaining("/marilyns-windows/gallery/Marilyn-4-min_"),
+      expect.stringContaining("/marilyns-windows/gallery/Marilyn-3-min_"),
+      expect.stringContaining("/marilyns-windows/gallery/Marilyn-20-min_"),
+    ])
+  );
   expect(business.openingHoursSpecification).toBeUndefined();
   expect(breadcrumbs.itemListElement).toHaveLength(2);
   expect(breadcrumbs.itemListElement[1]).toMatchObject({
@@ -73,6 +81,32 @@ test("renders canonical business and breadcrumb data", async () => {
     name: "Services",
     item: "https://www.marilynswindows.com/services",
   });
+});
+
+test("renders accessible social image metadata", async () => {
+  renderSEO({
+    title: "Services",
+    description: "Custom window treatment services.",
+    location: "/services",
+    image: "https://images.example.com/services.webp",
+    imageAlt: "Elegant dining room with custom drapery",
+  });
+
+  await waitFor(() => {
+    expect(document.head.querySelector('meta[property="og:image"]')).toHaveAttribute(
+      "content",
+      "https://images.example.com/services.webp"
+    );
+  });
+
+  expect(document.head.querySelector('meta[property="og:image:alt"]')).toHaveAttribute(
+    "content",
+    "Elegant dining room with custom drapery"
+  );
+  expect(document.head.querySelector('meta[name="twitter:image:alt"]')).toHaveAttribute(
+    "content",
+    "Elegant dining room with custom drapery"
+  );
 });
 
 test("renders a blog post with the business as its organizational author", async () => {

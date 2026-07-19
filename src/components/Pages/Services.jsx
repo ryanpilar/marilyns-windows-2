@@ -10,6 +10,7 @@ import Service2 from "../Segments/Service2";
 import ClientsLogo from "../Segments/ClientsLogo";
 import FAQ from "../Segments/FAQ";
 import Footer from "../Common/Footer";
+import { SEO_IMAGES } from "../../content/seoImages";
 
 const Services = () => {
 
@@ -86,6 +87,8 @@ const Services = () => {
         description={`Explore custom drapery, blinds, shades, shutters and soft furnishings, with consultation, handcrafted production and professional installation across Halton.`}
         location={ cononicalLocation.pathname }
         robots={'index, follow'}
+        image={SEO_IMAGES.services}
+        imageAlt="Elegant dining room with custom emerald drapery and fitted shutters"
         breadcrumbs={[
           {name: "Home", path: "/"},
           {name: "Services", path: "/services"},
