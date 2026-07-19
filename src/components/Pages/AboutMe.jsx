@@ -11,6 +11,7 @@ import AboutColumns from "../Segments/AboutColumns";
 import LatestProjects from "../Segments/LatestProjectsEmbla";
 import Footer from "../Common/Footer";
 import createContentfulClient from "../../utils/createContentfulClient";
+import {SEO_IMAGES} from "../../content/seoImages";
 
 const AboutMe = () => {
     const [banner, setBanner] = useState(null);
@@ -60,6 +61,8 @@ const AboutMe = () => {
                 description={`Meet Marilyn and discover more than 30 years of professional sewing experience creating custom drapery, blinds, curtains and soft furnishings in Milton.`}
                 location={cononicalLocation.pathname}
                 robots={'index, follow'}
+                image={SEO_IMAGES.about}
+                imageAlt="Marilyn handcrafting a custom soft furnishing in her Milton workroom"
                 breadcrumbs={[
                     {name: "Home", path: "/"},
                     {name: "My Story", path: "/aboutme"},

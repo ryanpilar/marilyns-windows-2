@@ -14,6 +14,7 @@ import LatestProjectsEmbla from "./../Segments/LatestProjectsEmbla";
 import Contact from "../Segments/Contact";
 import Footer from "../Common/Footer";
 import { homeSuppliers } from "../../content/homeContent";
+import { SEO_IMAGES } from "../../content/seoImages";
 
 import { useLocation } from "react-router-dom";
 
@@ -40,7 +41,8 @@ const Home2 = () => {
         description={`Custom drapery, blinds, shades and soft furnishings handcrafted in Milton and serving Burlington, Oakville, Mississauga and surrounding areas.`}
         location={ cononicalLocation.pathname }
         robots={'index, follow'}
-        
+        image={SEO_IMAGES.home}
+        imageAlt="Grand living room with custom floor-to-ceiling drapery and motorized blinds"
       />
 
       <Header3 />

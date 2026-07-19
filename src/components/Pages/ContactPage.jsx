@@ -24,6 +24,7 @@ const ContactPage = () => {
           { name: "Contact", path: "/contact" },
         ]}
         image={contactBannerImage}
+        imageAlt="Custom blue and green floral fabric being sewn in Marilyn's workroom"
       />
 
       <Header3 />
