@@ -1,6 +1,7 @@
 node_modules
 build
 .env
+.env*.local
 
 # Local audit and browser-test artifacts
 .codex-tmp/
