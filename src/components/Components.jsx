@@ -14,6 +14,7 @@ const NotFound = lazy(() => import("./Pages/NotFound"));
 const TermsOfService = lazy(() => import("./Pages/TermsOfService"));
 const PrivacyPolicy = lazy(() => import("./Pages/PrivacyPolicy"));
 const ContactPage = lazy(() => import("./Pages/ContactPage"));
+const MaxxZip = lazy(() => import("./Pages/MaxxZip"));
 
 const Components = () => {
 
@@ -65,6 +66,14 @@ const Components = () => {
                                 sitemapIndex='true'
                                 changefreq='monthly'
                                 priority='0.8'
+                            />
+                            <Route
+                                path='/maxx-zip-exterior-roller-shades'
+                                exact
+                                component={MaxxZip}
+                                sitemapIndex='true'
+                                changefreq='monthly'
+                                priority='0.9'
                             />
                             <Route path='/terms' exact component={TermsOfService} 
                                 sitemapIndex='true'
